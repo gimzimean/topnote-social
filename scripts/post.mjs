@@ -73,8 +73,16 @@ async function postInstagram(post, urls) {
   for (const url of urls) children.push((await call(`${t.user_id}/media`, { image_url: url, is_carousel_item: 'true' })).id);
   const box = await call(`${t.user_id}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: post.caption });
   await ready(box.id);
-  return (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
+  const id = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
+  // 첫 댓글. 실패해도 게시물은 올라간 것으로 둔다.
+  await call(`${id}/comments`, { message: commentOf(post, 'instagram') }).catch((e) => console.error(`[instagram] 댓글 실패: ${e.message}`));
+  return id;
 }
+
+// 첫 댓글: 게시물에 comment 가 있으면 그것, 없으면 기본 문구.
+const commentOf = (post, platform) => (typeof post.comment === 'string' ? post.comment : post.comment?.[platform]) ?? (platform === 'threads'
+  ? '3분 통화로 먼저 확인하는 소개, 탑노트 → https://topnote.app/th'
+  : '여러분은 어땠나요? 댓글로 알려 주세요.\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆');
 
 // 스레드: 같은 사진 묶음 + 해시태그 뺀 글(500자) + 스레드 전용 주소. 장기 토큰 60일 → 7일마다 새로.
 const TH = 'https://graph.threads.net/v1.0';
@@ -91,10 +99,11 @@ async function postThreads(post, urls) {
   }));
   const ready = async (id) => {
     for (let i = 0; i < 40; i++) {
-      const s = await json(await fetch(`${TH}/${id}?fields=status,error_message&access_token=${t.access_token}`));
+      await sleep(3000);
+      // 막 만든 항목은 몇 초 동안 「없음」으로 나올 수 있다.
+      const s = await json(await fetch(`${TH}/${id}?fields=status,error_message&access_token=${t.access_token}`)).catch(() => ({}));
       if (s.status === 'FINISHED') return;
       if (s.status === 'ERROR') throw new Error(`스레드 처리 실패: ${s.error_message}`);
-      await sleep(3000);
     }
   };
   const children = [];
@@ -102,7 +111,14 @@ async function postThreads(post, urls) {
   for (const id of children) await ready(id);
   const box = await call(`${t.user_id}/threads`, { media_type: 'CAROUSEL', children: children.join(','), text: threadsText(post.caption) });
   await ready(box.id);
-  return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+  const id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+  // 첫 댓글(답글). threads_manage_replies 권한이 없으면 글만 올리고 넘어간다.
+  try {
+    const reply = await call(`${t.user_id}/threads`, { media_type: 'TEXT', text: commentOf(post, 'threads'), reply_to_id: id });
+    await ready(reply.id);
+    await call(`${t.user_id}/threads_publish`, { creation_id: reply.id });
+  } catch (e) { console.error(`[threads] 댓글 실패: ${e.message}`); }
+  return id;
 }
 
 // 인스타 스토리: 세로 표지 한 장(docs/stories/<id>.jpg).
