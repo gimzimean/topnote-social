@@ -76,6 +76,35 @@ async function postInstagram(post, urls) {
   return (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
 }
 
+// 스레드: 같은 사진 묶음 + 해시태그 뺀 글(500자) + 스레드 전용 주소. 장기 토큰 60일 → 7일마다 새로.
+const TH = 'https://graph.threads.net/v1.0';
+const threadsText = (caption) => caption.replace(/\n*#[^\n]*$/, '').replace('프로필 링크에서 시작해요.', 'https://topnote.app/th').slice(0, 500);
+async function postThreads(post, urls) {
+  const t = tokens.threads;
+  if (Date.now() - (t.refreshed_at ?? 0) > 7 * 864e5) {
+    const r = await json(await fetch(`https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${t.access_token}`));
+    Object.assign(t, { access_token: r.access_token, refreshed_at: Date.now() });
+    saveTokens(tokens);
+  }
+  const call = async (path, params) => json(await fetch(`${TH}/${path}`, {
+    method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }),
+  }));
+  const ready = async (id) => {
+    for (let i = 0; i < 40; i++) {
+      const s = await json(await fetch(`${TH}/${id}?fields=status,error_message&access_token=${t.access_token}`));
+      if (s.status === 'FINISHED') return;
+      if (s.status === 'ERROR') throw new Error(`스레드 처리 실패: ${s.error_message}`);
+      await sleep(3000);
+    }
+  };
+  const children = [];
+  for (const url of urls) children.push((await call(`${t.user_id}/threads`, { media_type: 'IMAGE', image_url: url, is_carousel_item: 'true' })).id);
+  for (const id of children) await ready(id);
+  const box = await call(`${t.user_id}/threads`, { media_type: 'CAROUSEL', children: children.join(','), text: threadsText(post.caption) });
+  await ready(box.id);
+  return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+}
+
 // 인스타 스토리: 세로 표지 한 장(docs/stories/<id>.jpg).
 async function postStory(post) {
   const { t, call, ready } = await igClient();
@@ -130,7 +159,7 @@ async function postTiktok(post, urls) {
 let failed = false;
 // story·threads 는 인스타 토큰·스레드 토큰을 쓴다.
 const tokenOf = { instagram: 'instagram', story: 'instagram', threads: 'threads', tiktok: 'tiktok' };
-for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory], ['tiktok', postTiktok]]) {
+for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory], ['threads', postThreads], ['tiktok', postTiktok]]) {
   if (only && only !== platform) continue;
   const post = nextFor(platform);
   if (!post) { console.log(`[${platform}] 올릴 게시물이 없어요. content.json 에 새 게시물을 넣으세요.`); continue; }
