@@ -18,6 +18,7 @@ const only = onlyIdx > 0 ? process.argv[onlyIdx + 1] : null;
 const content = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 const statePath = resolve(root, 'state.json');
 const state = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')) : { instagram: [], tiktok: [] };
+for (const k of ['instagram', 'story', 'threads', 'tiktok']) state[k] ??= [];
 const tokens = dry ? {} : loadTokens();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -27,7 +28,10 @@ const imagesOf = (id) => {
   return readdirSync(dir).filter((f) => f.endsWith('.jpg'))
     .sort((a, b) => parseInt(a) - parseInt(b)).map((f) => `${BASE}/${id}/${f}`);
 };
-const nextFor = (platform) => content.posts.find((p) => !state[platform].includes(p.id) && imagesOf(p.id).length);
+// 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
+const nextFor = (platform) => content.posts.find((p) => !state[platform].includes(p.id) && imagesOf(p.id).length
+  && (platform !== 'story' || state.instagram.includes(p.id)));
+const storyOf = (id) => `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
 
 async function json(res) {
   const body = await res.json().catch(() => ({}));
@@ -37,7 +41,7 @@ async function json(res) {
   return body;
 }
 
-async function postInstagram(post, urls) {
+async function igClient() {
   const t = tokens.instagram;
   // 시스템 사용자 토큰(EAA…)은 graph.facebook.com, 인스타 로그인 토큰(IGAA…)은 graph.instagram.com.
   const fb = t.access_token.startsWith('EAA');
@@ -52,15 +56,31 @@ async function postInstagram(post, urls) {
   const call = async (path, params) => json(await fetch(`${IG}/${path}`, {
     method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }),
   }));
+  const ready = async (id) => {
+    for (let i = 0; i < 30; i++) {
+      const s = await json(await fetch(`${IG}/${id}?fields=status_code&access_token=${t.access_token}`));
+      if (s.status_code === 'FINISHED') return;
+      if (s.status_code === 'ERROR') throw new Error('인스타 처리 실패');
+      await sleep(3000);
+    }
+  };
+  return { t, call, ready };
+}
+
+async function postInstagram(post, urls) {
+  const { t, call, ready } = await igClient();
   const children = [];
   for (const url of urls) children.push((await call(`${t.user_id}/media`, { image_url: url, is_carousel_item: 'true' })).id);
   const box = await call(`${t.user_id}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: post.caption });
-  for (let i = 0; i < 30; i++) {
-    const s = await json(await fetch(`${IG}/${box.id}?fields=status_code&access_token=${t.access_token}`));
-    if (s.status_code === 'FINISHED') break;
-    if (s.status_code === 'ERROR') throw new Error('인스타 묶음 처리 실패');
-    await sleep(3000);
-  }
+  await ready(box.id);
+  return (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
+}
+
+// 인스타 스토리: 세로 표지 한 장(docs/stories/<id>.jpg).
+async function postStory(post) {
+  const { t, call, ready } = await igClient();
+  const box = await call(`${t.user_id}/media`, { media_type: 'STORIES', image_url: storyOf(post.id) });
+  await ready(box.id);
   return (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
 }
 
@@ -108,13 +128,15 @@ async function postTiktok(post, urls) {
 }
 
 let failed = false;
-for (const [platform, fn] of [['instagram', postInstagram], ['tiktok', postTiktok]]) {
+// story·threads 는 인스타 토큰·스레드 토큰을 쓴다.
+const tokenOf = { instagram: 'instagram', story: 'instagram', threads: 'threads', tiktok: 'tiktok' };
+for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory], ['tiktok', postTiktok]]) {
   if (only && only !== platform) continue;
   const post = nextFor(platform);
   if (!post) { console.log(`[${platform}] 올릴 게시물이 없어요. content.json 에 새 게시물을 넣으세요.`); continue; }
-  const urls = imagesOf(post.id);
+  const urls = platform === 'story' ? [storyOf(post.id)] : imagesOf(post.id);
   if (dry) { console.log(`[${platform}] ${post.id} ${post.title}\n  ${urls.join('\n  ')}`); continue; }
-  if (!tokens[platform]) { console.log(`[${platform}] 토큰이 없어 건너뜀 (node scripts/auth.mjs ${platform})`); continue; }
+  if (!tokens[tokenOf[platform]]) { console.log(`[${platform}] 토큰이 없어 건너뜀 (node scripts/auth.mjs ${tokenOf[platform]})`); continue; }
   try {
     const head = await fetch(urls[0], { method: 'HEAD' });
     if (!head.ok) throw new Error(`사진 주소가 아직 안 열려요: ${urls[0]} (${head.status})`);

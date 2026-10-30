@@ -1,4 +1,4 @@
-// content.json의 게시물을 docs/posts/<id>/1.jpg … 로 만든다(인스타는 JPEG만 받음).
+// content.json의 게시물을 docs/posts/<id>/1.jpg … 로, 스토리용 세로 표지를 docs/stories/<id>.jpg 로 만든다(인스타는 JPEG만 받음).
 // 실행(로컬): node scripts/build.mjs        → 아직 없는 게시물만
 //             node scripts/build.mjs all    → 전부 다시
 // playwright는 C:\topnote-app 에 설치된 것을 빌려 쓴다.
@@ -38,6 +38,9 @@ p{font-size:38px;line-height:1.65;margin-top:48px;color:#746B63;word-break:keep-
 .dark .foot{color:#B3A79D}
 .cover .foot{margin-top:72px}
 .end{justify-content:center}
+.story{width:1080px;height:1920px;padding:200px 96px 280px}
+.story h1{font-size:110px}
+.story .btn{margin-top:72px;align-self:flex-start;border:2px solid #C9A56C;color:#F2ECE1;border-radius:999px;padding:22px 52px;font-size:38px}
 .end .btn{margin-top:64px;align-self:flex-start;border:2px solid #C9A56C;color:#F2ECE1;border-radius:999px;padding:20px 48px;font-size:34px}
 `;
 
@@ -55,6 +58,9 @@ const pagesOf = (post) => {
   ];
 };
 
+// 스토리: 표지 문구 + 「새 게시물」 안내 (1080×1920)
+const storyOf = (post) => `<div class="page dark cover story"><div class="mark">T<i>.</i></div><div class="kicker">${post.tag ?? c.tag}</div><h1>${post.cover[0]}</h1><p>${post.cover[1]}</p><div class="btn">새 게시물 · 피드에서 보기</div><div class="foot"><span>${c.name}</span><span>${c.handle}</span></div></div>`;
+
 const all = process.argv[2] === 'all';
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
@@ -68,5 +74,15 @@ for (const post of c.posts) {
     await page.screenshot({ path: resolve(out, `${i + 1}.jpg`), type: 'jpeg', quality: 92 });
   }
   console.log(post.id, post.title);
+}
+mkdirSync(resolve(root, 'docs/stories'), { recursive: true });
+await page.setViewportSize({ width: 1080, height: 1920 });
+for (const post of c.posts) {
+  const file = resolve(root, 'docs/stories', `${post.id}.jpg`);
+  if (!all && existsSync(file)) continue;
+  await page.setContent(`<html><head><style>${css}body{height:1920px}</style></head><body>${storyOf(post)}</body></html>`);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
+  console.log('story', post.id);
 }
 await browser.close();
