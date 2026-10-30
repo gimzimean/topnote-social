@@ -10,7 +10,6 @@ import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 loadLocalEnv();
 const root = resolve(import.meta.dirname, '..');
 const BASE = 'https://gimzimean.github.io/topnote-social/posts';
-const IG = 'https://graph.instagram.com/v23.0';
 const TT = 'https://open.tiktokapis.com/v2';
 const dry = process.argv.includes('--dry');
 const onlyIdx = process.argv.indexOf('--only');
@@ -40,8 +39,11 @@ async function json(res) {
 
 async function postInstagram(post, urls) {
   const t = tokens.instagram;
-  // 장기 토큰은 60일. 7일마다 새로 받아 둔다.
-  if (Date.now() - (t.refreshed_at ?? 0) > 7 * 864e5) {
+  // 시스템 사용자 토큰(EAA…)은 graph.facebook.com, 인스타 로그인 토큰(IGAA…)은 graph.instagram.com.
+  const fb = t.access_token.startsWith('EAA');
+  const IG = fb ? 'https://graph.facebook.com/v23.0' : 'https://graph.instagram.com/v23.0';
+  // 인스타 로그인 장기 토큰은 60일. 7일마다 새로 받아 둔다.
+  if (!fb && Date.now() - (t.refreshed_at ?? 0) > 7 * 864e5) {
     const r = await json(await fetch(`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${t.access_token}`));
     t.access_token = r.access_token;
     t.refreshed_at = Date.now();
