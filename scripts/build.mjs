@@ -1,23 +1,23 @@
 // content.json의 게시물을 docs/posts/<id>/1.jpg … 로, 스토리용 세로 표지를 docs/stories/<id>.jpg 로 만든다(인스타는 JPEG만 받음).
 // 실행(로컬): node scripts/build.mjs        → 아직 없는 게시물만
 //             node scripts/build.mjs all    → 전부 다시
-// playwright는 C:\topnote-app 에 설치된 것을 빌려 쓴다.
+// playwright: 이 저장소에 설치돼 있으면(Actions) 그것, 없으면 C:\topnote-app 것을 빌려 쓴다.
 import { createRequire } from 'node:module';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-const require = createRequire('C:/topnote-app/package.json');
-const { chromium } = require('playwright');
 
 const root = resolve(import.meta.dirname, '..');
+const require = createRequire(existsSync(resolve(root, 'node_modules/playwright')) ? resolve(root, 'package.json') : 'C:/topnote-app/package.json');
+const { chromium } = require('playwright');
 const c = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 
 // 탑노트 인스타(@topnote_official) 기존 게시물과 같은 디자인: 크림·짙은 와인, 송명 제목, 「T.」
 const b64 = (p) => readFileSync(p).toString('base64');
 const css = `
-@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64('C:/topnote-app/assets/fonts/SongMyung-Regular.ttf')})}
-@font-face{font-family:DMSerif;src:url(data:font/ttf;base64,${b64('C:/topnote-app/assets/fonts/DMSerifDisplay-Regular.ttf')})}
+@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/SongMyung-Regular.ttf'))})}
+@font-face{font-family:DMSerif;src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/DMSerifDisplay-Regular.ttf'))})}
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:1080px;height:1350px;overflow:hidden;font-family:'Malgun Gothic',sans-serif;-webkit-font-smoothing:antialiased}
+body{width:1080px;height:1350px;overflow:hidden;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif;-webkit-font-smoothing:antialiased}
 .page{position:relative;width:1080px;height:1350px;padding:110px 96px;display:flex;flex-direction:column}
 .dark{background:linear-gradient(150deg,#4a1f22 0%,#2a1a19 55%,#171411 100%);color:#F2ECE1}
 .light{background:#F2ECE1;color:#171411}
