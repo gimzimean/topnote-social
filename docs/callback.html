@@ -1,0 +1,11 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>연결 코드 · 만남 리포트</title><link rel="stylesheet" href="style.css">
+<h1>연결 코드</h1>
+<p id="msg">아래 코드를 복사해 Claude 대화창에 붙여 넣으세요.</p>
+<code id="code"></code>
+<button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent);this.textContent='복사됨'">복사</button>
+<script>
+const q=new URLSearchParams(location.search);
+const c=q.get('code');
+document.getElementById('code').textContent=c?`${q.get('state')||''} ${c}`.trim():(q.get('error_description')||q.get('error')||'코드가 없어요');
+if(!c)document.getElementById('msg').textContent='연결이 안 됐어요.';
+</script></html>
