@@ -11,39 +11,47 @@ const { chromium } = require('playwright');
 const root = resolve(import.meta.dirname, '..');
 const c = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 
+// 탑노트 인스타(@topnote_official) 기존 게시물과 같은 디자인: 크림·짙은 와인, 송명 제목, 「T.」
+const b64 = (p) => readFileSync(p).toString('base64');
 const css = `
+@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64('C:/topnote-app/assets/fonts/SongMyung-Regular.ttf')})}
+@font-face{font-family:DMSerif;src:url(data:font/ttf;base64,${b64('C:/topnote-app/assets/fonts/DMSerifDisplay-Regular.ttf')})}
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:1080px;height:1350px;overflow:hidden;font-family:'Malgun Gothic',sans-serif;-webkit-font-smoothing:antialiased}
-.page{position:relative;width:1080px;height:1350px;padding:110px 90px;display:flex;flex-direction:column}
-.cover{background:radial-gradient(circle at 70% 25%,#3a3a3a 0%,#111 60%,#000 100%);color:#fff;justify-content:flex-end}
-.cover .tag{font-size:30px;letter-spacing:4px;color:${c.accent};font-weight:700}
-.cover h1{font-size:100px;line-height:1.22;font-weight:800;margin-top:28px;word-break:keep-all;letter-spacing:-2px}
-.cover .sub{font-size:36px;color:#bbb;margin-top:36px}
-.white{background:#fff;color:#111}
-.num{font-size:28px;font-weight:700;color:${c.accent};letter-spacing:3px}
-h2{font-size:72px;line-height:1.3;font-weight:800;margin-top:24px;word-break:keep-all;letter-spacing:-1.5px}
-p{font-size:40px;line-height:1.65;margin-top:56px;color:#333;word-break:keep-all}
-.list{margin-top:56px;display:flex;flex-direction:column;gap:40px}
-.list div{font-size:44px;font-weight:700;border-top:2px solid #eee;padding-top:32px}
-.list span{display:block;font-size:34px;font-weight:400;color:#666;margin-top:12px}
-.foot{margin-top:auto;display:flex;justify-content:space-between;font-size:26px;color:#999;letter-spacing:1px}
-.cover .foot{margin-top:80px;color:#777}
-.end{background:#111;color:#fff;justify-content:center;align-items:center;text-align:center}
-.end h2{font-size:80px}
-.end p{color:#bbb}
-.end .btn{margin-top:70px;border:3px solid ${c.accent};color:#fff;border-radius:999px;padding:24px 60px;font-size:38px;font-weight:700}
+.page{position:relative;width:1080px;height:1350px;padding:110px 96px;display:flex;flex-direction:column}
+.dark{background:linear-gradient(150deg,#4a1f22 0%,#2a1a19 55%,#171411 100%);color:#F2ECE1}
+.light{background:#F2ECE1;color:#171411}
+.mark{font-family:DMSerif;font-size:64px;line-height:1;color:#2A241F}
+.mark i{font-style:normal;color:#BA5F48}
+.dark .mark{color:#F2ECE1}
+.kicker{font-size:30px;letter-spacing:6px;font-weight:700;color:#9B5B44;margin-top:72px}
+.dark .kicker{color:#C9A56C}
+.cover .kicker{margin-top:auto}
+h1{font-family:SongMyung;font-weight:400;font-size:96px;line-height:1.28;margin-top:28px;word-break:keep-all}
+h2{font-family:SongMyung;font-weight:400;font-size:80px;line-height:1.3;margin-top:24px;word-break:keep-all}
+p{font-size:38px;line-height:1.65;margin-top:48px;color:#746B63;word-break:keep-all}
+.dark p{color:#D8BDB0}
+.list{margin-top:56px;display:flex;flex-direction:column;gap:36px}
+.list div{font-size:42px;font-weight:700;border-top:1px solid #E1D7C8;padding-top:32px}
+.list span{display:block;font-size:32px;font-weight:400;color:#746B63;margin-top:10px}
+.foot{margin-top:auto;display:flex;justify-content:space-between;font-size:26px;letter-spacing:4px;color:#746B63}
+.dark .foot{color:#B3A79D}
+.cover .foot{margin-top:72px}
+.end{justify-content:center}
+.end .btn{margin-top:64px;align-self:flex-start;border:2px solid #C9A56C;color:#F2ECE1;border-radius:999px;padding:20px 48px;font-size:34px}
 `;
 
 const pagesOf = (post) => {
+  const mark = '<div class="mark">T<i>.</i></div>';
   const foot = `<div class="foot"><span>${c.name}</span><span>${c.handle}</span></div>`;
   const body = (b) => Array.isArray(b)
     ? `<div class="list">${b.map(([t, s]) => `<div>${t}<span>${s}</span></div>`).join('')}</div>`
     : `<p>${b}</p>`;
   const end = post.end ?? c.end;
   return [
-    `<div class="page cover"><div class="tag">${post.tag ?? c.tag}</div><h1>${post.cover[0]}</h1><div class="sub">${post.cover[1]}</div>${foot}</div>`,
-    ...post.slides.map(([t, b], i) => `<div class="page white"><div class="num">${String(i + 1).padStart(2, '0')}</div><h2>${t}</h2>${body(b)}${foot}</div>`),
-    `<div class="page end"><h2>${end[0]}</h2><p>${end[1]}</p><div class="btn">팔로우 ${c.handle}</div></div>`,
+    `<div class="page dark cover">${mark}<div class="kicker">${post.tag ?? c.tag}</div><h1>${post.cover[0]}</h1><p>${post.cover[1]}</p>${foot}</div>`,
+    ...post.slides.map(([t, b], i) => `<div class="page light">${mark}<div class="kicker">${String(i + 1).padStart(2, '0')}</div><h2>${t}</h2>${body(b)}${foot}</div>`),
+    `<div class="page dark">${mark}<div class="end page" style="padding:0;height:auto;flex:1"><h2>${end[0]}</h2><p>${end[1]}</p><div class="btn">팔로우 ${c.handle}</div></div>${foot}</div>`,
   ];
 };
 
@@ -56,6 +64,7 @@ for (const post of c.posts) {
   mkdirSync(out, { recursive: true });
   for (const [i, html] of pagesOf(post).entries()) {
     await page.setContent(`<html><head><style>${css}</style></head><body>${html}</body></html>`);
+    await page.evaluate(() => document.fonts.ready);
     await page.screenshot({ path: resolve(out, `${i + 1}.jpg`), type: 'jpeg', quality: 92 });
   }
   console.log(post.id, post.title);

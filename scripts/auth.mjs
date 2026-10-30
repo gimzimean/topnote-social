@@ -2,14 +2,14 @@
 // 1) node scripts/auth.mjs instagram          → 로그인 주소를 연다
 // 2) 로그인 뒤 나온 페이지의 코드를 복사
 // 3) node scripts/auth.mjs instagram <코드>   → tokens.enc 에 저장 (그다음 git push)
-// 틱톡도 같다(instagram → tiktok). 앱 정보는 C:\zzend-keys\manam-report.env
+// 틱톡도 같다(instagram → tiktok). 앱 정보는 C:\zzend-keys\topnote-social.env
 import { execSync } from 'node:child_process';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 
 loadLocalEnv();
 const [platform, code] = process.argv.slice(2);
-const REDIRECT = 'https://gimzimean.github.io/manam-report/callback.html';
-const env = (k) => process.env[k] || (() => { throw new Error(`${k} 가 C:\\zzend-keys\\manam-report.env 에 없어요`); })();
+const REDIRECT = 'https://gimzimean.github.io/topnote-social/callback.html';
+const env = (k) => process.env[k] || (() => { throw new Error(`${k} 가 C:\\zzend-keys\\topnote-social.env 에 없어요`); })();
 
 async function json(res) {
   const body = await res.json().catch(() => ({}));

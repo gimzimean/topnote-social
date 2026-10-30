@@ -9,7 +9,7 @@ import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 
 loadLocalEnv();
 const root = resolve(import.meta.dirname, '..');
-const BASE = 'https://gimzimean.github.io/manam-report/posts';
+const BASE = 'https://gimzimean.github.io/topnote-social/posts';
 const IG = 'https://graph.instagram.com/v23.0';
 const TT = 'https://open.tiktokapis.com/v2';
 const dry = process.argv.includes('--dry');
