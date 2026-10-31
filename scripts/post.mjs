@@ -150,7 +150,10 @@ async function postTiktok(post, urls) {
   // upload: 틱톡 앱 알림(초안)으로 보내고 사람이 눌러서 올림 — 앱 심사 전 기본값.
   // direct: 바로 공개 — 앱 심사 통과 뒤 TIKTOK_MODE=direct.
   const direct = process.env.TIKTOK_MODE === 'direct';
-  const post_info = { title: post.title.slice(0, 90), description: post.caption.slice(0, 4000) };
+  // 프로필 웹사이트 칸이 열리기 전(사업자 확인 대기)이라 글마다 받는 곳을 적는다. 틱톡 글 속 링크는 안 눌려서 검색어도 같이.
+  const link = '앱 받기 👉 topnote.app/tt · 앱스토어·플레이에서 「탑노트」';
+  const description = `${post.caption.replace('프로필 링크에서 시작해요.', '').trim()}\n\n${link}`;
+  const post_info = { title: post.title.slice(0, 90), description: description.slice(0, 4000) };
   if (direct) {
     const info = (await call('post/publish/creator_info/query/', {})).data;
     const opts = info.privacy_level_options ?? [];
