@@ -2,7 +2,10 @@ name: post
 # 매일 20:00 KST(11:00 UTC)에 다음 게시물을 인스타 피드·스토리·스레드·틱톡에 올린다.
 on:
   schedule:
-    - cron: '0 11 * * *'
+    # 정각은 깃허브가 자주 건너뛴다(2026-11-01 확인: 예약 실행 0번) → 20:07 · 20:37 · 21:17 세 번 시도, 하루 한 번만 올린다(post.mjs).
+    - cron: '7 11 * * *'
+    - cron: '37 11 * * *'
+    - cron: '17 12 * * *'
   workflow_dispatch:
     inputs:
       only:
@@ -25,6 +28,7 @@ jobs:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_MODE: ${{ vars.TIKTOK_MODE }}
+          EVENT: ${{ github.event_name }}
         run: node scripts/post.mjs ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
       - name: 올린 기록·새 토큰 저장
         if: always()

@@ -19,6 +19,9 @@ const content = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 const statePath = resolve(root, 'state.json');
 const state = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')) : { instagram: [], tiktok: [] };
 for (const k of ['instagram', 'story', 'threads', 'tiktok']) state[k] ??= [];
+// 예약 실행은 하루(한국 시간) 한 번만: 여러 번 예약해 둔 것 중 먼저 돈 것만 올린다. 손으로 돌리면 언제든 올린다.
+const today = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
+if (process.env.EVENT === 'schedule' && state.last_day === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
 const tokens = dry ? {} : loadTokens();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -190,6 +193,7 @@ for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory]
     if (!head.ok) throw new Error(`사진 주소가 아직 안 열려요: ${urls[0]} (${head.status})`);
     const id = await fn(post, urls);
     state[platform].push(post.id);
+    state.last_day = today;
     writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
     console.log(`[${platform}] ${post.id} 올림 → ${id}`);
   } catch (e) {
