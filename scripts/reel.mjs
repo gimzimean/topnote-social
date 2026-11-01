@@ -47,6 +47,7 @@ let failed = false;
 const onlyTiktok = process.env.ONLY_TIKTOK === '1'; // 틱톡만 다시 보낼 때
 const step = async (name, fn) => {
   if (onlyTiktok && name !== '틱톡') return;
+  if (process.env.ONLY && name !== process.env.ONLY) return; // 한 곳만 다시 보낼 때(예: ONLY=스레드)
   try { console.log(`[${name}] ${await fn()}`); } catch (e) { failed = true; console.error(`[${name}] 실패: ${e.message}`); }
 };
 
