@@ -3,7 +3,7 @@
 // 실행: node scripts/reel.mjs <영상 주소(https mp4)> <표지 주소(https jpg)> <캡션 파일> [인스타 첫 댓글] [--reel <이미 올린 릴스 id>]
 //   --reel: 릴스는 이미 올렸으면 건너뛰고 스토리·스레드만 올린다.
 import { readFileSync } from 'node:fs';
-import { loadLocalEnv, loadTokens } from './tokens.mjs';
+import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 
 loadLocalEnv();
 const args = process.argv.slice(2);
@@ -79,5 +79,30 @@ await step('스레드', async () => {
   await publish({ media_type: 'TEXT', text: '앱 받기 → https://topnote.app/th', reply_to_id: id })
     .catch((e) => console.error(`[스레드] 답글 실패: ${e.message}`));
   return id;
+});
+// ── 틱톡: 영상을 받은 편지함(초안)으로 보낸다. 캡션은 틱톡 앱에서 붙여 넣는다(초안 방식은 글을 같이 못 보냄). ──
+await step('틱톡', async () => {
+  const t = tokens.tiktok;
+  if (!t) return '토큰 없음 · 건너뜀';
+  const TT = 'https://open.tiktokapis.com/v2';
+  if ((t.expires_at ?? 0) - Date.now() < 36e5) {
+    const r = await json(await fetch(`${TT}/oauth/token/`, {
+      method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ client_key: process.env.TIKTOK_CLIENT_KEY, client_secret: process.env.TIKTOK_CLIENT_SECRET, grant_type: 'refresh_token', refresh_token: t.refresh_token }),
+    }));
+    Object.assign(t, { access_token: r.access_token, refresh_token: r.refresh_token ?? t.refresh_token, expires_at: Date.now() + r.expires_in * 1000 });
+    saveTokens(tokens);
+  }
+  const call = async (path, body) => json(await fetch(`${TT}/${path}`, {
+    method: 'POST', headers: { Authorization: `Bearer ${t.access_token}`, 'Content-Type': 'application/json; charset=UTF-8' }, body: JSON.stringify(body),
+  }));
+  const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: url } })).data;
+  for (let i = 0; i < 60; i++) {
+    const st = (await call('post/publish/status/fetch/', { publish_id })).data;
+    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(st.status)) return `${publish_id} ${st.status}`;
+    if (st.status === 'FAILED') throw new Error(`틱톡 실패: ${st.fail_reason}`);
+    await sleep(3000);
+  }
+  throw new Error(`틱톡 처리 대기 시간 초과 (${publish_id})`);
 });
 if (failed) process.exitCode = 1;
