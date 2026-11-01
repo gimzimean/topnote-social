@@ -58,8 +58,8 @@ const pagesOf = (post) => {
   ];
 };
 
-// 스토리: 표지 문구 + 「새 게시물」 안내 (1080×1920)
-const storyOf = (post) => `<div class="page dark cover story"><div class="mark">T<i>.</i></div><div class="kicker">${post.tag ?? c.tag}</div><h1>${post.cover[0]}</h1><p>${post.cover[1]}</p><div class="btn">새 게시물 · 피드에서 보기</div><div class="foot"><span>${c.name}</span><span>${c.handle}</span></div></div>`;
+// 스토리: 표지 문구 + 프로필 누르기 안내(API로는 링크 스티커를 못 단다, 2026-11-01) (1080×1920)
+const storyOf = (post) => `<div class="page dark cover story"><div class="mark">T<i>.</i></div><div class="kicker">${post.tag ?? c.tag}</div><h1>${post.cover[0]}</h1><p>${post.cover[1]}</p><div class="btn">↖ 왼쪽 위 「topnote_official」 눌러서 전체 보기</div><div class="foot"><span>${c.name}</span><span>${c.handle}</span></div></div>`;
 
 const all = process.argv[2] === 'all';
 const browser = await chromium.launch();
