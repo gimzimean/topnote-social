@@ -17,7 +17,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function json(res) {
   const body = await res.json().catch(() => ({}));
-  if (!res.ok || body.error) throw new Error(`${res.status} ${JSON.stringify(body.error ?? body)}`);
+  if (!res.ok || (body.error && body.error.code !== 'ok')) throw new Error(`${res.status} ${JSON.stringify(body.error ?? body)}`);
   return body;
 }
 for (const u of [url, cover]) {
@@ -44,7 +44,9 @@ const igPublish = async (params) => {
 };
 
 let failed = false;
+const onlyTiktok = process.env.ONLY_TIKTOK === '1'; // 틱톡만 다시 보낼 때
 const step = async (name, fn) => {
+  if (onlyTiktok && name !== '틱톡') return;
   try { console.log(`[${name}] ${await fn()}`); } catch (e) { failed = true; console.error(`[${name}] 실패: ${e.message}`); }
 };
 
