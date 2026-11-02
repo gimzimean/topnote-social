@@ -9,9 +9,10 @@ const statePath = resolve(root, 'state.json');
 const state = JSON.parse(readFileSync(statePath, 'utf8'));
 state.reels ??= [];
 const today = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
-if (state.reels_last_day === today && !process.argv.includes('--force')) { console.log('오늘은 이미 올렸어요'); process.exit(0); }
+if (state.reels_last_day === today && !process.argv.includes('--force') && !process.argv.some((a) => /^epd+$/.test(a)) && !process.env.EP) { console.log('오늘은 이미 올렸어요'); process.exit(0); }
 const eps = readdirSync(resolve(root, 'shorts')).filter((f) => /^ep\d+\.txt$/.test(f)).map((f) => f.slice(0, -4)).sort((a, b) => Number(a.slice(2)) - Number(b.slice(2)));
-const next = eps.find((e) => !state.reels.includes(e));
+const pick = process.argv.find((a) => /^epd+$/.test(a)) ?? process.env.EP;
+const next = pick || eps.find((e) => !state.reels.includes(e));
 if (!next) { console.log('대기열이 비었어요'); process.exit(0); }
 const base = 'https://gimzimean.github.io/topnote-social/shorts';
 const capFile = resolve(root, 'shorts', `${next}.txt`);
@@ -19,7 +20,7 @@ const cap = readFileSync(capFile, 'utf8');
 const q = cap.split('👇')[1]?.split('댓글로')[0].trim() ?? '여러분은 어땠나요?';
 const comment = `${q}\n댓글로 골라 주세요 👇\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆`;
 execFileSync('node', [resolve(root, 'scripts/reel.mjs'), `${base}/${next}.mp4`, `${base}/${next}-cover.jpg`, capFile, comment], { stdio: 'inherit' });
-state.reels.push(next);
+if (!state.reels.includes(next)) state.reels.push(next);
 state.reels_last_day = today;
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
 console.log('올림', next);

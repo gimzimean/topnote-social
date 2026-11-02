@@ -1,0 +1,206 @@
+{
+ "day": "2026-11-01",
+ "collected_at": "2026-11-02T04:19:36.113Z",
+ "app": {
+  "day": "2026-11-01",
+  "signups": 6,
+  "approved": 0,
+  "onboarded": 6,
+  "purchases": {},
+  "calls_1on1": 1,
+  "talk_joins": 2,
+  "members_total": {
+   "pending": 1,
+   "approved": 3,
+   "rejected": 5
+  },
+  "profiles_total": 9,
+  "visits_by_source": {
+   "meta": 227,
+   "direct": 62,
+   "threads": 1,
+   "(not set)": 34,
+   "app_store": 268,
+   "instagram": 12,
+   "play_store": 131,
+   "apps.facebook.com": 15,
+   "apps.instagram.com": 87
+  },
+  "signups_by_source": {
+   "(not set)": 1,
+   "app_store": 3,
+   "instagram": 1,
+   "apps.instagram.com": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 2,
+  "posts": 29,
+  "recent": [
+   {
+    "at": "2026-11-02T01:19:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 4편] 3분 통화가 너무 짧았던 날.",
+    "url": "https://www.instagram.com/reel/DfOHEwpAUGr/"
+   },
+   {
+    "at": "2026-11-01T11:57:16+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 3편] 모르는 넷이 10분 수다 떨면 생기는 일.",
+    "url": "https://www.instagram.com/reel/DfMrQtSlP3k/"
+   },
+   {
+    "at": "2026-11-01T11:53:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 2편] 준비 2시간, 이동 1시간.",
+    "url": "https://www.instagram.com/reel/DfMq2PhDuyY/"
+   },
+   {
+    "at": "2026-11-01T11:50:48+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 1편] 소개팅 통화 첫마디가 MBTI였다면? 😶",
+    "url": "https://www.instagram.com/reel/DfMqg8ACHAQ/"
+   },
+   {
+    "at": "2026-11-01T11:08:15+0000",
+    "type": "CAROUSEL_ALBUM",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 2화] 소개팅 첫 3분, 질문 하나로 어색함이 풀려요.",
+    "url": "https://www.instagram.com/p/DfMlrzlAc92/"
+   },
+   {
+    "at": "2026-10-31T00:12:15+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "말 통하면, 그때 사진 공개. ",
+    "url": "https://www.instagram.com/reel/DfI1xWiAvdC/"
+   },
+   {
+    "at": "2026-10-31T00:09:19+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "소개팅 하나에 저녁 통째로 쓰셨죠? ",
+    "url": "https://www.instagram.com/reel/DfI1czSDRZT/"
+   },
+   {
+    "at": "2026-10-30T22:41:25+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "얼굴 안 보고 하는 보이스 소개팅 🎧 ",
+    "url": "https://www.instagram.com/reel/DfIrYhoFwjm/"
+   },
+   {
+    "at": "2026-10-30T19:50:21+0000",
+    "type": "CAROUSEL_ALBUM",
+    "likes": 1,
+    "comments": 1,
+    "title": "데이팅 앱, 요즘 다들 지우는 이유 3가지. 저장해 두고 다음 소개팅 전에 다시 보세요.",
+    "url": "https://www.instagram.com/p/DfIX2Vjl-dQ/"
+   },
+   {
+    "at": "2026-10-30T08:45:36+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 0,
+    "title": "1:1이 떨리면 넷이 수다부터 해요. 최초 1회는 무료예요. ",
+    "url": "https://www.instagram.com/reel/DfHLw34SgwW/"
+   },
+   {
+    "at": "2026-10-30T08:43:30+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 0,
+    "title": "통화가 좋았다면? 둘 다 원할 때만 사진이 동시에 열려요. 번호도 똑같아요. ",
+    "url": "https://www.instagram.com/reel/DfHLha0ye8R/"
+   },
+   {
+    "at": "2026-10-30T05:01:40+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 0,
+    "title": "사진 보고 나갔다가 저녁을 날린 적 있죠? 탑노트는 목소리로 3분 먼저 확인해요. ",
+    "url": "https://www.instagram.com/reel/DfGyInSyMMX/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-02T01:20:45+0000",
+   "text": "[만나기 전에 상황극 4편]\n3분 통화가 너무 짧았던 날.\n남은 시간 1",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-01T12:29:29+0000",
+   "text": "[만나기 전에 상황극 3편]\n모르는 넷이 10분 수다 떨면 생기는 일.\n",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-01T11:58:37+0000",
+   "text": "[만나기 전에 상황극 3편]\n모르는 넷이 10분 수다 떨면 생기는 일.\n",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-01T11:55:16+0000",
+   "text": "[만나기 전에 상황극 2편]\n준비 2시간, 이동 1시간.\n대화 3분 만에",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-01T11:52:14+0000",
+   "text": "[만나기 전에 상황극 1편]\n소개팅 통화 첫마디가 MBTI였다면? 😶\n",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-01T11:09:22+0000",
+   "text": "[만나기 전에 2화]\n소개팅 첫 3분, 질문 하나로 어색함이 풀려요.\n다",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 42194,
+   "impressions": 2143,
+   "clicks": 59,
+   "ctr": 2.75315,
+   "installs": 10,
+   "link_clicks": 54
+  },
+  {
+   "campaign": "topnote_meta_ios_web_1031",
+   "spend": 33488,
+   "impressions": 7175,
+   "clicks": 142,
+   "ctr": 1.979094,
+   "installs": 0,
+   "link_clicks": 125
+  }
+ ],
+ "queue": {
+  "cards_posted": 2,
+  "cards_total": 19,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
