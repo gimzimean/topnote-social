@@ -83,8 +83,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
 for (const [id, ep] of Object.entries(EPISODES)) {
   if (only && only !== id) continue;
-  if (ep.caption && !existsSync(resolve(root, 'shorts', `${id}.txt`))) writeFileSync(resolve(root, 'shorts', `${id}.txt`), ep.caption.trim() + '
-');
+  if (ep.caption && !existsSync(resolve(root, 'shorts', `${id}.txt`))) writeFileSync(resolve(root, 'shorts', `${id}.txt`), ep.caption.trim() + '\n');
   if (!only && !process.argv.includes('--all') && existsSync(resolve(out, `${id}.mp4`))) continue;
   const work = resolve(tmpdir(), `topnote-short-${id}`);
   rmSync(work, { recursive: true, force: true });
