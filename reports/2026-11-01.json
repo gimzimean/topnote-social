@@ -1,6 +1,6 @@
 {
  "day": "2026-11-01",
- "collected_at": "2026-11-02T04:19:36.113Z",
+ "collected_at": "2026-11-02T07:30:06.870Z",
  "app": {
   "day": "2026-11-01",
   "signups": 6,
@@ -11,10 +11,10 @@
   "talk_joins": 2,
   "members_total": {
    "pending": 1,
-   "approved": 3,
-   "rejected": 5
+   "approved": 9,
+   "rejected": 6
   },
-  "profiles_total": 9,
+  "profiles_total": 16,
   "visits_by_source": {
    "meta": 227,
    "direct": 62,
@@ -38,8 +38,16 @@
  },
  "instagram": {
   "followers": 2,
-  "posts": 29,
+  "posts": 30,
   "recent": [
+   {
+    "at": "2026-11-02T04:23:52+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅에서 깼던 순간 ①] 전 애인 얘기만 30분.",
+    "url": "https://www.instagram.com/reel/DfOcKeYHbi1/"
+   },
    {
     "at": "2026-11-02T01:19:31+0000",
     "type": "VIDEO",
@@ -127,18 +135,15 @@
     "comments": 0,
     "title": "통화가 좋았다면? 둘 다 원할 때만 사진이 동시에 열려요. 번호도 똑같아요. ",
     "url": "https://www.instagram.com/reel/DfHLha0ye8R/"
-   },
-   {
-    "at": "2026-10-30T05:01:40+0000",
-    "type": "VIDEO",
-    "likes": 1,
-    "comments": 0,
-    "title": "사진 보고 나갔다가 저녁을 날린 적 있죠? 탑노트는 목소리로 3분 먼저 확인해요. ",
-    "url": "https://www.instagram.com/reel/DfGyInSyMMX/"
    }
   ]
  },
  "threads": [
+  {
+   "at": "2026-11-02T04:25:05+0000",
+   "text": "[소개팅에서 깼던 순간 ①]\n전 애인 얘기만 30분.\n파스타는 이미 식었",
+   "error": "insights"
+  },
   {
    "at": "2026-11-02T01:20:45+0000",
    "text": "[만나기 전에 상황극 4편]\n3분 통화가 너무 짧았던 날.\n남은 시간 1",
@@ -163,20 +168,15 @@
    "at": "2026-11-01T11:52:14+0000",
    "text": "[만나기 전에 상황극 1편]\n소개팅 통화 첫마디가 MBTI였다면? 😶\n",
    "error": "insights"
-  },
-  {
-   "at": "2026-11-01T11:09:22+0000",
-   "text": "[만나기 전에 2화]\n소개팅 첫 3분, 질문 하나로 어색함이 풀려요.\n다",
-   "error": "insights"
   }
  ],
  "meta_ads": [
   {
    "campaign": "topnote_meta_android_1031",
-   "spend": 42194,
-   "impressions": 2143,
+   "spend": 42238,
+   "impressions": 2144,
    "clicks": 59,
-   "ctr": 2.75315,
+   "ctr": 2.751866,
    "installs": 10,
    "link_clicks": 54
   },
@@ -190,13 +190,20 @@
    "link_clicks": 125
   }
  ],
+ "meta_cap": {
+  "spend_cap": 230000,
+  "spent_since_cap": 0,
+  "left": 230000
+ },
  "queue": {
   "cards_posted": 2,
   "cards_total": 19,
   "reels_posted": [
    "ep1",
    "ep2",
-   "ep3"
+   "ep3",
+   "ep4",
+   "ep7"
   ]
  },
  "not_collected": [
