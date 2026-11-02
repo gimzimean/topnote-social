@@ -4,6 +4,7 @@
 //   --reel: 릴스는 이미 올렸으면 건너뛰고 스토리·스레드만 올린다.
 import { readFileSync } from 'node:fs';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
+import { saveTiktokCaption } from './tiktok-caption.mjs';
 
 loadLocalEnv();
 const args = process.argv.slice(2);
@@ -102,7 +103,7 @@ await step('틱톡', async () => {
   const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: url } })).data;
   for (let i = 0; i < 60; i++) {
     const st = (await call('post/publish/status/fetch/', { publish_id })).data;
-    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(st.status)) return `${publish_id} ${st.status}`;
+    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(st.status)) { saveTiktokCaption({ id: publish_id, caption, cover }); return `${publish_id} ${st.status}`; }
     if (st.status === 'FAILED') throw new Error(`틱톡 실패: ${st.fail_reason}`);
     await sleep(3000);
   }
