@@ -11,6 +11,9 @@ state.reels ??= [];
 const today = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
 if (state.reels_last_day === today && !process.argv.includes('--force') && !process.argv.some((a) => /^ep[0-9]+$/.test(a)) && !process.env.EP) { console.log('오늘은 이미 올렸어요'); process.exit(0); }
 const eps = readdirSync(resolve(root, 'shorts')).filter((f) => /^ep\d+\.txt$/.test(f)).map((f) => f.slice(0, -4)).sort((a, b) => Number(a.slice(2)) - Number(b.slice(2)));
+// shorts/order.txt 가 있으면 그 순서가 먼저(나머지는 번호 순)
+const orderFile = resolve(root, 'shorts', 'order.txt');
+try { const ord = readFileSync(orderFile, 'utf8').split(/s+/).filter(Boolean); eps.sort((a, b) => ((ord.indexOf(a) + 1) || 999) - ((ord.indexOf(b) + 1) || 999) || Number(a.slice(2)) - Number(b.slice(2))); } catch {}
 const pick = process.argv.find((a) => /^ep[0-9]+$/.test(a)) ?? process.env.EP;
 const next = pick || eps.find((e) => !state.reels.includes(e));
 if (!next) { console.log('대기열이 비었어요'); process.exit(0); }
