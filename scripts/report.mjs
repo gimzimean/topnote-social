@@ -55,6 +55,13 @@ await safe('meta_ads', async () => {
     link_clicks: Number(c.actions?.find((a) => a.action_type === 'link_click')?.value ?? 0) }));
 });
 
+// 4-2) 메타 계정 지출 한도(spend_cap)와 한도를 건 뒤 쓴 돈(amount_spent) — 한도에 닿으면 광고가 전부 멈춘다
+await safe('meta_cap', async () => {
+  const a = await j(`https://graph.facebook.com/v23.0/act_1669114048255983?fields=amount_spent,spend_cap&access_token=${process.env.META_ADS_TOKEN}`);
+  const cap = Number(a.spend_cap), spent = Number(a.amount_spent);
+  return { spend_cap: cap, spent_since_cap: spent, left: cap ? cap - spent : null };
+});
+
 // 5) 자동 게시 진행
 const state = JSON.parse(readFileSync(resolve(root, 'state.json'), 'utf8'));
 const content = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
