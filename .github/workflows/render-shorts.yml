@@ -1,0 +1,37 @@
+name: render-shorts
+# shorts/episodes.json 이 바뀌면 새 편 영상·표지를 만들어 docs/shorts 에 넣는다(이미 있는 편은 건너뜀).
+# 올리기는 reels.yml(매일 12:37 KST)이 대기열 순서대로 한다.
+on:
+  push:
+    branches: [main]
+    paths: ['shorts/episodes.json']
+  workflow_dispatch:
+    inputs:
+      ep:
+        description: '이 편만 다시 만들기(예: ep3, 비우면 없는 편만)'
+        required: false
+permissions:
+  contents: write
+concurrency: render-shorts
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 도구(한글 글꼴 · ffmpeg · 크로미움)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk ffmpeg >/dev/null
+          npm i --no-save --silent playwright@1
+          npx playwright install --with-deps chromium >/dev/null
+      - name: 만들기
+        run: node scripts/shorts.mjs ${{ inputs.ep }}
+      - name: 저장
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/shorts shorts
+          git diff --cached --quiet || (git commit -m "숏폼 영상 만들기" && git pull --rebase -q && git push)
