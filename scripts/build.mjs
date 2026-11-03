@@ -61,6 +61,9 @@ const pagesOf = (post) => {
 // 스토리: 표지 문구 + 프로필 누르기 안내(API로는 링크 스티커를 못 단다, 2026-11-01) (1080×1920)
 const storyOf = (post) => `<div class="page dark cover story"><div class="mark">T<i>.</i></div><div class="kicker">${post.tag ?? c.tag}</div><h1>${post.cover[0]}</h1><p>${post.cover[1]}</p><div class="btn">↖ 왼쪽 위 「topnote_official」 눌러서 전체 보기</div><div class="foot"><span>${c.name}</span><span>${c.handle}</span></div></div>`;
 
+// 릴스 표지: 스토리와 같은 세로 표지에서 「눌러서 전체 보기」 안내만 뺌 → docs/reels/<id>-cover.jpg (scripts/card-reel.mjs 첫 화면 · cover_url)
+const reelCoverOf = (post) => storyOf(post).replace(/<div class="btn">.*?<\/div>/, '');
+
 const all = process.argv[2] === 'all';
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
@@ -84,5 +87,14 @@ for (const post of c.posts) {
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
   console.log('story', post.id);
+}
+mkdirSync(resolve(root, 'docs/reels'), { recursive: true });
+for (const post of c.posts) {
+  const file = resolve(root, 'docs/reels', `${post.id}-cover.jpg`);
+  if (!all && existsSync(file)) continue;
+  await page.setContent(`<html><head><style>${css}body{height:1920px}</style></head><body>${reelCoverOf(post)}</body></html>`);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: file, type: 'jpeg', quality: 92 });
+  console.log('reel cover', post.id);
 }
 await browser.close();

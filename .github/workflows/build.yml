@@ -1,9 +1,9 @@
 name: build
-# content.json 에 새 게시물이 들어오면 카드·스토리 이미지를 만들어 docs/ 에 넣는다(Pages 로 공개).
+# content.json 에 새 게시물이 들어오면 카드·스토리 이미지와 음악 릴스(docs/reels)를 만들어 docs/ 에 넣는다(Pages 로 공개).
 on:
   push:
     branches: [main]
-    paths: [content.json, scripts/build.mjs]
+    paths: [content.json, scripts/build.mjs, scripts/card-reel.mjs, music/tracks.json]
   workflow_dispatch:
 permissions:
   contents: write
@@ -18,10 +18,12 @@ jobs:
           node-version: 22
       - name: 한글 글꼴·playwright
         run: |
-          sudo apt-get update -q && sudo apt-get install -y -q fonts-noto-cjk
+          sudo apt-get update -q && sudo apt-get install -y -q fonts-noto-cjk ffmpeg
           npm i --no-save --no-package-lock playwright
           npx playwright install --with-deps chromium
       - run: node scripts/build.mjs
+      - name: 음악 릴스 만들기
+        run: node scripts/card-reel.mjs
       - name: 이미지 저장
         run: |
           git config user.name "topnote-bot"

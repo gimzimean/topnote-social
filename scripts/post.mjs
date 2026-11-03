@@ -1,4 +1,6 @@
-// 다음 차례 게시물을 인스타·틱톡에 올린다. GitHub Actions 가 월·수·금 20:00 KST 에 실행한다.
+// 다음 차례 게시물을 인스타·스토리·스레드·틱톡에 올린다. GitHub Actions 가 매일 20:00 KST 에 실행한다.
+// 2026-11-03부터: docs/reels/<id>.mp4(scripts/card-reel.mjs, 음악 릴스)가 있으면 인스타 릴스(피드 공유)·스레드 영상·틱톡 영상 초안으로 올린다.
+//   없으면 예전처럼 사진 묶음. 스토리는 그대로 세로 표지 사진.
 // 실행: node scripts/post.mjs            → 올림
 //       node scripts/post.mjs --dry      → 무엇을 올릴지만 보여줌
 //       node scripts/post.mjs --only instagram|tiktok
@@ -6,7 +8,7 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
-import { tiktokCaption } from './tiktok-caption.mjs';
+import { tiktokCaption, saveTiktokCaption } from './tiktok-caption.mjs';
 
 loadLocalEnv();
 const root = resolve(import.meta.dirname, '..');
@@ -36,6 +38,11 @@ const imagesOf = (id) => {
 const nextFor = (platform) => content.posts.find((p) => !state[platform].includes(p.id) && imagesOf(p.id).length
   && (platform !== 'story' || state.instagram.includes(p.id)));
 const storyOf = (id) => `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
+// 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
+const REELS = BASE.replace(/posts$/, 'reels');
+const reelOf = (id) => existsSync(resolve(root, 'docs/reels', `${id}.mp4`)) ? `${REELS}/${id}.mp4` : null;
+const reelCoverOf = (id) => `${REELS}/${id}-cover.jpg`;
+const isVideo = (urls) => urls.length === 1 && urls[0].endsWith('.mp4');
 
 async function json(res) {
   const body = await res.json().catch(() => ({}));
@@ -61,10 +68,11 @@ async function igClient() {
     method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }),
   }));
   const ready = async (id) => {
-    for (let i = 0; i < 30; i++) {
-      const s = await json(await fetch(`${IG}/${id}?fields=status_code&access_token=${t.access_token}`));
+    // 영상은 처리에 1~3분 걸린다 → 최대 5분.
+    for (let i = 0; i < 100; i++) {
+      const s = await json(await fetch(`${IG}/${id}?fields=status_code,status&access_token=${t.access_token}`));
       if (s.status_code === 'FINISHED') return;
-      if (s.status_code === 'ERROR') throw new Error('인스타 처리 실패');
+      if (s.status_code === 'ERROR') throw new Error(`인스타 처리 실패: ${s.status ?? ''}`);
       await sleep(3000);
     }
   };
@@ -73,9 +81,15 @@ async function igClient() {
 
 async function postInstagram(post, urls) {
   const { t, call, ready } = await igClient();
-  const children = [];
-  for (const url of urls) children.push((await call(`${t.user_id}/media`, { image_url: url, is_carousel_item: 'true' })).id);
-  const box = await call(`${t.user_id}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: post.caption });
+  let box;
+  if (isVideo(urls)) {
+    // 음악 릴스: 표지 필수, 피드에도 보이게. 영상의 음악은 그대로(소리를 끄는 옵션 안 씀).
+    box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: urls[0], cover_url: reelCoverOf(post.id), caption: post.caption, share_to_feed: 'true' });
+  } else {
+    const children = [];
+    for (const url of urls) children.push((await call(`${t.user_id}/media`, { image_url: url, is_carousel_item: 'true' })).id);
+    box = await call(`${t.user_id}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: post.caption });
+  }
   await ready(box.id);
   const id = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
   // 첫 댓글. 실패해도 게시물은 올라간 것으로 둔다.
@@ -102,7 +116,7 @@ async function postThreads(post, urls) {
     method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }),
   }));
   const ready = async (id) => {
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 100; i++) {
       await sleep(3000);
       // 막 만든 항목은 몇 초 동안 「없음」으로 나올 수 있다.
       const s = await json(await fetch(`${TH}/${id}?fields=status,error_message&access_token=${t.access_token}`)).catch(() => ({}));
@@ -110,12 +124,19 @@ async function postThreads(post, urls) {
       if (s.status === 'ERROR') throw new Error(`스레드 처리 실패: ${s.error_message}`);
     }
   };
+  let id;
+  if (isVideo(urls)) {
+    const box = await call(`${t.user_id}/threads`, { media_type: 'VIDEO', video_url: urls[0], text: threadsText(post.caption) });
+    await ready(box.id);
+    id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+  } else {
   const children = [];
   for (const url of urls) children.push((await call(`${t.user_id}/threads`, { media_type: 'IMAGE', image_url: url, is_carousel_item: 'true' })).id);
   for (const id of children) await ready(id);
   const box = await call(`${t.user_id}/threads`, { media_type: 'CAROUSEL', children: children.join(','), text: threadsText(post.caption) });
   await ready(box.id);
-  const id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+  id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+  }
   // 첫 댓글(답글). threads_manage_replies 권한이 없으면 글만 올리고 넘어간다.
   try {
     const reply = await call(`${t.user_id}/threads`, { media_type: 'TEXT', text: commentOf(post, 'threads'), reply_to_id: id });
@@ -154,6 +175,17 @@ async function postTiktok(post, urls) {
   // upload: 틱톡 앱 알림(초안)으로 보내고 사람이 눌러서 올림 — 앱 심사 전 기본값.
   // direct: 바로 공개 — 앱 심사 통과 뒤 TIKTOK_MODE=direct.
   const direct = process.env.TIKTOK_MODE === 'direct';
+  if (isVideo(urls)) {
+    // 음악 릴스 영상을 받은 편지함(초안)으로. 글은 API로 못 실어서 docs/tt.html 복사 페이지에 남긴다.
+    const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: urls[0] } })).data;
+    for (let i = 0; i < 60; i++) {
+      const s = (await call('post/publish/status/fetch/', { publish_id })).data;
+      if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) { saveTiktokCaption({ id: publish_id, caption: post.caption, cover: reelCoverOf(post.id) }); return `${publish_id} ${s.status}`; }
+      if (s.status === 'FAILED') throw new Error(`틱톡 실패: ${s.fail_reason}`);
+      await sleep(3000);
+    }
+    throw new Error(`틱톡 처리 대기 시간 초과 (${publish_id})`);
+  }
   // 글 끝에 아이폰 안내 줄(영상 링크는 안드로이드 앱만 고를 수 있음) — scripts/tiktok-caption.mjs
   const description = tiktokCaption(post.caption);
   const post_info = { title: post.title.slice(0, 90), description: description.slice(0, 4000) };
@@ -185,12 +217,12 @@ for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory]
   if (only && only !== platform) continue;
   const post = nextFor(platform);
   if (!post) { console.log(`[${platform}] 올릴 게시물이 없어요. content.json 에 새 게시물을 넣으세요.`); continue; }
-  const urls = platform === 'story' ? [storyOf(post.id)] : imagesOf(post.id);
+  const urls = platform === 'story' ? [storyOf(post.id)] : reelOf(post.id) ? [reelOf(post.id)] : imagesOf(post.id);
   if (dry) { console.log(`[${platform}] ${post.id} ${post.title}\n  ${urls.join('\n  ')}`); continue; }
   if (!tokens[tokenOf[platform]]) { console.log(`[${platform}] 토큰이 없어 건너뜀 (node scripts/auth.mjs ${tokenOf[platform]})`); continue; }
   try {
     const head = await fetch(urls[0], { method: 'HEAD' });
-    if (!head.ok) throw new Error(`사진 주소가 아직 안 열려요: ${urls[0]} (${head.status})`);
+    if (!head.ok) throw new Error(`주소가 아직 안 열려요: ${urls[0]} (${head.status})`);
     const id = await fn(post, urls);
     state[platform].push(post.id);
     state.last_day = today;

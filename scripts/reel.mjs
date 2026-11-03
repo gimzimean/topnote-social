@@ -72,7 +72,7 @@ await step('스레드', async () => {
     const box = await call(`${t.user_id}/threads`, params);
     for (let i = 0; ; i++) {
       await sleep(5000);
-      const s = await json(await fetch(`${TH}/${box.id}?fields=status,error_message&access_token=${t.access_token}`)).catch(() => ({}));
+      const s = await json(await fetch(`${TH}/${box.id}?fields=status,error_message&access_token=${t.access_token}`)).catch((e) => ({ status: i > 3 ? 'ERROR' : undefined, error_message: e.message }));
       if (s.status === 'FINISHED') break;
       if (s.status === 'ERROR' || i > 60) throw new Error(`스레드 처리 실패: ${s.error_message ?? s.status}`);
     }
