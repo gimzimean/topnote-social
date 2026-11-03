@@ -1,5 +1,5 @@
 name: reels
-# 매일 12:37 KST(03:37 UTC)에 대기열의 다음 숏폼 한 편을 릴스·스토리·스레드·틱톡 초안에 올린다(scripts/reel-queue.mjs).
+# 매일 12:37 KST(03:37 UTC)에 대기열의 다음 숏폼 한 편을 릴스·스토리·스레드·틱톡(나만 보기 · 글 포함)에 올린다(scripts/reel-queue.mjs).
 on:
   schedule:
     - cron: '37 3 * * *'

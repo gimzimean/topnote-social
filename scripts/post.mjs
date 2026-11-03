@@ -4,16 +4,16 @@
 // 실행: node scripts/post.mjs            → 올림
 //       node scripts/post.mjs --dry      → 무엇을 올릴지만 보여줌
 //       node scripts/post.mjs --only instagram|tiktok
-// 환경변수: TOKEN_KEY, TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, TIKTOK_MODE(upload|direct, 기본 upload)
+// 환경변수: TOKEN_KEY, TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET, TIKTOK_MODE(private 기본 = 나만 보기 + 글 포함 | public = 앱 심사 뒤 | inbox = 예전 초안)
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
-import { tiktokCaption, saveTiktokCaption } from './tiktok-caption.mjs';
+import { tiktokCaption } from './tiktok-caption.mjs';
+import { postToTiktok } from './tiktok.mjs';
 
 loadLocalEnv();
 const root = resolve(import.meta.dirname, '..');
 const BASE = 'https://gimzimean.github.io/topnote-social/posts';
-const TT = 'https://open.tiktokapis.com/v2';
 const dry = process.argv.includes('--dry');
 const onlyIdx = process.argv.indexOf('--only');
 const only = onlyIdx > 0 ? process.argv[onlyIdx + 1] : null;
@@ -154,63 +154,11 @@ async function postStory(post) {
   return (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
 }
 
+// 틱톡: 음악 릴스 영상이 있으면 영상, 없으면 사진 묶음. 둘 다 「나만 보기」 바로 게시 + 글·태그 포함(scripts/tiktok.mjs).
 async function postTiktok(post, urls) {
-  const t = tokens.tiktok;
-  // 접근 토큰은 24시간. 1시간 남으면 새로 받는다(새 refresh_token 이 오면 같이 바꾼다).
-  if ((t.expires_at ?? 0) - Date.now() < 36e5) {
-    const r = await json(await fetch(`${TT}/oauth/token/`, {
-      method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        client_key: process.env.TIKTOK_CLIENT_KEY, client_secret: process.env.TIKTOK_CLIENT_SECRET,
-        grant_type: 'refresh_token', refresh_token: t.refresh_token,
-      }),
-    }));
-    Object.assign(t, { access_token: r.access_token, refresh_token: r.refresh_token ?? t.refresh_token, expires_at: Date.now() + r.expires_in * 1000 });
-    saveTokens(tokens);
-  }
-  const call = async (path, body) => json(await fetch(`${TT}/${path}`, {
-    method: 'POST', headers: { Authorization: `Bearer ${t.access_token}`, 'Content-Type': 'application/json; charset=UTF-8' },
-    body: JSON.stringify(body),
-  }));
-  // upload: 틱톡 앱 알림(초안)으로 보내고 사람이 눌러서 올림 — 앱 심사 전 기본값.
-  // direct: 바로 공개 — 앱 심사 통과 뒤 TIKTOK_MODE=direct.
-  const direct = process.env.TIKTOK_MODE === 'direct';
-  if (isVideo(urls)) {
-    // 음악 릴스 영상을 받은 편지함(초안)으로. 글은 API로 못 실어서 docs/tt.html 복사 페이지에 남긴다.
-    const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: urls[0] } })).data;
-    for (let i = 0; i < 60; i++) {
-      const s = (await call('post/publish/status/fetch/', { publish_id })).data;
-      if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) { saveTiktokCaption({ id: `카드 ${post.id} · ${post.title}`, publishId: publish_id, caption: post.caption, cover: reelCoverOf(post.id) }); return `${publish_id} ${s.status}`; }
-      if (s.status === 'FAILED') throw new Error(`틱톡 실패: ${s.fail_reason}`);
-      await sleep(3000);
-    }
-    throw new Error(`틱톡 처리 대기 시간 초과 (${publish_id})`);
-  }
-  // 글 끝에 아이폰 안내 줄(영상 링크는 안드로이드 앱만 고를 수 있음) — scripts/tiktok-caption.mjs
-  const description = tiktokCaption(post.caption);
-  const post_info = { title: post.title.slice(0, 90), description: description.slice(0, 4000) };
-  if (direct) {
-    const info = (await call('post/publish/creator_info/query/', {})).data;
-    const opts = info.privacy_level_options ?? [];
-    Object.assign(post_info, {
-      privacy_level: opts.includes('PUBLIC_TO_EVERYONE') ? 'PUBLIC_TO_EVERYONE' : opts[0],
-      disable_comment: false, auto_add_music: true,
-    });
-  }
-  const { publish_id } = (await call('post/publish/content/init/', {
-    post_info, media_type: 'PHOTO', post_mode: direct ? 'DIRECT_POST' : 'MEDIA_UPLOAD',
-    source_info: { source: 'PULL_FROM_URL', photo_cover_index: 0, photo_images: urls },
-  })).data;
-  for (let i = 0; i < 40; i++) {
-    const s = (await call('post/publish/status/fetch/', { publish_id })).data;
-    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) {
-      saveTiktokCaption({ id: `카드 ${post.id} · ${post.title}`, publishId: publish_id, caption: post.caption, cover: urls[0] });
-      return `${publish_id} ${s.status}`;
-    }
-    if (s.status === 'FAILED') throw new Error(`틱톡 실패: ${s.fail_reason}`);
-    await sleep(3000);
-  }
-  throw new Error(`틱톡 처리 대기 시간 초과 (${publish_id})`);
+  const name = `카드 ${post.id} · ${post.title}`;
+  const caption = tiktokCaption(post.caption, { seed: `카드 ${post.id}` });
+  return postToTiktok(tokens, { kind: isVideo(urls) ? 'video' : 'photo', urls, caption, title: post.title, name, cover: isVideo(urls) ? reelCoverOf(post.id) : urls[0] });
 }
 
 let failed = false;

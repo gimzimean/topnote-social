@@ -1,10 +1,12 @@
 // 영상 한 편을 모든 곳에 올린다(2026-10-31 대표 「항상 썸네일 넣고, 게시물 올리면 스토리·스레드 등 다 올리기 — 무조건 규칙」).
 // 순서: 인스타 릴스(표지 이미지 필수, 피드에도 보임) + 첫 댓글 → 인스타 스토리(같은 영상) → 스레드(같은 영상 + 해시태그 뺀 글) + 첫 답글(topnote.app/th)
+//   → 틱톡(나만 보기 + 글·태그 포함, 대표는 전체 공개로만 바꿈). 환경변수 TIKTOK_QUESTION: 글에 질문이 없을 때 붙일 질문.
 // 실행: node scripts/reel.mjs <영상 주소(https mp4)> <표지 주소(https jpg)> <캡션 파일> [인스타 첫 댓글] [--reel <이미 올린 릴스 id>]
 //   --reel: 릴스는 이미 올렸으면 건너뛰고 스토리·스레드만 올린다.
 import { readFileSync } from 'node:fs';
-import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
-import { saveTiktokCaption } from './tiktok-caption.mjs';
+import { loadLocalEnv, loadTokens } from './tokens.mjs';
+import { tiktokCaption } from './tiktok-caption.mjs';
+import { postToTiktok } from './tiktok.mjs';
 
 loadLocalEnv();
 const args = process.argv.slice(2);
@@ -84,29 +86,11 @@ await step('스레드', async () => {
     .catch((e) => console.error(`[스레드] 답글 실패: ${e.message}`));
   return id;
 });
-// ── 틱톡: 영상을 받은 편지함(초안)으로 보낸다. 캡션은 틱톡 앱에서 붙여 넣는다(초안 방식은 글을 같이 못 보냄). ──
+// ── 틱톡: 「나만 보기」 바로 게시 + 글·태그 포함(scripts/tiktok.mjs). 거절되면 초안으로. ──
 await step('틱톡', async () => {
-  const t = tokens.tiktok;
-  if (!t) return '토큰 없음 · 건너뜀';
-  const TT = 'https://open.tiktokapis.com/v2';
-  if ((t.expires_at ?? 0) - Date.now() < 36e5) {
-    const r = await json(await fetch(`${TT}/oauth/token/`, {
-      method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ client_key: process.env.TIKTOK_CLIENT_KEY, client_secret: process.env.TIKTOK_CLIENT_SECRET, grant_type: 'refresh_token', refresh_token: t.refresh_token }),
-    }));
-    Object.assign(t, { access_token: r.access_token, refresh_token: r.refresh_token ?? t.refresh_token, expires_at: Date.now() + r.expires_in * 1000 });
-    saveTokens(tokens);
-  }
-  const call = async (path, body) => json(await fetch(`${TT}/${path}`, {
-    method: 'POST', headers: { Authorization: `Bearer ${t.access_token}`, 'Content-Type': 'application/json; charset=UTF-8' }, body: JSON.stringify(body),
-  }));
-  const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: url } })).data;
-  for (let i = 0; i < 60; i++) {
-    const st = (await call('post/publish/status/fetch/', { publish_id })).data;
-    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(st.status)) { saveTiktokCaption({ id: process.env.REEL_NAME || url.split('/').pop().replace(/\.mp4$/, ''), publishId: publish_id, caption, cover }); return `${publish_id} ${st.status}`; }
-    if (st.status === 'FAILED') throw new Error(`틱톡 실패: ${st.fail_reason}`);
-    await sleep(3000);
-  }
-  throw new Error(`틱톡 처리 대기 시간 초과 (${publish_id})`);
+  if (!tokens.tiktok) return '토큰 없음 · 건너뜀';
+  const name = process.env.REEL_NAME || url.split('/').pop().replace(/\.mp4$/, '');
+  const text = tiktokCaption(caption, { seed: name, question: process.env.TIKTOK_QUESTION });
+  return postToTiktok(tokens, { kind: 'video', urls: [url], caption: text, name, cover });
 });
 if (failed) process.exitCode = 1;

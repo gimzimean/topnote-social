@@ -32,7 +32,7 @@ for (const u of [`${base}/${ad.id}.mp4`, `${base}/${ad.id}-cover.jpg`]) {
 }
 let ok = true;
 try {
-  execFileSync('node', [resolve(root, 'scripts/reel.mjs'), `${base}/${ad.id}.mp4`, `${base}/${ad.id}-cover.jpg`, capFile, comment], { stdio: 'inherit', env: { ...process.env, REEL_NAME: `광고 ${ad.id} · ${ad.src}` } });
+  execFileSync('node', [resolve(root, 'scripts/reel.mjs'), `${base}/${ad.id}.mp4`, `${base}/${ad.id}-cover.jpg`, capFile, comment], { stdio: 'inherit', env: { ...process.env, REEL_NAME: `광고 ${ad.id} · ${ad.src}`, TIKTOK_QUESTION: ad.question } });
 } catch { ok = false; }
 // 일부만 실패해도 다시 올리면 릴스가 겹치므로 올린 것으로 남긴다(실패한 곳은 로그 보고 ONLY=스레드 등으로 다시 보냄).
 if (!state.ads.includes(ad.id)) state.ads.push(ad.id);

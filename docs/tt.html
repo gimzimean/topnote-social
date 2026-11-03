@@ -2,7 +2,7 @@
 <title>틱톡 글 복사 · 탑노트</title><meta name="robots" content="noindex">
 <style>body{margin:0;background:#F5EEE3;color:#1F1B24;font-family:"Apple SD Gothic Neo","Noto Sans KR",sans-serif}main{max-width:560px;margin:0 auto;padding:18px}h1{font-size:22px;margin:6px 0}.how{font-size:14px;color:#4A4352;line-height:1.6;background:#fff;border-radius:12px;padding:10px 14px}.card{background:#fff;border-radius:14px;padding:14px;margin:14px 0;display:flex;gap:12px}.card img{width:70px;height:124px;object-fit:cover;border-radius:8px;flex:none}.card pre{white-space:pre-wrap;font:14px/1.5 inherit;margin:0;max-height:124px;overflow:hidden}.card button{margin-top:10px;width:100%;padding:14px;border:0;border-radius:10px;background:#1F1B24;color:#fff;font-size:17px;font-weight:700}.card button.done{background:#B85F45}.at{font-size:12px;color:#8a8090}</style></head>
 <body><main><h1>틱톡 글 복사</h1>
-<div class="how">① 아래 「복사」 → ② 틱톡 받은 편지함의 초안 열기 → ③ 글 칸에 붙여 넣기 → ④ 링크 추가 → 앱 다운로드 → 탑노트 → ⑤ 게시</div>
+<div class="how"><b>11월 3일부터: 틱톡 영상은 글·태그가 붙은 채 「나만 보기」로 올라가요.</b><br>틱톡 프로필에서 영상 열기 → ⋯ → 공개 범위 → 「전체 공개」로만 바꾸면 끝이에요.<br>아래 글은 예비용이에요. 「초안」 표시가 붙은 것만 받은 편지함에서 열어 복사·붙여 넣기 하세요.</div>
 <div id="list">불러오는 중…</div></main>
 <script>
 fetch('tiktok/captions.json?t='+Date.now()).then(r=>r.json()).then(list=>{
@@ -10,7 +10,7 @@ fetch('tiktok/captions.json?t='+Date.now()).then(r=>r.json()).then(list=>{
   list.forEach(x=>{
     const c=document.createElement('div'); c.className='card';
     const d=new Date(x.at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
-    c.innerHTML=`${x.cover?`<img src="${x.cover}">`:''}<div style="flex:1;min-width:0"><div class="at">${x.id&&!x.id.startsWith('v_inbox')&&!x.id.startsWith('p_inbox')?x.id+' · ':''}${d}</div><pre></pre><button>복사</button></div>`;
+    c.innerHTML=`${x.cover?`<img src="${x.cover}">`:''}<div style="flex:1;min-width:0"><div class="at">${x.mode==='private'?'<b>나만 보기 · 글 포함</b> · ':x.mode==='public'?'<b>전체 공개</b> · ':'<b>초안 · 복사 필요</b> · '}${x.id&&!x.id.startsWith('v_inbox')&&!x.id.startsWith('p_inbox')?x.id+' · ':''}${d}</div><pre></pre><button>복사</button></div>`;
     c.querySelector('pre').textContent=x.caption;
     const b=c.querySelector('button');
     b.onclick=()=>navigator.clipboard.writeText(x.caption).then(()=>{b.textContent='복사됨 ✓';b.className='done'});
