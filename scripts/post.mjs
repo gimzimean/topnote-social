@@ -47,8 +47,11 @@ const nextFor = (platform) => {
 const storyOf = (id) => `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
 const REELS = BASE.replace(/posts$/, 'reels');
-const reelOf = (id) => existsSync(resolve(root, 'docs/reels', `${id}.mp4`)) ? `${REELS}/${id}.mp4` : null;
-const reelCoverOf = (id) => `${REELS}/${id}-cover.jpg`;
+// 사람 나오는 AI 릴스(content.json 의 aiReel: docs/ai-reels/<이름>.mp4)가 있으면 카드 릴스 대신 그것(2026-11-04).
+const AI = BASE.replace(/posts$/, 'ai-reels');
+const aiOf = (id) => content.posts.find((p) => p.id === id)?.aiReel;
+const reelOf = (id) => aiOf(id) ? `${AI}/${aiOf(id)}.mp4` : existsSync(resolve(root, 'docs/reels', `${id}.mp4`)) ? `${REELS}/${id}.mp4` : null;
+const reelCoverOf = (id) => aiOf(id) ? `${AI}/${aiOf(id)}-cover.jpg` : `${REELS}/${id}-cover.jpg`;
 const isVideo = (urls) => urls.length === 1 && urls[0].endsWith('.mp4');
 
 async function json(res) {
@@ -167,6 +170,8 @@ async function postTiktok(post, urls) {
   const caption = tiktokCaption(post.caption, { seed: `카드 ${post.id}` });
   // 틱톡은 카드를 사진 묶음으로 보낸다(2026-11-03 대표 「이전에는 캡션 붙여서 줬잖아」): 사진 초안은 글·태그가 같이 붙고, 영상 초안은 글이 안 붙는다. 음악은 auto_add_music.
   const photos = imagesOf(post.id);
+  // AI 릴스는 틱톡에도 영상으로(글은 docs/tt.html 에서 복사)
+  if (aiOf(post.id)) return postToTiktok(tokens, { kind: 'video', urls: [reelOf(post.id)], caption, name, cover: reelCoverOf(post.id) });
   return postToTiktok(tokens, { kind: 'photo', urls: photos, caption, title: post.title, name, cover: photos[0] });
 }
 
