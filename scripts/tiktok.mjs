@@ -1,7 +1,9 @@
 // 틱톡 올리기(2026-11-03 대표 「나는 게시만 할 수 있게 무조건 글 적어줘」).
 // 기본: 「나만 보기」(SELF_ONLY) 바로 게시 + 글(캡션·태그) 포함 → 대표는 틱톡에서 공개 범위만 「전체 공개」로 바꾼다.
 //   앱 심사 전(Sandbox·미심사)에는 SELF_ONLY 만 허용된다. 앱 심사는 신청하지 않는다.
-// 바로 게시가 거절되면(권한·한도 등) 예전처럼 받은 편지함 초안으로 보내고, 정확한 오류를 로그에 남긴다.
+// 2026-11-03 실제 시험: 미심사 앱은 계정 자체가 비공개일 때만 바로 게시 허용
+//   (403 unaudited_client_can_only_post_to_private_accounts) → 공개 계정인 지금은 초안으로 떨어진다.
+// 바로 게시가 거절되면(권한·한도·공개 계정 등) 예전처럼 받은 편지함 초안으로 보내고, 정확한 오류를 로그에 남긴다.
 // TIKTOK_MODE: private(기본) | public(앱 심사 통과 뒤, 전체 공개) | inbox(예전 초안 방식)
 import { saveTokens } from './tokens.mjs';
 import { saveTiktokCaption } from './tiktok-caption.mjs';
