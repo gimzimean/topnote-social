@@ -92,7 +92,7 @@ await step('틱톡', async () => {
   const name = process.env.REEL_NAME || url.split('/').pop().replace(/\.mp4$/, '');
   // 같은 영상을 틱톡에 두 번 보내지 않는다(미리 초안으로 보낸 편 · 2026-11-03).
   const sent = JSON.parse(readFileSync(new URL('../docs/tiktok/captions.json', import.meta.url), 'utf8')).some((x) => x.id === name);
-  if (sent) return '이미 틱톡에 보냄 · 건너뜀';
+  if (sent && process.env.TIKTOK_RESEND !== '1') return '이미 틱톡에 보냄 · 건너뜀'; // 대표가 초안을 지웠을 때만 TIKTOK_RESEND=1
   const text = tiktokCaption(caption, { seed: name, question: process.env.TIKTOK_QUESTION });
   return postToTiktok(tokens, { kind: 'video', urls: [url], caption: text, name, cover });
 });
