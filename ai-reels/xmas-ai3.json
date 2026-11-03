@@ -1,0 +1,13 @@
+{
+  "id": "xmas-ai3",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai3-1.mp4", "text": "연말 모임 갔다가<br><em>3시간</em> 버린 적 있죠?" },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai3-2.mp4", "text": "이번엔 집에서<br>먼저 <em>3분</em>만." },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai3-3.mp4", "text": "간편인증한 사람과<br><em>목소리</em>로 먼저." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "불편하면 바로 끊고,<br><em>신고·차단</em>도 바로." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면,<br>그때 <em>사진</em>." },
+    { "end": "만나기 전에,<br><em>3분</em> 먼저.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+  ],
+  "cover": { "from": 0, "at": 3, "text": "모임 갔다가<br><em>3시간</em><br>버린 적." }
+}

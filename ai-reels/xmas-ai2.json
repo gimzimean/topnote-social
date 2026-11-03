@@ -1,0 +1,13 @@
+{
+  "id": "xmas-ai2",
+  "track": "talking-with-my-ex.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai2-1.mp4", "text": "친구들 다<br>연말 약속 있대요.<br><em>나만</em> 없나?" },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai2-2.mp4", "text": "모르는 넷이 모여<br><em>10분</em> 수다." },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai2-3.mp4", "text": "처음 보는데<br>왜 이렇게 <em>웃기지?</em>" },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png", "text": "4인 수다,<br>처음 1회 <em>무료</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "맘에 든 한 명과는<br><em>1:1 3분</em>도." },
+    { "end": "크리스마스 파티,<br>같이 갈 <em>친구</em><br>여기서.", "sub": "탑노트 4인 수다 · 10분<br>저녁 5시 반부터" }
+  ],
+  "cover": { "from": 1, "at": 3, "text": "연말 약속<br><em>나만</em><br>없나?" }
+}

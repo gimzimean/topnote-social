@@ -1,0 +1,13 @@
+{
+  "id": "xmas-ai4",
+  "track": "fox-satin.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-1.mp4", "text": "크리스마스 소개팅,<br>준비만 <em>2시간</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-2.mp4", "text": "근데 아닌 건<br>첫 <em>5분</em>에 알죠." },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-3.mp4", "text": "잠옷 차림으로<br><em>3분</em>이면 돼요." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "더 듣고 싶으면,<br>둘 다 누르면 <em>3분 더</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면,<br>그때 <em>사진</em>." },
+    { "end": "소개팅 2시간 대신<br><em>3분</em>.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+  ],
+  "cover": { "from": 2, "at": 3, "text": "소개팅<br>2시간 vs<br><em>3분</em>." }
+}

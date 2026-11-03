@@ -1,0 +1,13 @@
+{
+  "id": "xmas-ai1",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai1-1.mp4", "text": "작년 크리스마스,<br>치킨이랑 <em>넷플릭스</em>.." },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai1-2.mp4", "text": "올해는 첫눈 오는 날<br><em>통화할 사람</em>이 생겼다." },
+    { "clip": "C:/topnote-social/ai-reels/src/xmas-ai1-3.mp4", "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "더 듣고 싶으면,<br>둘 다 누르면 <em>3분 더</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면,<br>그때 <em>사진</em>." },
+    { "end": "올해는 진짜<br><em>솔크</em><br>탈출.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+  ],
+  "cover": { "from": 1, "at": 3.5, "text": "올해는<br>첫눈 오면<br><em>통화할 사람</em>." }
+}
