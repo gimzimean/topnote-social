@@ -1,0 +1,29 @@
+name: threads
+# 스레드 전용 글을 하루 2번(12:10 · 21:10 KST) 하나씩 올린다(scripts/threads-text.mjs, 대기열 threads/posts.json).
+on:
+  schedule:
+    - cron: '10 3 * * *'
+    - cron: '10 12 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: post
+jobs:
+  text:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 올리기
+        env:
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+        run: node scripts/threads-text.mjs
+      - name: 올린 기록·새 토큰 저장
+        if: always()
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json tokens.enc 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "스레드 글 올린 기록" && git push)
