@@ -13,7 +13,8 @@ const AND = 'https://play.google.com/store/apps/details?id=com.topnote.app';
 const raw = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 const posts = raw.posts || raw;
 const state = JSON.parse(readFileSync(resolve(root, 'state.json'), 'utf8'));
-const posted = new Set(process.argv.includes('--all') ? posts.map((p) => p.id) : state.instagram ?? []);
+// 이미 사이트에 있는 팁 글도 유지한다(state.json 이 초기화돼도 글이 사이트맵에서 빠지지 않게, 2026-11-04).
+const posted = new Set(process.argv.includes('--all') ? posts.map((p) => p.id) : [...(state.instagram ?? []), ...posts.map((p) => p.id).filter((id) => existsSync(resolve(site, 'tips', `${id}.html`)))]);
 const plain = (h) => h.replace(/<br>/g, ' ').replace(/\s+/g, ' ').trim();
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const cap = (p) => p.caption.replace(/^\[[^\]]*\]\n/, '').split('\n\n')[0].replace(/\n/g, ' ');
