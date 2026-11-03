@@ -28,7 +28,13 @@
  ],
  "reels_last_day": "2026-11-02",
  "ads": [
-  "ad01"
+  "ad01",
+  "ad02",
+  "ad03"
  ],
- "ads_last_slot": "2026-11-03-noon"
+ "ads_last_slot": "2026-11-03-noon",
+ "ads_skipped": [
+  "ad02",
+  "ad03"
+ ]
 }
