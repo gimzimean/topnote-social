@@ -14,7 +14,7 @@ const tracks = JSON.parse(readFileSync(resolve(root, 'music/tracks.json'), 'utf8
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const ids = args.filter((a) => /^\d+$/.test(a));
-const SLIDE = 2.5, FADE = 0.4;
+const SLIDE = Number(process.env.SLIDE ?? 2.5), FADE = 0.4; // 천천히: SLIDE=4.5
 const outDir = resolve(root, 'docs/reels');
 mkdirSync(outDir, { recursive: true });
 
