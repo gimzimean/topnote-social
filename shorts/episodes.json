@@ -1243,5 +1243,133 @@
     "hold": 1
    }
   ]
+ },
+ "ep17": {
+  "cover": [
+   "빼빼로 게임,",
+   "혼자 먹으면",
+   "<em>그냥 과자</em>",
+   "둘 다 다가가야 해요"
+  ],
+  "scenes": [
+   {
+    "text": "빼빼로 게임,<br>혼자 먹으면<br><span class=\"accent\">그냥 과자</span>",
+    "say": [
+     [
+      "N",
+      "빼빼로 게임, 혼자 먹으면 그냥 과자."
+     ]
+    ],
+    "hold": 0.5
+   },
+   {
+    "text": "양쪽에서<br>같이 다가가야<span style=\"display:block;margin:70px auto 0;height:28px;width:880px;border-radius:14px;background:linear-gradient(90deg,#e9d2a6 14%,#6b3b23 14%,#6b3b23 86%,#e9d2a6 86%)\"></span>",
+    "say": [
+     [
+      "N",
+      "양쪽에서 같이 다가가야 해요."
+     ]
+    ],
+    "hold": 0.6
+   },
+   {
+    "text": "탑노트도<br><span class=\"accent\">둘 다 원해야</span><br>사진이 열려요<span style=\"display:block;margin:70px auto 0;height:28px;width:320px;border-radius:14px;background:linear-gradient(90deg,#e9d2a6 14%,#6b3b23 14%,#6b3b23 86%,#e9d2a6 86%)\"></span>",
+    "say": [
+     [
+      "N",
+      "탑노트도 둘 다 원해야 사진이 열려요."
+     ]
+    ],
+    "hold": 0.6
+   },
+   {
+    "text": "3분 통화 →<br>둘 다 좋으면 사진",
+    "sub": "한쪽만 누르면 알리지 않아요.",
+    "say": [
+     [
+      "N",
+      "3분 통화하고, 둘 다 좋으면 사진."
+     ]
+    ],
+    "hold": 0.6
+   },
+   {
+    "end": [
+     "만나기 전에,<br>3분 먼저.",
+     "탑노트"
+    ],
+    "say": [
+     [
+      "N",
+      "만나기 전에, 3분 먼저. 탑노트."
+     ]
+    ],
+    "hold": 1
+   }
+  ]
+ },
+ "ep18": {
+  "cover": [
+   "빼빼로데이",
+   "받은 것",
+   "<em>3개</em>",
+   "설렌 건 몇 개?"
+  ],
+  "scenes": [
+   {
+    "text": "빼빼로데이<br>받은 것<br><span class=\"accent\">3개</span>",
+    "say": [
+     [
+      "N",
+      "빼빼로데이, 받은 것 3개."
+     ]
+    ],
+    "hold": 0.5
+   },
+   {
+    "text": "팀장님 1<br>거래처 1<br>편의점 1+1",
+    "say": [
+     [
+      "N",
+      "팀장님 하나, 거래처 하나, 편의점 원 플러스 원."
+     ]
+    ],
+    "hold": 0.7
+   },
+   {
+    "text": "설렌 건<br><span class=\"accent\">0개</span>",
+    "say": [
+     [
+      "N",
+      "설렌 건, 0개."
+     ]
+    ],
+    "hold": 0.7
+   },
+   {
+    "text": "설렘은<br>목소리로 3분",
+    "sub": "1:1이 부담되면, 넷이 10분 4인 수다.",
+    "say": [
+     [
+      "N",
+      "설렘은 목소리로 3분. 1대1이 부담되면, 넷이 10분 4인 수다."
+     ]
+    ],
+    "hold": 0.6
+   },
+   {
+    "end": [
+     "만나기 전에,<br>3분 먼저.",
+     "탑노트"
+    ],
+    "say": [
+     [
+      "N",
+      "만나기 전에, 3분 먼저. 탑노트."
+     ]
+    ],
+    "hold": 1
+   }
+  ]
  }
 }
