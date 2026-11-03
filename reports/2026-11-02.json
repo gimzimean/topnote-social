@@ -1,6 +1,6 @@
 {
  "day": "2026-11-02",
- "collected_at": "2026-11-03T03:37:15.501Z",
+ "collected_at": "2026-11-03T03:44:13.657Z",
  "app": {
   "day": "2026-11-02",
   "signups": 3,
@@ -10,8 +10,8 @@
   "calls_1on1": 16,
   "talk_joins": 5,
   "members_total": {
-   "pending": 2,
-   "approved": 11,
+   "pending": 1,
+   "approved": 12,
    "rejected": 7
   },
   "profiles_total": 20,
@@ -200,8 +200,8 @@
  ],
  "meta_cap": {
   "spend_cap": 207315,
-  "spent_since_cap": 9474,
-  "left": 197841
+  "spent_since_cap": 9620,
+  "left": 197695
  },
  "queue": {
   "cards_posted": 2,
