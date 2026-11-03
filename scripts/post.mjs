@@ -158,7 +158,9 @@ async function postStory(post) {
 async function postTiktok(post, urls) {
   const name = `카드 ${post.id} · ${post.title}`;
   const caption = tiktokCaption(post.caption, { seed: `카드 ${post.id}` });
-  return postToTiktok(tokens, { kind: isVideo(urls) ? 'video' : 'photo', urls, caption, title: post.title, name, cover: isVideo(urls) ? reelCoverOf(post.id) : urls[0] });
+  // 틱톡은 카드를 사진 묶음으로 보낸다(2026-11-03 대표 「이전에는 캡션 붙여서 줬잖아」): 사진 초안은 글·태그가 같이 붙고, 영상 초안은 글이 안 붙는다. 음악은 auto_add_music.
+  const photos = imagesOf(post.id);
+  return postToTiktok(tokens, { kind: 'photo', urls: photos, caption, title: post.title, name, cover: photos[0] });
 }
 
 let failed = false;

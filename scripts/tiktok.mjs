@@ -54,9 +54,9 @@ export async function postToTiktok(tokens, { kind, urls, caption, title, name, c
   const inbox = async () => {
     const r = kind === 'video'
       ? await call('post/publish/inbox/video/init/', { source_info: source })
-      : await call('post/publish/content/init/', { post_info: { title: (title ?? '').slice(0, 90), description: caption.slice(0, 4000) }, media_type: 'PHOTO', post_mode: 'MEDIA_UPLOAD', source_info: source });
+      : await call('post/publish/content/init/', { post_info: { title: (title ?? '').slice(0, 90), description: caption.slice(0, 4000), auto_add_music: true }, media_type: 'PHOTO', post_mode: 'MEDIA_UPLOAD', source_info: source });
     const st = await waitFor(call, r.data.publish_id);
-    saveTiktokCaption({ id: name, publishId: r.data.publish_id, caption, cover, mode: 'inbox' });
+    saveTiktokCaption({ id: name, publishId: r.data.publish_id, caption, cover, mode: kind === 'photo' ? 'inbox-caption' : 'inbox' });
     return `${r.data.publish_id} ${st.status} (초안 · 글은 docs/tt.html 에서 복사)`;
   };
   if (mode === 'inbox') return inbox();
