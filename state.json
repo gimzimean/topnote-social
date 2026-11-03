@@ -25,5 +25,9 @@
   "ep4",
   "ep7"
  ],
- "reels_last_day": "2026-11-02"
+ "reels_last_day": "2026-11-02",
+ "ads": [
+  "ad01"
+ ],
+ "ads_last_slot": "2026-11-03-noon"
 }
