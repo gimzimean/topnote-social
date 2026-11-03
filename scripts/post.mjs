@@ -38,8 +38,12 @@ const imagesOf = (id) => {
     .sort((a, b) => parseInt(a) - parseInt(b)).map((f) => `${BASE}/${id}/${f}`);
 };
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
-const nextFor = (platform) => content.posts.find((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && imagesOf(p.id).length
-  && (platform !== 'story' || state.instagram.includes(p.id)));
+// 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
+const nextFor = (platform) => {
+  const ok = content.posts.filter((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && imagesOf(p.id).length
+    && (platform !== 'story' || state.instagram.includes(p.id)) && (pickId || !p.on || p.on <= today));
+  return ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
+};
 const storyOf = (id) => `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
 const REELS = BASE.replace(/posts$/, 'reels');
