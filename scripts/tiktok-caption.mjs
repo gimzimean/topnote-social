@@ -7,7 +7,10 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pickHashtags, splitTags, tagsOk } from './hashtags.mjs';
 
-export const TIKTOK_APP_LINE = '📱 안드로이드는 영상 링크, 아이폰은 프로필 링크에서 「탑노트」 받아요.';
+// 2026-11-03 대표 「다운로드 링크 추가, 애플·안드로이드 다」 → 두 주소를 글에 적는다(topnote.app/ios·/android → /go/ 기기별 스토어).
+export const TIKTOK_APP_LINE = `📱 탑노트 받기
+아이폰 → topnote.app/ios
+안드로이드 → topnote.app/android`;
 const captionsFile = resolve(import.meta.dirname, '..', 'docs', 'tiktok', 'captions.json');
 const readList = () => (existsSync(captionsFile) ? JSON.parse(readFileSync(captionsFile, 'utf8')) : []);
 
