@@ -22,7 +22,7 @@ const capFile = resolve(root, 'shorts', `${next}.txt`);
 const cap = readFileSync(capFile, 'utf8');
 const q = cap.split('👇')[1]?.split('댓글로')[0].trim() ?? '여러분은 어땠나요?';
 const comment = `${q}\n댓글로 골라 주세요 👇\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆`;
-execFileSync('node', [resolve(root, 'scripts/reel.mjs'), `${base}/${next}.mp4`, `${base}/${next}-cover.jpg`, capFile, comment], { stdio: 'inherit' });
+execFileSync('node', [resolve(root, 'scripts/reel.mjs'), `${base}/${next}.mp4`, `${base}/${next}-cover.jpg`, capFile, comment], { stdio: 'inherit', env: { ...process.env, REEL_NAME: `숏폼 ${next}` } });
 if (!state.reels.includes(next)) state.reels.push(next);
 state.reels_last_day = today;
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');

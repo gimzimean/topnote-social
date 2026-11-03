@@ -180,7 +180,7 @@ async function postTiktok(post, urls) {
     const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: urls[0] } })).data;
     for (let i = 0; i < 60; i++) {
       const s = (await call('post/publish/status/fetch/', { publish_id })).data;
-      if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) { saveTiktokCaption({ id: publish_id, caption: post.caption, cover: reelCoverOf(post.id) }); return `${publish_id} ${s.status}`; }
+      if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) { saveTiktokCaption({ id: `카드 ${post.id} · ${post.title}`, publishId: publish_id, caption: post.caption, cover: reelCoverOf(post.id) }); return `${publish_id} ${s.status}`; }
       if (s.status === 'FAILED') throw new Error(`틱톡 실패: ${s.fail_reason}`);
       await sleep(3000);
     }
@@ -203,7 +203,10 @@ async function postTiktok(post, urls) {
   })).data;
   for (let i = 0; i < 40; i++) {
     const s = (await call('post/publish/status/fetch/', { publish_id })).data;
-    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) return `${publish_id} ${s.status}`;
+    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(s.status)) {
+      saveTiktokCaption({ id: `카드 ${post.id} · ${post.title}`, publishId: publish_id, caption: post.caption, cover: urls[0] });
+      return `${publish_id} ${s.status}`;
+    }
     if (s.status === 'FAILED') throw new Error(`틱톡 실패: ${s.fail_reason}`);
     await sleep(3000);
   }

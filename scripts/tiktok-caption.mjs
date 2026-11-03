@@ -14,11 +14,14 @@ export function tiktokCaption(caption) {
   return `${main}\n\n${TIKTOK_APP_LINE}${tags ? `\n\n${tags[1]}` : ''}`;
 }
 
-export function saveTiktokCaption({ id, caption, cover }) {
+// 틱톡 초안을 보내는 모든 경로(광고 영상·숏폼·카드 릴스·사진)가 반드시 부른다(2026-11-03 대표 「틱톡은 항상 글과 함께」).
+// id: 사람이 알아보는 이름(예: 「광고 ad01 · tn1031_01_tn1029-callB」, 「카드 003 · 제목」), publishId: 틱톡 내부 번호.
+export function saveTiktokCaption({ id, publishId, caption, cover }) {
+  if (!id || !caption || !cover) throw new Error('틱톡 글 저장: id·caption·cover 모두 필요해요');
   const dir = resolve(import.meta.dirname, '..', 'docs', 'tiktok');
   mkdirSync(dir, { recursive: true });
   const f = resolve(dir, 'captions.json');
   const list = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : [];
-  list.unshift({ id, at: new Date().toISOString(), cover, caption: tiktokCaption(caption) });
+  list.unshift({ id, publish_id: publishId ?? null, at: new Date().toISOString(), cover, caption: tiktokCaption(caption) });
   writeFileSync(f, JSON.stringify(list.slice(0, 30), null, 1) + '\n');
 }

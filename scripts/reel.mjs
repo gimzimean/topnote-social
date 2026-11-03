@@ -103,7 +103,7 @@ await step('틱톡', async () => {
   const { publish_id } = (await call('post/publish/inbox/video/init/', { source_info: { source: 'PULL_FROM_URL', video_url: url } })).data;
   for (let i = 0; i < 60; i++) {
     const st = (await call('post/publish/status/fetch/', { publish_id })).data;
-    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(st.status)) { saveTiktokCaption({ id: publish_id, caption, cover }); return `${publish_id} ${st.status}`; }
+    if (['PUBLISH_COMPLETE', 'SEND_TO_USER_INBOX'].includes(st.status)) { saveTiktokCaption({ id: process.env.REEL_NAME || url.split('/').pop().replace(/\.mp4$/, ''), publishId: publish_id, caption, cover }); return `${publish_id} ${st.status}`; }
     if (st.status === 'FAILED') throw new Error(`틱톡 실패: ${st.fail_reason}`);
     await sleep(3000);
   }

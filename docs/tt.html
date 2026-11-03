@@ -10,7 +10,7 @@ fetch('tiktok/captions.json?t='+Date.now()).then(r=>r.json()).then(list=>{
   list.forEach(x=>{
     const c=document.createElement('div'); c.className='card';
     const d=new Date(x.at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
-    c.innerHTML=`${x.cover?`<img src="${x.cover}">`:''}<div style="flex:1;min-width:0"><div class="at">${d}</div><pre></pre><button>복사</button></div>`;
+    c.innerHTML=`${x.cover?`<img src="${x.cover}">`:''}<div style="flex:1;min-width:0"><div class="at">${x.id&&!x.id.startsWith('v_inbox')&&!x.id.startsWith('p_inbox')?x.id+' · ':''}${d}</div><pre></pre><button>복사</button></div>`;
     c.querySelector('pre').textContent=x.caption;
     const b=c.querySelector('button');
     b.onclick=()=>navigator.clipboard.writeText(x.caption).then(()=>{b.textContent='복사됨 ✓';b.className='done'});
