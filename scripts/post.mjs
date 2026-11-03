@@ -17,6 +17,9 @@ const BASE = 'https://gimzimean.github.io/topnote-social/posts';
 const dry = process.argv.includes('--dry');
 const onlyIdx = process.argv.indexOf('--only');
 const only = onlyIdx > 0 ? process.argv[onlyIdx + 1] : null;
+// --id 020 → 차례와 상관없이 그 게시물만(아직 안 올린 플랫폼에만). 날짜 기록(last_day)은 건드리지 않는다.
+const idIdx = process.argv.indexOf('--id');
+const pickId = idIdx > 0 ? process.argv[idIdx + 1] : null;
 
 const content = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 const statePath = resolve(root, 'state.json');
@@ -35,7 +38,7 @@ const imagesOf = (id) => {
     .sort((a, b) => parseInt(a) - parseInt(b)).map((f) => `${BASE}/${id}/${f}`);
 };
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
-const nextFor = (platform) => content.posts.find((p) => !state[platform].includes(p.id) && imagesOf(p.id).length
+const nextFor = (platform) => content.posts.find((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && imagesOf(p.id).length
   && (platform !== 'story' || state.instagram.includes(p.id)));
 const storyOf = (id) => `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
@@ -178,7 +181,7 @@ for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory]
     if (!head.ok) throw new Error(`주소가 아직 안 열려요: ${urls[0]} (${head.status})`);
     const id = await fn(post, urls);
     state[platform].push(post.id);
-    state.last_day = today;
+    if (!pickId) state.last_day = today;
     writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
     console.log(`[${platform}] ${post.id} 올림 → ${id}`);
   } catch (e) {
