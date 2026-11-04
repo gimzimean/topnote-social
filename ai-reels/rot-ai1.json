@@ -1,0 +1,15 @@
+{
+  "id": "rot-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/rot-ai1-1.mp4", "text": "로테이션 소개팅,<br>5분씩 <em>8명</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/rot-ai1-2.mp4", "text": "자기소개만 <em>8번</em>.<br>집에 오면 기억 안 남." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png", "text": "탑노트는<br>하루 <em>한 명</em>만 제대로." },
+    { "clip": "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4", "text": "집에서 편하게,<br>목소리로 <em>3분</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "더 얘기하고 싶으면<br>둘 다 누르면 <em>3분 더</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/rot-ai1-4.mp4", "text": "말이 통하면,<br>그때 <em>사진</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "안 맞으면<br>잃는 건 <em>3분</em>뿐." },
+    { "end": "8명 대충 말고<br><em>한 명</em> 제대로.", "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료" }
+  ],
+  "cover": { "from": 0, "at": 2.5, "text": "로테이션 소개팅<br>가봤는데<br><em>8명 다 기억 안 남</em>." }
+}

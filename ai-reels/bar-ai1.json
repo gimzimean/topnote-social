@@ -1,0 +1,14 @@
+{
+  "id": "bar-ai1",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/bar-ai1-1.mp4", "text": "혼술바 가서<br>옆자리 말 걸까 <em>30분</em> 고민." },
+    { "clip": "C:/topnote-social/ai-reels/src/bar-ai1-2.mp4", "text": "결국 <em>한마디도</em> 못 함." },
+    { "clip": "C:/topnote-social/ai-reels/src/bar-ai1-3.mp4", "text": "그렇게<br>혼자 <em>집에</em> 감." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png", "text": "탑노트 <em>4인 수다</em>,<br>처음 만난 넷이 10분." },
+    { "clip": "C:/topnote-social/ai-reels/src/bar-ai1-4.mp4", "text": "집에서 한 캔 하면서<br>말 거는 건 <em>앱이</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "끝나고 서로 고르면<br>둘이 <em>3분</em> 더." },
+    { "end": "말 걸 용기<br>없어도 <em>돼요</em>.", "sub": "탑노트 · 첫 4인 수다 무료<br>매일 오후 4시 예약 오픈" }
+  ],
+  "cover": { "from": 0, "at": 2.5, "text": "혼술바에서<br>옆자리 말 걸어<br><em>본 사람</em>?" }
+}
