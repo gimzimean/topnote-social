@@ -37,7 +37,7 @@ const params = { media_type: 'TEXT', text: post.text.slice(0, 500) };
 if (post.topic) params.topic_tag = post.topic;
 const id = await publish(params);
 console.log('[스레드 글]', post.id, id);
-await publish({ media_type: 'TEXT', text: '탑노트 받기 → https://topnote.app/th', reply_to_id: id })
+await publish({ media_type: 'TEXT', text: '보이스 소개팅, 탑노트 → https://topnote.app/th', reply_to_id: id })
   .catch((e) => console.error(`[스레드 글] 답글 실패: ${e.message}`));
 
 state.threads_text.push(post.id);

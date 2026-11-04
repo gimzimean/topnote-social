@@ -110,7 +110,7 @@ async function postInstagram(post, urls) {
 
 // 첫 댓글: 게시물에 comment 가 있으면 그것, 없으면 기본 문구.
 const commentOf = (post, platform) => (typeof post.comment === 'string' ? post.comment : post.comment?.[platform]) ?? (platform === 'threads'
-  ? '목소리로 3분 먼저 만나 보는 곳, 탑노트 → https://topnote.app/th'
+  ? '보이스 소개팅, 탑노트 · 목소리로 3분 먼저 → https://topnote.app/th'
   : '여러분은 어땠나요? 댓글로 알려 주세요.\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆');
 
 // 스레드: 사람 영상 + 스레드식 짧은 글(2026-11-04 대표 「스레드 스타일에 맞게 천천히」).
