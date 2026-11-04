@@ -32,6 +32,7 @@ const page = await browser.newPage({ viewport: { width: W, height: H } });
 const shot = async (html, file, transparent = true) => {
   await page.setContent(`<style>${base}</style>${html}`);
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => { for (const el of document.querySelectorAll('.t')) { el.style.whiteSpace = 'nowrap'; let s = parseFloat(getComputedStyle(el).fontSize); while (el.scrollWidth > el.clientWidth + 1 && s > 40) { s -= 2; el.style.fontSize = s + 'px'; } } }); // 글자 안 깨지게: 줄은 <br>에서만 바꾸고, 길면 글자를 줄인다(2026-11-04 대표)
   await page.screenshot({ path: file, omitBackground: transparent });
 };
 const CTA = '<div class="cta"><span>탑노트 · 지금 앱 받기</span></div>';

@@ -29,6 +29,7 @@ for (const file of process.argv.slice(2)) {
   <div style="position:absolute;left:80px;right:80px;top:${c.top ?? 1180}px"><div class="t" style="font-size:132px;line-height:1.18">${c.text}</div></div>
   `}<div class="ai">AI로 만든 장면</div>`);
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => { for (const el of document.querySelectorAll('.t')) { el.style.whiteSpace = 'nowrap'; let s = parseFloat(getComputedStyle(el).fontSize); while (el.scrollWidth > el.clientWidth + 1 && s > 40) { s -= 2; el.style.fontSize = s + 'px'; } } }); // 글자 안 깨지게: 줄은 <br>에서만 바꾸고, 길면 글자를 줄인다(2026-11-04 대표)
   await page.screenshot({ path: resolve(tmp, 'cover.png') });
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', resolve(tmp, 'cover.png'), '-q:v', '2', resolve(root, 'docs/ai-reels', `${spec.id}-cover.jpg`)]);
   console.log('표지', spec.id);

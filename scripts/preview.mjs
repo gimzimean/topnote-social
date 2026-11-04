@@ -20,7 +20,7 @@ ${tt ? `<textarea id=k${i} readonly class=small>${esc(tt)}</textarea><button dat
 writeFileSync(resolve(root, 'docs/preview.html'), `<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noindex>
 <meta property="og:title" content="탑노트 11~12월 게시물 미리보기"><meta property="og:description" content="빼빼로데이부터 크리스마스 이브까지, 사람 나오는 영상 ${ps.length}편"><meta property="og:image" content="https://gimzimean.github.io/topnote-social/ai-reels/talk-ai1-cover.jpg">
 <title>탑노트 예약 게시물 미리보기</title>
-<style>body{margin:0;background:#171411;color:#F3EBDD;font-family:system-ui,sans-serif}h1{font-size:20px;padding:18px 16px 4px}p{padding:0 16px;color:#b9ad9c;font-size:13px}
+<style>body{margin:0;background:#171411;color:#F3EBDD;font-family:system-ui,sans-serif;word-break:keep-all;overflow-wrap:break-word}h1{font-size:20px;padding:18px 16px 4px}p{padding:0 16px;color:#b9ad9c;font-size:13px}
 .g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;padding:16px}.c{background:#241f1b;border-radius:14px;padding:10px}
 .d{font-size:13px;color:#E9B44C;margin-bottom:6px}.d b{color:#fff;background:#8a3b2e;padding:1px 6px;border-radius:6px;font-weight:600}
 video{width:100%;aspect-ratio:9/16;border-radius:10px;background:#000;object-fit:cover}.t{font-weight:700;margin:8px 0 6px}
