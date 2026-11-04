@@ -25,7 +25,7 @@ const base = `${font}*{margin:0;padding:0;box-sizing:border-box}body{width:${W}p
 .top{position:absolute;left:0;right:0;top:0;height:640px;padding:230px 80px 0;background:linear-gradient(180deg,rgba(23,20,17,.78) 0%,rgba(23,20,17,.45) 65%,rgba(23,20,17,0) 100%)}
 .t{font-family:SongMyung;color:#F3EBDD;font-size:84px;line-height:1.28;word-break:keep-all;text-shadow:0 2px 18px rgba(0,0,0,.45)}.t em{font-style:normal;color:#E9B44C}
 .ai{position:absolute;right:44px;top:150px;font-size:24px;color:rgba(243,235,221,.8);background:rgba(23,20,17,.45);padding:6px 14px;border-radius:99px}
-.cta{position:absolute;left:0;right:0;bottom:210px;text-align:center;font-size:40px;font-weight:800;color:#171411}.cta span{background:#F3EBDD;padding:18px 40px;border-radius:99px}`;
+.cta{position:absolute;left:0;right:0;bottom:210px;text-align:center;font-size:36px;font-weight:700;color:#F3EBDD;letter-spacing:.5px}.cta span{background:rgba(23,20,17,.62);border:1.5px solid rgba(233,180,76,.55);padding:16px 38px;border-radius:99px}`;
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: W, height: H } });
@@ -49,20 +49,21 @@ for (const [i, b] of spec.beats.entries()) {
     const png = resolve(tmp, `st${i}.png`);
     const inner = b.screen
       ? `<div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 70%,#3a1f20 0%,#171411 70%)"></div>
-         <div style="position:absolute;left:50%;top:640px;transform:translateX(-50%);width:600px;height:1298px;border-radius:64px;border:14px solid #2b2522;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)"><img src="data:image/png;base64,${b64(b.screen)}" style="width:100%;height:100%;object-fit:cover"></div>
+         <div style="position:absolute;left:50%;top:500px;transform:translateX(-50%);width:500px;height:1082px;border-radius:56px;border:12px solid #2b2522;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)"><img src="data:image/png;base64,${b64(b.screen)}" style="width:100%;height:100%;object-fit:cover"></div>
          <div class="top" style="background:none"><div class="t">${b.text}</div></div>${CTA}`
       : `<div style="position:absolute;inset:0;background:linear-gradient(160deg,#4a1f22 0%,#171411 75%)"></div>
          <div style="position:absolute;left:80px;right:80px;top:640px"><div class="t" style="font-size:104px">${b.end}</div><div style="margin-top:56px;font-size:46px;color:#E7D2C4;line-height:1.6">${b.sub}</div></div>
          <div style="position:absolute;left:80px;top:230px;font-family:'DM Serif Display',serif;font-size:72px;color:#F3EBDD">T<span style="color:#B85F45">.</span></div>${CTA}`;
     await shot(inner, png, false);
     const dur = b.end ? END : STILL;
-    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-i', png, '-vf',
-      `scale=${W * 1.04}:-1,zoompan=z='1+0.0004*on':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)/2':d=${Math.round(dur * 30)}:s=${W}x${H}:fps=30,format=yuv420p,setsar=1`,
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-framerate', '30', '-i', png, '-vf',
+      `fps=30,format=yuv420p,setsar=1`,
       '-t', String(dur), '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', seg]);
   }
   parts.push(seg);
 }
 
+// 앱 화면·끝 카드는 확대 효과 없이 멈춘 화면(확대하면 떨려 보였다, 2026-11-04 대표). 앱 화면은 폰을 줄여 아래 「지금 앱 받기」와 안 겹치게, 알약은 어두운 반투명 + 금색 테두리.
 // 이어 붙이기(장면 사이 0.35초 디졸브) + 음악
 const durs = spec.beats.map((b) => (b.clip ? CLIP : b.end ? END : STILL));
 const F = 0.35;
