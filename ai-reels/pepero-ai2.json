@@ -19,6 +19,15 @@
       "text": "넷이 <em>10분</em>,<br>주제 하나로 수다."
     },
     {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/pepero-ai2-1.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+        "C:/topnote-social/ai-reels/src/pepero-ai2-2.mp4"
+      ],
+      "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
+    },
+    {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
       "text": "부담되면<br><em>조용히 나가기</em>."
     },

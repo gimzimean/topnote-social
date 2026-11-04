@@ -36,12 +36,22 @@ const shot = async (html, file, transparent = true) => {
 };
 const CTA = '<div class="cta"><span>탑노트 · 지금 앱 받기</span></div>';
 
+// 4인 수다: { grid: [클립 4개], text } → 2×2 한 화면(ai-reels/src/<id>-grid<i>.mp4)으로 합쳐 일반 클립처럼 쓴다(2026-11-04 대표 「4명 동시에 나오는 화면」).
+for (const [i, b] of spec.beats.entries()) {
+  if (!b.grid) continue;
+  const g = resolve(root, 'ai-reels/src', `${spec.id}-grid${i}.mp4`);
+  const cell = `scale=${W / 2}:${H / 2}:force_original_aspect_ratio=increase,crop=${W / 2}:${H / 2},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.grid.flatMap((p) => ['-i', p]), '-filter_complex',
+    `[0:v]${cell}[a];[1:v]${cell}[b];[2:v]${cell}[c];[3:v]${cell}[d];[a][b][c][d]xstack=inputs=4:layout=0_0|540_0|0_1140|540_1140:fill=0x171411,drawbox=x=537:y=0:w=6:h=1920:color=0x171411:t=fill[o]`,
+    '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
+  b.clip = g;
+}
 const parts = [];
 for (const [i, b] of spec.beats.entries()) {
   const seg = resolve(tmp, `seg${i}.mp4`);
   if (b.clip) {
     const ov = resolve(tmp, `ov${i}.png`);
-    await shot(`<div class="top"><div class="t">${b.text}</div></div><div class="ai">AI로 만든 장면</div>${CTA}`, ov);
+    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div><div class="ai" style="top:800px">AI로 만든 장면</div>` : `<div class="top"><div class="t">${b.text}</div></div><div class="ai">AI로 만든 장면</div>${CTA}`, ov);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', b.clip, '-loop', '1', '-i', ov, '-filter_complex',
       `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
       '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', seg]);
@@ -86,9 +96,10 @@ const c = spec.cover;
 const frame = resolve(tmp, 'frame.jpg');
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', spec.beats[c.from].clip ?? parts[c.from], '-frames:v', '1', '-vf', `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]); // 글자 없는 원본에서
 await shot(`<img src="data:image/jpeg;base64,${b64(frame)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
+  ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
+  ` : `<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
   <div style="position:absolute;left:80px;right:80px;top:${c.top ?? 1180}px"><div class="t" style="font-size:132px;line-height:1.18">${c.text}</div></div>
-  <div class="ai">AI로 만든 장면</div>`, resolve(tmp, 'cover.png'), false);
+  `}<div class="ai">AI로 만든 장면</div>`, resolve(tmp, 'cover.png'), false);
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', resolve(tmp, 'cover.png'), '-q:v', '2', resolve(out, `${spec.id}-cover.jpg`)]);
 await browser.close();
 console.log(`${spec.id}: ${parts.length}장면 ${total.toFixed(1)}초 · ${track.title} → docs/ai-reels/${spec.id}.mp4`);

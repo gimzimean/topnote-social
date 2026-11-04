@@ -3,6 +3,15 @@
   "track": "fox-in-satin-x-one-more-ping.mp3",
   "beats": [
     {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
+      ],
+      "text": "크리스마스,<br>처음 만난 <em>넷이서</em> 수다."
+    },
+    {
       "clip": "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
       "text": "크리스마스 파티,<br>갈 데 <em>없어서</em> 집에서."
     },
@@ -27,7 +36,12 @@
       "text": "끝나고 서로 고르면,<br>둘이 <em>3분</em> 더."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4",
+      "grid": [
+        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4"
+      ],
       "text": "올해 연말은<br><em>넷이서</em> 웃기."
     },
     {
@@ -37,8 +51,7 @@
   ],
   "cover": {
     "from": 0,
-    "at": 3,
-    "text": "크리스마스,<br>처음 만난 <em>넷이</em><br>수다 떨기.",
-    "top": 1180
+    "at": 2.5,
+    "text": "크리스마스, 처음 만난<br><em>넷이서</em> 수다 떨기."
   }
 }

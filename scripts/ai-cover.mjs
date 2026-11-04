@@ -22,11 +22,12 @@ for (const file of process.argv.slice(2)) {
   const c = spec.cover;
   const tmp = resolve(tmpdir(), `ai-cover-${spec.id}`); mkdirSync(tmp, { recursive: true });
   const frame = resolve(tmp, 'frame.jpg');
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', spec.beats[c.from].clip, '-frames:v', '1', '-vf', `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]);
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', (spec.beats[c.from].clip ?? resolve(root, "ai-reels/src", `${spec.id}-grid${c.from}.mp4`)), '-frames:v', '1', '-vf', `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]);
   await page.setContent(`<style>${css}</style><img src="data:image/jpeg;base64,${b64(frame)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
+  ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
+  ` : `<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
   <div style="position:absolute;left:80px;right:80px;top:${c.top ?? 1180}px"><div class="t" style="font-size:132px;line-height:1.18">${c.text}</div></div>
-  <div class="ai">AI로 만든 장면</div>`);
+  `}<div class="ai">AI로 만든 장면</div>`);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: resolve(tmp, 'cover.png') });
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', resolve(tmp, 'cover.png'), '-q:v', '2', resolve(root, 'docs/ai-reels', `${spec.id}-cover.jpg`)]);
