@@ -1,0 +1,184 @@
+{
+ "day": "2026-11-03",
+ "collected_at": "2026-11-04T02:34:10.589Z",
+ "app": {
+  "day": "2026-11-03",
+  "signups": 4,
+  "approved": 0,
+  "onboarded": 4,
+  "purchases": {},
+  "calls_1on1": 0,
+  "talk_joins": 0,
+  "members_total": {
+   "pending": 3,
+   "approved": 11,
+   "rejected": 9
+  },
+  "profiles_total": 23,
+  "visits_by_source": {
+   "direct": 37,
+   "tiktok": 21,
+   "(not set)": 300,
+   "app_store": 297,
+   "instagram": 1,
+   "play_store": 784,
+   "apps.instagram.com": 46
+  },
+  "signups_by_source": {
+   "(모름)": 2,
+   "(not set)": 1,
+   "app_store": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 1,
+  "posts": 40,
+  "recent": [
+   {
+    "at": "2026-11-03T20:32:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[크리스마스 D-51] 올해는 진짜 솔크 탈출.",
+    "url": "https://www.instagram.com/reel/DfSvxfjjCv5/"
+   },
+   {
+    "at": "2026-11-03T20:05:39+0000",
+    "type": "CAROUSEL_ALBUM",
+    "likes": 1,
+    "comments": 1,
+    "title": "[크리스마스 D-51] 올해는 진짜 솔크 탈출.",
+    "url": "https://www.instagram.com/p/DfSsxnMj3ks/"
+   },
+   {
+    "at": "2026-11-03T18:23:15+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 3화] 애프터는 「다음에」 말고 「목요일에」.",
+    "url": "https://www.instagram.com/reel/DfShBsJlJuG/"
+   },
+   {
+    "at": "2026-11-03T18:09:47+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "둘이 부담되면 모르는 넷이 10분 4인 수다부터, 편해지면 1:1 3분 통화로. 만나기 전",
+    "url": "https://www.instagram.com/reel/DfSfemfmAQH/"
+   },
+   {
+    "at": "2026-11-03T09:12:34+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[데이터로 보는 소개팅] 이상형 1위는 「대화 잘 통하는 사람」.",
+    "url": "https://www.instagram.com/reel/DfRh_weCpBz/"
+   },
+   {
+    "at": "2026-11-03T05:00:25+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "얼굴 몰라도 말은 통하더라, 3분 통화나 4인 수다로 확인해요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfRFI57Fg98/"
+   },
+   {
+    "at": "2026-11-03T04:56:01+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로 게임, 혼자 먹으면 그냥 과자] 양쪽에서 같이 다가가야 가운데서 만나요. 🍫",
+    "url": "https://www.instagram.com/reel/DfREo1VD5Hu/"
+   },
+   {
+    "at": "2026-11-03T04:37:49+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이, 줄 사람 있어요?] 올해도 혼자 먹는 빼빼로. 🍫",
+    "url": "https://www.instagram.com/reel/DfRCj9UgcVI/"
+   },
+   {
+    "at": "2026-11-03T04:15:14+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "얼굴도 모르는데 목소리로 3분, 말이 통하면 그때 사진을 봐요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfQ__eoDCvb/"
+   },
+   {
+    "at": "2026-11-02T20:44:14+0000",
+    "type": "CAROUSEL_ALBUM",
+    "likes": 0,
+    "comments": 0,
+    "title": "[만나기 전에 3화] 애프터는 「다음에」 말고 「목요일에」.",
+    "url": "https://www.instagram.com/p/DfQMZZqGHbn/"
+   },
+   {
+    "at": "2026-11-02T04:23:52+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅에서 깼던 순간 ①] 전 애인 얘기만 30분.",
+    "url": "https://www.instagram.com/reel/DfOcKeYHbi1/"
+   },
+   {
+    "at": "2026-11-02T01:19:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 4편] 3분 통화가 너무 짧았던 날.",
+    "url": "https://www.instagram.com/reel/DfOHEwpAUGr/"
+   }
+  ]
+ },
+ "threads": {
+  "error": "{\"message\":\"Error validating access token: You cannot access the app till you log in to www.threads.com and follow the instructions given.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":0,\"fbtrac"
+ },
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 10036,
+   "impressions": 775,
+   "clicks": 13,
+   "ctr": 1.677419,
+   "installs": 2,
+   "link_clicks": 10
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 8656,
+   "impressions": 1172,
+   "clicks": 134,
+   "ctr": 11.433447,
+   "installs": 0,
+   "link_clicks": 154
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 207315,
+  "spent_since_cap": 22220,
+  "left": 185095
+ },
+ "queue": {
+  "cards_posted": 4,
+  "cards_total": 49,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
