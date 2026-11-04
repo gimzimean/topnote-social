@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai16",
+  "track": "last-message-first.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai16-1.mp4",
+      "text": "선물 고민은<br><em>행복한</em> 고민."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai16-2.mp4",
+      "text": "그러려면<br><em>사람</em>이 먼저예요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai16-3.mp4",
+      "text": "3주면<br><em>충분</em>해요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진보다<br><em>대화</em>가 맞는 사람."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "선물 전에<br><em>줄 사람</em><br>먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "선물 고르기 전에<br><em>줄 사람</em><br>먼저."
+  }
+}

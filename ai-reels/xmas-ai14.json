@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai14",
+  "track": "fox-satin.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai14-1.mp4",
+      "text": "약속은 많은데<br><em>설레는 건</em> 없죠."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai14-2.mp4",
+      "text": "새로운 사람<br><em>한 명</em> 더해요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai14-3.mp4",
+      "text": "<em>3분</em>이면<br>말이 통하는지 알아요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "둘 다 누르면<br><em>3분 더</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "연말 약속에<br><em>설렘</em> 하나.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "연말 약속<br>다 찼는데<br><em>설렘은?</em>"
+  }
+}

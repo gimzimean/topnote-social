@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai5",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai5-1.mp4",
+      "text": "모임은 많은데<br><em>편한 사람</em>이 없을 때."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai5-2.mp4",
+      "text": "친구로 고르면<br><em>같은 성별</em>과 이야기해요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai5-3.mp4",
+      "text": "넷이 수다하다<br><em>맞는 친구</em> 찾기."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "4인 수다<br>첫 1회 <em>무료</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "연말 전에<br>말 통하는<br><em>친구 한 명</em>.",
+      "sub": "탑노트 · 1:1도 4인 수다도<br>저녁 5시부터"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "연말 모임 전에<br>말 통하는<br><em>친구 한 명</em>."
+  }
+}

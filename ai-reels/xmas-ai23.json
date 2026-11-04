@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai23",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai23-1.mp4",
+      "text": "혼자 쉬는<br>크리스마스도 <em>좋아요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai23-2.mp4",
+      "text": "대신 <em>10분</em>만<br>수다 떨어요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai23-3.mp4",
+      "text": "맞으면<br>내년엔 <em>같이 파티</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "넷이<br><em>크리스마스</em> 이야기."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "혼자여도<br><em>괜찮아</em>.",
+      "sub": "탑노트 · 4인 수다 첫 1회 무료<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "혼자여도<br><em>괜찮아</em>."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai13",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-1.mp4",
+      "text": "처음엔<br><em>어색해도</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
+      "text": "주제가 있어서<br>금방 <em>편해져요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-3.mp4",
+      "text": "끝나고 몰래<br><em>한 명</em> 고르기."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "서로 고르면<br><em>1:1</em>로 이어져요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "크리스마스 전<br><em>4인 수다</em>.",
+      "sub": "탑노트 · 첫 1회 무료<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "크리스마스 전<br><em>4인 수다</em><br>해 봤어요?"
+  }
+}

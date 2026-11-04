@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai17",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai17-1.mp4",
+      "text": "마지막 30초,<br>「<em>즐거웠어요</em>」."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai17-2.mp4",
+      "text": "더 하고 싶으면<br><em>3분 더</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai17-3.mp4",
+      "text": "상대는<br>누가 눌렀는지 <em>몰라요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "사진은<br><em>통화 뒤에</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "3분 통화<br><em>잘 끝내는 법</em>.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "3분 통화<br><em>잘 끝내는</em><br>법."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai12",
+  "track": "talking-with-my-ex.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai12-1.mp4",
+      "text": "주말엔<br><em>집에만</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai12-2.mp4",
+      "text": "사진만 넘기다<br><em>지쳤죠</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai12-3.mp4",
+      "text": "집에서<br><em>3분</em>이면 돼요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "여긴<br><em>목소리</em>가 먼저."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "솔크 위험,<br>오늘 <em>3분</em>으로<br>탈출.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "<em>솔크</em><br>위험 신호."
+  }
+}

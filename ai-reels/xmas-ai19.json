@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai19",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai19-1.mp4",
+      "text": "크리스마스<br><em>11일</em> 남았다."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai19-2.mp4",
+      "text": "오늘 통화,<br>이번 주 <em>번호</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai19-3.mp4",
+      "text": "다음 주엔<br><em>연락</em>하는 사이."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "매일 <em>한 명</em> 무료,<br>하루 최대 두 명."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "11일이면<br><em>가능</em>해요.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "크리스마스<br><em>11일</em><br>남았다."
+  }
+}

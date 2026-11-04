@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai25",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai25-1.mp4",
+      "text": "오늘 밤도<br><em>열려</em> 있어요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai25-2.mp4",
+      "text": "이브엔<br><em>4인 수다</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai25-3.mp4",
+      "text": "오늘 통화가<br><em>내년</em> 크리스마스를 바꿔요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "혼자인 사람끼리<br>더 <em>편해요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "메리<br><em>크리스마스</em>.",
+      "sub": "탑노트 · 1:1 정각 · 4인 수다 30분<br>저녁 5시부터"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "오늘<br><em>크리스마스</em><br>이브."
+  }
+}

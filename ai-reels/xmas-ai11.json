@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai11",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai11-1.mp4",
+      "text": "1. 말이<br><em>통하는지</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai11-2.mp4",
+      "text": "2. 예의가<br><em>있는지</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai11-3.mp4",
+      "text": "3. 같은 걸<br><em>원하는지</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "불편하면<br>바로 <em>끊어요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "크리스마스 전<br><em>3분</em>이면<br>확인.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "크리스마스 전에<br>확인할<br><em>3가지</em>."
+  }
+}

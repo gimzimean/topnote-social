@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai18",
+  "track": "talking-with-my-ex.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai18-1.mp4",
+      "text": "이브에 뭐 할지<br><em>아직</em>이라면."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai18-2.mp4",
+      "text": "오늘 통화 한 번이면<br><em>시작</em>이에요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai18-3.mp4",
+      "text": "4인 수다에서<br><em>이브 멤버</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "셋 이상 원하면<br>다 같이 <em>번호</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "이브 계획,<br><em>지금</em>.",
+      "sub": "탑노트 · 1:1도 4인 수다도<br>저녁 5시부터"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "이브에<br>뭐 할지<br><em>정했어요?</em>"
+  }
+}

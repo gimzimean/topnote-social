@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai15",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai15-1.mp4",
+      "text": "12월은<br><em>빨라요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai15-2.mp4",
+      "text": "송년회 몇 번이면<br><em>크리스마스</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai15-3.mp4",
+      "text": "오늘 <em>3분</em>으로<br>시작해요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "한쪽만 원하면<br>아무것도 <em>안 알려요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "12월,<br><em>연락할 사람</em>.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "12월<br><em>연락할 사람</em><br>있어요?"
+  }
+}

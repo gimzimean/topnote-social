@@ -1,0 +1,39 @@
+{
+  "id": "pepero-ai3",
+  "track": "last-message-first.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-1.mp4",
+      "text": "오늘 SNS는<br>온통 <em>빼빼로</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-2.mp4",
+      "text": "괜히 작아져도,<br>다들 시작은 <em>혼자</em>였어요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-3.mp4",
+      "text": "오늘 저녁<br>새 사람과 <em>3분</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "안 맞으면<br>그냥 <em>끝</em>이에요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "다음은<br><em>크리스마스</em>.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "빼빼로데이,<br><em>혼자</em>라도<br>괜찮아요."
+  }
+}

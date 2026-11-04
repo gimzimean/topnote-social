@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai10",
+  "track": "last-message-first.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-1.mp4",
+      "text": "첫눈 오는 날<br>제일 <em>허전</em>해요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-2.mp4",
+      "text": "「눈 와요」<br>보낼 <em>사람</em> 있어요?"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-3.mp4",
+      "text": "목소리로 먼저,<br><em>3분</em>이면 알아요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "통화, 사진,<br>그다음 <em>번호</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "저녁 5시~11시,<br>매일 <em>한 명</em> 무료."
+    },
+    {
+      "end": "첫눈 전에<br><em>연락할 사람</em>.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "첫눈 오면<br><em>연락할 사람</em><br>있어요?"
+  }
+}

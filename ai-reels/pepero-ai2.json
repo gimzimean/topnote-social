@@ -1,0 +1,39 @@
+{
+  "id": "pepero-ai2",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai2-1.mp4",
+      "text": "1:1은<br><em>너무 떨리고</em>"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai2-2.mp4",
+      "text": "모임은 3시간,<br>맞는 사람 <em>0명</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai2-3.mp4",
+      "text": "넷이 <em>10분</em>,<br>주제 하나로 수다."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "부담되면<br><em>조용히 나가기</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "떨림도 부담도<br>없이,<br><em>4인 수다</em>.",
+      "sub": "탑노트 · 첫 1회 무료<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "1:1은 떨리고<br>모임은<br><em>부담될 때</em>."
+  }
+}

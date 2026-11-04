@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai21",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai21-1.mp4",
+      "text": "파티는<br><em>사람</em>이 반."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai21-2.mp4",
+      "text": "넷이 먼저<br><em>이야기</em>해 봐요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai21-3.mp4",
+      "text": "셋 이상 원하면<br>그게 <em>파티 멤버</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "처음이면<br><em>무료</em>로 해 봐요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "연말 파티<br><em>멤버 모집</em>.",
+      "sub": "탑노트 · 4인 수다 첫 1회 무료<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "연말 파티<br><em>멤버</em><br>모집."
+  }
+}

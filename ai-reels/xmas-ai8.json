@@ -1,0 +1,39 @@
+{
+  "id": "xmas-ai8",
+  "track": "fox-satin.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai8-1.mp4",
+      "text": "퇴근하고 혼밥,<br>가끔 <em>허전</em>하죠."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai8-2.mp4",
+      "text": "<em>10분</em>만<br>넷이 수다 떨어요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "친구로도,<br><em>설렘</em>으로도 골라요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai8-3.mp4",
+      "text": "주제가 있어서<br>어색할 <em>틈이 없어요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "언제든<br><em>조용히 나가기</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 말고,<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "end": "혼밥 말고<br><em>넷이</em><br>수다.",
+      "sub": "탑노트 · 4인 수다 첫 1회 무료<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "연말 혼밥 말고<br><em>넷이</em><br>수다."
+  }
+}
