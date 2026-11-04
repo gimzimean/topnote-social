@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai20",
+  "track": "fox-satin.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai20-1.mp4",
+      "text": "올해 크리스마스엔<br><em>통화할 사람</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "매일 한 명<br><em>무료</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai20-2.mp4",
+      "text": "사진 말고<br><em>목소리</em>로 먼저."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "올해는 진짜<br><em>솔크</em><br>탈출.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "올해는 진짜<br>솔크<br>탈출."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai9",
+  "track": "talking-with-my-ex.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai9-1.mp4",
+      "text": "밥을 사면<br><em>커피는 내가</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "데이트 비용 쓰기 전에<br><em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai9-2.mp4",
+      "text": "비싼 곳보다<br><em>편한 곳</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "첫 데이트 비용,<br>어떻게<br>나눌까."
+  }
+}

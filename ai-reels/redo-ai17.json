@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai17",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai17-1.mp4",
+      "text": "「무슨 일 하세요?」<br><em>부터</em> 묻지 마세요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "면접 말고<br><em>대화</em> 3분."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai17-2.mp4",
+      "text": "<em>좋아하는 것</em> 말할 때<br>표정이 밝아져요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "소개팅이<br>면접처럼<br>느껴진다면."
+  }
+}

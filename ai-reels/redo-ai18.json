@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai18",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai18-1.mp4",
+      "text": "좋았는데<br>연락이 <em>끊겼다면</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "둘 다 원할 때만<br><em>다음 단계</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai18-2.mp4",
+      "text": "한 번은<br><em>먼저</em> 보내도 괜찮아요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "간편인증한 사람과<br><em>3분</em> 통화."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "좋았는데<br>연락이<br>끊겼다면."
+  }
+}

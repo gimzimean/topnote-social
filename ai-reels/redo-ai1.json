@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai1",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai1-1.mp4",
+      "text": "사진 100장 넘겨도<br><em>대화할 사람</em>은 없다."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "간편인증한 사람과<br><em>3분</em> 통화."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai1-2.mp4",
+      "text": "그래서 요즘은<br><em>목소리</em>로 먼저."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "데이팅 앱,<br>요즘 다들<br>지우는 이유."
+  }
+}

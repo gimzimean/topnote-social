@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai19",
+  "track": "last-message-first.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai19-1.mp4",
+      "text": "웃는 타이밍은<br>사진에 <em>안 나와요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "목소리로<br><em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai19-2.mp4",
+      "text": "예의는<br><em>3분</em>이면 알아요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "3분 통화로<br>알 수 있는<br>것들."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "redo-ai10",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai10-1.mp4",
+      "text": "처음 만난 넷이서<br><em>10분</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "4인 수다,<br>처음 1회 <em>무료</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai10-2.mp4",
+      "text": "조용한 사람<br><em>이름</em>을 불러 주세요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "맘에 든 한 명과는<br><em>1:1 3분</em>도."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "4인 수다,<br>저녁 <em>5시 반</em>부터."
+    },
+    {
+      "end": "처음 만난 넷이<br><em>10분</em> 수다.",
+      "sub": "탑노트 4인 수다 · 첫 1회 무료<br>저녁 5시 반부터"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "처음 만난<br>넷이서 10분,<br>호감 주는 법.",
+    "top": 230
+  }
+}

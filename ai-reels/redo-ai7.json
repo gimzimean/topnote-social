@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai7",
+  "track": "fox-in-satin-x-one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai7-1.mp4",
+      "text": "말투, 웃는 타이밍.<br><em>목소리</em>에 다 묻어나요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "둘 다 누르면<br><em>3분 더</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai7-2.mp4",
+      "text": "말이 통하면<br>첫 만남이 <em>편해요</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "만나기 전에<br>통화부터<br>하는 이유."
+  }
+}

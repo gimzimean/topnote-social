@@ -1,0 +1,35 @@
+{
+  "id": "redo-ai6",
+  "track": "fox-satin.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai6-1.mp4",
+      "text": "직원에게 대하는 태도,<br><em>꼭</em> 보세요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "불편하면 바로 끊고<br><em>신고·차단</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai6-2.mp4",
+      "text": "나를 <em>궁금해하는지</em><br>보세요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "매일 저녁 5시~11시,<br><em>한 명 무료</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분</em> 먼저.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "첫 만남에서<br>이건 꼭<br>보고 오세요."
+  }
+}
