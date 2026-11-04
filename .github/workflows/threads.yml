@@ -1,9 +1,9 @@
 name: threads
-# 스레드 전용 글을 하루 2번(12:10 · 21:10 KST) 하나씩 올린다(scripts/threads-text.mjs, 대기열 threads/posts.json).
+# 스레드 전용 글을 하루 2번(12:40 · 23:10 KST, 저녁 8시 영상과 겹치지 않게) 하나씩 올린다(scripts/threads-text.mjs, 대기열 threads/posts.json).
 on:
   schedule:
-    - cron: '10 3 * * *'
-    - cron: '10 12 * * *'
+    - cron: '40 3 * * *'
+    - cron: '10 14 * * *'
   workflow_dispatch:
 permissions:
   contents: write

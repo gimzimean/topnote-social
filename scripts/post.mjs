@@ -41,7 +41,7 @@ const imagesOf = (id) => {
 // 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
 const nextFor = (platform) => {
   const ok = content.posts.filter((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && (imagesOf(p.id).length || p.aiReel)
-    && (platform !== 'story' || state.instagram.includes(p.id)) && (pickId || !p.on || p.on <= today));
+    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel) && (pickId || !p.on || p.on <= today));
   return ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
 };
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
@@ -110,12 +110,16 @@ async function postInstagram(post, urls) {
 
 // 첫 댓글: 게시물에 comment 가 있으면 그것, 없으면 기본 문구.
 const commentOf = (post, platform) => (typeof post.comment === 'string' ? post.comment : post.comment?.[platform]) ?? (platform === 'threads'
-  ? '3분 통화로 먼저 확인하는 소개, 탑노트 → https://topnote.app/th'
+  ? '목소리로 3분 먼저 만나 보는 곳, 탑노트 → https://topnote.app/th'
   : '여러분은 어땠나요? 댓글로 알려 주세요.\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆');
 
-// 스레드: 같은 사진 묶음 + 해시태그 뺀 글(500자) + 스레드 전용 주소. 장기 토큰 60일 → 7일마다 새로.
+// 스레드: 사람 영상 + 스레드식 짧은 글(2026-11-04 대표 「스레드 스타일에 맞게 천천히」).
+// 본문은 훅 + 질문만, 해시태그·브랜드 줄·링크는 빼고(링크는 노출이 줄어 첫 답글에만), 주제 태그 1개.
 const TH = 'https://graph.threads.net/v1.0';
-const threadsText = (caption) => caption.replace(/\n*#[^\n]*$/, '').replace('프로필 링크에서 시작해요.', 'https://topnote.app/th').slice(0, 500);
+const threadsText = (caption) => caption.split(/\n{2,}/).map((b) => b.trim())
+  .filter((b) => b && !b.startsWith('#') && !/프로필 링크|^탑노트 —/.test(b))
+  .join('\n\n').replace(/^👇\s*/m, '').replace(/댓글로 골라 주세요\.?/g, '답글로 골라 줘요').replace(/댓글로/g, '답글로').slice(0, 500);
+const threadsTopic = (caption) => caption.match(/#([^\s#]+)/)?.[1]?.slice(0, 50);
 async function postThreads(post, urls) {
   const t = tokens.threads;
   if (Date.now() - (t.refreshed_at ?? 0) > 7 * 864e5) {
@@ -137,7 +141,7 @@ async function postThreads(post, urls) {
   };
   let id;
   if (isVideo(urls)) {
-    const box = await call(`${t.user_id}/threads`, { media_type: 'VIDEO', video_url: urls[0], text: threadsText(post.caption) });
+    const box = await call(`${t.user_id}/threads`, { media_type: 'VIDEO', video_url: urls[0], text: threadsText(post.caption), ...(threadsTopic(post.caption) ? { topic_tag: threadsTopic(post.caption) } : {}) });
     await ready(box.id);
     id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
   } else {
