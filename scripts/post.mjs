@@ -27,7 +27,11 @@ const state = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')
 for (const k of ['instagram', 'story', 'threads', 'tiktok']) state[k] ??= [];
 // 예약 실행은 하루(한국 시간) 한 번만: 여러 번 예약해 둔 것 중 먼저 돈 것만 올린다. 손으로 돌리면 언제든 올린다.
 const today = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
-if (process.env.EVENT === 'schedule' && state.last_day === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
+// 점심 칸(2026-11-04): --slot noon 은 slot:'noon' 게시물만, 저녁(기본)은 그 밖의 것만. 하루 한 번 기록도 칸마다 따로.
+const slotIdx = process.argv.indexOf('--slot');
+const slot = slotIdx > 0 ? process.argv[slotIdx + 1] : 'evening';
+const dayKey = slot === 'noon' ? 'last_noon' : 'last_day';
+if (process.env.EVENT === 'schedule' && state[dayKey] === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
 const tokens = dry ? {} : loadTokens();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -40,7 +44,7 @@ const imagesOf = (id) => {
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
 // 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
 const nextFor = (platform) => {
-  const ok = content.posts.filter((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && (imagesOf(p.id).length || p.aiReel)
+  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && p.aiReel /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
     && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel) && (pickId || !p.on || p.on <= today));
   return ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
 };
@@ -195,7 +199,7 @@ for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory]
     if (!head.ok) throw new Error(`주소가 아직 안 열려요: ${urls[0]} (${head.status})`);
     const id = await fn(post, urls);
     state[platform].push(post.id);
-    if (!pickId) state.last_day = today;
+    if (!pickId) state[dayKey] = today;
     writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
     console.log(`[${platform}] ${post.id} 올림 → ${id}`);
   } catch (e) {

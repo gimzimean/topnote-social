@@ -6,6 +6,9 @@ on:
     - cron: '7 11 * * *'
     - cron: '37 11 * * *'
     - cron: '17 12 * * *'
+    # 점심 칸 12:30 · 12:50 KST(slot:'noon' 게시물만)
+    - cron: '30 3 * * *'
+    - cron: '50 3 * * *'
   workflow_dispatch:
     inputs:
       only:
@@ -29,7 +32,7 @@ jobs:
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_MODE: ${{ vars.TIKTOK_MODE }}
           EVENT: ${{ github.event_name }}
-        run: node scripts/post.mjs ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
+        run: node scripts/post.mjs ${{ inputs.only && format('--only {0}', inputs.only) || '' }} ${{ (github.event.schedule == '30 3 * * *' || github.event.schedule == '50 3 * * *') && '--slot noon' || '' }}
       - name: 올린 기록·새 토큰 저장
         if: always()
         run: |
