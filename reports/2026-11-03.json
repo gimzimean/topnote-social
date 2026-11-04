@@ -1,6 +1,6 @@
 {
  "day": "2026-11-03",
- "collected_at": "2026-11-04T02:34:10.589Z",
+ "collected_at": "2026-11-04T02:44:46.830Z",
  "app": {
   "day": "2026-11-03",
   "signups": 4,
@@ -160,8 +160,8 @@
  ],
  "meta_cap": {
   "spend_cap": 207315,
-  "spent_since_cap": 22220,
-  "left": 185095
+  "spent_since_cap": 22231,
+  "left": 185084
  },
  "queue": {
   "cards_posted": 4,
