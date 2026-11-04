@@ -40,11 +40,10 @@ const imagesOf = (id) => {
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
 // 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
 const nextFor = (platform) => {
-  const ok = content.posts.filter((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && imagesOf(p.id).length
+  const ok = content.posts.filter((p) => (!pickId || p.id === pickId) && !state[platform].includes(p.id) && (imagesOf(p.id).length || p.aiReel)
     && (platform !== 'story' || state.instagram.includes(p.id)) && (pickId || !p.on || p.on <= today));
   return ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
 };
-const storyOf = (id) => `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
 const REELS = BASE.replace(/posts$/, 'reels');
 // 사람 나오는 AI 릴스(content.json 의 aiReel: docs/ai-reels/<이름>.mp4)가 있으면 카드 릴스 대신 그것(2026-11-04).
@@ -52,6 +51,8 @@ const AI = BASE.replace(/posts$/, 'ai-reels');
 const aiOf = (id) => content.posts.find((p) => p.id === id)?.aiReel;
 const reelOf = (id) => aiOf(id) ? `${AI}/${aiOf(id)}.mp4` : existsSync(resolve(root, 'docs/reels', `${id}.mp4`)) ? `${REELS}/${id}.mp4` : null;
 const reelCoverOf = (id) => aiOf(id) ? `${AI}/${aiOf(id)}-cover.jpg` : `${REELS}/${id}-cover.jpg`;
+// 스토리 표지도 사람 나오는 장면으로(2026-11-04 대표 「썸네일도 사람등장 무조건」).
+const storyOf = (id) => aiOf(id) ? reelCoverOf(id) : `${BASE.replace(/posts$/, 'stories')}/${id}.jpg`;
 const isVideo = (urls) => urls.length === 1 && urls[0].endsWith('.mp4');
 
 async function json(res) {
