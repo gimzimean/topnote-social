@@ -12,7 +12,9 @@ const Z = ['cz1', 'cz2', 'cz3', 'cz4'].map((n) => `${S}/people-${n}.mp4`);
 // 2026-11-05 대표 「밥 먹거나 일상 하면서 편하게 즐기며 통화」: 일상 묶음 A·B 추가
 const DA = ['da1', 'da2', 'da3', 'da4'].map((n) => `${S}/people-${n}.mp4`);
 const DB = ['db1', 'db2', 'cy3', 'db4'].map((n) => `${S}/people-${n}.mp4`);
-const SETS = [TALK, DA, Z, DB];
+// 2026-11-05 대표 「누워서도 통화, 여러 편한 자세」: 편한 자세 묶음 E
+const E = ['ce1', 'ce2', 'ce3', 'ce4'].map((n) => `${S}/people-${n}.mp4`);
+const SETS = [TALK, DA, E, Z, DB];
 const files = readdirSync(resolve(root, 'ai-reels')).filter((f) => f.endsWith('.json'));
 let g = 0;
 files.forEach((f, k) => {

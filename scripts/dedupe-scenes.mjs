@@ -23,8 +23,8 @@ for (const f of readdirSync(resolve(root, 'ai-reels')).filter((x) => x.endsWith(
     } else files.forEach((x) => used.add(x));
     if (keep) { if (i === coverFrom) newCover = out.length; out.push(keep); }
   });
-  // 연속으로 같은 앱 화면이 붙으면 하나만
-  const final = out.filter((b, i) => !(b.screen && out[i - 1]?.screen === b.screen && out[i - 1]?.text === b.text));
+  // 같은 앱 화면은 한 번만(「다 같이 연결」 문구가 있는 쪽을 남김)
+  const final = out.filter((b, i) => { if (!b.screen) return true; const same = out.map((x, j) => [x, j]).filter(([x]) => x.screen === b.screen); if (same.length < 2) return true; const keep = (same.find(([x]) => /다 같이/.test(x.text)) ?? same[same.length - 1])[1]; return i === keep; });
   s.beats = final;
   if (s.cover) {
     if (newCover === null || !(final[newCover]?.clip || final[newCover]?.grid || final[newCover]?.pair)) newCover = final.findIndex((b) => b.clip || b.grid || b.pair);
