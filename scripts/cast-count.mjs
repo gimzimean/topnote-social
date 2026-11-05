@@ -3,7 +3,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 // 결혼 커플 장면(wed-c1~4·6)은 같은 두 사람 → 'wed-couple' 하나로 묶고 셀 때 2명으로
-export const person = (p) => { const n = p.split('/').pop().replace('.mp4', '').replace(/^people-(g\d)[ab]$/, 'people-$1'); return /^wed-c[1-46]$/.test(n) || /^wed-g[12]$/.test(n) ? 'wed-couple' : /^wed-[gf]d$/.test(n) ? 'wed-four' : n; };
+export const person = (p) => { const n = p.split('/').pop().replace('.mp4', '').replace(/^people-(g\d)[ab]$/, 'people-$1'); if (/^wed-c[1-46]$/.test(n) || /^wed-g[12]$/.test(n)) return 'wed-couple'; if (/^wed-f\d$/.test(n)) return 'wed-four'; return n; }; // wed-f(넷이 함께) 장면은 커플+친구 둘이라 따로 세지 않음
 export function cast(spec) {
   const set = new Set();
   for (const b of spec.beats ?? []) for (const p of [b.clip, ...(b.grid ?? []), ...(b.pair ?? [])].filter(Boolean)) if (!/-grid\d|-pair\d/.test(p)) set.add(person(p));

@@ -68,7 +68,8 @@ for (const [i, b] of spec.beats.entries()) {
     const ov = resolve(tmp, `ov${i}.png`);
     await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"><div class="t">${b.text}</div></div>${CTA}`, ov);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', b.clip, '-loop', '1', '-i', ov, '-filter_complex',
-      `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
+      // rotate: 'ccw' = 옆으로 누워 나온 장면을 바로 세워 가로 화면으로 가운데에(위아래 짙은 갈색)
+      `[0:v]${b.rotate ? `transpose=2,scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
       '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', seg]);
   } else {
     const png = resolve(tmp, `st${i}.png`);
@@ -109,7 +110,7 @@ execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...parts.flatMap((p) => ['-i
 // 릴스 표지: 지정한 장면의 한 프레임 + 훅 문구
 const c = spec.cover;
 const frame = resolve(tmp, 'frame.jpg');
-execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', spec.beats[c.from].clip ?? parts[c.from], '-frames:v', '1', '-vf', `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]); // 글자 없는 원본에서
+execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', spec.beats[c.from].clip ?? parts[c.from], '-frames:v', '1', '-vf', spec.beats[c.from].rotate ? `transpose=2,scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]); // 글자 없는 원본에서
 await shot(`<img src="data:image/jpeg;base64,${b64(frame)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
   ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
   ` : `<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>

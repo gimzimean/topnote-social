@@ -5,28 +5,32 @@
   "beats": [
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/people-cz1.mp4",
-        "C:/topnote-social/ai-reels/src/people-cz2.mp4",
-        "C:/topnote-social/ai-reels/src/people-cz3.mp4",
-        "C:/topnote-social/ai-reels/src/people-cz4.mp4"
+        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
       ],
       "text": "자만추 원하는데<br>만날 데가 <em>없다면</em>?"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-      "text": "퇴근길에<br>넷이 <em>10분</em> 수다."
+      "text": "퇴근하고<br>넷이 <em>10분</em> 수다."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
-      "text": "끝나고 서로 골라<br><em>둘</em>이 이어졌다."
+      "clip": "C:/topnote-social/ai-reels/src/wed-o1.mp4",
+      "text": "마음 맞는 넷이<br>밖에서 <em>크루</em>로."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
-      "text": "억지로 아니고,<br><em>자연스럽게</em>."
+      "clip": "C:/topnote-social/ai-reels/src/wed-o3.mp4",
+      "text": "같이 놀다<br><em>절친</em>이 되고."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c6.mp4",
-      "text": "지금은<br>같이 <em>저녁</em>."
+      "clip": "C:/topnote-social/ai-reels/src/wed-c2.mp4",
+      "text": "그중 둘은<br><em>연인</em>이 되고."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4",
+      "text": "결혼식엔<br>그 <em>넷</em>이 다시."
     },
     {
       "end": "자만추,<br>목소리로 <em>먼저</em>.",

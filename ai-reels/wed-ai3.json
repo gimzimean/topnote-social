@@ -4,24 +4,30 @@
   "track": "borrowed-room.mp3",
   "beats": [
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c5.mp4",
-      "text": "결혼식 축사,<br>「처음엔 <em>넷이</em> 통화했대요」"
+      "clip": "C:/topnote-social/ai-reels/src/wed-f7.mp4",
+      "text": "결혼식 축사<br>「넷이서 맨날 놀더니,<br>결국 <em>둘이</em> 결혼하네요」",
+      "rotate": "ccw"
+    },
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
+      ],
+      "text": "시작은<br>넷이 <em>통화</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-o2.mp4",
+      "text": "바다도<br><em>넷이서</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-o3.mp4",
+      "text": "캠핑도<br><em>넷이서</em>."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
-      "text": "다들 웃었지만,<br><em>진짜</em> 그렇게 시작."
-    },
-    {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-      "text": "퇴근하고 편하게,<br>넷이 <em>10분</em> 수다."
-    },
-    {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
-      "text": "대화가<br><em>잘 맞았던</em> 사람."
-    },
-    {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
-      "text": "둘 다 누르면<br><em>3분 더</em>."
+      "text": "그리고<br>오늘 <em>결혼식</em>."
     },
     {
       "end": "이런 축사,<br>듣고 <em>싶지</em> 않아요?",
@@ -31,6 +37,6 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "결혼식 축사<br>「처음엔 <em>넷이</em><br>통화했대요」"
+    "text": "「넷이서 맨날 놀더니<br>결국 <em>둘이</em><br>결혼하네요」"
   }
 }

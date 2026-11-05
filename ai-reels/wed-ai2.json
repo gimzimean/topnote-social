@@ -5,37 +5,43 @@
   "beats": [
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/people-da1.mp4",
-        "C:/topnote-social/ai-reels/src/people-da2.mp4",
-        "C:/topnote-social/ai-reels/src/people-da3.mp4",
-        "C:/topnote-social/ai-reels/src/people-da4.mp4"
+        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
       ],
-      "text": "넷이 수다 떨다가,<br>둘이 <em>남았다</em>."
+      "text": "넷이 수다 떨다가,<br><em>크루</em>가 됐다."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
-      "text": "끝나고 서로 골라서<br>둘이 <em>첫 만남</em>."
+      "clip": "C:/topnote-social/ai-reels/src/wed-o1.mp4",
+      "text": "자전거도<br><em>넷이서</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-f5.mp4",
+      "text": "노래방도<br><em>넷이서</em>.",
+      "rotate": "ccw"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-o4.mp4",
+      "text": "해돋이까지<br>같이 보는 <em>절친</em>.",
+      "rotate": "ccw"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-c2.mp4",
-      "text": "말이 통하니까<br>다 <em>편했다</em>."
+      "text": "그러다 어느 날,<br><em>둘</em>만 남았다."
     },
     {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
-      "text": "말이 통하면,<br>그때 <em>사진</em>."
+      "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4",
+      "text": "결혼식엔<br>다시 <em>넷이</em>."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
-      "text": "그리고<br><em>결혼식</em>."
-    },
-    {
-      "end": "자만추,<br><em>4인 수다</em>에서.",
+      "end": "넷이 놀다가<br><em>인연</em>까지.",
       "sub": "탑노트 · 4인 수다 첫 1회 무료<br><span style=\"font-size:30px;opacity:.75\">실제 회원 이야기가 아닌 상황극이에요</span>"
     }
   ],
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "넷이 수다 떨다가,<br>둘이 <em>남았다</em>."
+    "text": "넷이 수다 떨다가,<br><em>크루</em>가 됐다."
   }
 }
