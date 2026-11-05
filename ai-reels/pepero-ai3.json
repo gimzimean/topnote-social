@@ -16,10 +16,10 @@
     },
     {
       "pair": [
-        "C:/topnote-social/ai-reels/src/people-pm3.mp4",
-        "C:/topnote-social/ai-reels/src/people-pw3.mp4"
+        "C:/topnote-social/ai-reels/src/rot-ai1-4.mp4",
+        "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4"
       ],
-      "text": "3분이 이렇게<br><em>짧았나</em>?"
+      "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-3.mp4",
@@ -42,5 +42,6 @@
     "from": 0,
     "at": 2.5,
     "text": "빼빼로데이,<br><em>혼자</em>라도<br>괜찮아요."
-  }
+  },
+  "manual": true
 }

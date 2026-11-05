@@ -12,10 +12,10 @@
     },
     {
       "pair": [
-        "C:/topnote-social/ai-reels/src/people-pm4.mp4",
-        "C:/topnote-social/ai-reels/src/people-pw4.mp4"
+        "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+        "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
       ],
-      "text": "목소리만 들었는데<br><em>설렜다</em>."
+      "text": "같은 데서<br><em>빵</em> 터졌다."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/redo-ai16-2.mp4",
@@ -38,5 +38,6 @@
     "from": 0,
     "at": 3,
     "text": "퇴근 후<br>소개팅,<br>너무 피곤할 때."
-  }
+  },
+  "manual": true
 }

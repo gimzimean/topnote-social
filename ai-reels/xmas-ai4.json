@@ -12,10 +12,10 @@
     },
     {
       "pair": [
-        "C:/topnote-social/ai-reels/src/people-pm4.mp4",
-        "C:/topnote-social/ai-reels/src/people-pw4.mp4"
+        "C:/topnote-social/ai-reels/src/rot-ai1-4.mp4",
+        "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4"
       ],
-      "text": "목소리만 들었는데<br><em>설렜다</em>."
+      "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-2.mp4",
@@ -42,5 +42,6 @@
     "from": 5,
     "at": 3,
     "text": "소개팅<br>2시간 vs<br><em>3분</em>."
-  }
+  },
+  "manual": true
 }

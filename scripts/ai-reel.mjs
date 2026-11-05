@@ -51,9 +51,10 @@ for (const [i, b] of spec.beats.entries()) {
 for (const [i, b] of spec.beats.entries()) {
   if (!b.pair) continue;
   const g = resolve(root, 'ai-reels/src', `${spec.id}-pair${i}.mp4`);
-  const half = `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W / 2}:${H},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  // 얼굴이 잘리지 않게: 원본 9:16 전체를 반쪽 너비(540×960)로 넣고, 위아래는 같은 영상을 흐리게 깔아 채운다(2026-11-05 대표 「얼굴 잘리지 말고」).
+  const side = (n) => `[${n}:v]fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS,split[s${n}a][s${n}b];[s${n}a]scale=${W / 2}:${H}:force_original_aspect_ratio=increase,crop=${W / 2}:${H},boxblur=24:2,eq=brightness=-0.12[bg${n}];[s${n}b]scale=${W / 2}:-2[fg${n}];[bg${n}][fg${n}]overlay=0:(H-h)/2+120[h${n}]`;
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.pair.flatMap((p) => ['-i', p]), '-filter_complex',
-    `[0:v]${half}[l];[1:v]${half}[r];[l][r]hstack=inputs=2,drawbox=x=538:y=0:w=4:h=1920:color=0x171411:t=fill,scale=${W}:${H}[o]`,
+    `${side(0)};${side(1)};[h0][h1]hstack=inputs=2,drawbox=x=538:y=0:w=4:h=1920:color=0x171411:t=fill[o]`,
     '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
   b.clip = g;
 }

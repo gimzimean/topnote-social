@@ -15,11 +15,12 @@
       "text": "말이 통하면,<br>그때 <em>사진</em>."
     },
     {
-      "pair": [
-        "C:/topnote-social/ai-reels/src/people-pm4.mp4",
-        "C:/topnote-social/ai-reels/src/people-pw4.mp4"
-      ],
-      "text": "목소리만 들었는데<br><em>설렜다</em>."
+      "clip": "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+      "text": "3분이 이렇게<br><em>짧았나</em>?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw3.mp4",
+      "text": "「벌써 끝나요?」<br><em>아쉬운</em> 3분."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai16-3.mp4",

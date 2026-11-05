@@ -11,11 +11,12 @@
       "text": "매일 <em>한 명</em> 무료,<br>저녁 5시~11시."
     },
     {
-      "pair": [
-        "C:/topnote-social/ai-reels/src/people-pm1.mp4",
-        "C:/topnote-social/ai-reels/src/people-pw1.mp4"
-      ],
+      "clip": "C:/topnote-social/ai-reels/src/people-pm1.mp4",
       "text": "얼굴 몰라도<br>목소리에 <em>설렘</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw1.mp4",
+      "text": "그쪽도<br>살짝 <em>웃는</em> 중."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai1-2.mp4",
@@ -39,8 +40,9 @@
     }
   ],
   "cover": {
-    "from": 3,
+    "from": 4,
     "at": 3.5,
     "text": "올해는<br>첫눈 오면<br><em>통화할 사람</em>."
-  }
+  },
+  "manual": true
 }
