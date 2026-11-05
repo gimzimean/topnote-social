@@ -11,14 +11,6 @@
       "text": "결국 <em>한마디도</em> 못 함."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/bar-ai1-1.mp4",
-      "text": "그렇게<br>혼자 <em>집에</em> 감."
-    },
-    {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-      "text": "탑노트 <em>4인 수다</em>,<br>처음 만난 넷이 10분."
-    },
-    {
       "grid": [
         "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
         "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
@@ -28,20 +20,7 @@
       "text": "처음 만난 <em>넷이서</em>,<br>살짝 설레는 10분."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/bar-ai1-2.mp4",
-      "text": "집에서 한 캔 하면서<br>말 거는 건 <em>앱이</em>."
-    },
-    {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
-      "text": "끝나고 서로 고르면<br>둘이 <em>3분</em> 더."
-    },
-    {
-      "grid": [
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4"
-      ],
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
     {

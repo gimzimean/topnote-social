@@ -19,7 +19,7 @@ rmSync(tmp, { recursive: true, force: true });
 mkdirSync(tmp, { recursive: true });
 const b64 = (p) => readFileSync(p).toString('base64');
 const font = `@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/SongMyung-Regular.ttf'))})}@font-face{font-family:'DM Serif Display';src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/DMSerifDisplay-Regular.ttf'))})}`;
-const W = 1080, H = 1920, CLIP = 5, STILL = 3.5, END = 3.5;
+const W = 1080, H = 1920, CLIP = 3.7, STILL = 2.7, END = 3; // 2026-11-05 대표 「15~22초 사이」
 
 const base = `${font}*{margin:0;padding:0;box-sizing:border-box}body{width:${W}px;height:${H}px;position:relative;overflow:hidden;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif}
 .top{position:absolute;left:0;right:0;top:0;height:640px;padding:230px 80px 0;background:linear-gradient(180deg,rgba(23,20,17,.78) 0%,rgba(23,20,17,.45) 65%,rgba(23,20,17,0) 100%)}

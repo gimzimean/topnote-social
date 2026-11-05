@@ -16,28 +16,11 @@
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
     {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-      "text": "4인 수다,<br>처음 1회 <em>무료</em>."
-    },
-    {
       "clip": "C:/topnote-social/ai-reels/src/redo-ai10-2.mp4",
       "text": "조용한 사람<br><em>이름</em>을 불러 주세요."
     },
     {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
-      "text": "맘에 든 한 명과는<br><em>1:1 3분</em>도."
-    },
-    {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
-      "text": "4인 수다,<br>저녁 <em>5시 반</em>부터."
-    },
-    {
-      "grid": [
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4"
-      ],
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
     {

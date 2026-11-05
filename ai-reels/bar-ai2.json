@@ -11,10 +11,6 @@
       "text": "다음 날 남은 건<br><em>숙취</em>랑 현타."
     },
     {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-      "text": "탑노트 <em>4인 수다</em>,<br>첫 번은 무료."
-    },
-    {
       "grid": [
         "C:/topnote-social/ai-reels/src/people-da1.mp4",
         "C:/topnote-social/ai-reels/src/people-da2.mp4",
@@ -24,20 +20,7 @@
       "text": "처음 만난 <em>넷이서</em>,<br>살짝 설레는 10분."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/bar-ai2-1.mp4",
-      "text": "집에서 와인 한 잔,<br>처음 만난 넷이 <em>10분</em>."
-    },
-    {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
-      "text": "끝나고 서로 고르면<br>둘이 <em>3분</em> 더."
-    },
-    {
-      "grid": [
-        "C:/topnote-social/ai-reels/src/people-da3.mp4",
-        "C:/topnote-social/ai-reels/src/people-da4.mp4",
-        "C:/topnote-social/ai-reels/src/people-da1.mp4",
-        "C:/topnote-social/ai-reels/src/people-da2.mp4"
-      ],
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
     {
