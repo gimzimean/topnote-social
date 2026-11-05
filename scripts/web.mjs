@@ -28,7 +28,7 @@ const head = (title, desc, path, image, ld) => `<!doctype html><html lang="ko"><
 ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n')}${CSS}</head>`;
 
 mkdirSync(resolve(site, 'tips'), { recursive: true });
-const done = posts.filter((p) => posted.has(p.id));
+const done = posts.filter((p) => posted.has(p.id) && p.cover && p.slides);
 for (const p of done) {
   const title = plain(p.cover[0]);
   const desc = `${plain(p.cover[1])} ${cap(p)}`.slice(0, 150);
