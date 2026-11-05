@@ -47,6 +47,16 @@ for (const [i, b] of spec.beats.entries()) {
     '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
   b.clip = g;
 }
+// 1:1 남녀 나란히: { pair: [왼쪽 남, 오른쪽 여], text } → 좌우 반씩 한 화면(2026-11-05 대표 「다른 성별 통화는 항상 남녀가 나란히」).
+for (const [i, b] of spec.beats.entries()) {
+  if (!b.pair) continue;
+  const g = resolve(root, 'ai-reels/src', `${spec.id}-pair${i}.mp4`);
+  const half = `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W / 2}:${H},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.pair.flatMap((p) => ['-i', p]), '-filter_complex',
+    `[0:v]${half}[l];[1:v]${half}[r];[l][r]hstack=inputs=2,drawbox=x=538:y=0:w=4:h=1920:color=0x171411:t=fill,scale=${W}:${H}[o]`,
+    '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
+  b.clip = g;
+}
 const parts = [];
 for (const [i, b] of spec.beats.entries()) {
   const seg = resolve(tmp, `seg${i}.mp4`);
