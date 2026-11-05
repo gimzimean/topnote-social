@@ -1,9 +1,44 @@
-{ "id": "pair-ai1", "track": "last-message-first.mp3",
+{
+  "id": "pair-ai1",
+  "track": "last-message-first.mp3",
   "beats": [
-    { "pair": ["C:/topnote-social/ai-reels/src/people-pm1.mp4", "C:/topnote-social/ai-reels/src/people-pw1.mp4"], "text": "얼굴 모르는 사람과<br><em>3분</em> 통화했더니" },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "사진 없이,<br>목소리로 <em>3분</em>." },
-    { "pair": ["C:/topnote-social/ai-reels/src/people-pm2.mp4", "C:/topnote-social/ai-reels/src/people-pw2.mp4"], "text": "목소리만 들었는데<br><em>설렜다</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면,<br>그때 <em>사진</em>." },
-    { "pair": ["C:/topnote-social/ai-reels/src/people-pm4.mp4", "C:/topnote-social/ai-reels/src/people-pw4.mp4"], "text": "둘 다 누르면<br><em>3분 더</em>." },
-    { "end": "사진 말고,<br><em>목소리</em>로<br>3분 먼저.", "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료" } ],
-  "cover": { "from": 2, "at": 2.5, "text": "목소리만<br>들었는데<br><em>설렜다</em>." } }
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm1.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw1.mp4"
+      ],
+      "text": "얼굴 모르는 사람과<br><em>3분</em> 통화했더니"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "사진 없이,<br>목소리로 <em>3분</em>."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm2.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw2.mp4"
+      ],
+      "text": "목소리만 들었는데<br><em>설렜다</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm4.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw4.mp4"
+      ],
+      "text": "둘 다 누르면<br><em>3분 더</em>."
+    },
+    {
+      "end": "사진 말고,<br><em>목소리</em>로<br>3분 먼저.",
+      "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료"
+    }
+  ],
+  "cover": {
+    "from": 2,
+    "at": 2.5,
+    "text": "목소리만<br>들었는데<br><em>설렜다</em>."
+  }
+}

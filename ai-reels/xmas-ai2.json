@@ -16,10 +16,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/xmas-ai2-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai2-2.mp4"
+        "C:/topnote-social/ai-reels/src/people-g1a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4a.mp4"
       ],
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
@@ -34,6 +34,15 @@
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
       "text": "맘에 든 한 명과는<br><em>1:1 3분</em>도."
+    },
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/people-g1b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4b.mp4"
+      ],
+      "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
     {
       "end": "크리스마스 파티,<br>같이 갈 <em>친구</em><br>여기서.",

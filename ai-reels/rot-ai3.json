@@ -1,9 +1,42 @@
-{ "id": "rot-ai3", "track": "last-message-first.mp3",
+{
+  "id": "rot-ai3",
+  "track": "last-message-first.mp3",
   "beats": [
-    { "clip": "C:/topnote-social/ai-reels/src/rot-ai3-1.mp4", "text": "로테이션 소개팅 가려고<br>준비만 <em>2시간</em>." },
-    { "clip": "C:/topnote-social/ai-reels/src/rot-ai3-2.mp4", "text": "퇴근길 지옥철<br>강남까지 <em>1시간</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png", "text": "탑노트는<br>집에서 <em>예약</em>만." },
-    { "clip": "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4", "text": "소파에 누워서<br>목소리로 <em>3분</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "더 얘기하고 싶으면<br>둘 다 누르면 <em>3분 더</em>." },
-    { "end": "준비 0분,<br>이동 <em>0분</em>.", "sub": "탑노트 · 보이스 소개팅<br>저녁 5시~11시" } ],
-  "cover": { "from": 0, "at": 4.2, "text": "로테이션 소개팅<br>가는 데만<br><em>3시간</em>." } }
+    {
+      "clip": "C:/topnote-social/ai-reels/src/rot-ai3-1.mp4",
+      "text": "로테이션 소개팅 가려고<br>준비만 <em>2시간</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/rot-ai3-2.mp4",
+      "text": "퇴근길 지옥철<br>강남까지 <em>1시간</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "탑노트는<br>집에서 <em>예약</em>만."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw3.mp4"
+      ],
+      "text": "3분이 이렇게<br><em>짧았나</em>?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+      "text": "소파에 누워서<br>목소리로 <em>3분</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "더 얘기하고 싶으면<br>둘 다 누르면 <em>3분 더</em>."
+    },
+    {
+      "end": "준비 0분,<br>이동 <em>0분</em>.",
+      "sub": "탑노트 · 보이스 소개팅<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 4.2,
+    "text": "로테이션 소개팅<br>가는 데만<br><em>3시간</em>."
+  }
+}

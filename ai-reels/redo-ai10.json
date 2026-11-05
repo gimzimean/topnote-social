@@ -8,10 +8,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/redo-ai10-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/redo-ai10-2.mp4"
+        "C:/topnote-social/ai-reels/src/people-g1a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4a.mp4"
       ],
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
@@ -30,6 +30,15 @@
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
       "text": "4인 수다,<br>저녁 <em>5시 반</em>부터."
+    },
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/people-g1b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4b.mp4"
+      ],
+      "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
     {
       "end": "처음 만난 넷이<br><em>10분</em> 수다.",

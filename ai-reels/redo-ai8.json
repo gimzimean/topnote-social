@@ -11,6 +11,13 @@
       "text": "통했다면,<br>그때 <em>사진</em>."
     },
     {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw3.mp4"
+      ],
+      "text": "3분이 이렇게<br><em>짧았나</em>?"
+    },
+    {
       "clip": "C:/topnote-social/ai-reels/src/redo-ai8-2.mp4",
       "text": "「벌써 이렇게 됐어요?」<br>그럼 <em>통한</em> 거예요."
     },
@@ -28,7 +35,7 @@
     }
   ],
   "cover": {
-    "from": 2,
+    "from": 3,
     "at": 2.5,
     "text": "대화가<br>잘 통하는 사람,<br>신호 5가지."
   }

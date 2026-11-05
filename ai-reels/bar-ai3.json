@@ -1,9 +1,53 @@
-{ "id": "bar-ai3", "track": "one-more-ping.mp3",
+{
+  "id": "bar-ai3",
+  "track": "one-more-ping.mp3",
   "beats": [
-    { "clip": "C:/topnote-social/ai-reels/src/bar-ai3-1.mp4", "text": "혼술바 가려고<br>옷만 <em>5벌</em> 갈아입음." },
-    { "clip": "C:/topnote-social/ai-reels/src/bar-ai3-2.mp4", "text": "강남 가서<br>웨이팅 <em>40분</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png", "text": "탑노트 <em>4인 수다</em>는<br>집에서 바로." },
-    { "clip": "C:/topnote-social/ai-reels/src/bar-ai3-3.mp4", "text": "편한 옷, 맥주 한 캔,<br>새 사람 <em>세 명</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png", "text": "1:1로 이어지면<br>목소리로 <em>3분</em>." },
-    { "end": "꾸미고 나갈 필요<br><em>없어요</em>.", "sub": "탑노트 · 첫 4인 수다 무료<br>저녁 5시 반~11시 반" } ],
-  "cover": { "from": 0, "at": 2.5, "text": "혼술바 가는 데<br>쓴 시간<br><em>2시간</em>." } }
+    {
+      "clip": "C:/topnote-social/ai-reels/src/bar-ai3-1.mp4",
+      "text": "혼술바 가려고<br>옷만 <em>5벌</em> 갈아입음."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/bar-ai3-2.mp4",
+      "text": "강남 가서<br>웨이팅 <em>40분</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "탑노트 <em>4인 수다</em>는<br>집에서 바로."
+    },
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/people-g1a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4a.mp4"
+      ],
+      "text": "처음 만난 <em>넷이서</em>,<br>살짝 설레는 10분."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/bar-ai3-3.mp4",
+      "text": "편한 옷, 맥주 한 캔,<br>새 사람 <em>세 명</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "1:1로 이어지면<br>목소리로 <em>3분</em>."
+    },
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/people-g1b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4b.mp4"
+      ],
+      "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
+    },
+    {
+      "end": "꾸미고 나갈 필요<br><em>없어요</em>.",
+      "sub": "탑노트 · 첫 4인 수다 무료<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "혼술바 가는 데<br>쓴 시간<br><em>2시간</em>."
+  }
+}

@@ -11,6 +11,13 @@
       "text": "준비 2시간 말고,<br>시간만 <em>골라요</em>."
     },
     {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm4.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw4.mp4"
+      ],
+      "text": "목소리만 들었는데<br><em>설렜다</em>."
+    },
+    {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-2.mp4",
       "text": "근데 아닌 건<br>첫 <em>5분</em>에 알죠."
     },
@@ -32,7 +39,7 @@
     }
   ],
   "cover": {
-    "from": 4,
+    "from": 5,
     "at": 3,
     "text": "소개팅<br>2시간 vs<br><em>3분</em>."
   }
