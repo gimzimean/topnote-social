@@ -1,0 +1,36 @@
+{
+  "id": "wed-ai3",
+  "manual": true,
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c5.mp4",
+      "text": "결혼식 축사,<br>「처음엔 <em>넷이</em> 통화했대요」"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
+      "text": "다들 웃었지만,<br><em>진짜</em> 그렇게 시작."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "퇴근하고 편하게,<br>넷이 <em>10분</em> 수다."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
+      "text": "목소리부터<br><em>잘 맞았던</em> 사람."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "둘 다 누르면<br><em>3분 더</em>."
+    },
+    {
+      "end": "이런 축사,<br>듣고 <em>싶지</em> 않아요?",
+      "sub": "탑노트 · 4인 수다 첫 1회 무료<br><span style=\"font-size:30px;opacity:.75\">실제 회원 이야기가 아닌 상황극이에요</span>"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "결혼식 축사<br>「처음엔 <em>넷이</em><br>통화했대요」"
+  }
+}

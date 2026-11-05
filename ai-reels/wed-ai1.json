@@ -1,0 +1,41 @@
+{
+  "id": "wed-ai1",
+  "manual": true,
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
+      ],
+      "text": "자만추, 요즘은<br><em>목소리</em>로 시작해요."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "처음 만난 넷이<br>10분 <em>수다</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
+      "text": "서로 골라 3분 더,<br>그다음 <em>첫 만남</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
+      "text": "그렇게<br><em>1년</em> 뒤."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
+      "text": "결혼까지,<br><em>자연스럽게</em>."
+    },
+    {
+      "end": "이렇게 시작될 수도<br><em>있잖아요</em>.",
+      "sub": "탑노트 · 4인 수다 첫 1회 무료<br><span style=\"font-size:30px;opacity:.75\">실제 회원 이야기가 아닌 상황극이에요</span>"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "자만추, 요즘은<br><em>목소리</em>로 시작해요."
+  }
+}

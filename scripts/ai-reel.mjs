@@ -66,7 +66,7 @@ for (const [i, b] of spec.beats.entries()) {
   const seg = resolve(tmp, `seg${i}.mp4`);
   if (b.clip) {
     const ov = resolve(tmp, `ov${i}.png`);
-    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div><div class="ai" style="top:800px">AI로 만든 장면</div>` : `<div class="top"><div class="t">${b.text}</div></div><div class="ai">AI로 만든 장면</div>${CTA}`, ov);
+    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"><div class="t">${b.text}</div></div>${CTA}`, ov);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', b.clip, '-loop', '1', '-i', ov, '-filter_complex',
       `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
       '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', seg]);
@@ -114,7 +114,7 @@ await shot(`<img src="data:image/jpeg;base64,${b64(frame)}" style="position:abso
   ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
   ` : `<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
   <div style="position:absolute;left:80px;right:80px;top:${c.top ?? 1180}px"><div class="t" style="font-size:132px;line-height:1.18">${c.text}</div></div>
-  `}<div class="ai">AI로 만든 장면</div>`, resolve(tmp, 'cover.png'), false);
+  `}`, resolve(tmp, 'cover.png'), false);
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', resolve(tmp, 'cover.png'), '-q:v', '2', resolve(out, `${spec.id}-cover.jpg`)]);
 await browser.close();
 console.log(`${spec.id}: ${parts.length}장면 ${total.toFixed(1)}초 · ${track.title} → docs/ai-reels/${spec.id}.mp4`);
