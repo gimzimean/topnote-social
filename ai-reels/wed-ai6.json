@@ -1,0 +1,10 @@
+{ "id": "wed-ai6", "manual": true, "track": "fox-in-satin-x-one-more-ping.mp3",
+  "beats": [
+    { "grid": ["C:/topnote-social/ai-reels/src/wed-g1.mp4", "C:/topnote-social/ai-reels/src/wed-g2.mp4", "C:/topnote-social/ai-reels/src/wed-g3.mp4", "C:/topnote-social/ai-reels/src/wed-g4.mp4"], "text": "넷이 통화했는데,<br>다 <em>잘 맞았다</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png", "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결." },
+    { "clip": "C:/topnote-social/ai-reels/src/wed-f1.mp4", "text": "그래서 진짜로<br><em>넷이</em> 만났다." },
+    { "clip": "C:/topnote-social/ai-reels/src/wed-f2.mp4", "text": "자주 모이다 보니,<br>둘이 <em>더</em> 가까워졌다." },
+    { "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4", "text": "그렇게<br><em>프러포즈</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4", "text": "축하는<br>그날의 <em>넷</em>이 같이." },
+    { "end": "4인 수다,<br>친구도 <em>인연</em>도.", "sub": "탑노트 · 4인 수다 첫 1회 무료<br><span style=\"font-size:30px;opacity:.75\">실제 회원 이야기가 아닌 상황극이에요</span>" } ],
+  "cover": { "from": 0, "at": 2.5, "text": "넷이 통화했는데<br>다 <em>잘 맞았다</em>." } }
