@@ -4,37 +4,36 @@
   "track": "one-more-ping.mp3",
   "beats": [
     {
-      "grid": [
-        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
-      ],
+      "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
       "text": "자만추로 <em>결혼</em>,<br>시작은 목소리."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-f1.mp4",
-      "text": "넷이 통화하다<br>진짜로 <em>만났다</em>."
+      "pair": [
+        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4"
+      ],
+      "layout": "tb",
+      "text": "간편인증한 사람과<br>목소리로 <em>3분</em>."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-o2.mp4",
-      "text": "바다까지 같이 가는<br><em>절친</em>이 되고."
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "더 얘기하고 싶으면<br>둘 다 누르면 <em>3분 더</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
+      "text": "말이 통해서<br><em>첫 만남</em>."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
-      "text": "그 안에서<br><em>둘</em>이 이어졌다."
+      "text": "그렇게<br><em>1년</em> 뒤."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
-      "text": "결혼까지,<br><em>자연스럽게</em>."
-    },
-    {
-      "end": "자만추,<br><em>4인 수다</em>에서.",
-      "sub": "탑노트 · 4인 수다 첫 1회 무료"
+      "end": "자만추,<br><em>대화</em>로 먼저.",
+      "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료"
     }
   ],
   "cover": {
-    "from": 4,
+    "from": 0,
     "at": 2.5,
     "text": "자만추로 <em>결혼</em>,<br>시작은 목소리."
   }

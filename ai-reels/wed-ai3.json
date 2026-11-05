@@ -5,8 +5,8 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-f7.mp4",
-      "text": "결혼식 축사<br>「넷이서 맨날 놀더니,<br>결국 둘이 <em>결혼</em>하네요」",
-      "rotate": "ccw"
+      "rotate": "ccw",
+      "text": "결혼식 축사<br>「넷이서 맨날 놀더니,<br>결국 둘이 <em>결혼</em>하네요」"
     },
     {
       "grid": [
@@ -15,11 +15,12 @@
         "C:/topnote-social/ai-reels/src/wed-g3.mp4",
         "C:/topnote-social/ai-reels/src/wed-g4.mp4"
       ],
-      "text": "시작은<br>넷이 <em>통화</em>."
+      "text": "시작은 간편인증한<br>넷의 <em>통화</em>."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-o2.mp4",
-      "text": "바다도<br><em>넷이서</em>."
+      "text": "바다도<br><em>넷이서</em>.",
+      "rotate": "cw"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-o3.mp4",

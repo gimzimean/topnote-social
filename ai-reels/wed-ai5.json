@@ -4,41 +4,36 @@
   "track": "fox-satin.mp3",
   "beats": [
     {
-      "grid": [
-        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
-      ],
+      "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
       "text": "<em>결혼</em>할 사람,<br>어디서 만나요?"
     },
     {
-      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-      "text": "퇴근하고<br>넷이 <em>10분</em> 수다."
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "간편인증한 사람과<br>매일 한 명 <em>3분</em>."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-o1.mp4",
-      "text": "마음 맞는 넷이<br>밖에서 <em>크루</em>로."
+      "pair": [
+        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4"
+      ],
+      "layout": "tb",
+      "text": "얼굴 몰라도<br>목소리에 <em>설렘</em>."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-o3.mp4",
-      "text": "같이 놀다<br><em>절친</em>이 되고."
+      "clip": "C:/topnote-social/ai-reels/src/wed-c1.mp4",
+      "text": "말이 통해서<br><em>첫 만남</em>."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-c2.mp4",
-      "text": "그중 둘은<br><em>연인</em>이 되고."
+      "clip": "C:/topnote-social/ai-reels/src/wed-c4.mp4",
+      "text": "그리고<br><em>결혼</em>까지."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4",
-      "text": "결혼식엔<br>그 <em>넷</em>이 다시."
-    },
-    {
-      "end": "자만추,<br>목소리로 <em>먼저</em>.",
-      "sub": "탑노트 · 4인 수다 첫 1회 무료"
+      "end": "결혼할 사람,<br>목소리로 <em>먼저</em>.",
+      "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료"
     }
   ],
   "cover": {
-    "from": 5,
+    "from": 0,
     "at": 2.5,
     "text": "<em>결혼</em>할 사람,<br>어디서 만나요?"
   }

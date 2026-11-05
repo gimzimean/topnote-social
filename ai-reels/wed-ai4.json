@@ -8,22 +8,20 @@
       "text": "대화 잘 맞는 사람과<br><em>결혼</em>하고 싶다면."
     },
     {
-      "grid": [
+      "pair": [
         "C:/topnote-social/ai-reels/src/wed-g1.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
-        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4"
       ],
-      "text": "처음엔<br>넷이 <em>통화</em>했다."
+      "layout": "lr",
+      "text": "처음엔<br><em>3분</em> 통화였는데."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-o4.mp4",
-      "text": "산도 바다도<br>같이 가는 <em>절친</em>.",
-      "rotate": "ccw"
+      "clip": "C:/topnote-social/ai-reels/src/wed-c2.mp4",
+      "text": "말이 통하니까<br><em>계속</em> 만나게 됐다."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-f2.mp4",
-      "text": "넷이서 놀다 보니<br><em>제일</em> 잘 맞는 사람."
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
@@ -31,7 +29,7 @@
     },
     {
       "end": "결혼할 사람,<br><em>대화</em>로 먼저.",
-      "sub": "탑노트 · 4인 수다 첫 1회 무료"
+      "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료"
     }
   ],
   "cover": {

@@ -13,12 +13,8 @@
       "text": "넷이 놀다가<br>둘이 <em>결혼</em>했다."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/wed-o1.mp4",
-      "text": "자전거도<br><em>넷이서</em>."
-    },
-    {
       "clip": "C:/topnote-social/ai-reels/src/wed-f5.mp4",
-      "text": "노래방도<br><em>넷이서</em>.",
+      "text": "간편인증한 넷이<br>노래방까지 <em>같이</em>.",
       "rotate": "ccw"
     },
     {
@@ -40,7 +36,7 @@
     }
   ],
   "cover": {
-    "from": 4,
+    "from": 3,
     "at": 2.5,
     "text": "넷이 놀다가<br>둘이 <em>결혼</em>했다."
   }
