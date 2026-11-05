@@ -8,11 +8,17 @@ const label = { 'talk-ai1': '4인 수다 특별편', 'xmas-ai4': '소개팅 2시
   'xmas-ai2': '솔크 탈출 2화 · 연말 약속', 'xmas-ai3': '솔크 탈출 3화 · 소모임 3시간', 'xmas-ai5': '솔크 탈출 5화 · 친구 한 명', 'xmas-ai10': '솔크 탈출 9화 · 첫눈',
   'bar-ai1': '혼술바 옆자리', 'xmas-ai8': '퇴근 혼밥 말고 넷이 수다', 'xmas-ai13': '크리스마스 전 4인 수다', 'xmas-ai21': '연말 파티 멤버 모집', 'wed-ai1': '자만추, 목소리로 시작', 'wed-ai2': '넷이 수다 떨다가 둘이 남았다', 'wed-ai3': '축사 「넷이서 맨날 놀더니」', 'wed-ai4': '신혼집', 'wed-ai5': '자만추 만날 데가 없다면', 'wed-ai6': '넷이 통화했는데 다 잘 맞았다 (새)' };
 const fresh = (k) => existsSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)) ;
-const share = (k, x) => `탑노트 광고 영상 · ${label[k]}
-${x.copy.replace(/<br>/g, '\n')}
-▶ https://gimzimean.github.io/topnote-social/ai-reels/${k}.mp4`;
+// 영상마다 복사할 글 = 그 영상 게시 캡션(후킹 + 앱 받기 링크 + 해시태그 + AI 안내). 2026-11-05 대표 「캡션에 넣을 후킹·앱 설치 유도까지」
+const posts = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8')).posts;
+const APP = '앱 받기 👉 https://topnote.app/go/?src=kakao&c=kt_share';
+const share = (k, x) => {
+  const p = posts.find((q) => q.aiReel === k);
+  if (!p) return `${label[k]}\n\n${x.copy.replace(/<br>.*$/, '')}\n\n${APP}`;
+  const cap = p.caption.includes('프로필 링크에서 시작해요.') ? p.caption.replace('프로필 링크에서 시작해요.', APP) : p.caption.replace('\n\n👇', `\n${APP}\n\n👇`);
+  return cap;
+};
 const card = (k, x) => fresh(k)
-  ? `<figure><video src="ai-reels/${k}.mp4?v=${v}" poster="ai-reels/${k}-cover.jpg?v=${v}" controls playsinline preload="none"></video><figcaption>${label[k]}<br><span class="ok">광고 중</span><br><button class="cp" data-t="${share(k, x).replace(/"/g, '&quot;')}">글 복사</button></figcaption></figure>`
+  ? `<figure><video src="ai-reels/${k}.mp4?v=${v}" poster="ai-reels/${k}-cover.jpg?v=${v}" controls playsinline preload="none"></video><figcaption>${label[k]}<br><span class="ok">광고 중</span><br><button class="cp" data-t="${share(k, x).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}">캡션 복사</button></figcaption></figure>`
   : `<figure><div class="wait">만드는 중</div><figcaption>${label[k]}</figcaption></figure>`;
 const MAIN = '사진 100장 넘겨도 대화할 사람 없었죠? 목소리로 3분 먼저 통화하고, 말이 통하면 그때 사진. 간편인증한 사람만, 연락처 지인은 안 만나요. (영상 속 인물은 AI로 만든 장면이에요)';
 const sets = [ // 2026-11-05 대표 「세트마다 5개 · 후킹 멘트」
