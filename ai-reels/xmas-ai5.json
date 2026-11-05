@@ -11,14 +11,6 @@
       "text": "친구로 고르면<br><em>같은 성별</em>과 이야기해요."
     },
     {
-      "pair": [
-        "C:/topnote-social/ai-reels/src/people-ff1a.mp4",
-        "C:/topnote-social/ai-reels/src/people-ff1b.mp4"
-      ],
-      "text": "친구로 고르면<br>같은 성별끼리 <em>수다</em>.",
-      "layout": "tb"
-    },
-    {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
       "text": "친구로도,<br><em>설렘</em>으로도 골라요."
     },
@@ -28,10 +20,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/xmas-ai5-1.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai5-2.mp4",
-        "C:/topnote-social/ai-reels/src/people-g2a.mp4",
-        "C:/topnote-social/ai-reels/src/people-g4a.mp4"
+        "C:/topnote-social/ai-reels/src/people-cy1.mp4",
+        "C:/topnote-social/ai-reels/src/people-cy2.mp4",
+        "C:/topnote-social/ai-reels/src/people-cy3.mp4",
+        "C:/topnote-social/ai-reels/src/people-cy4.mp4"
       ],
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
@@ -45,10 +37,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/xmas-ai5-1.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai5-2.mp4",
-        "C:/topnote-social/ai-reels/src/people-g2b.mp4",
-        "C:/topnote-social/ai-reels/src/people-g4b.mp4"
+        "C:/topnote-social/ai-reels/src/people-cy3.mp4",
+        "C:/topnote-social/ai-reels/src/people-cy4.mp4",
+        "C:/topnote-social/ai-reels/src/people-cy1.mp4",
+        "C:/topnote-social/ai-reels/src/people-cy2.mp4"
       ],
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },

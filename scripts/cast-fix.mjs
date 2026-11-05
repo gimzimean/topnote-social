@@ -1,40 +1,34 @@
-// 한 영상 2~6명(2026-11-05 대표): 4명 화면은 그 영상에 이미 나온 사람으로 채우고(모자라면 고정 4인 묶음에서),
-// 시작·마무리 4명 화면은 같은 사람(설렘 a → 행복 b), 남녀 장면은 위아래(tb)·좌우(lr)를 번갈아.
+// 4명 화면은 항상 「모두 폰 들고 통화하며 행복·재밌게·설레게」(2026-11-05 대표): 통화 묶음 X·Y(남2·여2) 중 하나만 쓰고, 시작·마무리 같은 묶음.
+// 한 영상 2~6명: 4인 편은 그 영상 이야기 장면 사람 최대 2명 + 4명 묶음 = 6명. 나머지 단독 장면은 4명 묶음 사람으로.
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { cast, person } from './cast-count.mjs';
 const root = resolve(import.meta.dirname, '..');
 const S = 'C:/topnote-social/ai-reels/src';
-const G = (n, m) => `${S}/people-g${n}${m}.mp4`;
-const TALK = [1, 2, 3, 4].map((n) => `${S}/talk-ai1-${n}.mp4`);
+const SETS = [['cx1', 'cx2', 'cx3', 'cx4'], ['cy1', 'cy2', 'cy3', 'cy4']].map((s) => s.map((n) => `${S}/people-${n}.mp4`));
 const files = readdirSync(resolve(root, 'ai-reels')).filter((f) => f.endsWith('.json'));
+let g = 0;
 files.forEach((f, k) => {
   const p = resolve(root, 'ai-reels', f);
   const s = JSON.parse(readFileSync(p, 'utf8'));
   if (!Array.isArray(s.beats)) return;
-  const pairs = s.beats.filter((b) => b.pair);
-  pairs.forEach((b, i) => { b.layout = (k + i) % 2 ? 'lr' : 'tb'; });
+  s.beats.filter((b) => b.pair).forEach((b, i) => { b.layout = (k + i) % 2 ? 'lr' : 'tb'; });
   const grids = s.beats.filter((b) => b.grid);
   if (grids.length) {
-    const pairPeople = new Set(pairs.flatMap((b) => b.pair.map(person)));
-    const own = [...new Set(s.beats.filter((b) => b.clip && !/-grid|-pair/.test(b.clip)).map((b) => b.clip))].filter((c) => !pairPeople.has(person(c)));
-    const useTalk = own.some((c) => /talk-ai1-/.test(c));
-    let a, z;
-    if (useTalk) { a = TALK; z = TALK; }
-    else {
-      const keep = own.slice(0, 2); // 그 영상 사람 2명 + 고정 4인 묶음 중 2명
-      const fill = [1, 2, 3, 4].filter((n) => (n + k) % 2 === 0 || keep.length + 0 < 2).slice(0, 4 - keep.length);
-      a = [...keep, ...fill.map((n) => G(n, 'a'))];
-      z = [...keep, ...fill.map((n) => G(n, 'b'))];
-      while (a.length < 4) { const n = [1, 2, 3, 4].find((x) => !a.includes(G(x, 'a'))); a.push(G(n, 'a')); z.push(G(n, 'b')); }
-      // 나머지 단독 장면은 4명 화면에 나온 사람으로 바꿔 사람 수를 줄인다
-      const allowed = new Set([...a, ...z].map(person).concat([...pairPeople]));
-      let r = 0;
-      for (const b of s.beats) if (b.clip && !/-grid|-pair/.test(b.clip) && !allowed.has(person(b.clip))) { b.clip = keep[r % Math.max(1, keep.length)] ?? a[r % 4]; r++; }
+    const set = SETS[g++ % 2];
+    // 첫 4명 화면 순서와 마무리 순서를 바꿔 같은 사람이지만 다른 배치로
+    grids[0].grid = set; if (grids.length > 1) grids[grids.length - 1].grid = [set[2], set[3], set[0], set[1]];
+    const ppl = new Set(set.map(person));
+    const story = [];
+    let r = 0;
+    for (const b of s.beats) {
+      if (!b.clip || /-grid|-pair/.test(b.clip) || ppl.has(person(b.clip))) continue;
+      const who = person(b.clip);
+      if (story.includes(who) || story.length < 2) { if (!story.includes(who)) story.push(who); continue; }
+      b.clip = set[r++ % 4]; // 3번째 이야기 인물부터는 4명 묶음 사람으로
     }
-    grids[0].grid = a; if (grids.length > 1) grids[grids.length - 1].grid = z;
+    // 친구(같은 성별) 나란히 장면은 6명 넘으면 뺌
+    while (cast(s).size > 6) { const i = s.beats.findIndex((b) => b.pair); if (i < 0) break; s.beats.splice(i, 1); if (s.cover && s.cover.from > i) s.cover.from -= 1; }
   }
-  // 그래도 6명 넘으면 친구(같은 성별) 장면을 뺀다
-  if (cast(s).size > 6) { const i = s.beats.findIndex((b) => b.pair && /같은 성별/.test(b.text)); if (i >= 0) { s.beats.splice(i, 1); if (s.cover && s.cover.from > i) s.cover.from -= 1; } }
   writeFileSync(p, JSON.stringify(s, null, 2) + '\n');
 });
