@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai2-1.mp4",
-      "text": "친구들 다<br>연말 약속 있대요.<br><em>나만</em> 없나?"
+      "text": "연말 약속,<br>나만 <em>없어요</em>?"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
@@ -16,10 +16,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
+        "C:/topnote-social/ai-reels/src/xmas-ai2-1.mp4",
+        "C:/topnote-social/ai-reels/src/xmas-ai2-2.mp4",
+        "C:/topnote-social/ai-reels/src/people-g1a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3a.mp4"
       ],
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
@@ -28,7 +28,7 @@
       "text": "4인 수다,<br>처음 1회 <em>무료</em>."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/xmas-ai2-3.mp4",
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai2-1.mp4",
       "text": "처음 보는데<br>왜 이렇게 <em>웃기지?</em>"
     },
     {
@@ -37,10 +37,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/bar-ai2-3.mp4",
-        "C:/topnote-social/ai-reels/src/bar-ai1-4.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai4-3.mp4",
-        "C:/topnote-social/ai-reels/src/people-g2b.mp4"
+        "C:/topnote-social/ai-reels/src/xmas-ai2-1.mp4",
+        "C:/topnote-social/ai-reels/src/xmas-ai2-2.mp4",
+        "C:/topnote-social/ai-reels/src/people-g1b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g3b.mp4"
       ],
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
@@ -52,6 +52,7 @@
   "cover": {
     "from": 2,
     "at": 3,
-    "text": "연말 약속<br><em>나만</em><br>없나?"
-  }
+    "text": "연말 약속,<br>나만 <em>없어요</em>?"
+  },
+  "manual": true
 }

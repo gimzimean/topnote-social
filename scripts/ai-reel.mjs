@@ -51,10 +51,13 @@ for (const [i, b] of spec.beats.entries()) {
 for (const [i, b] of spec.beats.entries()) {
   if (!b.pair) continue;
   const g = resolve(root, 'ai-reels/src', `${spec.id}-pair${i}.mp4`);
-  // 얼굴이 잘리지 않게: 원본 9:16 전체를 반쪽 너비(540×960)로 넣고, 위아래는 같은 영상을 흐리게 깔아 채운다(2026-11-05 대표 「얼굴 잘리지 말고」).
-  const side = (n) => `[${n}:v]fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS,split[s${n}a][s${n}b];[s${n}a]scale=${W / 2}:${H}:force_original_aspect_ratio=increase,crop=${W / 2}:${H},boxblur=24:2,eq=brightness=-0.12[bg${n}];[s${n}b]scale=${W / 2}:-2[fg${n}];[bg${n}][fg${n}]overlay=0:(H-h)/2+120[h${n}]`;
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.pair.flatMap((p) => ['-i', p]), '-filter_complex',
-    `${side(0)};${side(1)};[h0][h1]hstack=inputs=2,drawbox=x=538:y=0:w=4:h=1920:color=0x171411:t=fill[o]`,
+  // layout tb: 위 남·아래 여로 쌓아 꽉 채움 · lr: 좌우 나란히, 위아래는 블러 대신 앱 통화 화면처럼 짙은 갈색(2026-11-05 대표)
+  const tb = `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},crop=${W}:${H / 2}:0:400,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  const lr = `scale=${W / 2}:-2,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  const graph = b.layout === 'lr'
+    ? `[0:v]${lr}[l];[1:v]${lr}[r];[l][r]hstack=inputs=2,pad=${W}:${H}:0:560:color=0x171411,drawbox=x=538:y=560:w=4:h=960:color=0x171411:t=fill,drawbox=x=0:y=556:w=${W}:h=4:color=0xE9B44C@0.5:t=fill,drawbox=x=0:y=1520:w=${W}:h=4:color=0xE9B44C@0.5:t=fill[o]`
+    : `[0:v]${tb}[t];[1:v]${tb}[d];[t][d]vstack=inputs=2,drawbox=x=0:y=958:w=${W}:h=4:color=0x171411:t=fill[o]`;
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.pair.flatMap((p) => ['-i', p]), '-filter_complex', graph,
     '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
   b.clip = g;
 }

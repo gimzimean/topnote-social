@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/pepero-ai1-1.mp4",
-      "text": "편의점 빼빼로 앞,<br>괜히 <em>지나친</em> 적 있죠?"
+      "text": "빼빼로데이,<br>줄 사람 <em>있어요</em>?"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
@@ -42,7 +42,7 @@
   "cover": {
     "from": 4,
     "at": 3.5,
-    "text": "얼굴도<br>모르는데<br><em>설렜다</em>."
+    "text": "빼빼로데이,<br>줄 사람 <em>있어요</em>?"
   },
   "manual": true
 }

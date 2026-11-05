@@ -7,7 +7,8 @@
         "C:/topnote-social/ai-reels/src/people-pm1.mp4",
         "C:/topnote-social/ai-reels/src/people-pw1.mp4"
       ],
-      "text": "얼굴 모르는 사람과<br><em>3분</em> 통화했더니"
+      "text": "얼굴도 모르는데<br><em>설렜다</em>.",
+      "layout": "lr"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
@@ -18,7 +19,8 @@
         "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
         "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
       ],
-      "text": "같은 데서<br><em>빵</em> 터졌다."
+      "text": "같은 데서<br><em>빵</em> 터졌다.",
+      "layout": "tb"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
@@ -40,7 +42,7 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "목소리만<br>들었는데<br><em>설렜다</em>."
+    "text": "얼굴도 모르는데<br><em>설렜다</em>."
   },
   "manual": true
 }

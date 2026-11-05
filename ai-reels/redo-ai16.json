@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/redo-ai16-1.mp4",
-      "text": "퇴근하고 소개팅,<br><em>너무 피곤</em>할 때."
+      "text": "퇴근하고 소개팅,<br><em>솔직히</em> 귀찮죠?"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
@@ -15,7 +15,8 @@
         "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
         "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
       ],
-      "text": "같은 데서<br><em>빵</em> 터졌다."
+      "text": "같은 데서<br><em>빵</em> 터졌다.",
+      "layout": "lr"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/redo-ai16-2.mp4",
@@ -37,7 +38,7 @@
   "cover": {
     "from": 0,
     "at": 3,
-    "text": "퇴근 후<br>소개팅,<br>너무 피곤할 때."
+    "text": "퇴근하고 소개팅,<br><em>솔직히</em> 귀찮죠?"
   },
   "manual": true
 }

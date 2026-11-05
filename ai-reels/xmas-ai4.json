@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-1.mp4",
-      "text": "크리스마스 소개팅,<br>준비만 <em>2시간</em>."
+      "text": "소개팅 2시간 준비,<br><em>5분</em> 만에 끝난 적?"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
@@ -15,7 +15,8 @@
         "C:/topnote-social/ai-reels/src/rot-ai1-4.mp4",
         "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4"
       ],
-      "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야."
+      "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야.",
+      "layout": "lr"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-2.mp4",
@@ -41,7 +42,7 @@
   "cover": {
     "from": 5,
     "at": 3,
-    "text": "소개팅<br>2시간 vs<br><em>3분</em>."
+    "text": "소개팅 2시간 준비,<br><em>5분</em> 만에 끝난 적?"
   },
   "manual": true
 }

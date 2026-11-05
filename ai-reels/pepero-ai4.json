@@ -1,9 +1,40 @@
-{ "id": "pepero-ai4", "manual": true, "track": "one-more-ping.mp3",
+{
+  "id": "pepero-ai4",
+  "manual": true,
+  "track": "one-more-ping.mp3",
   "beats": [
-    { "clip": "C:/topnote-social/ai-reels/src/pepero-ai4-1.mp4", "text": "회사에서 빼빼로 돌리는 날,<br>나는 <em>셀프</em> 빼빼로." },
-    { "clip": "C:/topnote-social/ai-reels/src/pepero-ai4-2.mp4", "text": "받은 건<br>의리 빼빼로 <em>한 개</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png", "text": "올해는 11일 전에<br><em>3분</em>만 먼저." },
-    { "pair": ["C:/topnote-social/ai-reels/src/rot-ai3-3.mp4", "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"], "text": "같은 데서<br><em>빵</em> 터졌다." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면,<br>그때 <em>사진</em>." },
-    { "end": "내년 빼빼로는<br><em>둘이</em>.", "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료" } ],
-  "cover": { "from": 0, "at": 3, "text": "올해 빼빼로도<br><em>셀프</em>로<br>샀어요?" } }
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai4-1.mp4",
+      "text": "올해 빼빼로도<br><em>셀프</em>로 샀어요?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai4-2.mp4",
+      "text": "받은 건<br>의리 빼빼로 <em>한 개</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+      "text": "올해는 11일 전에<br><em>3분</em>만 먼저."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+        "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
+      ],
+      "text": "같은 데서<br><em>빵</em> 터졌다.",
+      "layout": "lr"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "내년 빼빼로는<br><em>둘이</em>.",
+      "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 3,
+    "text": "올해 빼빼로도<br><em>셀프</em>로 샀어요?"
+  }
+}

@@ -7,7 +7,7 @@ const label = { 'talk-ai1': '4인 수다 특별편', 'xmas-ai4': '소개팅 2시
   'pepero-ai1': '빼빼로 진열대 앞', 'pepero-ai3': '오늘 SNS는 온통 빼빼로', 'pepero-ai2': '빼빼로데이 4인 수다', 'pepero-ai4': '셀프 빼빼로 (새)', 'pepero-ai5': '빼빼로 뭐 좋아해요? (새)',
   'xmas-ai2': '솔크 탈출 2화 · 연말 약속', 'xmas-ai3': '솔크 탈출 3화 · 소모임 3시간', 'xmas-ai5': '솔크 탈출 5화 · 친구 한 명', 'xmas-ai10': '솔크 탈출 9화 · 첫눈',
   'bar-ai1': '혼술바 옆자리', 'xmas-ai8': '퇴근 혼밥 말고 넷이 수다', 'xmas-ai13': '크리스마스 전 4인 수다', 'xmas-ai21': '연말 파티 멤버 모집' };
-const fresh = (k) => existsSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)) && statSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)).mtimeMs > Date.parse('2026-11-05T01:55:00Z');
+const fresh = (k) => existsSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)) && statSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)).mtimeMs > Date.parse('2026-11-05T03:19:25Z');
 const card = (k) => fresh(k)
   ? `<figure><video src="ai-reels/${k}.mp4?v=${v}" poster="ai-reels/${k}-cover.jpg?v=${v}" controls playsinline preload="none"></video><figcaption>${label[k]}<br><span class="ok">수정 완료</span></figcaption></figure>`
   : `<figure><div class="wait">만드는 중</div><figcaption>${label[k]}</figcaption></figure>`;
@@ -15,7 +15,7 @@ const MAIN = '사진 100장 넘겨도 대화할 사람 없었죠? 목소리로 3
 const sets = [ // 2026-11-05 대표 「세트마다 5개 · 후킹 멘트」
   { t: '① 본 세트 (안드로이드·아이폰 각 8,000원 · 스레드 2개 각 3,500원)', s: '지금 켜져 있음 · 승인하면 수정 영상·새 문구로 교체', vids: ['talk-ai1', 'xmas-ai4', 'xmas-ai1', 'redo-ai16', 'pair-ai1'], copy: MAIN + '<br>제목: 말 통하는 사람, 3분이면 알아요' },
   { t: '② 빼빼로데이 세트 (안드로이드·아이폰 각 3,000원 · 11/11까지)', s: '일시정지 · 승인하면 켬', vids: ['pepero-ai1', 'pepero-ai3', 'pepero-ai2', 'pepero-ai4', 'pepero-ai5'], copy: '올해 빼빼로도 셀프로 사요? 🍫 11일 전에 목소리로 3분 먼저 통화해 보세요. 말이 통하면 그때 사진. 간편인증한 사람만 만나요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 빼빼로 줄 사람, 3분이면 생겨요' },
-  { t: '③ 솔크 탈출 세트 (안드로이드·아이폰 각 3,000원 · 12/24까지)', s: '일시정지 · 승인하면 켬', vids: ['xmas-ai1', 'xmas-ai2', 'xmas-ai3', 'xmas-ai5', 'xmas-ai10'], copy: '올해 크리스마스도 넷플릭스랑 보낼 거예요? 🎄 오늘 3분 통화가 솔크 탈출 첫 단계. 말 통하면 그때 사진, 넷이 하는 4인 수다도 있어요. 간편인증한 사람만 만나요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 솔크 탈출, 오늘 3분부터' },
+  { t: '③ 솔크 탈출 세트 (안드로이드·아이폰 각 3,000원 · 12/24까지)', s: '일시정지 · 승인하면 켬', vids: ['xmas-ai1', 'xmas-ai2', 'xmas-ai3', 'xmas-ai5', 'xmas-ai10'], copy: '올해는 진짜 솔크 탈출. 🎄 크리스마스까지 딱 7주, 또 넷플릭스랑 보낼 거예요? 오늘 저녁 3분 통화가 시작이에요. 말 통하면 그때 사진, 넷이 하는 4인 수다도 있어요. 간편인증한 사람만 만나요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 올해는 진짜 솔크 탈출' },
   { t: '④ 4인 수다 세트 (안드로이드·아이폰 각 3,000원 · 12/24까지)', s: '승인하면 만듦', vids: ['talk-ai1', 'bar-ai1', 'xmas-ai8', 'xmas-ai13', 'xmas-ai21'], copy: '둘이 만나긴 떨린다면? 처음 만난 넷이 목소리로 10분 수다부터. 첫 4인 수다는 무료, 끝나고 서로 고르면 둘이 3분 더, 셋 이상 원하면 다 같이 연결돼요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 처음 만난 넷이 10분 수다' },
 ];
 const body = sets.map((x) => `<section><h2>${x.t}</h2><p class="sub">${x.s}${x.note ? ' · ' + x.note : ''}</p><div class="copy">광고 문구: ${x.copy}</div><div class="row">${x.vids.map(card).join('')}</div></section>`).join('');

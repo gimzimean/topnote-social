@@ -9,7 +9,7 @@
         "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
         "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
       ],
-      "text": "크리스마스,<br>처음 만난 <em>넷이서</em> 수다."
+      "text": "크리스마스 파티,<br>갈 데 <em>없다면</em>?"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
@@ -37,10 +37,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/bar-ai2-3.mp4",
-        "C:/topnote-social/ai-reels/src/bar-ai1-4.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai4-3.mp4",
-        "C:/topnote-social/ai-reels/src/people-g2b.mp4"
+        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
       ],
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
@@ -52,7 +52,7 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "크리스마스, 처음 만난<br><em>넷이서</em> 수다 떨기."
+    "text": "크리스마스 파티,<br>갈 데 <em>없다면</em>?"
   },
   "manual": true
 }

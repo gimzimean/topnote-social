@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai1-1.mp4",
-      "text": "작년 크리스마스,<br>치킨이랑 <em>넷플릭스</em>.."
+      "text": "올해는 진짜<br><em>솔크 탈출</em>."
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
@@ -42,7 +42,7 @@
   "cover": {
     "from": 4,
     "at": 3.5,
-    "text": "올해는<br>첫눈 오면<br><em>통화할 사람</em>."
+    "text": "올해는 진짜<br><em>솔크 탈출</em>."
   },
   "manual": true
 }

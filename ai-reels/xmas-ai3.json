@@ -4,14 +4,14 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai3-1.mp4",
-      "text": "연말 모임 갔다가<br><em>3시간</em> 버린 적 있죠?"
+      "text": "소모임 3시간,<br>건진 사람 <em>0명</em>."
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
+        "C:/topnote-social/ai-reels/src/xmas-ai3-1.mp4",
+        "C:/topnote-social/ai-reels/src/xmas-ai3-2.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4a.mp4"
       ],
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
@@ -28,7 +28,7 @@
       "text": "불편하면 바로 끊고,<br><em>신고·차단</em>도 바로."
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/xmas-ai3-3.mp4",
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai3-1.mp4",
       "text": "간편인증한 사람과<br><em>목소리</em>로 먼저."
     },
     {
@@ -37,10 +37,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/bar-ai2-3.mp4",
-        "C:/topnote-social/ai-reels/src/bar-ai1-4.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai4-3.mp4",
-        "C:/topnote-social/ai-reels/src/people-g2b.mp4"
+        "C:/topnote-social/ai-reels/src/xmas-ai3-1.mp4",
+        "C:/topnote-social/ai-reels/src/xmas-ai3-2.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4b.mp4"
       ],
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
@@ -52,6 +52,7 @@
   "cover": {
     "from": 0,
     "at": 3,
-    "text": "모임 갔다가<br><em>3시간</em><br>버린 적."
-  }
+    "text": "소모임 3시간,<br>건진 사람 <em>0명</em>."
+  },
+  "manual": true
 }

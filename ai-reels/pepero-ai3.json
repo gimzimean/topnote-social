@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-1.mp4",
-      "text": "오늘 SNS는<br>온통 <em>빼빼로</em>."
+      "text": "오늘 SNS<br>빼빼로 인증 <em>홍수</em>."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-2.mp4",
@@ -19,7 +19,8 @@
         "C:/topnote-social/ai-reels/src/rot-ai1-4.mp4",
         "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4"
       ],
-      "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야."
+      "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야.",
+      "layout": "tb"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/pepero-ai3-3.mp4",
@@ -41,7 +42,7 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "빼빼로데이,<br><em>혼자</em>라도<br>괜찮아요."
+    "text": "오늘 SNS<br>빼빼로 인증 <em>홍수</em>."
   },
   "manual": true
 }

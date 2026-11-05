@@ -1,9 +1,40 @@
-{ "id": "pepero-ai5", "manual": true, "track": "late-night-texts.mp3",
+{
+  "id": "pepero-ai5",
+  "manual": true,
+  "track": "late-night-texts.mp3",
   "beats": [
-    { "clip": "C:/topnote-social/ai-reels/src/pepero-ai5-1.mp4", "text": "빼빼로 고르면서<br><em>통화</em> 중." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "어제 3분 통화한 사람,<br>둘 다 눌러서 <em>3분 더</em>." },
-    { "clip": "C:/topnote-social/ai-reels/src/pepero-ai5-2.mp4", "text": "「빼빼로 뭐 좋아해요?」<br>이 질문이 <em>설레다니</em>." },
-    { "pair": ["C:/topnote-social/ai-reels/src/people-pm1.mp4", "C:/topnote-social/ai-reels/src/people-pw1.mp4"], "text": "얼굴 몰라도<br>목소리에 <em>설렘</em>." },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면,<br>그때 <em>사진</em>." },
-    { "end": "빼빼로 줄 사람,<br><em>3분</em>이면 생겨요.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" } ],
-  "cover": { "from": 2, "at": 2.5, "text": "빼빼로 뭐<br>좋아해요?<br>이게 <em>설렌다고</em>?" } }
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai5-1.mp4",
+      "text": "빼빼로 뭐 좋아해요?<br>이게 <em>설렌다고</em>?"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "어제 3분 통화한 사람,<br>둘 다 눌러서 <em>3분 더</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/pepero-ai5-2.mp4",
+      "text": "「빼빼로 뭐 좋아해요?」<br>이 질문이 <em>설레다니</em>."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/people-pm1.mp4",
+        "C:/topnote-social/ai-reels/src/people-pw1.mp4"
+      ],
+      "text": "얼굴 몰라도<br>목소리에 <em>설렘</em>.",
+      "layout": "tb"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "빼빼로 줄 사람,<br><em>3분</em>이면 생겨요.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 2,
+    "at": 2.5,
+    "text": "빼빼로 뭐 좋아해요?<br>이게 <em>설렌다고</em>?"
+  }
+}

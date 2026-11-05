@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-1.mp4",
-      "text": "첫눈 오는 날<br>제일 <em>허전</em>해요."
+      "text": "첫눈 오면<br>연락할 사람 <em>있어요</em>?"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-2.mp4",
@@ -42,6 +42,7 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "첫눈 오면<br><em>연락할 사람</em><br>있어요?"
-  }
+    "text": "첫눈 오면<br>연락할 사람 <em>있어요</em>?"
+  },
+  "manual": true
 }

@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-1.mp4",
-      "text": "처음엔<br><em>어색해도</em>."
+      "text": "4인 수다,<br>해 본 사람 <em>손</em>!"
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
@@ -19,18 +19,19 @@
         "C:/topnote-social/ai-reels/src/people-ff1a.mp4",
         "C:/topnote-social/ai-reels/src/people-ff1b.mp4"
       ],
-      "text": "친구로 고르면<br>같은 성별끼리 <em>수다</em>."
+      "text": "친구로 고르면<br>같은 성별끼리 <em>수다</em>.",
+      "layout": "tb"
     },
     {
-      "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-3.mp4",
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-1.mp4",
       "text": "끝나고 몰래<br><em>한 명</em> 고르기."
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
+        "C:/topnote-social/ai-reels/src/xmas-ai13-1.mp4",
+        "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2a.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4a.mp4"
       ],
       "text": "처음 만난 <em>넷이서</em>,<br>목소리로 10분 수다."
     },
@@ -44,10 +45,10 @@
     },
     {
       "grid": [
-        "C:/topnote-social/ai-reels/src/bar-ai2-3.mp4",
-        "C:/topnote-social/ai-reels/src/bar-ai1-4.mp4",
-        "C:/topnote-social/ai-reels/src/xmas-ai4-3.mp4",
-        "C:/topnote-social/ai-reels/src/people-g2b.mp4"
+        "C:/topnote-social/ai-reels/src/xmas-ai13-1.mp4",
+        "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
+        "C:/topnote-social/ai-reels/src/people-g2b.mp4",
+        "C:/topnote-social/ai-reels/src/people-g4b.mp4"
       ],
       "text": "끝나고 셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
     },
@@ -59,6 +60,7 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "크리스마스 전<br><em>4인 수다</em><br>해 봤어요?"
-  }
+    "text": "4인 수다,<br>해 본 사람 <em>손</em>!"
+  },
+  "manual": true
 }
