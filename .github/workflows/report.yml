@@ -21,6 +21,7 @@ jobs:
           TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           META_ADS_TOKEN: ${{ secrets.META_ADS_TOKEN }}
+          GSC_SA_JSON: ${{ secrets.GSC_SA_JSON }}
         run: node scripts/report.mjs
       - name: 저장
         run: |

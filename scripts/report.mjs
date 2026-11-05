@@ -62,6 +62,38 @@ await safe('meta_cap', async () => {
   return { spend_cap: cap, spent_since_cap: spent, left: cap ? cap - spent : null };
 });
 
+// 4-3) 검색 성과(구글 서치 콘솔, 2026-11-05 대표 「성과도 같이 측정해」): 데이터가 2~3일 늦으므로 최근 7일(3일 전까지).
+// 한국판(/us/ 밖)과 미국판(/us/)을 나눠 노출·클릭·평균 순위, 많이 나온 페이지·검색어. 서비스 계정 GSC_SA_JSON(읽기 전용).
+await safe('seo', async () => {
+  const sa = JSON.parse(process.env.GSC_SA_JSON || 'null');
+  if (!sa) throw new Error('GSC_SA_JSON 없음');
+  const { createSign } = await import('node:crypto');
+  const b64 = (v) => Buffer.from(typeof v === 'string' ? v : JSON.stringify(v)).toString('base64url');
+  const now = Math.floor(Date.now() / 1000);
+  const head = b64({ alg: 'RS256', typ: 'JWT' });
+  const body = b64({ iss: sa.client_email, scope: 'https://www.googleapis.com/auth/webmasters.readonly', aud: 'https://oauth2.googleapis.com/token', iat: now, exp: now + 3000 });
+  const sig = createSign('RSA-SHA256').update(`${head}.${body}`).sign(sa.private_key).toString('base64url');
+  const tok = await (await fetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: `${head}.${body}.${sig}` }) })).json();
+  if (!tok.access_token) throw new Error('token ' + JSON.stringify(tok).slice(0, 150));
+  const end = new Date(Date.now() - 3 * 864e5).toISOString().slice(0, 10);
+  const start = new Date(Date.now() - 9 * 864e5).toISOString().slice(0, 10);
+  const q = async (dimensions, filters, rowLimit = 10) => {
+    const r = await fetch('https://searchconsole.googleapis.com/webmasters/v3/sites/' + encodeURIComponent('https://topnote.app/') + '/searchAnalytics/query', {
+      method: 'POST', headers: { Authorization: `Bearer ${tok.access_token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ startDate: start, endDate: end, dimensions, rowLimit, ...(filters ? { dimensionFilterGroups: [{ filters }] } : {}) }) });
+    const b = await r.json(); if (b.error) throw new Error(JSON.stringify(b.error).slice(0, 200));
+    return (b.rows ?? []).map((x) => ({ key: x.keys?.join(' | '), clicks: x.clicks, impressions: x.impressions, ctr: Math.round(x.ctr * 1000) / 10, position: Math.round(x.position * 10) / 10 }));
+  };
+  const us = [{ dimension: 'page', operator: 'contains', expression: '/us/' }];
+  const kr = [{ dimension: 'page', operator: 'notContains', expression: '/us/' }];
+  const total = async (f) => (await q([], f, 1))[0] ?? { clicks: 0, impressions: 0, ctr: 0, position: null };
+  return {
+    range: `${start}~${end}`,
+    kr: { total: await total(kr), pages: await q(['page'], kr), queries: await q(['query'], kr) },
+    us: { total: await total(us), pages: await q(['page'], us), queries: await q(['query'], us) },
+  };
+});
+
 // 5) 자동 게시 진행
 const state = JSON.parse(readFileSync(resolve(root, 'state.json'), 'utf8'));
 const content = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
