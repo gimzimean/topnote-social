@@ -68,9 +68,9 @@ for (const [i, b] of spec.beats.entries()) {
     const ov = resolve(tmp, `ov${i}.png`);
     await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"><div class="t">${b.text}</div></div>${CTA}`, ov);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', b.clip, '-loop', '1', '-i', ov, '-filter_complex',
-      // rotate: 'ccw' = 옆으로 누워 나온 장면을 바로 세워 가로 화면으로 가운데에(위아래 짙은 갈색)
-      `[0:v]${b.rotate ? `transpose=${b.rotate==='cw'?1:2},scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
-      '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', seg]);
+      // wide: 세로 원본 가운데를 가로(16:9)로 잘라 띄움 · dur: 이 장면만 짧게(초) · rotate: 'ccw' = 옆으로 누워 나온 장면을 바로 세워 가로 화면으로 가운데에(위아래 짙은 갈색)
+      `[0:v]${b.wide ? `crop=iw:iw*9/16:0:(ih-oh)*0.62,scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : b.rotate ? `transpose=${b.rotate==='cw'?1:2},scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`},fps=30,trim=0:${b.dur ?? CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
+      '-map', '[o]', '-t', String(b.dur ?? CLIP), '-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', seg]);
   } else {
     const png = resolve(tmp, `st${i}.png`);
     const inner = b.screen
@@ -91,7 +91,7 @@ for (const [i, b] of spec.beats.entries()) {
 
 // 앱 화면·끝 카드는 확대 효과 없이 멈춘 화면(확대하면 떨려 보였다, 2026-11-04 대표). 앱 화면은 폰을 줄여 아래 「지금 앱 받기」와 안 겹치게, 알약은 어두운 반투명 + 금색 테두리.
 // 이어 붙이기(장면 사이 0.35초 디졸브) + 음악
-const durs = spec.beats.map((b) => (b.clip ? CLIP : b.end ? END : STILL));
+const durs = spec.beats.map((b) => (b.clip ? (b.dur ?? CLIP) : b.end ? END : STILL));
 const F = 0.35;
 let chain = '', last = '[0:v]', off = 0;
 for (let i = 1; i < parts.length; i++) {
