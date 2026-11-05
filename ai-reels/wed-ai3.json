@@ -5,7 +5,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-f7.mp4",
-      "text": "결혼식 축사<br>「넷이서 맨날 놀더니,<br>결국 <em>둘이</em> 결혼하네요」",
+      "text": "결혼식 축사<br>「넷이서 맨날 놀더니,<br>결국 둘이 <em>결혼</em>하네요」",
       "rotate": "ccw"
     },
     {
@@ -37,6 +37,6 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "「넷이서 맨날 놀더니<br>결국 <em>둘이</em><br>결혼하네요」"
+    "text": "「넷이서 맨날 놀더니<br>결국 둘이<br><em>결혼</em>하네요」"
   }
 }

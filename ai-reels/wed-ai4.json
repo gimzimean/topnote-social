@@ -5,7 +5,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/wed-c6.mp4",
-      "text": "대화가 맞았던 사람과<br><em>신혼집</em>에서."
+      "text": "대화 잘 맞는 사람과<br><em>결혼</em>하고 싶다면."
     },
     {
       "grid": [
@@ -37,6 +37,6 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "대화가 맞았던<br>사람과 <em>신혼집</em>."
+    "text": "대화 잘 맞는<br>사람과 <em>결혼</em><br>하고 싶다면."
   }
 }

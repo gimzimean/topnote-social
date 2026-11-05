@@ -10,7 +10,7 @@
         "C:/topnote-social/ai-reels/src/wed-g3.mp4",
         "C:/topnote-social/ai-reels/src/wed-g4.mp4"
       ],
-      "text": "자만추 원하는데<br>만날 데가 <em>없다면</em>?"
+      "text": "<em>결혼</em>할 사람,<br>어디서 만나요?"
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
@@ -40,6 +40,6 @@
   "cover": {
     "from": 0,
     "at": 2.5,
-    "text": "자만추 원하는데<br>만날 데가 <em>없다면</em>?"
+    "text": "<em>결혼</em>할 사람,<br>어디서 만나요?"
   }
 }

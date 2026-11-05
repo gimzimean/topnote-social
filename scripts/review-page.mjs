@@ -7,7 +7,7 @@ const label = { 'talk-ai1': '4인 수다 특별편', 'xmas-ai4': '소개팅 2시
   'pepero-ai1': '빼빼로 진열대 앞', 'pepero-ai3': '오늘 SNS는 온통 빼빼로', 'pepero-ai2': '빼빼로데이 4인 수다', 'pepero-ai4': '셀프 빼빼로 (새)', 'pepero-ai5': '빼빼로 뭐 좋아해요? (새)',
   'xmas-ai2': '솔크 탈출 2화 · 연말 약속', 'xmas-ai3': '솔크 탈출 3화 · 소모임 3시간', 'xmas-ai5': '솔크 탈출 5화 · 친구 한 명', 'xmas-ai10': '솔크 탈출 9화 · 첫눈',
   'bar-ai1': '혼술바 옆자리', 'xmas-ai8': '퇴근 혼밥 말고 넷이 수다', 'xmas-ai13': '크리스마스 전 4인 수다', 'xmas-ai21': '연말 파티 멤버 모집', 'wed-ai1': '자만추, 목소리로 시작', 'wed-ai2': '넷이 수다 떨다가 둘이 남았다', 'wed-ai3': '축사 「넷이서 맨날 놀더니」', 'wed-ai4': '신혼집', 'wed-ai5': '자만추 만날 데가 없다면', 'wed-ai6': '넷이 통화했는데 다 잘 맞았다 (새)' };
-const fresh = (k) => existsSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)) && statSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)).mtimeMs > Date.parse('2026-11-05T08:59:09Z');
+const fresh = (k) => existsSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)) && statSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)).mtimeMs > Date.parse('2026-11-05T09:05:41Z');
 const card = (k) => fresh(k)
   ? `<figure><video src="ai-reels/${k}.mp4?v=${v}" poster="ai-reels/${k}-cover.jpg?v=${v}" controls playsinline preload="none"></video><figcaption>${label[k]}<br><span class="ok">수정 완료</span></figcaption></figure>`
   : `<figure><div class="wait">만드는 중</div><figcaption>${label[k]}</figcaption></figure>`;
