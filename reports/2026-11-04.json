@@ -1,0 +1,192 @@
+{
+ "day": "2026-11-04",
+ "collected_at": "2026-11-05T02:40:39.213Z",
+ "app": {
+  "day": "2026-11-04",
+  "signups": 4,
+  "approved": 2,
+  "onboarded": 4,
+  "purchases": {},
+  "calls_1on1": 0,
+  "talk_joins": 0,
+  "members_total": {
+   "pending": 5,
+   "approved": 12,
+   "rejected": 9
+  },
+  "profiles_total": 26,
+  "visits_by_source": {
+   "meta": 2,
+   "direct": 72,
+   "tiktok": 1,
+   "(not set)": 224,
+   "app_store": 130,
+   "apps.instagram.com": 192
+  },
+  "signups_by_source": {
+   "(모름)": 2,
+   "(not set)": 2
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 1,
+  "posts": 48,
+  "recent": [
+   {
+    "at": "2026-11-04T18:36:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 · 11월 5일] 편의점 빼빼로 앞에서 괜히 지나친 적 있죠?",
+    "url": "https://www.instagram.com/reel/DfVHUxsDqvl/"
+   },
+   {
+    "at": "2026-11-04T18:19:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "간편인증한 사람만 3분 통화와 4인 수다에 들어와요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfVFcO7Dok3/"
+   },
+   {
+    "at": "2026-11-04T11:32:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 받은 것 3개] 팀장님 1, 거래처 1, 편의점 1+1.",
+    "url": "https://www.instagram.com/reel/DfUWyxqFAVA/"
+   },
+   {
+    "at": "2026-11-04T11:28:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "얼굴보다 목소리로 3분 먼저, 말이 통하면 그때 사진을 봐요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfUWZ2wiJdx/"
+   },
+   {
+    "at": "2026-11-04T10:55:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "로테이션 소개팅 가봤는데 8명 다 기억 안 남. 5분씩 자기소개만 8번, 집에 오면 얼굴도",
+    "url": "https://www.instagram.com/reel/DfUShzjD3DL/"
+   },
+   {
+    "at": "2026-11-04T05:33:49+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "소개팅 첫 3분, 이것만 하세요. 질문 하나로 어색함이 풀려요.",
+    "url": "https://www.instagram.com/reel/DfTtxreFf88/"
+   },
+   {
+    "at": "2026-11-04T05:31:40+0000",
+    "type": "VIDEO",
+    "likes": 2,
+    "comments": 1,
+    "title": "데이팅 앱, 요즘 다들 지우는 이유. 넘기는 데 쓴 시간보다 3분 통화가 정확해요.",
+    "url": "https://www.instagram.com/reel/DfTtg0JD1Sc/"
+   },
+   {
+    "at": "2026-11-04T05:29:59+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "[솔크 탈출 특별편 · 4인 수다] 크리스마스 파티, 갈 데 없어도 괜찮아요.",
+    "url": "https://www.instagram.com/reel/DfTtUkqD5TT/"
+   },
+   {
+    "at": "2026-11-03T20:32:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[크리스마스 D-51] 올해는 진짜 솔크 탈출.",
+    "url": "https://www.instagram.com/reel/DfSvxfjjCv5/"
+   },
+   {
+    "at": "2026-11-03T20:05:39+0000",
+    "type": "CAROUSEL_ALBUM",
+    "likes": 1,
+    "comments": 1,
+    "title": "[크리스마스 D-51] 올해는 진짜 솔크 탈출.",
+    "url": "https://www.instagram.com/p/DfSsxnMj3ks/"
+   },
+   {
+    "at": "2026-11-03T18:23:15+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 3화] 애프터는 「다음에」 말고 「목요일에」.",
+    "url": "https://www.instagram.com/reel/DfShBsJlJuG/"
+   },
+   {
+    "at": "2026-11-03T18:09:47+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "둘이 부담되면 모르는 넷이 10분 4인 수다부터, 편해지면 1:1 3분 통화로. 만나기 전",
+    "url": "https://www.instagram.com/reel/DfSfemfmAQH/"
+   }
+  ]
+ },
+ "threads": {
+  "error": "{\"message\":\"Error validating access token: You cannot access the app till you log in to www.threads.com and follow the instructions given.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":0,\"fbtrac"
+ },
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 6635,
+   "impressions": 377,
+   "clicks": 13,
+   "ctr": 3.448276,
+   "installs": 1,
+   "link_clicks": 14
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 3347,
+   "impressions": 425,
+   "clicks": 78,
+   "ctr": 18.352941,
+   "installs": 0,
+   "link_clicks": 79
+  },
+  {
+   "campaign": "tn_threads_android_xmas",
+   "spend": 2849,
+   "impressions": 134,
+   "clicks": 3,
+   "ctr": 2.238806,
+   "installs": 1,
+   "link_clicks": 2
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 636000,
+  "spent_since_cap": 38978,
+  "left": 597022
+ },
+ "queue": {
+  "cards_posted": 9,
+  "cards_total": 76,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
