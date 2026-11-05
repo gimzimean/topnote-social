@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const v = Date.now();
-const label = { 'talk-ai1': '4인 수다 특별편', 'xmas-ai4': '소개팅 2시간 vs 3분', 'xmas-ai1': '솔크 탈출 1화', 'redo-ai16': '퇴근 후 피곤한 소개팅', 'pair-ai1': '목소리만 들었는데 설렜다 (새 1:1)',
+const label = { 'best-call': '사진 말고, 대화로 먼저 (옛 통화 편 → 사람)', 'best-voice': '얼굴 안 보고 하는 보이스 소개팅 (옛 목소리 편 → 사람)', 'best-friend-men': '통화로 먼저 만나는 친구 (옛 친구 편 그대로)', 'talk-ai1': '4인 수다 특별편', 'xmas-ai4': '소개팅 2시간 vs 3분', 'xmas-ai1': '솔크 탈출 1화', 'redo-ai16': '퇴근 후 피곤한 소개팅', 'pair-ai1': '목소리만 들었는데 설렜다 (새 1:1)',
   'pepero-ai1': '빼빼로 진열대 앞', 'pepero-ai3': '오늘 SNS는 온통 빼빼로', 'pepero-ai2': '빼빼로데이 4인 수다', 'pepero-ai4': '셀프 빼빼로 (새)', 'pepero-ai5': '빼빼로 뭐 좋아해요? (새)',
   'xmas-ai2': '솔크 탈출 2화 · 연말 약속', 'xmas-ai3': '솔크 탈출 3화 · 소모임 3시간', 'xmas-ai5': '솔크 탈출 5화 · 친구 한 명', 'xmas-ai10': '솔크 탈출 9화 · 첫눈',
   'bar-ai1': '혼술바 옆자리', 'xmas-ai8': '퇴근 혼밥 말고 넷이 수다', 'xmas-ai13': '크리스마스 전 4인 수다', 'xmas-ai21': '연말 파티 멤버 모집', 'wed-ai1': '자만추, 목소리로 시작', 'wed-ai2': '넷이 수다 떨다가 둘이 남았다', 'wed-ai3': '축사 「넷이서 맨날 놀더니」', 'wed-ai4': '신혼집', 'wed-ai5': '자만추 만날 데가 없다면', 'wed-ai6': '넷이 통화했는데 다 잘 맞았다 (새)' };
@@ -27,6 +27,7 @@ const sets = [ // 2026-11-05 대표 「세트마다 5개 · 후킹 멘트」
   { t: '③ 솔크 탈출 세트 (안드로이드·아이폰 각 3,000원 · 12/24까지)', s: '지금 광고 중', vids: ['xmas-ai1', 'xmas-ai2', 'xmas-ai3', 'xmas-ai5', 'xmas-ai10'], copy: '올해는 진짜 솔크 탈출. 🎄 크리스마스까지 딱 7주, 또 넷플릭스랑 보낼 거예요? 오늘 저녁 3분 통화가 시작이에요. 말 통하면 그때 사진, 넷이 하는 4인 수다도 있어요. 검증된 사람만 만나요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 올해는 진짜 솔크 탈출' },
   { t: '④ 4인 수다 세트 (안드로이드·아이폰 각 3,000원 · 12/24까지)', s: '지금 광고 중', vids: ['talk-ai1', 'bar-ai1', 'xmas-ai8', 'xmas-ai13', 'xmas-ai21'], copy: '둘이 만나긴 떨린다면? 처음 만난 넷이 목소리로 10분 수다부터. 첫 4인 수다는 무료, 끝나고 서로 고르면 둘이 3분 더, 셋 이상 원하면 다 같이 연결돼요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 처음 만난 넷이 10분 수다' },
   { t: '⑤ 결혼 세트 (안드로이드·아이폰 각 3,000원 · 12/31까지)', s: '지금 광고 중', vids: ['wed-ai6', 'wed-ai1', 'wed-ai2', 'wed-ai3', 'wed-ai4'], copy: '검증된 사람들끼리 넷이 10분 수다. 친구가 되고, 서로 고르면 둘이 3분 더. 말이 통하면 그때 사진. 친구도 인연도 검증된 사람들 속에서 만나요. (영상 속 인물은 AI로 만든 상황극이에요)<br>제목: 자만추, 대화로 먼저' },
+  { t: '⑥ 성과 좋았던 편 세트 (안드로이드 3,000원 · 11/30까지)', s: '지금 광고 중', vids: ['best-call', 'best-voice', 'best-friend-men'], copy: '사진 말고, 대화로 먼저. 얼굴 안 보고 목소리로 3분, 말이 통하면 그때 사진. 안 맞으면 잃는 건 3분뿐. 간편인증한 사람만, 연락처 지인은 안 만나요. (영상 속 인물은 AI로 만든 장면이에요)<br>제목: 만나기 전에, 3분 먼저' },
 ];
 const body = sets.map((x) => `<section><h2>${x.t}</h2><p class="sub">${x.s}${x.note ? ' · ' + x.note : ''}</p><div class="copy">광고 문구: ${x.copy}</div><div class="row">${x.vids.map((k) => card(k, x)).join('')}</div></section>`).join('');
 writeFileSync(resolve(root, 'docs/review.html'), `<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>광고 검수 · 탑노트</title><meta property="og:type" content="website"><meta property="og:url" content="https://gimzimean.github.io/topnote-social/review.html"><meta property="og:title" content="탑노트 광고 검수"><meta property="og:description" content="세트별 광고 영상 5편 · 문구 · 예산 한눈에 보기"><meta property="og:image" content="https://gimzimean.github.io/topnote-social/ai-reels/talk-ai1-cover.jpg"><meta property="og:image:width" content="1080"><meta property="og:image:height" content="1920">
