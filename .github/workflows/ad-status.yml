@@ -1,0 +1,29 @@
+name: ad-status
+# 메타 광고 현황 한 장(docs/ad-status.html)을 1시간마다 지금 숫자로 다시 만든다(2026-11-06 대표 「계속 업데이트 되는거야?」).
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: ad-status
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 만들기
+        env:
+          META_ADS_TOKEN: ${{ secrets.META_ADS_TOKEN }}
+        run: node scripts/ad-status.mjs
+      - name: 저장
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/ad-status.html
+          git diff --cached --quiet && exit 0
+          git commit -m "광고 현황 갱신"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
