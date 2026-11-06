@@ -31,6 +31,9 @@ const today = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
 const slotIdx = process.argv.indexOf('--slot');
 const slot = slotIdx > 0 ? process.argv[slotIdx + 1] : 'evening';
 const dayKey = slot === 'noon' ? 'last_noon' : 'last_day';
+// 2026-11-06: 깃허브 예약이 7시간씩 밀려 새벽 3시에 올라가던 것 → 예약 실행은 그 칸 시간대(점심 11~15시 · 저녁 19~23시 KST)에만 올린다.
+const kstHour = new Date(Date.now() + 9 * 36e5).getUTCHours();
+if (process.env.EVENT === 'schedule' && !(slot === 'noon' ? kstHour >= 11 && kstHour < 16 : kstHour >= 19)) { console.log(`${slot} 칸 시간이 아니에요(지금 ${kstHour}시 KST). 건너뜀.`); process.exit(0); }
 if (process.env.EVENT === 'schedule' && state[dayKey] === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
 const tokens = dry ? {} : loadTokens();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

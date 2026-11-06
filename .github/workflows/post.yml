@@ -1,5 +1,6 @@
 name: post
 # 매일 20:00 KST(11:00 UTC)에 다음 게시물을 인스타 피드·스토리·스레드·틱톡에 올린다.
+# 2026-11-06: 깃허브 예약이 7시간 밀려 Cloudflare Worker topnote-cron이 12:30·20:00 KST에 workflow_dispatch로 깨운다(예약은 예비, 하루 한 번 기록이라 두 번 돌아도 한 번만 올라감).
 on:
   schedule:
     # 정각은 깃허브가 자주 건너뛴다(2026-11-01 확인: 예약 실행 0번) → 20:07 · 20:37 · 21:17 세 번 시도, 하루 한 번만 올린다(post.mjs).
@@ -13,6 +14,9 @@ on:
     inputs:
       only:
         description: 'instagram · story · threads · tiktok 중 하나만 (비우면 전부)'
+        required: false
+      slot:
+        description: 'noon(점심 칸) · evening(저녁 칸, 기본)'
         required: false
 permissions:
   contents: write
@@ -31,8 +35,8 @@ jobs:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_MODE: ${{ vars.TIKTOK_MODE }}
-          EVENT: ${{ github.event_name }}
-        run: node scripts/post.mjs ${{ inputs.only && format('--only {0}', inputs.only) || '' }} ${{ (github.event.schedule == '30 3 * * *' || github.event.schedule == '50 3 * * *') && '--slot noon' || '' }}
+          EVENT: ${{ inputs.slot && 'schedule' || github.event_name }}
+        run: node scripts/post.mjs ${{ inputs.only && format('--only {0}', inputs.only) || '' }} ${{ (inputs.slot == 'noon' || github.event.schedule == '30 3 * * *' || github.event.schedule == '50 3 * * *') && '--slot noon' || '' }}
       - name: 올린 기록·새 토큰 저장
         if: always()
         run: |
