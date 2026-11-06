@@ -1,0 +1,35 @@
+{
+  "id": "us-main3",
+  "lang": "en",
+  "track": "talking-with-my-ex.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/us/p13.mp4",
+      "text": "2 hours getting ready.<br><em>Over</em> in 5 minutes?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/x8.mp4",
+      "text": "Now: sweatpants.<br><em>3 minutes</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "Verified people.<br><em>3-minute</em> calls."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/pm3.mp4",
+        "C:/topnote-social/ai-reels/us/r13.mp4"
+      ],
+      "text": "If it clicks,<br>see <em>photos</em>."
+    },
+    {
+      "end": "Skip the bad<br><em>first date</em>.",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "2 hours getting ready.<br><em>Over</em> in 5 minutes?"
+  }
+}

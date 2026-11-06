@@ -1,0 +1,38 @@
+{
+  "id": "us-main2",
+  "lang": "en",
+  "track": "fox-satin.mp3",
+  "beats": [
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/x13.mp4",
+        "C:/topnote-social/ai-reels/us/pw3.mp4"
+      ],
+      "text": "Never saw a face.<br>Still got <em>butterflies</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/r33.mp4",
+      "text": "Laughed at<br>the <em>same</em> thing."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "No photos.<br>Just <em>3 minutes</em>."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/wg1.mp4",
+        "C:/topnote-social/ai-reels/us/r23.mp4"
+      ],
+      "text": "Both want more?<br><em>3 more minutes</em>."
+    },
+    {
+      "end": "Voice first.<br>Photos <em>later</em>.",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Never saw a face.<br>Still got <em>butterflies</em>."
+  }
+}

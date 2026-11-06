@@ -1,0 +1,37 @@
+{
+  "id": "us-t4a",
+  "lang": "en",
+  "track": "fox-in-satin-x-one-more-ping.mp3",
+  "beats": [
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/us/pw2.mp4",
+        "C:/topnote-social/ai-reels/us/t12.mp4",
+        "C:/topnote-social/ai-reels/us/r23.mp4",
+        "C:/topnote-social/ai-reels/us/r33.mp4"
+      ],
+      "text": "No plans for<br><em>Friendsgiving</em>?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/x13.mp4",
+      "text": "4 strangers.<br><em>10 minutes</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "Table for 4.<br>First one <em>free</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/pw3.mp4",
+      "text": "Pick each other?<br><em>3 more</em>, just you two."
+    },
+    {
+      "end": "New friends,<br><em>10 minutes</em>.",
+      "sub": "TopNote · Table for 4<br>First table free"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "No plans for<br><em>Friendsgiving</em>?"
+  }
+}

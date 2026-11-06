@@ -26,6 +26,7 @@ const W = 1080, H = 1920, CLIP = 3.7, STILL = 2.7, END = 3; // 2026-11-05 대표
 const base = `${font}*{margin:0;padding:0;box-sizing:border-box}body{width:${W}px;height:${H}px;position:relative;overflow:hidden;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif}
 .top{position:absolute;left:0;right:0;bottom:0;height:1000px;padding:0 80px 560px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(0deg,rgba(23,20,17,.88) 0%,rgba(23,20,17,.6) 55%,rgba(23,20,17,0) 100%)}
 .t{font-family:SongMyung;color:#F3EBDD;font-size:84px;line-height:1.28;word-break:keep-all;text-shadow:0 2px 18px rgba(0,0,0,.45)}.t em{font-style:normal;color:#E9B44C}
+${spec.lang === 'en' ? ".t{font-family:'DM Serif Display',serif;font-size:88px;line-height:1.15;letter-spacing:.3px}" : ''}
 .ai{position:absolute;right:44px;top:150px;font-size:24px;color:rgba(243,235,221,.8);background:rgba(23,20,17,.45);padding:6px 14px;border-radius:99px}
 .cta{position:absolute;left:0;right:0;bottom:440px;text-align:center;font-size:36px;font-weight:700;color:#F3EBDD;letter-spacing:.5px}.cta span{background:rgba(23,20,17,.62);border:1.5px solid rgba(233,180,76,.55);padding:16px 38px;border-radius:99px}`;
 
@@ -45,8 +46,10 @@ for (const [i, b] of spec.beats.entries()) {
   const g = resolve(root, 'ai-reels/src', `${spec.id}-grid${i}.mp4`);
   // 2026-11-06 피드 4:5에서 위 칸 머리가 잘림 → 칸을 540×600으로(원본 위쪽 기준), 위 칸 y 300~900 · 문구 900~1100 · 아래 칸 1100~1700
   // 2026-11-06: 칸 540×380(위 칸 y 470~850 · 문구 850~1020 · 아래 칸 1020~1400, 릴스 아래 글·버튼 위). 칸마다 얼굴을 재서 얼굴이 칸 가운데 오게 자른다.
+  // 2026-11-06 대표 「4명인 케이스는 화면 아래위 자르지 말고 전체화면으로」: 칸마다 540×960 그대로(자르지 않음), 2×2로 꽉 채움. spec.gridCrop=true면 옛 방식.
+  const full = !spec.gridCrop;
   const offs = [];
-  for (const [k, src] of b.grid.entries()) {
+  for (const [k, src] of (full ? [] : b.grid.entries())) {
     let lo = 9999, hi = 0;
     for (const t of [0.5, 1.8, 3.2]) {
       const fj = resolve(tmp, `g${i}-${k}.jpg`);
@@ -57,9 +60,9 @@ for (const [i, b] of spec.beats.entries()) {
     if (hi && hi - lo > 340) console.log(`  ⚠ 4명 화면 칸 ${k}: 얼굴 범위가 칸보다 큼 — 직접 확인`);
     offs.push(off);
   }
-  const cell = (k) => `scale=${W / 2}:960,crop=${W / 2}:380:0:${offs[k]},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  const cell = (k) => full ? `scale=${W / 2}:960:force_original_aspect_ratio=increase,crop=${W / 2}:960,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS` : `scale=${W / 2}:960,crop=${W / 2}:380:0:${offs[k]},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.grid.flatMap((p) => ['-i', p]), '-filter_complex',
-    `[0:v]${cell(0)}[a];[1:v]${cell(1)}[b];[2:v]${cell(2)}[c];[3:v]${cell(3)}[d];[a][b][c][d]xstack=inputs=4:layout=0_0|540_0|0_550|540_550:fill=0x171411,pad=${W}:${H}:0:470:color=0x171411,drawbox=x=537:y=0:w=6:h=1920:color=0x171411:t=fill[o]`,
+    `[0:v]${cell(0)}[a];[1:v]${cell(1)}[b];[2:v]${cell(2)}[c];[3:v]${cell(3)}[d];[a][b][c][d]${full ? 'xstack=inputs=4:layout=0_0|540_0|0_960|540_960:fill=0x171411,drawbox=x=0:y=957:w=1080:h=6:color=0x171411:t=fill,drawbox' : `xstack=inputs=4:layout=0_0|540_0|0_550|540_550:fill=0x171411,pad=${W}:${H}:0:470:color=0x171411,drawbox`}=x=537:y=0:w=6:h=1920:color=0x171411:t=fill[o]`,
     '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
   b.clip = g;
 }
@@ -82,7 +85,7 @@ for (const [i, b] of spec.beats.entries()) {
   const seg = resolve(tmp, `seg${i}.mp4`);
   if (b.clip) {
     const ov = resolve(tmp, `ov${i}.png`);
-    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:755px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"${b.align === 'right' ? ' style="align-items:flex-end;text-align:right"' : ''}><div class="t">${b.text}</div></div>`, ov);
+    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:${spec.gridCrop ? 755 : 840}px;height:${spec.gridCrop ? 360 : 240}px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"${b.align === 'right' ? ' style="align-items:flex-end;text-align:right"' : ''}><div class="t">${b.text}</div></div>`, ov);
     const baseF = b.wide ? `crop=iw:iw*9/16:0:(ih-oh)*0.62,scale=${W}:-2,pad=${W}:${H}:0:480:color=0x171411` : b.rotate ? `transpose=${b.rotate==='cw'?1:2},scale=${W}:-2,pad=${W}:${H}:0:480:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`;
     // 2026-11-06 대표 「인물 얼굴 가리면 절대 안 돼」: 글자 윗선과 얼굴 아랫선을 재서 겹치면 영상을 그만큼 위로 올린다(4명 화면은 글자가 칸 사이라 제외)
     let liftF = '';
@@ -145,7 +148,7 @@ const c = spec.cover;
 const frame = resolve(tmp, 'frame.jpg');
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', spec.beats[c.from].clip ?? parts[c.from], '-frames:v', '1', '-vf', spec.beats[c.from].rotate ? `transpose=${spec.beats[c.from].rotate==='cw'?1:2},scale=${W}:-2,pad=${W}:${H}:0:480:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]); // 글자 없는 원본에서
 await shot(`<img src="data:image/jpeg;base64,${b64(frame)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:755px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
+  ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:${spec.gridCrop ? 755 : 840}px;height:${spec.gridCrop ? 360 : 240}px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
   ` : `<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
   <div style="position:absolute;left:80px;right:80px;top:${c.top ?? 1180}px"><div class="t" style="font-size:132px;line-height:1.18">${c.text}</div></div>
   `}`, resolve(tmp, 'cover.png'), false);

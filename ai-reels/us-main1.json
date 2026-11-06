@@ -1,0 +1,35 @@
+{
+  "id": "us-main1",
+  "lang": "en",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/pm3.mp4",
+        "C:/topnote-social/ai-reels/us/pw1.mp4"
+      ],
+      "text": "Swiped 100 photos.<br>Talked to <em>no one</em>?"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "Talk first.<br><em>3 minutes</em>, no photos."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/pw2.mp4",
+      "text": "If it clicks,<br><em>then</em> photos."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/t12.mp4",
+      "text": "Verified people<br><em>only</em>."
+    },
+    {
+      "end": "Talk first.<br><em>3 minutes</em>.",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Swiped 100 photos.<br>Talked to <em>no one</em>?"
+  }
+}

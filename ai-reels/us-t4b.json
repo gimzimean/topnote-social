@@ -1,0 +1,37 @@
+{
+  "id": "us-t4b",
+  "lang": "en",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/us/pw1.mp4",
+        "C:/topnote-social/ai-reels/us/wg1.mp4",
+        "C:/topnote-social/ai-reels/us/pw3.mp4",
+        "C:/topnote-social/ai-reels/us/p13.mp4"
+      ],
+      "text": "Nervous about<br>a <em>1:1</em>?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/r13.mp4",
+      "text": "Start with<br><em>four</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "Verified people.<br><em>10 minutes</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/pm3.mp4",
+      "text": "Pick each other?<br><em>3 more</em>, just you two."
+    },
+    {
+      "end": "Start with<br>a <em>table for 4</em>.",
+      "sub": "TopNote · Table for 4<br>First table free"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Nervous about<br>a <em>1:1</em>?"
+  }
+}

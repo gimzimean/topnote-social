@@ -1,0 +1,35 @@
+{
+  "id": "us-tg2",
+  "lang": "en",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/us/tgM.mp4",
+      "text": "Step out of dinner.<br>Take a <em>3-minute</em> call."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/t12.mp4",
+        "C:/topnote-social/ai-reels/us/pw2.mp4"
+      ],
+      "text": "No photos.<br>Just a <em>voice</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/tgW.mp4",
+      "text": "Back at the table,<br><em>smiling</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "One free intro<br><em>every day</em>."
+    },
+    {
+      "end": "This Thanksgiving,<br>talk <em>first</em>.",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Step out of dinner.<br>Take a <em>3-minute</em> call."
+  }
+}

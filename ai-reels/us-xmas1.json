@@ -1,0 +1,35 @@
+{
+  "id": "us-xmas1",
+  "lang": "en",
+  "track": "one-more-ping.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/us/xm1.mp4",
+      "text": "Another Christmas<br>with <em>Netflix</em>?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/xm2.mp4",
+      "text": "This year,<br>someone to <em>call</em>."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/x13.mp4",
+        "C:/topnote-social/ai-reels/us/pw2.mp4"
+      ],
+      "text": "No photos.<br>Just <em>3 minutes</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "Verified people<br><em>only</em>."
+    },
+    {
+      "end": "Not alone<br>this <em>Christmas</em>.",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Another Christmas<br>with <em>Netflix</em>?"
+  }
+}

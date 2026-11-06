@@ -1,0 +1,35 @@
+{
+  "id": "us-xmas2",
+  "lang": "en",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/us/xm2.mp4",
+      "text": "Someone to kiss<br>at <em>midnight</em>?"
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/wg1.mp4",
+        "C:/topnote-social/ai-reels/us/xm1.mp4"
+      ],
+      "text": "Start with<br>a <em>voice</em>."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "3-minute calls.<br>Photos <em>later</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/pw1.mp4",
+      "text": "If it clicks,<br><em>then</em> photos."
+    },
+    {
+      "end": "New Year's Eve,<br><em>not alone</em>.",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Someone to kiss<br>at <em>midnight</em>?"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "us-tg3",
+  "lang": "en",
+  "track": "last-message-first.mp3",
+  "beats": [
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/us/tgM.mp4",
+        "C:/topnote-social/ai-reels/us/tgW.mp4"
+      ],
+      "text": "Home for the holidays.<br><em>Single</em> again?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/r23.mp4",
+      "text": "Talk for <em>3 minutes</em><br>before any photos."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/ios-6.9-en/02-home.png",
+      "text": "Verified people<br><em>only</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/us/r33.mp4",
+      "text": "Both want more?<br><em>3 more</em>."
+    },
+    {
+      "end": "Not single<br>by <em>Christmas</em>?",
+      "sub": "TopNote · voice-first dating<br>One free intro every day"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "Home for the holidays.<br><em>Single</em> again?"
+  }
+}
