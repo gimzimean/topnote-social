@@ -1,5 +1,6 @@
 // 사람 나오는 설렘 릴스(Kling AI 장면 + 실제 앱 화면 + 우리 문구·음악)를 만든다(2026-11-04 대표 「설레고 이 앱을 쓰고 싶게」).
 // 규칙: 글자는 위쪽 한 칸에만(아래는 고정 「탑노트 · 지금 앱 받기」만), AI 장면엔 「AI로 만든 장면」 표시, 회원 후기처럼 쓰지 않는다.
+// 2026-11-06 대표 「광고가 잘린다」: 페이스북·인스타 피드는 세로 영상을 4:5로 잘라 위아래 285px가 안 보이고, 릴스는 아래 35%를 버튼·글이 덮는다 → 피드 위 프로필 줄(약 170px)도 덮음 → 글자·앱 받기는 y 480~1250 안에만.
 // 실행: node scripts/ai-reel.mjs <spec.json>  → docs/ai-reels/<id>.mp4 · <id>-cover.jpg
 // spec: { id, track, beats: [{ clip: 로컬 mp4, text } | { screen: 앱 캡처 png, text } | { end: 제목, sub }], cover: { from: beat 번호, at: 초, text } }
 import { createRequire } from 'node:module';
@@ -22,10 +23,10 @@ const font = `@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b6
 const W = 1080, H = 1920, CLIP = 3.7, STILL = 2.7, END = 3; // 2026-11-05 대표 「15~22초 사이」
 
 const base = `${font}*{margin:0;padding:0;box-sizing:border-box}body{width:${W}px;height:${H}px;position:relative;overflow:hidden;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif}
-.top{position:absolute;left:0;right:0;top:0;height:640px;padding:230px 80px 0;background:linear-gradient(180deg,rgba(23,20,17,.78) 0%,rgba(23,20,17,.45) 65%,rgba(23,20,17,0) 100%)}
+.top{position:absolute;left:0;right:0;top:0;height:900px;padding:480px 80px 0;background:linear-gradient(180deg,rgba(23,20,17,.78) 0%,rgba(23,20,17,.45) 65%,rgba(23,20,17,0) 100%)}
 .t{font-family:SongMyung;color:#F3EBDD;font-size:84px;line-height:1.28;word-break:keep-all;text-shadow:0 2px 18px rgba(0,0,0,.45)}.t em{font-style:normal;color:#E9B44C}
 .ai{position:absolute;right:44px;top:150px;font-size:24px;color:rgba(243,235,221,.8);background:rgba(23,20,17,.45);padding:6px 14px;border-radius:99px}
-.cta{position:absolute;left:0;right:0;bottom:210px;text-align:center;font-size:36px;font-weight:700;color:#F3EBDD;letter-spacing:.5px}.cta span{background:rgba(23,20,17,.62);border:1.5px solid rgba(233,180,76,.55);padding:16px 38px;border-radius:99px}`;
+.cta{position:absolute;left:0;right:0;bottom:590px;text-align:center;font-size:36px;font-weight:700;color:#F3EBDD;letter-spacing:.5px}.cta span{background:rgba(23,20,17,.62);border:1.5px solid rgba(233,180,76,.55);padding:16px 38px;border-radius:99px}`;
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: W, height: H } });
@@ -41,9 +42,10 @@ const CTA = '<div class="cta"><span>탑노트 · 지금 앱 받기</span></div>'
 for (const [i, b] of spec.beats.entries()) {
   if (!b.grid) continue;
   const g = resolve(root, 'ai-reels/src', `${spec.id}-grid${i}.mp4`);
-  const cell = `scale=${W / 2}:${H / 2}:force_original_aspect_ratio=increase,crop=${W / 2}:${H / 2},fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  // 2026-11-06 피드 4:5에서 위 칸 머리가 잘림 → 칸을 540×600으로(원본 위쪽 기준), 위 칸 y 300~900 · 문구 900~1100 · 아래 칸 1100~1700
+  const cell = `scale=${W / 2}:-2,crop=${W / 2}:500:0:20,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.grid.flatMap((p) => ['-i', p]), '-filter_complex',
-    `[0:v]${cell}[a];[1:v]${cell}[b];[2:v]${cell}[c];[3:v]${cell}[d];[a][b][c][d]xstack=inputs=4:layout=0_0|540_0|0_1140|540_1140:fill=0x171411,drawbox=x=537:y=0:w=6:h=1920:color=0x171411:t=fill[o]`,
+    `[0:v]${cell}[a];[1:v]${cell}[b];[2:v]${cell}[c];[3:v]${cell}[d];[a][b][c][d]xstack=inputs=4:layout=0_0|540_0|0_690|540_690:fill=0x171411,pad=${W}:${H}:0:460:color=0x171411,drawbox=x=537:y=0:w=6:h=1920:color=0x171411:t=fill[o]`,
     '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
   b.clip = g;
 }
@@ -52,11 +54,11 @@ for (const [i, b] of spec.beats.entries()) {
   if (!b.pair) continue;
   const g = resolve(root, 'ai-reels/src', `${spec.id}-pair${i}.mp4`);
   // layout tb: 위 남·아래 여로 쌓아 꽉 채움 · lr: 좌우 나란히, 위아래는 블러 대신 앱 통화 화면처럼 짙은 갈색(2026-11-05 대표)
-  const tb = `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},crop=${W}:${H / 2}:0:400,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
-  const lr = `scale=${W / 2}:-2,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
-  const graph = b.layout === 'lr'
-    ? `[0:v]${lr}[l];[1:v]${lr}[r];[l][r]hstack=inputs=2,pad=${W}:${H}:0:560:color=0x171411,drawbox=x=538:y=560:w=4:h=960:color=0x171411:t=fill,drawbox=x=0:y=556:w=${W}:h=4:color=0xE9B44C@0.5:t=fill,drawbox=x=0:y=1520:w=${W}:h=4:color=0xE9B44C@0.5:t=fill[o]`
-    : `[0:v]${tb}[t];[1:v]${tb}[d];[t][d]vstack=inputs=2,drawbox=x=0:y=958:w=${W}:h=4:color=0x171411:t=fill[o]`;
+  const tb = `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},crop=${W}:425:0:380,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  const lr = `scale=${W / 2}:-2,crop=${W / 2}:840:0:40,fps=30,trim=0:${CLIP},setpts=PTS-STARTPTS`;
+  const graph = true // 2026-11-06 위아래(tb)는 피드 안전 구역(480~1635)에서 얼굴이 잘려 모두 좌우로. 옛 조건: b.layout === 'lr'
+    ? `[0:v]${lr}[l];[1:v]${lr}[r];[l][r]hstack=inputs=2,pad=${W}:${H}:0:760:color=0x171411,drawbox=x=538:y=760:w=4:h=840:color=0x171411:t=fill,drawbox=x=0:y=756:w=${W}:h=4:color=0xE9B44C@0.5:t=fill,drawbox=x=0:y=1600:w=${W}:h=4:color=0xE9B44C@0.5:t=fill[o]`
+    : `[0:v]${tb}[t];[1:v]${tb}[d];[t][d]vstack=inputs=2,pad=${W}:${H}:0:780:color=0x171411,drawbox=x=0:y=1203:w=${W}:h=4:color=0x171411:t=fill[o]`;
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...b.pair.flatMap((p) => ['-i', p]), '-filter_complex', graph,
     '-map', '[o]', '-t', String(CLIP), '-an', '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', g]);
   b.clip = g;
@@ -66,7 +68,7 @@ for (const [i, b] of spec.beats.entries()) {
   const seg = resolve(tmp, `seg${i}.mp4`);
   if (b.clip) {
     const ov = resolve(tmp, `ov${i}.png`);
-    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"><div class="t">${b.text}</div></div>${CTA}`, ov);
+    await shot(b.grid ? `<div style="position:absolute;left:0;right:0;top:875px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:76px">${b.text}</div></div>` : `<div class="top"><div class="t">${b.text}</div></div>${CTA}`, ov);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', b.clip, '-loop', '1', '-i', ov, '-filter_complex',
       // wide: 세로 원본 가운데를 가로(16:9)로 잘라 띄움 · dur: 이 장면만 짧게(초) · rotate: 'ccw' = 옆으로 누워 나온 장면을 바로 세워 가로 화면으로 가운데에(위아래 짙은 갈색)
       `[0:v]${b.wide ? `crop=iw:iw*9/16:0:(ih-oh)*0.62,scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : b.rotate ? `transpose=${b.rotate==='cw'?1:2},scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`},fps=30,trim=0:${b.dur ?? CLIP},setpts=PTS-STARTPTS[v];[v][1:v]overlay=0:0,format=yuv420p,setsar=1[o]`,
@@ -75,11 +77,11 @@ for (const [i, b] of spec.beats.entries()) {
     const png = resolve(tmp, `st${i}.png`);
     const inner = b.screen
       ? `<div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 70%,#3a1f20 0%,#171411 70%)"></div>
-         <div style="position:absolute;left:50%;top:500px;transform:translateX(-50%);width:500px;height:1082px;border-radius:56px;border:12px solid #2b2522;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)"><img src="data:image/png;base64,${b64(b.screen)}" style="width:100%;height:100%;object-fit:cover"></div>
+         <div style="position:absolute;left:50%;top:800px;transform:translateX(-50%);width:380px;height:822px;border-radius:56px;border:12px solid #2b2522;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)"><img src="data:image/png;base64,${b64(b.screen)}" style="width:100%;height:100%;object-fit:cover"></div>
          <div class="top" style="background:none"><div class="t">${b.text}</div></div>${CTA}`
       : `<div style="position:absolute;inset:0;background:linear-gradient(160deg,#4a1f22 0%,#171411 75%)"></div>
-         <div style="position:absolute;left:80px;right:80px;top:640px"><div class="t" style="font-size:104px">${b.end}</div><div style="margin-top:56px;font-size:46px;color:#E7D2C4;line-height:1.6">${b.sub}</div></div>
-         <div style="position:absolute;left:80px;top:230px;font-family:'DM Serif Display',serif;font-size:72px;color:#F3EBDD">T<span style="color:#B85F45">.</span></div>${CTA}`;
+         <div style="position:absolute;left:80px;right:80px;top:620px"><div class="t" style="font-size:104px">${b.end}</div><div style="margin-top:56px;font-size:46px;color:#E7D2C4;line-height:1.6">${b.sub}</div></div>
+         <div style="position:absolute;left:80px;top:490px;font-family:'DM Serif Display',serif;font-size:72px;color:#F3EBDD">T<span style="color:#B85F45">.</span></div>${CTA}`;
     await shot(inner, png, false);
     const dur = b.end ? END : STILL;
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-framerate', '30', '-i', png, '-vf',
@@ -112,7 +114,7 @@ const c = spec.cover;
 const frame = resolve(tmp, 'frame.jpg');
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(c.at), '-i', spec.beats[c.from].clip ?? parts[c.from], '-frames:v', '1', '-vf', spec.beats[c.from].rotate ? `transpose=${spec.beats[c.from].rotate==='cw'?1:2},scale=${W}:-2,pad=${W}:${H}:0:(oh-ih)/2+80:color=0x171411` : `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, frame]); // 글자 없는 원본에서
 await shot(`<img src="data:image/jpeg;base64,${b64(frame)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:780px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
+  ${spec.beats[c.from].grid ? `<div style="position:absolute;left:0;right:0;top:875px;height:360px;display:flex;align-items:center;justify-content:center;text-align:center"><div class="t" style="font-size:84px;line-height:1.2">${c.text}</div></div>
   ` : `<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,20,17,.15) 0%,rgba(23,20,17,.55) 45%,rgba(23,20,17,.85) 100%)"></div>
   <div style="position:absolute;left:80px;right:80px;top:${c.top ?? 1180}px"><div class="t" style="font-size:132px;line-height:1.18">${c.text}</div></div>
   `}`, resolve(tmp, 'cover.png'), false);
