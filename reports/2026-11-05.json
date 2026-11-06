@@ -1,0 +1,195 @@
+{
+ "day": "2026-11-05",
+ "collected_at": "2026-11-06T02:44:04.117Z",
+ "app": {
+  "day": "2026-11-05",
+  "signups": 1,
+  "approved": 0,
+  "onboarded": 1,
+  "purchases": {},
+  "calls_1on1": 3,
+  "talk_joins": 7,
+  "members_total": {
+   "pending": 5,
+   "approved": 12,
+   "rejected": 11
+  },
+  "profiles_total": 28,
+  "visits_by_source": {
+   "direct": 90,
+   "(not set)": 46,
+   "app_store": 130,
+   "instagram": 36,
+   "play_store": 856,
+   "apps.instagram.com": 142
+  },
+  "signups_by_source": {
+   "instagram": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 1,
+  "posts": 53,
+  "recent": [
+   {
+    "at": "2026-11-05T18:42:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[솔크 탈출 1화 · D-49] 작년 크리스마스, 뭐 했는지 기억나요?",
+    "url": "https://www.instagram.com/reel/DfXsxtfj-Hr/"
+   },
+   {
+    "at": "2026-11-05T18:24:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "얼굴 안 보고 목소리 3분이면, 말이 통하는지 알 수 있어요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfXqwSNCA7u/"
+   },
+   {
+    "at": "2026-11-05T12:24:35+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "[빼빼로데이 1·1·1·1] 하나씩 넷이 모이면, 4인 수다. 🍫",
+    "url": "https://www.instagram.com/reel/DfXBjyqjXh4/"
+   },
+   {
+    "at": "2026-11-05T11:29:28+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 1·1·1·1] 하나씩 넷이 모이면, 4인 수다. 🍫",
+    "url": "https://www.instagram.com/reel/DfW7Q4tESJ6/"
+   },
+   {
+    "at": "2026-11-05T11:26:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "사진 말고 목소리로, 간편인증한 사람과 3분 먼저 통화해요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfW68AhnPif/"
+   },
+   {
+    "at": "2026-11-04T18:36:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 · 11월 5일] 편의점 빼빼로 앞에서 괜히 지나친 적 있죠?",
+    "url": "https://www.instagram.com/reel/DfVHUxsDqvl/"
+   },
+   {
+    "at": "2026-11-04T18:19:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "간편인증한 사람만 3분 통화와 4인 수다에 들어와요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfVFcO7Dok3/"
+   },
+   {
+    "at": "2026-11-04T11:32:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 받은 것 3개] 팀장님 1, 거래처 1, 편의점 1+1.",
+    "url": "https://www.instagram.com/reel/DfUWyxqFAVA/"
+   },
+   {
+    "at": "2026-11-04T11:28:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "얼굴보다 목소리로 3분 먼저, 말이 통하면 그때 사진을 봐요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfUWZ2wiJdx/"
+   },
+   {
+    "at": "2026-11-04T10:55:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "로테이션 소개팅 가봤는데 8명 다 기억 안 남. 5분씩 자기소개만 8번, 집에 오면 얼굴도",
+    "url": "https://www.instagram.com/reel/DfUShzjD3DL/"
+   },
+   {
+    "at": "2026-11-04T05:33:49+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "소개팅 첫 3분, 이것만 하세요. 질문 하나로 어색함이 풀려요.",
+    "url": "https://www.instagram.com/reel/DfTtxreFf88/"
+   },
+   {
+    "at": "2026-11-04T05:31:40+0000",
+    "type": "VIDEO",
+    "likes": 2,
+    "comments": 1,
+    "title": "데이팅 앱, 요즘 다들 지우는 이유. 넘기는 데 쓴 시간보다 3분 통화가 정확해요.",
+    "url": "https://www.instagram.com/reel/DfTtg0JD1Sc/"
+   }
+  ]
+ },
+ "threads": {
+  "error": "{\"message\":\"Error validating access token: You cannot access the app till you log in to www.threads.com and follow the instructions given.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":0,\"fbtrac"
+ },
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 15916,
+   "impressions": 1000,
+   "clicks": 31,
+   "ctr": 3.1,
+   "installs": 5,
+   "link_clicks": 22
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 9412,
+   "impressions": 761,
+   "clicks": 43,
+   "ctr": 5.65046,
+   "installs": 0,
+   "link_clicks": 45
+  },
+  {
+   "campaign": "tn_threads_android_xmas",
+   "spend": 4452,
+   "impressions": 200,
+   "clicks": 3,
+   "ctr": 1.5,
+   "installs": 0,
+   "link_clicks": 3
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 436000,
+  "spent_since_cap": 76306,
+  "left": 359694
+ },
+ "seo": {
+  "error": "{\"code\":403,\"message\":\"User does not have sufficient permission for site 'https://topnote.app/'. See also: https://support.google.com/webmasters/answer/2451999.\",\"errors\":[{\"message\":\"User does not ha"
+ },
+ "queue": {
+  "cards_posted": 10,
+  "cards_total": 83,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
