@@ -7,7 +7,7 @@
     { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "얼굴 말고<br>목소리로 <em>3분</em> 먼저." },
     { "pair": ["C:/topnote-social/ai-reels/src/rot-ai3-3.mp4", "C:/topnote-social/ai-reels/src/people-cy4.mp4"], "text": "동성 친구끼리도<br>목소리로 <em>3분</em>.", "layout": "tb" },
     { "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png", "text": "넷이서 10분,<br><em>4인 수다</em>도 있어요." },
-    { "clip": "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4", "text": "간편인증한<br>사람만 만나요." },
+    { "clip": "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4", "text": "인증된<br>사람만 만나요." },
     { "end": "친구도,<br><em>3분</em> 먼저.", "sub": "탑노트 · 1:1 통화 3분<br>넷이 하는 4인 수다" }
   ],
   "cover": { "from": 0, "at": 2.5, "text": "말 통하는<br><em>친구</em> 한 명." },

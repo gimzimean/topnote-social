@@ -3,7 +3,7 @@
   "track": "one-more-ping.mp3",
   "beats": [
     { "pair": ["C:/topnote-social/ai-reels/src/people-pm3.mp4", "C:/topnote-social/ai-reels/src/people-pw2.mp4"], "text": "사진 말고,<br><em>대화</em>로 먼저.", "layout": "lr" },
-    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "간편인증한 사람과<br>목소리로 <em>3분</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "인증된 사람과<br>목소리로 <em>3분</em>." },
     { "pair": ["C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4", "C:/topnote-social/ai-reels/src/people-pw3.mp4"], "text": "말이 통하면<br>둘 다 「<em>3분 더</em>」.", "layout": "tb" },
     { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "둘 다 원할 때만<br><em>번호</em> 교환." },
     { "clip": "C:/topnote-social/ai-reels/src/people-pw4.mp4", "text": "안 맞으면<br>잃는 건 <em>3분</em>." },
