@@ -1,6 +1,6 @@
 {
  "day": "2026-11-05",
- "collected_at": "2026-11-06T02:51:26.807Z",
+ "collected_at": "2026-11-06T04:32:08.948Z",
  "app": {
   "day": "2026-11-05",
   "signups": 1,
@@ -32,8 +32,16 @@
  },
  "instagram": {
   "followers": 1,
-  "posts": 53,
+  "posts": 54,
   "recent": [
+   {
+    "at": "2026-11-06T03:31:20+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "혼술바에서 옆자리 말 걸어 본 사람? 30분 고민하다 결국 한마디도 못 하고 집에 감.",
+    "url": "https://www.instagram.com/reel/DfYpVi7EXl7/"
+   },
    {
     "at": "2026-11-05T18:42:07+0000",
     "type": "VIDEO",
@@ -121,14 +129,6 @@
     "comments": 1,
     "title": "소개팅 첫 3분, 이것만 하세요. 질문 하나로 어색함이 풀려요.",
     "url": "https://www.instagram.com/reel/DfTtxreFf88/"
-   },
-   {
-    "at": "2026-11-04T05:31:40+0000",
-    "type": "VIDEO",
-    "likes": 2,
-    "comments": 1,
-    "title": "데이팅 앱, 요즘 다들 지우는 이유. 넘기는 데 쓴 시간보다 3분 통화가 정확해요.",
-    "url": "https://www.instagram.com/reel/DfTtg0JD1Sc/"
    }
   ]
  },
@@ -166,14 +166,91 @@
  ],
  "meta_cap": {
   "spend_cap": 436000,
-  "spent_since_cap": 76756,
-  "left": 359244
+  "spent_since_cap": 79493,
+  "left": 356507
  },
  "seo": {
-  "error": "{\"code\":403,\"message\":\"User does not have sufficient permission for site 'https://topnote.app/'. See also: https://support.google.com/webmasters/answer/2451999.\",\"errors\":[{\"message\":\"User does not ha"
+  "range": "2026-10-28~2026-11-03",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 8,
+    "ctr": 0,
+    "position": 4.5
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/community-guidelines.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/delete-account.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 3
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 2
+    },
+    {
+     "key": "https://topnote.app/guide/office-dating-app.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 7
+    },
+    {
+     "key": "https://topnote.app/guide/voice-dating.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 6
+    },
+    {
+     "key": "https://topnote.app/index.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 1
+    },
+    {
+     "key": "https://topnote.app/privacy.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 4
+    },
+    {
+     "key": "https://topnote.app/terms.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 5
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 0,
+    "ctr": 0,
+    "position": 0
+   },
+   "pages": [],
+   "queries": []
+  }
  },
  "queue": {
-  "cards_posted": 10,
+  "cards_posted": 11,
   "cards_total": 83,
   "reels_posted": [
    "ep1",
