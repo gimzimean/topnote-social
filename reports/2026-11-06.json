@@ -1,0 +1,330 @@
+{
+ "day": "2026-11-06",
+ "collected_at": "2026-11-07T02:12:16.607Z",
+ "app": {
+  "day": "2026-11-06",
+  "signups": 5,
+  "approved": 2,
+  "by_market": {
+   "KR": {
+    "signups": 4,
+    "approved": 1,
+    "onboarded": 4,
+    "calls_1on1": 1,
+    "talk_joins": 0,
+    "members_total": {
+     "pending": 6,
+     "approved": 12,
+     "rejected": 13
+    }
+   },
+   "US": {
+    "signups": 1,
+    "approved": 1,
+    "onboarded": 1,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 2
+    }
+   }
+  },
+  "onboarded": 5,
+  "purchases": {},
+  "calls_1on1": 1,
+  "talk_joins": 0,
+  "members_total": {
+   "pending": 6,
+   "approved": 14,
+   "rejected": 13
+  },
+  "profiles_total": 33,
+  "visits_by_source": {
+   "meta": 28,
+   "direct": 91,
+   "threads": 1,
+   "(not set)": 5,
+   "app_store": 62,
+   "apps.facebook.com": 40,
+   "apps.instagram.com": 303
+  },
+  "signups_by_source": {
+   "direct": 1,
+   "(모름)": 1,
+   "apps.facebook.com": 1,
+   "apps.instagram.com": 2
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 1,
+  "posts": 58,
+  "recent": [
+   {
+    "at": "2026-11-06T17:46:57+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "3분 통화하고 둘 다 원하면 사진, 그다음 번호예요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfaLQ0iE6df/"
+   },
+   {
+    "at": "2026-11-06T12:08:45+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 5편] 통화는 좋았는데, 사진 열기 3초 전.",
+    "url": "https://www.instagram.com/reel/DfZki5Bjk87/"
+   },
+   {
+    "at": "2026-11-06T11:27:48+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 5편] 통화는 좋았는데, 사진 열기 3초 전.",
+    "url": "https://www.instagram.com/reel/DfZf26rFrpg/"
+   },
+   {
+    "at": "2026-11-06T11:24:55+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "준비 2시간 소개팅 대신, 3분 통화로 말이 통하는지 먼저 봐요. 만나기 전에, 3분 먼저",
+    "url": "https://www.instagram.com/reel/DfZfhyBCK_p/"
+   },
+   {
+    "at": "2026-11-06T03:31:20+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "혼술바에서 옆자리 말 걸어 본 사람? 30분 고민하다 결국 한마디도 못 하고 집에 감.",
+    "url": "https://www.instagram.com/reel/DfYpVi7EXl7/"
+   },
+   {
+    "at": "2026-11-05T18:42:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[솔크 탈출 1화 · D-49] 작년 크리스마스, 뭐 했는지 기억나요?",
+    "url": "https://www.instagram.com/reel/DfXsxtfj-Hr/"
+   },
+   {
+    "at": "2026-11-05T18:24:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "얼굴 안 보고 목소리 3분이면, 말이 통하는지 알 수 있어요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfXqwSNCA7u/"
+   },
+   {
+    "at": "2026-11-05T12:24:35+0000",
+    "type": "VIDEO",
+    "likes": 2,
+    "comments": 1,
+    "title": "[빼빼로데이 1·1·1·1] 하나씩 넷이 모이면, 4인 수다. 🍫",
+    "url": "https://www.instagram.com/reel/DfXBjyqjXh4/"
+   },
+   {
+    "at": "2026-11-05T11:29:28+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 1·1·1·1] 하나씩 넷이 모이면, 4인 수다. 🍫",
+    "url": "https://www.instagram.com/reel/DfW7Q4tESJ6/"
+   },
+   {
+    "at": "2026-11-05T11:26:31+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "사진 말고 목소리로, 간편인증한 사람과 3분 먼저 통화해요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfW68AhnPif/"
+   },
+   {
+    "at": "2026-11-04T18:36:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 · 11월 5일] 편의점 빼빼로 앞에서 괜히 지나친 적 있죠?",
+    "url": "https://www.instagram.com/reel/DfVHUxsDqvl/"
+   },
+   {
+    "at": "2026-11-04T18:19:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "간편인증한 사람만 3분 통화와 4인 수다에 들어와요. 만나기 전에, 3분 먼저.",
+    "url": "https://www.instagram.com/reel/DfVFcO7Dok3/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-07T01:18:27+0000",
+   "text": "첫 통화 3분이면\n충분하다 vs 부족하다\n\n난 3분이면 「더 얘기하고 싶",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-07T00:32:00+0000",
+   "text": "다들 솔크탈출 준비됫나?",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-07T00:28:10+0000",
+   "text": "다들 자만추 어디서 해 ?\n\n추워서 사람 만나러 가기도 귀찮고\n검증된 사",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-06T20:26:19+0000",
+   "text": "이상형 물어보면 다들 「대화 잘 통하는 사람」이라고 하잖아.\n근데 앱 켜",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-06T17:48:14+0000",
+   "text": "3분 통화하고 둘 다 원하면 사진, 그다음 번호예요.\n만나기 전에, 3분",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-06T12:10:05+0000",
+   "text": "[만나기 전에 상황극 5편]\n통화는 좋았는데, 사진 열기 3초 전.\n얼굴",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 23463,
+   "impressions": 1316,
+   "clicks": 36,
+   "ctr": 2.735562,
+   "installs": 9,
+   "link_clicks": 34
+  },
+  {
+   "campaign": "topnote_meta_ios_1102",
+   "spend": 10,
+   "impressions": 2,
+   "clicks": 0,
+   "ctr": 0,
+   "installs": 0,
+   "link_clicks": 0
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 7232,
+   "impressions": 587,
+   "clicks": 18,
+   "ctr": 3.06644,
+   "installs": 0,
+   "link_clicks": 16
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 436000,
+  "spent_since_cap": 103744,
+  "left": 332256
+ },
+ "seo": {
+  "range": "2026-10-29~2026-11-04",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 8,
+    "ctr": 0,
+    "position": 4.5
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/community-guidelines.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/delete-account.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 3
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 2
+    },
+    {
+     "key": "https://topnote.app/guide/office-dating-app.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 7
+    },
+    {
+     "key": "https://topnote.app/guide/voice-dating.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 6
+    },
+    {
+     "key": "https://topnote.app/index.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 1
+    },
+    {
+     "key": "https://topnote.app/privacy.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 4
+    },
+    {
+     "key": "https://topnote.app/terms.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 5
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 0,
+    "ctr": 0,
+    "position": 0
+   },
+   "pages": [],
+   "queries": []
+  }
+ },
+ "queue": {
+  "cards_posted": 11,
+  "cards_total": 83,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
