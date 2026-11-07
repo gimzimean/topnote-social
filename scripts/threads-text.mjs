@@ -22,7 +22,7 @@ const n = state.threads_v2.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7 + 3)}`;
-const AI = '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)';
+const AI = '\n\n👉 https://topnote.app/th #AI연출';
 // 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
 state.threads_short ??= [];
 // 2026-11-07 대표 「영상도 올려줘, 적절히 섞어서」: 연재(n%3==1) → 짧은 글(2) → 영상(0) 차례.
@@ -37,7 +37,7 @@ if (kind === 'video') {
   pi = 'v' + vi;
   const v = seeds.video[vi];
   post = { media_type: 'VIDEO', video_url: `https://gimzimean.github.io/topnote-social/ai-reels/${v.id}.mp4`, text: v.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th\n(영상 속 인물은 AI로 만든 상황극이에요)' }];
+  replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th #AI연출' }];
 } else if (isShort) {
   pi = 's' + lru(seeds.short.length, state.threads_short);
   post = { text: seeds.short[+pi.slice(1)], topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
