@@ -43,7 +43,8 @@ if (kind === 'video') {
   post = { text: seeds.short[+pi.slice(1)], topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
   replies = [{ media_type: 'IMAGE', image_url: cover, text: pick(seeds.short_cta, n) + AI }];
 } else {
-  pi = lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
+  const want = process.argv.find((x) => x.startsWith('--pick='))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
+  pi = want != null ? +want : lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
   const s0 = seeds.series[pi];
   post = { text: s0.parts[0], topic: s0.topic };
   replies = [
