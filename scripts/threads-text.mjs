@@ -21,13 +21,14 @@ state.threads_v2 ??= [];
 const n = state.threads_v2.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
 const lastUse = new Map(state.threads_v2.map((i, k) => [i, k]));
-const pi = [...seeds.posts.keys()].sort((x, y) => (lastUse.get(x) ?? -1) - (lastUse.get(y) ?? -1))[0];
-const post = seeds.posts[pi];
+const pi = [...seeds.series.keys()].sort((x, y) => (lastUse.get(x) ?? -1) - (lastUse.get(y) ?? -1))[0];
+const s0 = seeds.series[pi];
+const post = { text: s0.parts[0], topic: s0.topic };
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7 + 3)}`;
 const replies = [
-  { media_type: 'TEXT', text: pick(seeds.notes, n) },
-  { media_type: 'IMAGE', image_url: cover, text: pick(seeds.app, n) + '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)' },
+  ...s0.parts.slice(1).map((text) => ({ media_type: 'TEXT', text })),
+  { media_type: 'IMAGE', image_url: cover, text: seeds.cta[s0.cta ?? n % seeds.cta.length] + '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)' },
 ];
 if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, replies }, null, 1)); process.exit(0); }
 const tokens = loadTokens();
@@ -55,10 +56,10 @@ console.log('[스레드 글]', pi, id);
 state.threads_v2.push(pi);
 state.threads_text_at = Date.now();
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
-// 답글은 앞 답글에 이어 단다. 사이마다 2~8분 무작위로 기다린다.
+// 연재라 답글은 앞 답글에 이어 바로바로 단다(읽는 사람이 1/N을 한 번에 보게, 사이 5~15초).
 let parent = id;
 for (const r of replies) {
-  await new Promise((r) => setTimeout(r, (120 + Math.random() * 360) * 1000));
+  await new Promise((r) => setTimeout(r, (5 + Math.random() * 10) * 1000));
   try { parent = await publish({ ...r, reply_to_id: parent }); console.log('[답글]', parent); }
   catch (e) { console.error(`[스레드 글] 답글 실패: ${e.message}`); break; }
 }
