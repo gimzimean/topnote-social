@@ -21,7 +21,8 @@ const seeds = JSON.parse(readFileSync(resolve(root, 'threads', 'seeds.json'), 'u
 state.threads_gen ??= [];
 const n = state.threads_text.length + state.threads_gen.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
-let post = posts.find((p) => !state.threads_text.includes(p.id));
+// 2026-11-07 대표 「스레드 글쓰기 스타일은 다르잖아」: 옛 대기열(존댓말·마침표)은 쓰지 않고 seeds.json(반말 혼잣말)만 쓴다.
+let post = null; void posts;
 const used = new Set(state.threads_gen.map((g) => g.join('.')));
 if (!post) {
   const last = new Map(state.threads_gen.map((g, i) => [g[0], i]));
@@ -40,6 +41,7 @@ const replies = [
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7)}`;
 
+if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, cover, replies }, null, 1)); process.exit(0); }
 const tokens = loadTokens();
 const t = tokens.threads;
 if (!t) throw new Error('스레드 토큰 없음');
@@ -58,8 +60,6 @@ const publish = async (params) => {
   return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
 };
 
-const dry = process.argv.includes('--dry');
-if (dry) { console.log(JSON.stringify({ post, cover, replies }, null, 1)); process.exit(0); }
 const params = { media_type: 'IMAGE', image_url: cover, text: post.text.slice(0, 500) };
 if (post.topic) params.topic_tag = post.topic;
 const id = await publish(params);
