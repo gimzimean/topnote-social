@@ -73,9 +73,10 @@
   "ad08",
   "ad09",
   "ad10",
-  "ad11"
+  "ad11",
+  "ad12"
  ],
- "ads_last_slot": "2026-11-07-noon",
+ "ads_last_slot": "2026-11-07-evening",
  "ads_skipped": [
   "ad02",
   "ad03"
