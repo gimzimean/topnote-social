@@ -1,0 +1,31 @@
+{
+ "id": "bench-street1",
+ "title": "30대 직장인한테 물어봤습니다\n소개팅 전, 딱 하나만 본다면?",
+ "clips": [
+  {
+   "file": "C:/topnote-social/ai-reels/bench/s1.mp4",
+   "sub": "목소리요."
+  },
+  {
+   "file": "C:/topnote-social/ai-reels/bench/s2.mp4",
+   "sub": "말이 통하는지."
+  },
+  {
+   "file": "C:/topnote-social/ai-reels/bench/s3.mp4",
+   "sub": "웃음 코드."
+  },
+  {
+   "file": "C:/topnote-social/ai-reels/bench/s4.mp4",
+   "sub": "사진이랑 같은 사람인지."
+  }
+ ],
+ "end": {
+  "line1": "사진 말고\n목소리로 3분 먼저.",
+  "line2": "탑노트 · 검증된 사람과 보이스 소개팅"
+ },
+ "caption": "30대 직장인한테 물어봤습니다.\n소개팅 전에 딱 하나만 확인할 수 있다면?\n\n여러분은 뭐 보세요? 댓글로 👇\n\n#소개팅 #30대소개팅 #이상형 #길거리인터뷰 #보이스소개팅 #연애\n\n※ 영상 속 인물은 AI로 만든 상황극이에요.",
+ "comment": "1 목소리 2 말 통하는지 3 웃음 코드 4 사진이랑 같은지\n번호로 남겨 주세요 👇\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆",
+ "threads": "소개팅 전에 딱 하나만 확인할 수 있으면\n\n목소리 / 말 통하는지 / 웃음 코드 / 사진이랑 같은지\n\n너는 뭐 볼 거야?",
+ "threads_reply": "목소리로 먼저 확인하고 싶다면 👉 https://topnote.app/th\n검증된 사람과 사진 없이 3분\n(영상 속 인물은 AI로 만든 상황극이에요)",
+ "topic": "소개팅"
+}
