@@ -1,6 +1,7 @@
 // 인스타 릴스 조회수 상위 형식 따라 만들기(2026-11-07 대표 「릴스 10만 터진 걸로 벤치마킹해서 업로드」).
 // 사용: node scripts/bench-reel.mjs <설정.json>
 // 설정: { id, title(위쪽 검정 상자, 줄바꿈 \n), clips:[{file, sub(가운데 자막)}], end:{line1, line2} }
+// natural:true = 실제 인터뷰 릴스처럼 제목도 상자 없이 테두리 글씨(2026-11-07 대표 「완전 자연스럽게 진짜 같이」).
 // 결과: docs/ai-reels/<id>.mp4 · <id>-cover.jpg (1080x1920, 클립 소리 그대로)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -21,7 +22,7 @@ cfg.clips.forEach((c, i) => {
   const out = resolve(tmp, `p${i}.mp4`);
   const vf = [
     'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30',
-    `drawtext=fontfile='${FONT}':textfile='${titleFile}':fontsize=66:fontcolor=white:box=1:boxcolor=black@0.85:boxborderw=26:line_spacing=14:x=(w-text_w)/2:y=230`,
+    `drawtext=fontfile='${FONT}':textfile='${titleFile}':${cfg.natural ? 'fontsize=60:fontcolor=white:borderw=6:bordercolor=black@0.9' : 'fontsize=66:fontcolor=white:box=1:boxcolor=black@0.85:boxborderw=26'}:line_spacing=14:x=(w-text_w)/2:y=230`,
     `drawtext=fontfile='${FONT}':textfile='${subFile}':fontsize=58:fontcolor=white:borderw=5:bordercolor=black:line_spacing=12:x=(w-text_w)/2:y=h*0.62`,
   ].join(',');
   ff(['-i', c.file, '-vf', vf, '-af', 'aresample=44100,aformat=channel_layouts=stereo', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', '-c:a', 'aac', '-ar', '44100', '-ac', '2', out]);
