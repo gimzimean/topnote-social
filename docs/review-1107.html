@@ -3,11 +3,11 @@
 .row{display:flex;gap:16px;flex-wrap:wrap}.card{width:300px}.card video,.card img{width:300px;border-radius:12px;display:block;background:#000}.cap{font-size:13px;color:#C9BBA8;margin-top:6px;line-height:1.5}
 .tag{display:inline-block;background:#E9B44C;color:#1A1512;font-weight:700;font-size:12px;padding:3px 10px;border-radius:99px;margin-bottom:6px}</style>
 <h1>11월 7일 검수 — 릴스 2편 · 하이라이트 스토리</h1>
-<h2>① 여성편 새 버전 (내일 20:40 자동 게시)</h2><p>첫 두 명을 더 예쁘고 자연스러운 구도로 바꿨어요. 왼쪽이 새 버전, 오른쪽이 이미 올라간 옛 버전이에요.</p>
-<div class="row"><div class="card"><span class="tag">새 버전</span><video src="ai-reels/bench-women1b.mp4" controls playsinline poster="ai-reels/bench-women1b-cover.jpg"></video></div>
+<h2>① 여성편 새 버전 (내일 20:40 자동 게시)</h2><p>첫 두 명을 더 예쁘고 자연스러운 구도로 바꿨고, 4번째 대답을 「아는 사람 마주칠까 봐」로 바꿨어요(끝 화면: 아는 사람은, 자동으로 빼요). 자막은 가운데 정렬 · 양쪽 여백 안. 왼쪽이 새 버전, 오른쪽이 이미 올라간 옛 버전이에요.</p>
+<div class="row"><div class="card"><span class="tag">새 버전</span><video src="ai-reels/bench-women1b.mp4?v=3" controls playsinline poster="ai-reels/bench-women1b-cover.jpg"></video></div>
 <div class="card"><span class="tag">옛 버전 (게시됨)</span><video src="ai-reels/bench-women1.mp4" controls playsinline poster="ai-reels/bench-women1-cover.jpg"></video></div></div>
 <h2>② 남성편 (오늘 20:40 자동 게시)</h2><p>회사에 들킬까 봐 · 채팅할 시간 없음 · 조건만 보는 사람 · 결정사 수백만 원</p>
-<div class="row"><div class="card"><video src="ai-reels/bench-men1.mp4" controls playsinline poster="ai-reels/bench-men1-cover.jpg"></video></div></div>
+<div class="row"><div class="card"><video src="ai-reels/bench-men1.mp4?v=3" controls playsinline poster="ai-reels/bench-men1-cover.jpg"></video></div></div>
 <h2>③ 하이라이트 스토리 21장</h2><p>모두 인스타 스토리로 올렸고 하이라이트에 넣었어요.</p>
 <div class="row" id="st"></div>
 <script>fetch('highlights/stories.json').then(r=>r.json()).then(S=>{const el=document.getElementById('st');for(const s of S){el.insertAdjacentHTML('beforeend',`<div class="card" style="width:200px"><span class="tag">${s.hl}</span><img style="width:200px" src="highlights/stories/${s.key}.jpg?v=2"></div>`)}})</script>

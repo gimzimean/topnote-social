@@ -13,6 +13,8 @@ const tmp = resolve(root, 'ai-reels', 'bench-tmp', cfg.id);
 mkdirSync(tmp, { recursive: true });
 const FONT = 'C\\:/Windows/Fonts/malgunbd.ttf';
 const txt = (name, s) => { const p = resolve(tmp, name); writeFileSync(p, s, 'utf8'); return p.replace(/\\/g, '/').replace(':', '\\:'); };
+// 2026-11-07 대표 「글자 잘린 거 양쪽 보완」: 줄 길이에 맞춰 글자 크기를 줄여 좌우 90px 안에 들게 하고, 줄마다 가운데 정렬.
+const fit = (t, base, max = 900) => { const w = Math.max(...t.split(String.fromCharCode(10)).map((l) => [...l].reduce((a, c) => a + (c.charCodeAt(0) < 128 ? 0.56 : 1), 0))); return Math.min(base, Math.floor(max / w)); };
 const ff = (args) => execFileSync('ffmpeg', ['-loglevel', 'error', '-y', ...args], { stdio: 'inherit' });
 
 const titleFile = txt('title.txt', cfg.title);
@@ -22,8 +24,8 @@ cfg.clips.forEach((c, i) => {
   const out = resolve(tmp, `p${i}.mp4`);
   const vf = [
     'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30',
-    `drawtext=fontfile='${FONT}':textfile='${titleFile}':${cfg.natural ? 'fontsize=60:fontcolor=white:borderw=6:bordercolor=black@0.9' : 'fontsize=66:fontcolor=white:box=1:boxcolor=black@0.85:boxborderw=26'}:line_spacing=14:x=(w-text_w)/2:y=230`,
-    `drawtext=fontfile='${FONT}':textfile='${subFile}':fontsize=58:fontcolor=white:borderw=5:bordercolor=black:line_spacing=12:x=(w-text_w)/2:y=h*0.62`,
+    `drawtext=fontfile='${FONT}':textfile='${titleFile}':${cfg.natural ? `fontsize=${fit(cfg.title, 60)}:fontcolor=white:borderw=6:bordercolor=black@0.9` : `fontsize=${fit(cfg.title, 66, 840)}:fontcolor=white:box=1:boxcolor=black@0.85:boxborderw=26`}:line_spacing=14:text_align=C:x=(w-text_w)/2:y=230`,
+    `drawtext=fontfile='${FONT}':textfile='${subFile}':fontsize=${fit(c.sub, 58)}:fontcolor=white:borderw=5:bordercolor=black:line_spacing=12:text_align=C:x=(w-text_w)/2:y=h*0.62`,
   ].join(',');
   ff(['-i', c.file, '-vf', vf, '-af', 'aresample=44100,aformat=channel_layouts=stereo', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', '-c:a', 'aac', '-ar', '44100', '-ac', '2', out]);
   parts.push(out);
@@ -32,7 +34,7 @@ cfg.clips.forEach((c, i) => {
 const e1 = txt('e1.txt', cfg.end.line1), e2 = txt('e2.txt', cfg.end.line2);
 const endOut = resolve(tmp, 'end.mp4');
 ff(['-f', 'lavfi', '-i', 'color=c=0x1A1512:s=1080x1920:d=2.5:r=30', '-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=stereo', '-t', '2.5',
-  '-vf', `drawtext=fontfile='${FONT}':textfile='${e1}':fontsize=76:fontcolor=0xF3ECE2:line_spacing=16:x=(w-text_w)/2:y=h*0.40,drawtext=fontfile='${FONT}':textfile='${e2}':fontsize=44:fontcolor=0xC9A27A:x=(w-text_w)/2:y=h*0.58`,
+  '-vf', `drawtext=fontfile='${FONT}':textfile='${e1}':fontsize=${fit(cfg.end.line1, 76)}:fontcolor=0xF3ECE2:line_spacing=16:x=(w-text_w)/2:y=h*0.40,drawtext=fontfile='${FONT}':textfile='${e2}':fontsize=${fit(cfg.end.line2, 44)}:fontcolor=0xC9A27A:x=(w-text_w)/2:y=h*0.58`,
   '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '44100', '-ac', '2', '-shortest', endOut]);
 parts.push(endOut);
 const list = resolve(tmp, 'list.txt');
