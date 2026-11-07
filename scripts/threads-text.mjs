@@ -25,10 +25,20 @@ const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers
 const AI = '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)';
 // 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
 state.threads_short ??= [];
-const isShort = n % 2 === 0;
+// 2026-11-07 대표 「영상도 올려줘, 적절히 섞어서」: 연재(n%3==1) → 짧은 글(2) → 영상(0) 차례.
+state.threads_video ??= [];
+const forced = process.argv.find((x) => x.startsWith('--kind='))?.slice(7);
+const kind = forced ?? ['video', 'series', 'short'][n % 3];
+const isShort = kind === 'short';
 const lru = (len, used) => { const m = new Map(used.map((i, k) => [i, k])); return [...Array(len).keys()].sort((x, y) => (m.get(x) ?? -1) - (m.get(y) ?? -1))[0]; };
 let pi, post, replies;
-if (isShort) {
+if (kind === 'video') {
+  const vi = lru(seeds.video.length, state.threads_video);
+  pi = 'v' + vi;
+  const v = seeds.video[vi];
+  post = { media_type: 'VIDEO', video_url: `https://gimzimean.github.io/topnote-social/ai-reels/${v.id}.mp4`, text: v.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
+  replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th\n(영상 속 인물은 AI로 만든 상황극이에요)' }];
+} else if (isShort) {
   pi = 's' + lru(seeds.short.length, state.threads_short);
   post = { text: seeds.short[+pi.slice(1)], topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
   replies = [{ media_type: 'IMAGE', image_url: cover, text: pick(seeds.short_cta, n) + AI }];
@@ -56,17 +66,25 @@ if (!t.refreshed_at || Date.now() - t.refreshed_at > 7 * 864e5) {
 const call = async (path, params) => json(await fetch(`${TH}/${path}`, { method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }) }));
 const publish = async (params) => {
   const box = await call(`${t.user_id}/threads`, params);
-  await new Promise((r) => setTimeout(r, 3000));
+  // 영상은 메타 서버가 처리를 끝낼 때까지 기다린다(최대 5분).
+  for (let i = 0; i < (params.media_type === 'VIDEO' ? 60 : 1); i++) {
+    await new Promise((r) => setTimeout(r, params.media_type === 'VIDEO' ? 5000 : 3000));
+    if (params.media_type !== 'VIDEO') break;
+    const st = await json(await fetch(`${TH}/${box.id}?fields=status,error_message&access_token=${t.access_token}`));
+    if (st.status === 'FINISHED') break;
+    if (st.status === 'ERROR') throw new Error('영상 처리 실패: ' + st.error_message);
+  }
   return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
 };
 
-const params = { media_type: 'TEXT', text: post.text.slice(0, 500) };
+const params = post.media_type === 'VIDEO' ? { media_type: 'VIDEO', video_url: post.video_url, text: post.text.slice(0, 500) } : { media_type: 'TEXT', text: post.text.slice(0, 500) };
 if (post.topic) params.topic_tag = post.topic;
 const id = await publish(params);
 console.log('[스레드 글]', pi, id);
-state.threads_v2.push(pi);
+if (!forced) state.threads_v2.push(pi);
 if (isShort) state.threads_short.push(+pi.slice(1));
-state.threads_text_at = Date.now();
+if (kind === 'video') state.threads_video.push(+pi.slice(1));
+if (!forced) state.threads_text_at = Date.now();
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
 // 연재라 답글은 앞 답글에 이어 바로바로 단다(읽는 사람이 1/N을 한 번에 보게, 사이 5~15초).
 let parent = id;
