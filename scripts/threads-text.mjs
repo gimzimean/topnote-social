@@ -27,7 +27,7 @@ const post = { text: s0.parts[0], topic: s0.topic };
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7 + 3)}`;
 const replies = [
-  ...s0.parts.slice(1).map((text) => ({ media_type: 'TEXT', text })),
+  ...s0.parts.slice(1).map((x) => (typeof x === 'string' ? { media_type: 'TEXT', text: x } : { media_type: 'IMAGE', image_url: x.image, text: x.text })),
   { media_type: 'IMAGE', image_url: cover, text: seeds.cta[s0.cta ?? n % seeds.cta.length] + '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)' },
 ];
 if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, replies }, null, 1)); process.exit(0); }
