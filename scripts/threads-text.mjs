@@ -20,16 +20,27 @@ const seeds = JSON.parse(readFileSync(resolve(root, 'threads', 'seeds.json'), 'u
 state.threads_v2 ??= [];
 const n = state.threads_v2.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
-const lastUse = new Map(state.threads_v2.map((i, k) => [i, k]));
-const pi = [...seeds.series.keys()].sort((x, y) => (lastUse.get(x) ?? -1) - (lastUse.get(y) ?? -1))[0];
-const s0 = seeds.series[pi];
-const post = { text: s0.parts[0], topic: s0.topic };
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7 + 3)}`;
-const replies = [
-  ...s0.parts.slice(1).map((x) => (typeof x === 'string' ? { media_type: 'TEXT', text: x } : { media_type: 'IMAGE', image_url: x.image, text: x.text })),
-  { media_type: 'IMAGE', image_url: cover, text: seeds.cta[s0.cta ?? n % seeds.cta.length] + '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)' },
-];
+const AI = '\n\n👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)';
+// 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
+state.threads_short ??= [];
+const isShort = n % 2 === 0;
+const lru = (len, used) => { const m = new Map(used.map((i, k) => [i, k])); return [...Array(len).keys()].sort((x, y) => (m.get(x) ?? -1) - (m.get(y) ?? -1))[0]; };
+let pi, post, replies;
+if (isShort) {
+  pi = 's' + lru(seeds.short.length, state.threads_short);
+  post = { text: seeds.short[+pi.slice(1)], topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
+  replies = [{ media_type: 'IMAGE', image_url: cover, text: pick(seeds.short_cta, n) + AI }];
+} else {
+  pi = lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
+  const s0 = seeds.series[pi];
+  post = { text: s0.parts[0], topic: s0.topic };
+  replies = [
+    ...s0.parts.slice(1).map((x) => (typeof x === 'string' ? { media_type: 'TEXT', text: x } : { media_type: 'IMAGE', image_url: x.image, text: x.text })),
+    { media_type: 'IMAGE', image_url: cover, text: seeds.cta[s0.cta ?? n % seeds.cta.length] + AI },
+  ];
+}
 if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, replies }, null, 1)); process.exit(0); }
 const tokens = loadTokens();
 const t = tokens.threads;
@@ -54,6 +65,7 @@ if (post.topic) params.topic_tag = post.topic;
 const id = await publish(params);
 console.log('[스레드 글]', pi, id);
 state.threads_v2.push(pi);
+if (isShort) state.threads_short.push(+pi.slice(1));
 state.threads_text_at = Date.now();
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
 // 연재라 답글은 앞 답글에 이어 바로바로 단다(읽는 사람이 1/N을 한 번에 보게, 사이 5~15초).
