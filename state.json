@@ -100,5 +100,12 @@
  "threads_video": [
   0,
   1
+ ],
+ "bench_posted": [
+  "bench-street1",
+  "bench-vs1",
+  "bench-street2",
+  "bench-women1",
+  "bench-men1"
  ]
 }
