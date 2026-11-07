@@ -1,0 +1,28 @@
+name: bench-reels
+# 매일 20:40 KST(11:40 UTC)에 인터뷰 릴스 대기열 다음 편을 인스타 릴스·스레드에 올린다(scripts/bench-queue.mjs).
+on:
+  schedule:
+    - cron: '40 11 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: post
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 올리기
+        env:
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+        run: node scripts/bench-queue.mjs
+      - name: 올린 기록·새 토큰 저장
+        if: always()
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json tokens.enc 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "인터뷰 릴스 올린 기록" && git pull --rebase && git push)
