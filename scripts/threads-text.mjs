@@ -2,7 +2,7 @@
 // 스레드는 글이 먼저인 곳이라 사진 없이 짧은 글 + 질문 하나로 댓글을 부른다.
 // 본문엔 링크를 넣지 않고(노출이 줄어듦) 첫 답글에만 앱 받기 주소를 단다. 주제 태그는 1개.
 // 대기열: threads/posts.json (위에서부터 하나씩), 올린 기록: state.json 의 threads_text.
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 
@@ -11,9 +11,34 @@ const root = resolve(import.meta.dirname, '..');
 const statePath = resolve(root, 'state.json');
 const state = JSON.parse(readFileSync(statePath, 'utf8'));
 state.threads_text ??= [];
+// 2026-11-07 대표 「zzend 스레드 글 올리는 방식대로 계속 자동 게시 · 적당한 간격으로」:
+// ZZEND 방식 = 원글(사람 나온 표지 + 짧은 훅, 링크·해시태그 없음) → 답글 3개를 2~8분 간격으로 이어 달기 → 링크는 마지막 답글에만.
+// 손으로 쓴 대기열(threads/posts.json)을 먼저 쓰고, 다 쓰면 threads/seeds.json 조합으로 끝없이 만든다(같은 훅은 가장 오래전에 쓴 것부터).
+// 하루 4칸(threads.yml), 칸마다 예약을 여러 번 걸어 두고 3시간 안에 올린 게 있으면 건너뛴다.
+if (state.threads_text_at && Date.now() - state.threads_text_at < 3 * 36e5 && !process.argv.includes('--force')) { console.log('3시간 안에 올린 글이 있어 건너뜀'); process.exit(0); }
 const posts = JSON.parse(readFileSync(resolve(root, 'threads', 'posts.json'), 'utf8'));
-const post = posts.find((p) => !state.threads_text.includes(p.id));
-if (!post) { console.log('스레드 글 대기열이 비었어요 · threads/posts.json 에 새 글을 추가하세요'); process.exit(0); }
+const seeds = JSON.parse(readFileSync(resolve(root, 'threads', 'seeds.json'), 'utf8'));
+state.threads_gen ??= [];
+const n = state.threads_text.length + state.threads_gen.length;
+const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
+let post = posts.find((p) => !state.threads_text.includes(p.id));
+const used = new Set(state.threads_gen.map((g) => g.join('.')));
+if (!post) {
+  const last = new Map(state.threads_gen.map((g, i) => [g[0], i]));
+  const h = [...seeds.hooks.keys()].sort((a, b) => (last.get(a) ?? -1) - (last.get(b) ?? -1))[0];
+  let combo;
+  for (let k = 0; k < 500 && !combo; k++) { const c = [h, (n + k) % seeds.insights.length, (n * 3 + k) % seeds.questions.length, (n + k) % seeds.app.length]; if (!used.has(c.join('.'))) combo = c; }
+  post = { id: 'g' + combo.join('.'), combo, text: seeds.hooks[combo[0]], topic: pick(seeds.topics, n) };
+}
+const ins = post.combo ? seeds.insights[post.combo[1]] : pick(seeds.insights, n);
+const replies = [
+  ins.join('\n'),
+  post.combo ? seeds.questions[post.combo[2]] : pick(seeds.questions, n),
+  (post.combo ? seeds.app[post.combo[3]] : pick(seeds.app, n)) + '\n\n앱 받기 👉 https://topnote.app/th\n(사진 속 인물은 AI로 만든 이미지예요)',
+];
+// 표지: 사람이 나온 국내 광고 영상 표지를 돌려 쓴다(게시물에는 사람이 꼭 나온다).
+const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
+const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7)}`;
 
 const tokens = loadTokens();
 const t = tokens.threads;
@@ -33,12 +58,19 @@ const publish = async (params) => {
   return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
 };
 
-const params = { media_type: 'TEXT', text: post.text.slice(0, 500) };
+const dry = process.argv.includes('--dry');
+if (dry) { console.log(JSON.stringify({ post, cover, replies }, null, 1)); process.exit(0); }
+const params = { media_type: 'IMAGE', image_url: cover, text: post.text.slice(0, 500) };
 if (post.topic) params.topic_tag = post.topic;
 const id = await publish(params);
-console.log('[스레드 글]', post.id, id);
-await publish({ media_type: 'TEXT', text: '보이스 소개팅, 탑노트 → https://topnote.app/th', reply_to_id: id })
-  .catch((e) => console.error(`[스레드 글] 답글 실패: ${e.message}`));
-
-state.threads_text.push(post.id);
+console.log('[스레드 글]', post.id, id, cover);
+if (post.combo) state.threads_gen.push(post.combo); else state.threads_text.push(post.id);
+state.threads_text_at = Date.now();
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
+// 답글은 앞 답글에 이어 단다. 사이마다 2~8분 무작위로 기다린다.
+let parent = id;
+for (const text of replies) {
+  await new Promise((r) => setTimeout(r, (120 + Math.random() * 360) * 1000));
+  try { parent = await publish({ media_type: 'TEXT', text, reply_to_id: parent }); console.log('[답글]', parent); }
+  catch (e) { console.error(`[스레드 글] 답글 실패: ${e.message}`); break; }
+}
