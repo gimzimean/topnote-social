@@ -1,0 +1,38 @@
+{
+ "id": "bench-talk1",
+ "natural": true,
+ "format": "토킹헤드(기준 사진 1장 → image_to_video 4번)",
+ "ref_image_prompt": "Phone selfie video frame at home in the evening: a naturally beautiful Korean woman around 31, minimal makeup, long dark hair tucked behind one ear, oversized grey sweatshirt, sitting at a desk, warm lamp light, plain cream wall and plants softly blurred behind with no posters or text, real-person feel, natural skin texture, vertical 9:16.",
+ "title": "소개팅에서\n바로 거르는 남자 3가지",
+ "clips": [
+  {
+   "file": "C:/topnote-social/ai-reels/bench/th1.mp4",
+   "sub": "소개팅 많이 해보니까\n딱 보이는 게 있더라고요.",
+   "prompt": "Vertical selfie video filmed on a phone propped on a desk at home in the evening, warm lamp light, plain cream wall and a few plants softly blurred behind; absolutely no posters, book titles, letters or text anywhere. The same woman as in the reference image talks to the camera casually like a vlog, natural small gestures, saying in casual Korean: \"소개팅 많이 해보니까 딱 보이는 게 있더라고요.\" Real-person feel, not posed, natural skin texture."
+  },
+  {
+   "file": "C:/topnote-social/ai-reels/bench/th2.mp4",
+   "sub": "첫째, 한 시간 내내\n자기 얘기만 하는 사람.",
+   "prompt": "Vertical selfie video filmed on a phone propped on a desk at home in the evening, warm lamp light, plain cream wall and a few plants softly blurred behind; absolutely no posters, book titles, letters or text anywhere. The same woman as in the reference image talks to the camera casually like a vlog, natural small gestures, raising one finger with a small laugh, saying in casual Korean: \"첫째, 한 시간 내내 자기 얘기만 하는 사람.\" Real-person feel, not posed, natural skin texture."
+  },
+  {
+   "file": "C:/topnote-social/ai-reels/bench/th3.mp4",
+   "sub": "둘째, 점원한테\n말 함부로 하는 사람.",
+   "prompt": "Vertical selfie video filmed on a phone propped on a desk at home in the evening, warm lamp light, plain cream wall and a few plants softly blurred behind; absolutely no posters, book titles, letters or text anywhere. The same woman as in the reference image talks to the camera casually like a vlog, natural small gestures, shaking her head slightly, saying in casual Korean: \"둘째, 점원한테 말 함부로 하는 사람.\" Real-person feel, not posed, natural skin texture."
+  },
+  {
+   "file": "C:/topnote-social/ai-reels/bench/th4.mp4",
+   "sub": "셋째, 사진이랑 다른 사람.\n그래서 요즘은 목소리부터 들어봐요.",
+   "prompt": "Vertical selfie video filmed on a phone propped on a desk at home in the evening, warm lamp light, plain cream wall and a few plants softly blurred behind; absolutely no posters, book titles, letters or text anywhere. The same woman as in the reference image talks to the camera casually like a vlog, natural small gestures, smiling knowingly, saying in casual Korean: \"셋째, 사진이랑 다른 사람. 그래서 요즘은 목소리부터 들어봐요.\" Real-person feel, not posed, natural skin texture."
+  }
+ ],
+ "end": {
+  "line1": "거를 사람은, 3분이면 걸러져요.",
+  "line2": "탑노트 · 검증된 사람과 사진 없이 3분 통화"
+ },
+ "caption": "소개팅에서 바로 거르는 남자 3가지\n\n여러분이 거르는 하나는? 댓글로 👇\n\n#소개팅 #거르는남자 #연애팁 #30대연애 #소개팅후기 #보이스소개팅 #AI연출",
+ "comment": "자기 얘기만 / 점원한테 막말 / 사진이랑 다름\n여러분이 추가할 4번째는? 👇\n목소리부터 들어보고 싶다면 프로필 링크 👆",
+ "threads": "소개팅에서 바로 거르는 남자 3가지\n\n1. 한 시간 내내 자기 얘기만\n2. 점원한테 말 함부로\n3. 사진이랑 다른 사람\n\n너라면 4번째로 뭐 넣을래?",
+ "threads_reply": "그래서 요즘은 목소리부터 👉 https://topnote.app/th\n검증된 사람과 사진 없이 3분 #AI연출",
+ "topic": "소개팅"
+}
