@@ -19,7 +19,7 @@ const ff = (args) => execFileSync('ffmpeg', ['-loglevel', 'error', '-y', ...args
 
 const titleFile = txt('title.txt', cfg.title);
 const parts = [];
-// 2026-11-08 대표 「더 자연스럽게」(natural): 실제 인터뷰 편집처럼
+// 2026-11-08 tight:true(시험, 기본 끔 — 대표 「1위(street2)에서 확장, 이 우물을 파자」라 기본은 street2 편집 그대로): 실제 인터뷰 편집처럼
 // ① 말 앞뒤 빈 시간을 잘라 바로 말하게 ② 자막은 말하는 동안 한 줄씩 바뀌게 ③ 짝수 번째는 살짝 당겨 찍은 듯(1.07배)
 // ④ 폰 카메라처럼 옅은 입자 ⑤ 끝 화면은 검은 판 대신 마지막 장면을 흐리게 깔고 글자.
 const span = (file) => {
@@ -36,7 +36,7 @@ const span = (file) => {
 cfg.clips.forEach((c, i) => {
   const out = resolve(tmp, `p${i}.mp4`);
   const title = `drawtext=fontfile='${FONT}':textfile='${titleFile}':${cfg.natural ? `fontsize=${fit(cfg.title, 60)}:fontcolor=white:borderw=6:bordercolor=black@0.9` : `fontsize=${fit(cfg.title, 66, 840)}:fontcolor=white:box=1:boxcolor=black@0.85:boxborderw=26`}:line_spacing=14:text_align=C:x=(w-text_w)/2:y=230`;
-  if (!cfg.natural) {
+  if (!cfg.tight) {
     const subFile = txt(`sub${i}.txt`, c.sub);
     const vf = ['scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30', title,
       `drawtext=fontfile='${FONT}':textfile='${subFile}':fontsize=${fit(c.sub, 58)}:fontcolor=white:borderw=5:bordercolor=black:line_spacing=12:text_align=C:x=(w-text_w)/2:y=h*0.62`].join(',');
@@ -67,7 +67,7 @@ cfg.clips.forEach((c, i) => {
 // 끝 화면 2.5초
 const e1 = txt('e1.txt', cfg.end.line1), e2 = txt('e2.txt', cfg.end.line2);
 const endOut = resolve(tmp, 'end.mp4');
-if (cfg.natural) {
+if (cfg.tight) {
   const last = cfg.clips[cfg.clips.length - 1].file;
   const still = resolve(tmp, 'last.png');
   ff(['-sseof', '-0.3', '-i', last, '-frames:v', '1', still]);
