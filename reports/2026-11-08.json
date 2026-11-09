@@ -1,0 +1,346 @@
+{
+ "day": "2026-11-08",
+ "collected_at": "2026-11-09T01:51:24.367Z",
+ "app": {
+  "day": "2026-11-08",
+  "signups": 8,
+  "approved": 0,
+  "by_market": {
+   "KR": {
+    "signups": 8,
+    "approved": 0,
+    "onboarded": 8,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "pending": 12,
+     "approved": 12,
+     "rejected": 17
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 8,
+  "purchases": {},
+  "calls_1on1": 0,
+  "talk_joins": 0,
+  "members_total": {
+   "pending": 12,
+   "approved": 15,
+   "rejected": 17
+  },
+  "profiles_total": 44,
+  "visits_by_source": {
+   "direct": 6,
+   "threads": 1,
+   "app_store": 308,
+   "instagram": 32,
+   "apps.instagram.com": 377
+  },
+  "signups_by_source": {
+   "(모름)": 3,
+   "app_store": 1,
+   "instagram": 1,
+   "apps.instagram.com": 3
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 5,
+  "posts": 72,
+  "recent": [
+   {
+    "at": "2026-11-08T11:41:44+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "소개팅에서 3분 만에 「이 사람이다」 싶은 순간, 물어봤습니다. ",
+    "url": "https://www.instagram.com/reel/DferDNJmf0X/"
+   },
+   {
+    "at": "2026-11-08T11:01:19+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 · 11월 7일] 얼굴도 모르는데 목소리에 설렌 적 있어요?",
+    "url": "https://www.instagram.com/reel/DfembMticQS/"
+   },
+   {
+    "at": "2026-11-08T10:45:20+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅에서 깼던 순간 ②] 말투는 다정했는데, 직원한테 반말.",
+    "url": "https://www.instagram.com/reel/DfeklbXglbH/"
+   },
+   {
+    "at": "2026-11-08T03:31:50+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "혼술바 술값 6만원, 대화한 사람 0명. 다음 날 남은 건 숙취랑 현타.",
+    "url": "https://www.instagram.com/reel/Dfdy-vJnMZs/"
+   },
+   {
+    "at": "2026-11-07T17:00:44+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "잘나가는 30대 남자들한테 물어봤습니다. 소개팅 앱, 왜 안 써요?",
+    "url": "https://www.instagram.com/reel/Dfcqw56Gbc9/"
+   },
+   {
+    "at": "2026-11-07T11:05:59+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 6편] 소개팅 나갔더니 회사 선배였다. 😳",
+    "url": "https://www.instagram.com/reel/DfcCKKlkhEJ/"
+   },
+   {
+    "at": "2026-11-07T11:01:24+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "[빼빼로데이 · 11월 7일] 얼굴도 모르는데 목소리에 설렌 적 있어요?",
+    "url": "https://www.instagram.com/reel/DfcBpGojk4h/"
+   },
+   {
+    "at": "2026-11-07T10:42:12+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[만나기 전에 상황극 6편] 소개팅 나갔더니 회사 선배였다. 😳",
+    "url": "https://www.instagram.com/reel/Dfb_cFtHAk7/"
+   },
+   {
+    "at": "2026-11-07T10:38:04+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "퇴근하고 1:1 3분 통화, 넷이면 4인 수다로 가볍게 이야기해요. 만나기 전에, 3분 먼",
+    "url": "https://www.instagram.com/reel/Dfb-9XsCFMB/"
+   },
+   {
+    "at": "2026-11-07T10:01:59+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "30대 여자들한테 물어봤습니다. 소개팅 앱, 왜 안 써요?",
+    "url": "https://www.instagram.com/reel/Dfb61MHiii3/"
+   },
+   {
+    "at": "2026-11-07T06:44:04+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "소개팅에서 3분 만에 「아니다」 싶은 순간, 물어봤습니다. ",
+    "url": "https://www.instagram.com/reel/DfbkLkpjW0K/"
+   },
+   {
+    "at": "2026-11-07T06:33:36+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "30대 소개팅 현실 🥵🥶 마음에 들 때랑 안 들 때 온도 차이ㅋㅋ",
+    "url": "https://www.instagram.com/reel/Dfbi_Szk1Sl/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-08T16:14:36+0000",
+   "text": "골** 스카이** 퍼스트클래스**\n유료 소개팅 앱은 거의 다 써봤다\n\n사",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-08T11:42:21+0000",
+   "text": "소개팅에서 3분 만에 이 사람이다 싶은 순간\n\n내 얘기 기억했다가 다시 ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-08T11:15:45+0000",
+   "text": "반려 버튼을 두 번 누른 분들이 있습니다.\n이번 달에만 4명.",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-08T11:02:03+0000",
+   "text": "[솔크 탈출 특별편 · 4인 수다]\n크리스마스 파티, 갈 데 없어도 괜찮",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-08T10:48:02+0000",
+   "text": "반려 버튼을 두 번 누른 분들이 있습니다.\n이번 달에만 4명.",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-08T10:46:35+0000",
+   "text": "[소개팅에서 깼던 순간 ②]\n말투는 다정했는데, 직원한테 반말.\n그 순간",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 34053,
+   "impressions": 2474,
+   "clicks": 78,
+   "ctr": 3.152789,
+   "installs": 12,
+   "link_clicks": 66
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 32245,
+   "impressions": 2955,
+   "clicks": 138,
+   "ctr": 4.670051,
+   "installs": 2,
+   "link_clicks": 127
+  },
+  {
+   "campaign": "topnote_meta_ios_best_1106",
+   "spend": 4751,
+   "impressions": 410,
+   "clicks": 22,
+   "ctr": 5.365854,
+   "installs": 0,
+   "link_clicks": 22
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 436000,
+  "spent_since_cap": 228786,
+  "left": 207214
+ },
+ "seo": {
+  "range": "2026-10-31~2026-11-06",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 25,
+    "ctr": 0,
+    "position": 5.4
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/community-guidelines.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 7
+    },
+    {
+     "key": "https://topnote.app/delete-account.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 3.3
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 3.7
+    },
+    {
+     "key": "https://topnote.app/guide/office-dating-app.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 7.3
+    },
+    {
+     "key": "https://topnote.app/guide/voice-dating.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 7
+    },
+    {
+     "key": "https://topnote.app/index.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 4
+    },
+    {
+     "key": "https://topnote.app/privacy.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 6
+    },
+    {
+     "key": "https://topnote.app/terms.html",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 4.8
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 3,
+    "ctr": 0,
+    "position": 1.7
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/us/",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 1.7
+    }
+   ],
+   "queries": [
+    {
+     "key": "topnot",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 2
+    }
+   ]
+  }
+ },
+ "queue": {
+  "cards_posted": 14,
+  "cards_total": 83,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
