@@ -1,0 +1,52 @@
+name: journal
+# 심사 일지 카드(2026-11-10): 탑노트 운영실 「📸 인스타」 탭의 「지금 올리기」나 매일 20:00 KST 자동(서버 pg_cron)이 부른다.
+# 카드 그림을 만들어 docs/journal 에 올리고(Pages), 인스타 피드·스토리·스레드에 올린 뒤 결과를 탑노트 서버에 알린다.
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '카드 날짜 (YYYY-MM-DD)'
+        required: true
+      payload:
+        description: '카드 내용 JSON (운영실이 넘김)'
+        required: true
+permissions:
+  contents: write
+concurrency: post
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 한글 글꼴·playwright
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q fonts-noto-cjk
+          npm i --no-save --no-package-lock playwright
+          npx playwright install --with-deps chromium
+      - name: 카드 그림
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          printf '%s' "$PAYLOAD" > /tmp/payload.json
+          node scripts/journal.mjs render /tmp/payload.json
+      - name: 그림 공개(Pages)
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/journal
+          git diff --cached --quiet || (git commit -m "심사 일지 ${{ inputs.date }}" && git pull --rebase && git push)
+      - name: 올리기
+        env:
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+          IG_JOURNAL_KEY: ${{ secrets.IG_JOURNAL_KEY }}
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+        run: node scripts/journal.mjs post /tmp/payload.json
+      - name: 새 토큰 저장
+        if: always()
+        run: |
+          git add tokens.enc 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "토큰 갱신" && git pull --rebase && git push)
