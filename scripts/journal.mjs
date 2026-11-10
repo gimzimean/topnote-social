@@ -19,7 +19,8 @@ const sha = (() => { try { return execSync('git rev-parse HEAD', { cwd: root }).
 const BASE = `https://raw.githubusercontent.com/gimzimean/topnote-social/${sha}/docs/journal`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const FOOT = '검증된 사람만, 안심하고 대화해요.';
+const FOOT = `느려도 한 명씩.
+검증된 사람만 안심하고 대화해요.`;
 
 async function render() {
   const require = createRequire(existsSync(resolve(root, 'node_modules/playwright')) ? resolve(root, 'package.json') : 'C:/topnote-app/package.json');
@@ -45,7 +46,7 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
 </style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(p.title)}</div>
 <div class="cnt">승인 <b>${p.approved}</b> · 반려 <b>${p.rejected}</b> · 누적 반려 <b>${p.rejected_total}</b>명</div>
 <div class="cols">${col('남', p.men)}${col('여', p.women)}</div>
-<div class="foot">${FOOT}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
+<div class="foot">${FOOT.split('\n').join('<br>')}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
   mkdirSync(resolve(root, 'docs/journal'), { recursive: true });
   const b = await chromium.launch();
   for (const [w, h, top, name] of [[1080, 1350, 96, `${date}.jpg`], [1080, 1920, 240, `${date}-story.jpg`]]) {
