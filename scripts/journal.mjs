@@ -100,7 +100,14 @@ async function post() {
   try {
     const box = await call(`${t.user_id}/media`, { image_url: feedUrl, caption });
     await ready(box.id);
-    mediaId = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
+    // 인스타가 올려 놓고도 403(Application request limit)을 돌려줄 때가 있어, 실패하면 방금 올라간 게시물이 있는지 본다.
+    mediaId = await call(`${t.user_id}/media_publish`, { creation_id: box.id }).then((r) => r.id).catch(async (e) => {
+      await sleep(5000);
+      const m = await json(await fetch(`${IG}/${t.user_id}/media?fields=timestamp,caption&limit=1&access_token=${t.access_token}`));
+      const last = m.data?.[0];
+      if (last && Date.now() - Date.parse(last.timestamp) < 5 * 60e3 && (last.caption ?? "").startsWith(p.title)) return last.id;
+      throw e;
+    });
     console.log(`[instagram] 올림 → ${mediaId}`);
     await call(`${mediaId}/comments`, { message: '여러분은 어떤 인증을 할 수 있나요?\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆' }).catch((e) => console.error(`[instagram] 댓글 실패: ${e.message}`));
   } catch (e) { await report('failed', null, `인스타 피드: ${e.message}`); throw e; }
