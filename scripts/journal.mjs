@@ -6,6 +6,7 @@
 import { createRequire } from 'node:module';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { execSync } from 'node:child_process';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 
 loadLocalEnv();
@@ -13,7 +14,9 @@ const root = resolve(import.meta.dirname, '..');
 const [mode, payloadFile] = process.argv.slice(2);
 const p = JSON.parse(readFileSync(payloadFile, 'utf8'));
 const date = p.date;
-const BASE = 'https://gimzimean.github.io/topnote-social/journal';
+// Pages 빌드가 자주 실패해서(저장소가 커서) 그림은 올린 커밋의 원본 주소로 넘긴다.
+const sha = (() => { try { return execSync('git rev-parse HEAD', { cwd: root }).toString().trim(); } catch { return 'main'; } })();
+const BASE = `https://raw.githubusercontent.com/gimzimean/topnote-social/${sha}/docs/journal`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const FOOT = '검증된 사람만, 안심하고 대화해요.';
@@ -82,8 +85,8 @@ ${FOOT}
 async function post() {
   const tokens = loadTokens();
   const feedUrl = `${BASE}/${date}.jpg`; const storyUrl = `${BASE}/${date}-story.jpg`;
-  // Pages 에 그림이 열릴 때까지 최대 6분.
-  for (let i = 0; i < 72; i++) { const h = await fetch(`${feedUrl}?v=${Date.now()}`, { method: 'HEAD' }); const s = await fetch(`${storyUrl}?v=${Date.now()}`, { method: 'HEAD' }); if (h.ok && s.ok) break; await sleep(5000); }
+  // 원본 주소에 그림이 열릴 때까지 최대 1분.
+  for (let i = 0; i < 12; i++) { const h = await fetch(feedUrl, { method: 'HEAD' }); const s = await fetch(storyUrl, { method: 'HEAD' }); if (h.ok && s.ok) break; await sleep(5000); }
   const t = tokens.instagram;
   const fb = t.access_token.startsWith('EAA');
   const IG = fb ? 'https://graph.facebook.com/v23.0' : 'https://graph.instagram.com/v23.0';
