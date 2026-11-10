@@ -6,7 +6,7 @@
 import { createRequire } from 'node:module';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 
 loadLocalEnv();
@@ -43,7 +43,7 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
 .pass{background:#2F5B46;color:#DDF3E6}.wait{background:#5A4A2A;color:#F5E6C8}.no{background:#5B2D2D;color:#F6DADA}
 .foot{position:absolute;left:84px;right:84px;bottom:${top}px;font-size:42px;color:#E9DCC6;line-height:1.5}.foot small{display:block;color:#9E9282;font-size:30px;margin-top:6px}
 </style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(p.title)}</div>
-<div class="cnt">승인 <b>${p.approved}</b> · 반려 <b>${p.rejected}</b> · 지금까지 반려 <b>${p.rejected_total}</b>명</div>
+<div class="cnt">승인 <b>${p.approved}</b> · 반려 <b>${p.rejected}</b> · 누적 반려 <b>${p.rejected_total}</b>명</div>
 <div class="cols">${col('남', p.men)}${col('여', p.women)}</div>
 <div class="foot">${FOOT}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
   mkdirSync(resolve(root, 'docs/journal'), { recursive: true });
@@ -56,7 +56,17 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
     await page.close();
   }
   await b.close();
-  console.log(`그림 완료 · docs/journal/${date}.jpg`);
+  // 릴스(2026-11-10 대표 「인스타에 올린 것도 다 릴스 형식으로 매번」): 세로 카드를 천천히 다가가는 8초 영상 + 우리 곡.
+  // 인스타 음악 보관함 곡은 공식 API로 붙일 수 없어 우리 곡(music/tracks.json)을 날짜 순서로 돌려 쓴다.
+  const tracks = JSON.parse(readFileSync(resolve(root, 'music/tracks.json'), 'utf8'));
+  const track = tracks[Math.floor(Date.parse(date) / 864e5) % tracks.length];
+  const T = 8;
+  const vf = `[0:v]scale=2160:3840,zoompan=z='1+0.06*on/${T * 30}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuv420p[v];[1:a]volume=-3dB,afade=t=in:st=0:d=0.6,afade=t=out:st=${T - 1.2}:d=1.2[a]`;
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-loop', '1', '-framerate', '30', '-t', String(T), '-i', resolve(root, 'docs/journal', `${date}-story.jpg`),
+    '-ss', String(track.start), '-t', String(T), '-i', resolve(root, 'music', track.file),
+    '-filter_complex', vf, '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '21', '-pix_fmt', 'yuv420p', '-r', '30',
+    '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-t', String(T), '-movflags', '+faststart', resolve(root, 'docs/journal', `${date}.mp4`)], { stdio: 'inherit' });
+  console.log(`그림·릴스 완료 · docs/journal/${date}.jpg · ${date}.mp4 · ${track.title}`);
 }
 
 async function json(res) {
@@ -75,7 +85,7 @@ async function report(status, media, error) {
 }
 
 const caption = `${p.title}
-승인 ${p.approved} · 반려 ${p.rejected} · 지금까지 반려 ${p.rejected_total}명
+승인 ${p.approved} · 반려 ${p.rejected} · 누적 반려 ${p.rejected_total}명
 
 ${FOOT}
 목소리로 3분 먼저, 탑노트.
@@ -84,9 +94,9 @@ ${FOOT}
 
 async function post() {
   const tokens = loadTokens();
-  const feedUrl = `${BASE}/${date}.jpg`; const storyUrl = `${BASE}/${date}-story.jpg`;
+  const feedUrl = `${BASE}/${date}.jpg`; const storyUrl = `${BASE}/${date}-story.jpg`; const reelUrl = `${BASE}/${date}.mp4`;
   // 원본 주소에 그림이 열릴 때까지 최대 1분.
-  for (let i = 0; i < 12; i++) { const h = await fetch(feedUrl, { method: 'HEAD' }); const s = await fetch(storyUrl, { method: 'HEAD' }); if (h.ok && s.ok) break; await sleep(5000); }
+  for (let i = 0; i < 12; i++) { const h = await fetch(reelUrl, { method: 'HEAD' }); const s = await fetch(storyUrl, { method: 'HEAD' }); if (h.ok && s.ok) break; await sleep(5000); }
   const t = tokens.instagram;
   const fb = t.access_token.startsWith('EAA');
   const IG = fb ? 'https://graph.facebook.com/v23.0' : 'https://graph.instagram.com/v23.0';
@@ -95,10 +105,10 @@ async function post() {
     Object.assign(t, { access_token: r.access_token, refreshed_at: Date.now() }); saveTokens(tokens);
   }
   const call = async (path, params) => json(await fetch(`${IG}/${path}`, { method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }) }));
-  const ready = async (id) => { for (let i = 0; i < 60; i++) { const s = await json(await fetch(`${IG}/${id}?fields=status_code&access_token=${t.access_token}`)); if (s.status_code === 'FINISHED') return; if (s.status_code === 'ERROR') throw new Error('인스타 처리 실패'); await sleep(3000); } };
+  const ready = async (id) => { for (let i = 0; i < 100; i++) { const s = await json(await fetch(`${IG}/${id}?fields=status_code&access_token=${t.access_token}`)); if (s.status_code === 'FINISHED') return; if (s.status_code === 'ERROR') throw new Error('인스타 처리 실패'); await sleep(3000); } };
   let mediaId;
   try {
-    const box = await call(`${t.user_id}/media`, { image_url: feedUrl, caption });
+    const box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: reelUrl, cover_url: storyUrl, caption, share_to_feed: 'true' });
     await ready(box.id);
     // 인스타가 올려 놓고도 403(Application request limit)을 돌려줄 때가 있어, 실패하면 방금 올라간 게시물이 있는지 본다.
     mediaId = await call(`${t.user_id}/media_publish`, { creation_id: box.id }).then((r) => r.id).catch(async (e) => {
@@ -121,8 +131,8 @@ async function post() {
     if (th) {
       const TH = 'https://graph.threads.net/v1.0';
       const tcall = async (path, params) => json(await fetch(`${TH}/${path}`, { method: 'POST', body: new URLSearchParams({ ...params, access_token: th.access_token }) }));
-      const box = await tcall(`${th.user_id}/threads`, { media_type: 'IMAGE', image_url: feedUrl, text: `${p.title}\n승인 ${p.approved} · 반려 ${p.rejected} · 지금까지 반려 ${p.rejected_total}명\n\n${FOOT}` });
-      await sleep(8000);
+      const box = await tcall(`${th.user_id}/threads`, { media_type: 'VIDEO', video_url: reelUrl, text: `${p.title}\n승인 ${p.approved} · 반려 ${p.rejected} · 누적 반려 ${p.rejected_total}명\n\n${FOOT}` });
+      for (let i = 0; i < 40; i++) { const s = await json(await fetch(`${TH}/${box.id}?fields=status&access_token=${th.access_token}`)); if (s.status === 'FINISHED') break; if (s.status === 'ERROR') throw new Error('스레드 영상 처리 실패'); await sleep(3000); }
       const id = (await tcall(`${th.user_id}/threads_publish`, { creation_id: box.id })).id;
       console.log(`[threads] 올림 → ${id}`);
       const reply = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: '보이스 소개팅, 탑노트 · 목소리로 3분 먼저 → https://topnote.app/th', reply_to_id: id });

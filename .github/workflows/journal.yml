@@ -23,7 +23,7 @@ jobs:
           node-version: 22
       - name: 한글 글꼴·playwright
         run: |
-          sudo apt-get update -q && sudo apt-get install -y -q fonts-noto-cjk
+          sudo apt-get update -q && sudo apt-get install -y -q fonts-noto-cjk ffmpeg
           npm i --no-save --no-package-lock playwright
           npx playwright install --with-deps chromium
       - name: 카드 그림
