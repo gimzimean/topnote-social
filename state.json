@@ -173,6 +173,7 @@
   "bench-after1",
   "bench-swipe1",
   "bench-call1",
-  "bench-first1"
+  "bench-first1",
+  "bench-cert1"
  ]
 }
