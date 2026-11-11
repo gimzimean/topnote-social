@@ -19,8 +19,8 @@ const sha = (() => { try { return execSync('git rev-parse HEAD', { cwd: root }).
 const BASE = `https://raw.githubusercontent.com/gimzimean/topnote-social/${sha}/docs/journal`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const FOOT = `느려도 한 명씩.
-검증된 사람만 안심하고 대화해요.`;
+// 「느려도 한 명씩.」 삭제(2026-11-12 대표).
+const FOOT = `검증된 사람만 안심하고 대화해요.`;
 
 async function render() {
   const require = createRequire(existsSync(resolve(root, 'node_modules/playwright')) ? resolve(root, 'package.json') : 'C:/topnote-app/package.json');
