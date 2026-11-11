@@ -20,6 +20,8 @@ const BASE = `https://raw.githubusercontent.com/gimzimean/topnote-social/${sha}/
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 // 「느려도 한 명씩.」 삭제(2026-11-12 대표).
+// 제목은 앱 칸과 같게 「11월 11일 심사 중」.
+const title = String(p.title).replace(/심사 일지\s*$/, '심사 중');
 const FOOT = `검증된 사람만 안심하고 대화해요.`;
 
 async function render() {
@@ -27,26 +29,30 @@ async function render() {
   const { chromium } = require('playwright');
   const b64 = (f) => readFileSync(f).toString('base64');
   const font = `@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/SongMyung-Regular.ttf'))})}`;
-  const tag = (s) => `<span class="tag ${s === '승인' ? 'pass' : s === '반려' ? 'no' : 'wait'}">${esc(s)}</span>`;
-  const col = (title, list) => `<div class="gcol"><div class="gh">${title}</div>${list.length ? list.map((r) => `<div class="item"><span class="job">${esc(r.job)}</span>${tag(r.status)}</div>`).join('') : '<div class="item empty">—</div>'}</div>`;
-  const html = (w, h, top) => `<!doctype html><html><head><meta charset="utf-8"><style>${font}
+  // C안 · 화면에 꽉 차게(2026-11-12 대표 「심사 상태는 빼고 남여 직업군만 나열, 크고 꽉차게 중간정렬, 심플하고 임팩트」).
+  const rows = Math.max(p.men.length, p.women.length, 1);
+  const col = (g, list) => `<div class="gcol"><div class="gh">${g}</div>${list.length ? list.map((r) => `<div class="job">${esc(r.job)}</div>`).join('') : '<div class="job empty">—</div>'}</div>`;
+  const html = (w, h, top) => {
+    // 줄 수에 맞춰 직업 글자 크기를 키운다(가운데 칸을 꽉 채우게).
+    // 높이(줄 수)와 너비(가장 긴 직업이 한 줄에 들어가게) 둘 다 맞춰 고른다.
+    const free = h - top * 2 - 640;
+    const longest = Math.max(2, ...[...p.men, ...p.women].map((r) => String(r.job).length));
+    const colW = (w - 120) / 2 - 40;
+    const jf = Math.round(Math.max(40, Math.min(80, free / rows / 1.5, colW / (longest * 0.98))));
+    return `<!doctype html><html><head><meta charset="utf-8"><style>${font}
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif;position:relative;padding:${top}px 84px 0}
-.logo{position:absolute;top:${top - 4}px;right:84px;font-family:SongMyung;font-size:64px}.logo i{color:#B85F45;font-style:normal}
-.kick{font-size:30px;letter-spacing:9px;color:#C9A86A}
-.t{font-family:SongMyung;font-size:96px;line-height:1.2;margin-top:24px}
-.cnt{font-size:40px;color:#D8CBB8;margin:22px 0 56px}.cnt b{color:#F5ECDD}
-.cols{display:flex;gap:44px}.gcol{flex:1;min-width:0}
-.gh{font-size:36px;color:#C9A86A;letter-spacing:6px;padding-bottom:16px;border-bottom:2px solid #C9A86A}
-.item{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:30px 0;border-bottom:2px solid #3A322B;font-size:38px}
-.item.empty{color:#6E6458}.job{min-width:0;word-break:keep-all}
-.tag{font-size:28px;font-weight:800;padding:10px 20px;border-radius:40px;white-space:nowrap}
-.pass{background:#2F5B46;color:#DDF3E6}.wait{background:#5A4A2A;color:#F5E6C8}.no{background:#5B2D2D;color:#F6DADA}
-.foot{position:absolute;left:84px;right:84px;bottom:${top}px;font-size:42px;color:#E9DCC6;line-height:1.5}.foot small{display:block;color:#9E9282;font-size:30px;margin-top:6px}
-</style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(p.title)}</div>
-<div class="cnt">승인 <b>${p.approved}</b> · 반려 <b>${p.rejected}</b> · 누적 반려 <b>${p.rejected_total}</b>명</div>
-<div class="cols">${col('남', p.men)}${col('여', p.women)}</div>
-<div class="foot">${FOOT.split('\n').join('<br>')}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
+body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif;position:relative;padding:${top}px 60px;display:flex;flex-direction:column;text-align:center}
+.logo{position:absolute;top:${top - 14}px;right:60px;font-family:SongMyung;font-size:60px}.logo i{color:#B85F45;font-style:normal}
+.kick{font-size:30px;letter-spacing:12px;color:#C9A86A}
+.t{font-family:SongMyung;font-size:112px;line-height:1.1;margin-top:18px}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;margin:30px 0}.cols{display:flex;align-items:stretch}.gcol{flex:1;min-width:0;padding:0 18px}.gcol+.gcol{border-left:2px solid #4A3F33}
+.gh{font-family:SongMyung;font-size:96px;color:#C9A86A;line-height:1;margin-bottom:26px}
+.job{font-size:${jf}px;font-weight:800;line-height:1.5;white-space:nowrap}.job.empty{color:#6E6458}
+.foot{font-size:42px;color:#E9DCC6;line-height:1.4}.foot small{display:block;color:#9E9282;font-size:30px;margin-top:10px}
+</style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(title).replace(' 심사', '<br>심사')}</div>
+<div class="mid"><div class="cols">${col('남', p.men)}${col('여', p.women)}</div></div>
+<div class="foot">${FOOT}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
+  };
   mkdirSync(resolve(root, 'docs/journal'), { recursive: true });
   const b = await chromium.launch();
   for (const [w, h, top, name] of [[1080, 1350, 96, `${date}.jpg`], [1080, 1920, 240, `${date}-story.jpg`]]) {
@@ -85,8 +91,10 @@ async function report(status, media, error) {
   }).then((r) => console.log(`결과 알림 ${r.status}`)).catch((e) => console.log(`결과 알림 실패 ${e.message}`));
 }
 
-const caption = `${p.title}
-승인 ${p.approved} · 반려 ${p.rejected} · 누적 반려 ${p.rejected_total}명
+// 글(캡션·스레드)도 상태·숫자 없이 남·여 직업만(2026-11-12).
+const jobsText = `남 · ${p.men.map((r) => r.job).join(' · ') || '—'}\n여 · ${p.women.map((r) => r.job).join(' · ') || '—'}`;
+const caption = `${title}
+${jobsText}
 
 ${FOOT}
 목소리로 3분 먼저, 탑노트.
@@ -116,7 +124,7 @@ async function post() {
       await sleep(5000);
       const m = await json(await fetch(`${IG}/${t.user_id}/media?fields=timestamp,caption&limit=1&access_token=${t.access_token}`));
       const last = m.data?.[0];
-      if (last && Date.now() - Date.parse(last.timestamp) < 5 * 60e3 && (last.caption ?? "").startsWith(p.title)) return last.id;
+      if (last && Date.now() - Date.parse(last.timestamp) < 5 * 60e3 && (last.caption ?? "").startsWith(title)) return last.id;
       throw e;
     });
     console.log(`[instagram] 올림 → ${mediaId}`);
@@ -132,7 +140,7 @@ async function post() {
     if (th) {
       const TH = 'https://graph.threads.net/v1.0';
       const tcall = async (path, params) => json(await fetch(`${TH}/${path}`, { method: 'POST', body: new URLSearchParams({ ...params, access_token: th.access_token }) }));
-      const box = await tcall(`${th.user_id}/threads`, { media_type: 'VIDEO', video_url: reelUrl, text: `${p.title}\n승인 ${p.approved} · 반려 ${p.rejected} · 누적 반려 ${p.rejected_total}명\n\n${FOOT}` });
+      const box = await tcall(`${th.user_id}/threads`, { media_type: 'VIDEO', video_url: reelUrl, text: `${title}\n${jobsText}\n\n${FOOT}` });
       for (let i = 0; i < 40; i++) { const s = await json(await fetch(`${TH}/${box.id}?fields=status&access_token=${th.access_token}`)); if (s.status === 'FINISHED') break; if (s.status === 'ERROR') throw new Error('스레드 영상 처리 실패'); await sleep(3000); }
       const id = (await tcall(`${th.user_id}/threads_publish`, { creation_id: box.id })).id;
       console.log(`[threads] 올림 → ${id}`);
