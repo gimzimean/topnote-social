@@ -47,9 +47,10 @@ const imagesOf = (id) => {
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
 // 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
 const nextFor = (platform) => {
-  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && (p.aiReel || (pickId && p.manual)) /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
-    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel || (pickId && p.manual)) && (pickId || !p.on || p.on <= today));
-  return ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
+  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && (p.aiReel || (p.manual && (pickId || p.on))) && (!p.platforms || p.platforms.includes(platform)) /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
+    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel || p.manual) && (pickId || !p.on || p.on <= today));
+  // 날짜를 정해 둔 수동 게시물(manual + on, 예: 심사 일지 카드)은 밀린 차례보다 먼저(2026-11-13).
+  return ok.find((p) => p.manual && p.on) ?? ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
 };
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
 const REELS = BASE.replace(/posts$/, 'reels');
@@ -113,7 +114,18 @@ async function postInstagram(post, urls) {
     }
   }
   await ready(box.id);
-  const id = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
+  // 2026-11-13: 인스타가 「행동이 차단되었습니다」(요청 한도)를 돌려줘도 실제로는 올라간 적이 있다 → 최근 게시물에서 같은 글을 찾아 성공으로 본다(다음 예약에서 두 번 올리지 않게).
+  let id;
+  try { id = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id; }
+  catch (e) {
+    await sleep(15000);
+    const IGB = t.access_token.startsWith('EAA') ? 'https://graph.facebook.com/v23.0' : 'https://graph.instagram.com/v23.0';
+    const recent = await json(await fetch(`${IGB}/${t.user_id}/media?fields=id,caption,timestamp&limit=3&access_token=${t.access_token}`)).catch(() => ({ data: [] }));
+    const hit = recent.data?.find((m) => m.caption === post.caption && Date.now() - Date.parse(m.timestamp) < 10 * 60e3);
+    if (!hit) throw e;
+    console.error(`[instagram] 오류가 났지만 올라가 있음: ${e.message}`);
+    id = hit.id;
+  }
   // 첫 댓글. 실패해도 게시물은 올라간 것으로 둔다.
   await call(`${id}/comments`, { message: commentOf(post, 'instagram') }).catch((e) => console.error(`[instagram] 댓글 실패: ${e.message}`));
   return id;

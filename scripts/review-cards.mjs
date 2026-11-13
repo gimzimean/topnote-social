@@ -21,7 +21,7 @@ const ok = p.ok ?? [];
 const cols = ok.length ? 4 : [2, 4].includes(p.people.length) ? 2 : 3; // 검증된 사람 칸이 있으면 한 줄 4장(목업처럼 두 칸)
 const cw = Math.floor((948 - (cols - 1) * 20) / cols);
 const card = (x, st = 'wait') => `<div class="pc ${st}"><div class="face"><i style="background-image:url(data:image/jpeg;base64,${b64(x.face)});background-position:${x.pos ?? '50% 34%'};${x.size ? `background-size:${x.size};` : ''}"></i><s></s></div>
-<div class="meta"><div class="job">${esc(x.job)}</div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>${x.date ? `<div class="date">${esc(x.date)}</div>` : ''}<div class="seals"><span class="seal">${st === 'ok' ? '검증 완료' : '서류 확인 중'}</span></div></div></div>`;
+<div class="meta"><div class="job">${esc(x.job)}</div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>${x.date && !p.big ? `<div class="date">${esc(x.date)}</div>` : ''}${p.big ? '' : `<div class="seals"><span class="seal">${st === 'ok' ? '검증 완료' : '서류 확인 중'}</span></div>`}</div></div>`;
 
 const html = (h, padTop) => `<!doctype html><html><head><meta charset="utf-8"><style>${font}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -42,6 +42,7 @@ h2{font-family:SongMyung;font-size:80px;line-height:1.2;margin:10px 0 22px;font-
 .seals{margin-top:12px}
 .seal{font-size:${ok.length ? 22 : 26}px;font-weight:800;padding:6px 16px;border-radius:40px;background:#3A2E18;color:#E8C9A0;border:2px solid #6B5530}
 .foot{font-size:30px;color:#BFAF98;margin-top:24px;text-align:right}
+${p.big ? '.job{font-size:48px;line-height:1.15}.age{font-size:32px;color:#E9DCC6;margin-top:10px;font-weight:700;white-space:nowrap}.meta{padding:20px 16px 24px}' : ''}
 </style></head><body>
 <div class="top">${esc(p.kicker)}</div><h2>${esc(p.title).replace(/\n/g, '<br>')}</h2>
 <div class="sec">⏳ 심사 중 <span>${p.people.length}명</span></div>
@@ -56,6 +57,8 @@ for (const [h, pad, out] of [[1350, 60, `docs/posts/${p.id}/1.jpg`], [1920, 200,
   const page = await b.newPage({ viewport: { width: 1080, height: h } });
   await page.setContent(html(h, pad));
   await page.evaluate(() => document.fonts.ready);
+  // big: 직업이 칸보다 길면 글자를 줄여 한 줄에 맞춘다.
+  await page.evaluate(() => { for (const el of document.querySelectorAll('.job,.age')) { let f = parseFloat(getComputedStyle(el).fontSize); while (el.scrollWidth > el.clientWidth + 1 && f > 20) { f -= 2; el.style.fontSize = f + 'px'; } } });
   await page.screenshot({ path: resolve(root, out), type: 'jpeg', quality: 90 });
   console.log('→', out);
 }

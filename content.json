@@ -3684,6 +3684,23 @@
         "instagram": "검증을 통과한 사람끼리 사진 없이 목소리로 3분 먼저 통화해요. 매일 한 명 무료예요.\n👉 https://topnote.app/ig",
         "threads": "검증을 통과한 사람끼리 사진 없이 목소리로 3분 먼저 통화해요.\n👉 https://topnote.app/th"
       }
+    },
+    {
+      "id": "review-1114",
+      "manual": true,
+      "on": "2026-11-14",
+      "slot": "evening",
+      "platforms": [
+        "instagram",
+        "story",
+        "threads"
+      ],
+      "title": "11월 12일 심사 일지",
+      "caption": "11월 12일 심사 일지예요.\n\n지금 심사 중: 게임 개발자, CEO, 대기업, 외국계.\n검증을 통과해 들어온 사업가도 있어요.\n\n서류 확인이 끝나고 검증을 통과한 사람만 들어와요.\n이름도 얼굴도 공개하지 않아요.\n\n오늘은 몇 명이 통과할까요? 👇\n\n#소개팅앱 #소개팅 #검증된만남 #30대연애 #탑노트",
+      "comment": {
+        "instagram": "검증을 통과한 사람끼리 사진 없이 목소리로 3분 먼저 통화해요. 매일 한 명 무료예요.\n👉 https://topnote.app/ig",
+        "threads": "검증을 통과한 사람끼리 사진 없이 목소리로 3분 먼저 통화해요.\n👉 https://topnote.app/th"
+      }
     }
   ]
 }

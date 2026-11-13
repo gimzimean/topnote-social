@@ -1,0 +1,53 @@
+{
+ "id": "review-1114",
+ "stock": true,
+ "blur": 12,
+ "kicker": "TOP NOTE · 심사 일지",
+ "title": "11월 12일 심사 일지",
+ "people": [
+  {
+   "g": "남",
+   "job": "게임 개발자",
+   "age": "30대 중반",
+   "face": "assets/stock/m-profile-EWMXKkMvpbE.jpg",
+   "pos": "45% 30%",
+   "_shot": "옆모습"
+  },
+  {
+   "g": "남",
+   "job": "CEO",
+   "age": "40대 중반",
+   "face": "assets/stock/m-bag-yHOwmoRLahc.jpg",
+   "pos": "50% 60%",
+   "_shot": "전신 뒷모습"
+  },
+  {
+   "g": "여",
+   "job": "대기업",
+   "age": "30대 초반",
+   "face": "assets/stock/w-selfie-e5T8-mna_34.jpg",
+   "pos": "78% 20%",
+   "_shot": "셀카"
+  },
+  {
+   "g": "여",
+   "job": "외국계",
+   "age": "30대 중반",
+   "face": "assets/stock/w-window-u_GfBlbf1UA.jpg",
+   "pos": "47% 62%",
+   "_shot": "창가에 앉은 모습",
+   "size": "330% auto"
+  }
+ ],
+ "ok": [
+  {
+   "g": "남",
+   "job": "사업가",
+   "age": "30대 초반",
+   "face": "assets/stock/m-jacket-fvzHgHvs7B0.jpg",
+   "pos": "50% 40%",
+   "_shot": "허리 위 반신"
+  }
+ ],
+ "big": true
+}
