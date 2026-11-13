@@ -26,6 +26,19 @@ if (!process.argv.includes('--threads-only')) {
   const mid = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
   console.log('[instagram]', mid);
   await call(`${mid}/comments`, { message: cfg.comment }).catch((e) => console.error('[instagram] 댓글 실패', e.message));
+  // --story: 같은 영상을 스토리에도(2026-11-13 대표 「피드·스토리·스레드 한 번에」).
+  if (process.argv.includes('--story')) {
+    try {
+      const sb = await call(`${t.user_id}/media`, { media_type: 'STORIES', video_url: video });
+      for (let i = 0; i < 100; i++) {
+        const s = await json(await fetch(`${IG}/${sb.id}?fields=status_code,status&access_token=${t.access_token}`));
+        if (s.status_code === 'FINISHED') break;
+        if (s.status_code === 'ERROR') throw new Error('스토리 처리 실패 ' + s.status);
+        await sleep(3000);
+      }
+      console.log('[story]', (await call(`${t.user_id}/media_publish`, { creation_id: sb.id })).id);
+    } catch (e) { console.error('[story] 실패', e.message); }
+  }
 }
 
 const th = tokens.threads;

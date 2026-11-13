@@ -39,11 +39,14 @@ if (kind === 'video') {
   post = { media_type: 'VIDEO', video_url: `https://gimzimean.github.io/topnote-social/ai-reels/${v.id}.mp4`, text: v.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
   replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th #AI연출' }];
 } else if (isShort) {
-  pi = 's' + lru(seeds.short.length, state.threads_short);
-  post = { text: seeds.short[+pi.slice(1)], topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [{ media_type: 'IMAGE', image_url: cover, text: pick(seeds.short_cta, n) + AI }];
+  // --pick=s18 처럼 짧은 글도 바로 고를 수 있다. 짧은 글이 {text, cta}면 그 글에 맞는 권유 답글(short_cta 번호)을 쓴다.
+  const wantS = process.argv.find((x) => x.startsWith('--pick=s'))?.slice(8);
+  pi = 's' + (wantS != null ? +wantS : lru(seeds.short.length, state.threads_short));
+  const sh = seeds.short[+pi.slice(1)];
+  post = { text: typeof sh === 'string' ? sh : sh.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
+  replies = [{ media_type: 'IMAGE', image_url: cover, text: (typeof sh === 'object' && sh.cta != null ? seeds.short_cta[sh.cta] : pick(seeds.short_cta, n)) + AI }];
 } else {
-  const want = process.argv.find((x) => x.startsWith('--pick='))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
+  const want = process.argv.find((x) => x.startsWith('--pick=') && !x.startsWith('--pick=s'))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
   pi = want != null ? +want : lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
   const s0 = seeds.series[pi];
   post = { text: s0.parts[0], topic: s0.topic };

@@ -1,0 +1,13 @@
+{
+  "id": "strict-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai5-1.mp4", "text": "혼인관계증명서,<br>내는 법 <em>다 알려드렸어요</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai11-1.mp4", "text": "그래도 <em>다른 방법</em>으로<br>낸 분이 있었어요." },
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai3-1.mp4", "text": "그래서 <em>반려</em>했어요." },
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai7-1.mp4", "text": "안내를 끝까지 읽는<br><em>성의</em>까지 봐요." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-pm3.mp4", "text": "직장·혼인·얼굴까지<br><em>검증된</em> 사람만." },
+    { "end": "까다로운 만큼<br><em>안심</em>.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+  ],
+  "cover": { "from": 0, "at": 2, "text": "안내대로 안 내면<br>반려예요." }
+}
