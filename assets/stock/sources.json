@@ -1,5 +1,5 @@
 {
- "_설명": "흐린 심사 카드·릴스용 무료 실사(2026-11-13 대표 「AI 얼굴 말고 무료 실사 + 블러」). 모두 Unsplash 무료 사진(Unsplash License: 상업 이용 가능·출처 표기 의무 없음, Unsplash+ 아님). 실제 회원 사진 아님. g = 성별, shot = 포즈(scripts/review-cards.mjs 의 POSES 중 하나). 2026-11-13 대표: 얼굴이 보이는 자연스러운 일상 사진만(친구가 찍어 준 듯한 카페·걷기·앉기·셀카·창가 반신·옆모습). 「(옛)」은 예전 사진이라 자동 선택에서 빠짐.",
+ "_설명": "흐린 심사 카드·릴스용 무료 실사(2026-11-13 대표 「AI 얼굴 말고 무료 실사 + 블러」). 모두 Unsplash 무료 사진(Unsplash License: 상업 이용 가능·출처 표기 의무 없음, Unsplash+ 아님). 실제 회원 사진 아님. g = 성별, shot = 포즈(scripts/review-cards.mjs 의 POSES 중 하나). 2026-11-13 대표: 얼굴이 보이는 자연스러운 일상 사진만(친구가 찍어 준 듯한 카페·걷기·앉기·셀카·창가 반신·옆모습). 「(옛)」은 예전 사진이라 자동 선택에서 빠짐. 2026-11-13 대표 「틀에 박히지 말고 다양하게」: 사진마다 shot(찍은 모양)·style(옷 분위기)·setting(장소)을 적고, 카드 생성기가 한 게시물 안·최근 게시물과 겹치지 않게 고른다. 남자는 단정하고 호감 가는 사진만.",
  "photos": {
   "m-walk-8MHEIhTzx5E.jpg": {
    "url": "https://unsplash.com/photos/8MHEIhTzx5E",
@@ -21,7 +21,7 @@
   "m-profile-EWMXKkMvpbE.jpg": {
    "url": "https://unsplash.com/photos/EWMXKkMvpbE",
    "g": "남",
-   "shot": "옆모습",
+   "shot": "(옛) 옆모습",
    "pos": "45% 35%",
    "w": 900,
    "h": 1604,
@@ -29,7 +29,8 @@
     "x": 0.411,
     "y": 0.411,
     "fw": 0.41
-   }
+   },
+   "note": "대표: 남자 사진 별로"
   },
   "m-lean-c7ZHoJXQsC4.jpg": {
    "url": "https://unsplash.com/photos/c7ZHoJXQsC4",
@@ -40,7 +41,7 @@
   "m-phone-AcQxIGeUmZc.jpg": {
    "url": "https://unsplash.com/photos/AcQxIGeUmZc",
    "g": "남",
-   "shot": "휴대폰 보는",
+   "shot": "(옛) 휴대폰 보는",
    "pos": "50% 40%",
    "w": 900,
    "h": 600,
@@ -48,7 +49,8 @@
     "x": 0.509,
     "y": 0.465,
     "fw": 0.148
-   }
+   },
+   "note": "대표: 남자 사진 별로"
   },
   "m-phonewalk-uPM5TwJ0W0o.jpg": {
    "url": "https://unsplash.com/photos/uPM5TwJ0W0o",
@@ -103,7 +105,7 @@
   "m-smile-JxNnRZFTWFM.jpg": {
    "url": "https://unsplash.com/photos/JxNnRZFTWFM",
    "g": "남",
-   "shot": "길에서 웃는 반신",
+   "shot": "(옛) 길에서 웃는 반신",
    "pos": "45% 35%",
    "w": 900,
    "h": 1200,
@@ -111,7 +113,8 @@
     "x": 0.442,
     "y": 0.455,
     "fw": 0.228
-   }
+   },
+   "note": "대표: 남자 사진 별로"
   },
   "w-cafewindow-VphkjFith0s.jpg": {
    "url": "https://unsplash.com/photos/VphkjFith0s",
@@ -124,7 +127,9 @@
     "x": 0.621,
     "y": 0.271,
     "fw": 0.098
-   }
+   },
+   "style": "캐주얼",
+   "setting": "카페"
   },
   "w-lookback2-id3bDcfAOPg.jpg": {
    "url": "https://unsplash.com/photos/id3bDcfAOPg",
@@ -137,7 +142,9 @@
     "x": 0.55,
     "y": 0.369,
     "fw": 0.058
-   }
+   },
+   "style": "데일리",
+   "setting": "가로수길"
   },
   "w-selfie2--PpOcveNj5w.jpg": {
    "url": "https://unsplash.com/photos/-PpOcveNj5w",
@@ -150,7 +157,9 @@
     "x": 0.436,
     "y": 0.294,
     "fw": 0.09
-   }
+   },
+   "style": "시크",
+   "setting": "카페 테라스"
   },
   "w-coffee-EMjkwp83QC4.jpg": {
    "url": "https://unsplash.com/photos/EMjkwp83QC4",
@@ -163,7 +172,9 @@
     "x": 0.624,
     "y": 0.469,
     "fw": 0.071
-   }
+   },
+   "style": "스포티(캡·민소매)",
+   "setting": "가게 앞"
   },
   "w-night-IccYGkKcH3Y.jpg": {
    "url": "https://unsplash.com/photos/IccYGkKcH3Y",
@@ -176,6 +187,66 @@
     "x": 0.59,
     "y": 0.354,
     "fw": 0.158
+   },
+   "style": "오피스",
+   "setting": "밤거리"
+  },
+  "m-coat-8ZEqB3iSddA.jpg": {
+   "url": "https://unsplash.com/photos/8ZEqB3iSddA",
+   "g": "남",
+   "shot": "전신 걷기",
+   "style": "오피스",
+   "setting": "거리",
+   "fullBody": true,
+   "w": 900,
+   "h": 1350,
+   "face": {
+    "x": 0.554,
+    "y": 0.486,
+    "fw": 0.041
+   }
+  },
+  "m-knit-9IN2eVU0mf0.jpg": {
+   "url": "https://unsplash.com/photos/9IN2eVU0mf0",
+   "g": "남",
+   "shot": "앉은 전신",
+   "style": "포근한 니트",
+   "setting": "집",
+   "w": 900,
+   "h": 1185,
+   "face": {
+    "x": 0.367,
+    "y": 0.348,
+    "fw": 0.099
+   }
+  },
+  "m-bus-yASVbW4r4Mw.jpg": {
+   "url": "https://unsplash.com/photos/yASVbW4r4Mw",
+   "g": "남",
+   "shot": "옆모습 반신",
+   "style": "캐주얼",
+   "setting": "여행·버스",
+   "w": 900,
+   "h": 1350,
+   "face": {
+    "x": 0.374,
+    "y": 0.43,
+    "fw": 0.162
+   }
+  },
+  "w-standing-dTyidhUwzTk.jpg": {
+   "url": "https://unsplash.com/photos/dTyidhUwzTk",
+   "g": "여",
+   "shot": "서 있는 전신",
+   "style": "스트리트",
+   "setting": "도시 건물 앞",
+   "fullBody": true,
+   "w": 900,
+   "h": 1350,
+   "face": {
+    "x": 0.599,
+    "y": 0.198,
+    "fw": 0.09
    }
   }
  }

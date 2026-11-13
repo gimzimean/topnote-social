@@ -8,56 +8,52 @@
    "g": "남",
    "job": "게임 개발자",
    "age": "30대 중반",
-   "shot": "옆모습",
-   "face": "assets/stock/m-profile-EWMXKkMvpbE.jpg",
-   "pos": "45% 35%"
+   "face": "assets/stock/m-knit-9IN2eVU0mf0.jpg",
+   "shot": "앉은 전신"
   },
   {
    "g": "남",
    "job": "CEO",
    "age": "40대 중반",
-   "shot": "휴대폰 보는",
-   "face": "assets/stock/m-phone-AcQxIGeUmZc.jpg",
-   "pos": "50% 40%"
+   "face": "assets/stock/m-coat-8ZEqB3iSddA.jpg",
+   "shot": "전신 걷기"
   },
   {
    "g": "남",
    "job": "유튜버",
    "age": "30대 초반",
-   "shot": "길에서 웃는 반신",
-   "face": "assets/stock/m-smile-JxNnRZFTWFM.jpg",
-   "pos": "45% 35%"
+   "face": "assets/stock/m-bus-yASVbW4r4Mw.jpg",
+   "shot": "옆모습 반신"
   },
   {
    "g": "여",
    "job": "대학생",
    "age": "20대 초반",
-   "shot": "커피 들고 웃는",
    "face": "assets/stock/w-coffee-EMjkwp83QC4.jpg",
+   "shot": "커피 들고 웃는",
    "pos": "65% 45%"
   },
   {
    "g": "여",
    "job": "개인사업",
    "age": "40대 중반",
-   "shot": "창가 반신",
-   "face": "assets/stock/w-cafewindow-VphkjFith0s.jpg",
-   "pos": "40% 35%"
+   "face": "assets/stock/w-standing-dTyidhUwzTk.jpg",
+   "shot": "서 있는 전신"
   },
   {
    "g": "여",
    "job": "대기업",
    "age": "30대 초반",
-   "shot": "어깨 너머 돌아보기",
    "face": "assets/stock/w-lookback2-id3bDcfAOPg.jpg",
+   "shot": "어깨 너머 돌아보기",
    "pos": "50% 35%"
   },
   {
    "g": "여",
    "job": "외국계",
    "age": "30대 중반",
-   "shot": "가벼운 셀카",
    "face": "assets/stock/w-selfie2--PpOcveNj5w.jpg",
+   "shot": "가벼운 셀카",
    "pos": "35% 35%"
   }
  ],

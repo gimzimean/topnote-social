@@ -29,9 +29,9 @@ const mood = (x) => {
   const m = lib[x.face.split('/').pop()] ?? {};
   if (!m.face || !m.w) return { img: x.face, pos: x.pos, size: x.size };
   const iw = BW * 1.12, ih = BH * 1.12;
-  let sc = Math.max((0.26 * BW) / (m.face.fw * m.w), iw / m.w, ih / m.h);
+  let sc = Math.max((m.fullBody ? 0.075 : 0.26) * BW / (m.face.fw * m.w), iw / m.w, ih / m.h); // 전신은 머리~발끝
   const bw = m.w * sc, bh = m.h * sc;
-  const px = Math.min(0, Math.max(iw - bw, iw / 2 - m.face.x * bw)), py = Math.min(0, Math.max(ih - bh, ih * 0.6 - m.face.y * bh));
+  const px = Math.min(0, Math.max(iw - bw, iw / 2 - m.face.x * bw)), py = Math.min(0, Math.max(ih - bh, (m.fullBody ? ih * 0.3 : ih * 0.6) - m.face.y * bh));
   return { img: x.face, pos: `${px.toFixed(0)}px ${py.toFixed(0)}px`, size: `${bw.toFixed(0)}px ${bh.toFixed(0)}px` };
 };
 if (!existsSync(resolve(root, `docs/ai-reels/${p.id}-end.jpg`))) throw new Error('먼저 node scripts/review-cards.mjs 로 카드를 만들어 주세요(마지막 화면 필요)');

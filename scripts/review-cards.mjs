@@ -3,6 +3,8 @@
 // - 「남」/「여」로 나누고, 그 안에서 심사 중 → 검증된 사람 순서. 카드엔 큰 직업 + 「나이대 · 성별」만(칩·날짜 없음).
 // - 포즈 규칙(대표 「남녀 포즈 다 다르게」 · 「얼굴이 보이는 자연스러운 일상 사진, 과하거나 모델 같은 포즈 금지」):
 //   POSES 는 친구가 폰으로 찍어 준 듯한 얼굴 보이는 일상 컷만. 한 장 안에서 포즈가 겹치면 멈춘다(남녀 사이도). 포즈·사진을 비워 두면
+//   (2026-11-13 대표 「틀에 박히지 말고 다양하게」) sources.json 의 shot·style·setting 이 한 게시물 안·최근 게시물과 최대한 안 겹치는 사진을 고른다.
+//   fullBody 사진은 얼굴만 키우지 않고 머리부터 발끝까지 보이게 둔다.
 //   최근 2번 게시(ai-reels/review-history.json)에 쓴 포즈·사진을 피해서 자동으로 고른다.
 // 사용: node scripts/review-cards.mjs <payload.json>
 //   payload: { id, kicker, title, endLine?, people: [심사 중 { g, job, age, shot?, face? }], ok: [검증된 사람, 같은 모양] }
@@ -51,18 +53,22 @@ if (p.verified === 'db') {
 const all = [...p.people.map((x) => ({ ...x, st: 'wait' })), ...(p.ok ?? []).map((x) => ({ ...x, st: 'ok' }))];
 const used = new Set();
 for (const x of all) {
-  if (x.shot && !POSES.includes(x.shot)) throw new Error(`모르는 포즈: ${x.shot} (POSES 중에서)`);
   if (x.face && !x.shot) x.shot = lib[x.face.split('/').pop()]?.shot;
   if (x.shot) { if (used.has(x.shot)) throw new Error(`포즈가 겹쳐요: ${x.shot} — 한 장 안에서는 모두 달라야 해요`); used.add(x.shot); }
 }
 const photosFor = (g, shot) => Object.entries(lib).filter(([, v]) => v.g === g && v.shot === shot).map(([k]) => k);
+// 다양성 점수: 이 게시물에서 이미 쓴 shot/style/setting, 최근 게시물에 쓴 사진·shot 은 감점.
+const usedStyle = new Set(), usedSetting = new Set();
+const recentStyles = new Set(recent.flatMap((h) => (h.photos ?? []).map((f) => lib[f]?.style).filter(Boolean)));
+const recentSettings = new Set(recent.flatMap((h) => (h.photos ?? []).map((f) => lib[f]?.setting).filter(Boolean)));
+const score = (k) => { const v = lib[k]; return (used.has(v.shot) ? -100 : 0) - (usedStyle.has(v.style) ? 3 : 0) - (usedSetting.has(v.setting) ? 3 : 0) - (recentPhotos.has(k) ? 5 : 0) - (recentShots.has(v.shot) ? 2 : 0) - (recentStyles.has(v.style) ? 1 : 0) - (recentSettings.has(v.setting) ? 1 : 0); };
+for (const x of all) if (x.face) { const v = lib[x.face.split('/').pop()] ?? {}; if (v.style) usedStyle.add(v.style); if (v.setting) usedSetting.add(v.setting); }
 for (const x of all) {
-  if (!x.shot) {
-    const cand = POSES.filter((s) => !used.has(s) && photosFor(x.g, s).length);
-    const fresh = cand.filter((s) => !recentShots.has(s));
-    x.shot = (fresh.length ? fresh : cand)[0];
-    if (!x.shot) throw new Error(`${x.g} 사진이 모자라요 — assets/stock 에 더 넣어 주세요`);
-    used.add(x.shot);
+  if (!x.shot && !x.face) {
+    const cand = Object.keys(lib).filter((k) => lib[k].g === x.g && !String(lib[k].shot).startsWith('(옛)') && !used.has(lib[k].shot)).sort((a, b) => score(b) - score(a));
+    if (!cand.length) throw new Error(`${x.g} 사진이 모자라요 — assets/stock 에 더 넣어 주세요(sources.json 에 shot·style·setting 태그)`);
+    x.face = `assets/stock/${cand[0]}`; x.shot = lib[cand[0]].shot;
+    used.add(x.shot); usedStyle.add(lib[cand[0]].style); usedSetting.add(lib[cand[0]].setting);
   }
   if (!x.face) {
     const ph = photosFor(x.g, x.shot);
@@ -74,6 +80,8 @@ for (const x of all) {
   x.pos ??= meta.pos; x.size ??= meta.size;
   if (recentShots.has(x.shot)) console.log(`  ⚠ ${x.job}: 「${x.shot}」는 최근 게시에도 썼어요`);
 }
+{ const c = (k) => { const m = new Map(); for (const x of all) { const v = lib[x.face.split('/').pop()]?.[k]; if (v) m.set(v, (m.get(v) ?? 0) + 1); } return [...m].filter(([, n]) => n > 1).map(([v]) => v); };
+  for (const k of ['style', 'setting']) if (c(k).length) console.log(`  ⚠ ${k} 겹침: ${c(k).join(', ')}`); }
 hist.splice(0, hist.length, ...hist.filter((h) => h.id !== p.id), { id: p.id, shots: all.map((x) => x.shot), photos: all.map((x) => x.face.split('/').pop()) });
 writeFileSync(histPath, JSON.stringify(hist.slice(-20), null, 1) + '\n');
 console.log(all.map((x) => `${x.g} ${x.job}: ${x.shot}`).join(' · '));
@@ -93,11 +101,11 @@ const frame = (x, boxW, boxH) => {
   const m = lib[x.face.split('/').pop()] ?? {};
   if (!m.face || !m.w) return `background-position:${x.pos ?? '50% 40%'};background-size:${x.size ?? 'cover'}`;
   const iw = boxW * 1.24, ih = boxH * 1.24; // inset -12%
-  let sc = (0.34 * boxW) / (m.face.fw * m.w);
+  let sc = (m.fullBody ? 0.12 : 0.34) * boxW / (m.face.fw * m.w); // 전신은 얼굴을 작게(머리~발끝이 칸에 들어오게)
   sc = Math.max(sc, iw / m.w, ih / m.h);
   const bw = m.w * sc, bh = m.h * sc;
   const px = Math.min(0, Math.max(iw - bw, iw / 2 - m.face.x * bw));
-  const py = Math.min(0, Math.max(ih - bh, ih * 0.42 - m.face.y * bh));
+  const py = Math.min(0, Math.max(ih - bh, (m.fullBody ? ih * 0.2 : ih * 0.42) - m.face.y * bh));
   return `background-size:${bw.toFixed(0)}px ${bh.toFixed(0)}px;background-position:${px.toFixed(0)}px ${py.toFixed(0)}px`;
 };
 const card = (x, faceH) => `<div class="pc ${x.st}"><div class="face" style="height:${faceH}px"><i style="background-image:url(data:image/jpeg;base64,${b64(x.face)});${frame(x, cw, faceH)}"></i><s></s></div>
