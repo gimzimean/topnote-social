@@ -1,11 +1,182 @@
 {
- "_설명": "흐린 심사 카드용 무료 사진(2026-11-13 대표 「AI 얼굴 말고 무료 실사 + 블러」). 모두 Unsplash 무료 사진(Unsplash License: 상업 이용 가능·출처 표기 의무 없음, Unsplash+ 아님). 실제 회원 사진 아님.",
- "m-walk-8MHEIhTzx5E.jpg": "https://unsplash.com/photos/8MHEIhTzx5E",
- "m-bag-yHOwmoRLahc.jpg": "https://unsplash.com/photos/yHOwmoRLahc",
- "m-jacket-fvzHgHvs7B0.jpg": "https://unsplash.com/photos/fvzHgHvs7B0",
- "w-brick-dbiDlvEfRNQ.jpg": "https://unsplash.com/photos/dbiDlvEfRNQ",
- "w-road-hqaDFFsCJgE.jpg": "https://unsplash.com/photos/hqaDFFsCJgE",
- "m-profile-EWMXKkMvpbE.jpg": "https://unsplash.com/photos/EWMXKkMvpbE",
- "w-selfie-e5T8-mna_34.jpg": "https://unsplash.com/photos/e5T8-mna_34",
- "w-window-u_GfBlbf1UA.jpg": "https://unsplash.com/photos/u_GfBlbf1UA"
+ "_설명": "흐린 심사 카드·릴스용 무료 실사(2026-11-13 대표 「AI 얼굴 말고 무료 실사 + 블러」). 모두 Unsplash 무료 사진(Unsplash License: 상업 이용 가능·출처 표기 의무 없음, Unsplash+ 아님). 실제 회원 사진 아님. g = 성별, shot = 포즈(scripts/review-cards.mjs 의 POSES 중 하나). 2026-11-13 대표: 얼굴이 보이는 자연스러운 일상 사진만(친구가 찍어 준 듯한 카페·걷기·앉기·셀카·창가 반신·옆모습). 「(옛)」은 예전 사진이라 자동 선택에서 빠짐.",
+ "photos": {
+  "m-walk-8MHEIhTzx5E.jpg": {
+   "url": "https://unsplash.com/photos/8MHEIhTzx5E",
+   "g": "남",
+   "shot": "(옛) 전신 걷기"
+  },
+  "m-bag-yHOwmoRLahc.jpg": {
+   "url": "https://unsplash.com/photos/yHOwmoRLahc",
+   "g": "남",
+   "shot": "(옛) 전신 뒷모습",
+   "pos": "50% 60%"
+  },
+  "m-jacket-fvzHgHvs7B0.jpg": {
+   "url": "https://unsplash.com/photos/fvzHgHvs7B0",
+   "g": "남",
+   "shot": "(옛) 허리 위 반신",
+   "pos": "50% 40%"
+  },
+  "m-profile-EWMXKkMvpbE.jpg": {
+   "url": "https://unsplash.com/photos/EWMXKkMvpbE",
+   "g": "남",
+   "shot": "옆모습",
+   "pos": "45% 35%",
+   "w": 900,
+   "h": 1604,
+   "face": {
+    "x": 0.411,
+    "y": 0.411,
+    "fw": 0.41
+   }
+  },
+  "m-lean-c7ZHoJXQsC4.jpg": {
+   "url": "https://unsplash.com/photos/c7ZHoJXQsC4",
+   "g": "남",
+   "shot": "(옛) 벽에 기댄",
+   "pos": "50% 45%"
+  },
+  "m-phone-AcQxIGeUmZc.jpg": {
+   "url": "https://unsplash.com/photos/AcQxIGeUmZc",
+   "g": "남",
+   "shot": "휴대폰 보는",
+   "pos": "50% 40%",
+   "w": 900,
+   "h": 600,
+   "face": {
+    "x": 0.509,
+    "y": 0.465,
+    "fw": 0.148
+   }
+  },
+  "m-phonewalk-uPM5TwJ0W0o.jpg": {
+   "url": "https://unsplash.com/photos/uPM5TwJ0W0o",
+   "g": "남",
+   "shot": "(옛) 휴대폰 보며 서 있는",
+   "pos": "50% 45%"
+  },
+  "w-brick-dbiDlvEfRNQ.jpg": {
+   "url": "https://unsplash.com/photos/dbiDlvEfRNQ",
+   "g": "여",
+   "shot": "(옛) 전신 걷기",
+   "pos": "55% 60%"
+  },
+  "w-road-hqaDFFsCJgE.jpg": {
+   "url": "https://unsplash.com/photos/hqaDFFsCJgE",
+   "g": "여",
+   "shot": "(옛) 전신 걷기",
+   "pos": "64% 72%",
+   "size": "330% auto"
+  },
+  "w-selfie-e5T8-mna_34.jpg": {
+   "url": "https://unsplash.com/photos/e5T8-mna_34",
+   "g": "여",
+   "shot": "(옛) 팔 뻗은 셀카",
+   "pos": "78% 20%"
+  },
+  "w-window-u_GfBlbf1UA.jpg": {
+   "url": "https://unsplash.com/photos/u_GfBlbf1UA",
+   "g": "여",
+   "shot": "(옛) 창가 실루엣",
+   "pos": "47% 62%",
+   "size": "330% auto"
+  },
+  "w-lookback-oNhuUdh2owk.jpg": {
+   "url": "https://unsplash.com/photos/oNhuUdh2owk",
+   "g": "여",
+   "shot": "(옛) 어깨 너머",
+   "pos": "50% 35%"
+  },
+  "w-mirror-VBPmJbuD9mU.jpg": {
+   "url": "https://unsplash.com/photos/VBPmJbuD9mU",
+   "g": "여",
+   "shot": "(옛) 거울 셀카",
+   "pos": "50% 40%"
+  },
+  "w-back-BZt__EOmRnA.jpg": {
+   "url": "https://unsplash.com/photos/BZt__EOmRnA",
+   "g": "여",
+   "shot": "(옛) 전신 뒷모습",
+   "pos": "50% 60%"
+  },
+  "m-smile-JxNnRZFTWFM.jpg": {
+   "url": "https://unsplash.com/photos/JxNnRZFTWFM",
+   "g": "남",
+   "shot": "길에서 웃는 반신",
+   "pos": "45% 35%",
+   "w": 900,
+   "h": 1200,
+   "face": {
+    "x": 0.442,
+    "y": 0.455,
+    "fw": 0.228
+   }
+  },
+  "w-cafewindow-VphkjFith0s.jpg": {
+   "url": "https://unsplash.com/photos/VphkjFith0s",
+   "g": "여",
+   "shot": "창가 반신",
+   "pos": "40% 35%",
+   "w": 900,
+   "h": 600,
+   "face": {
+    "x": 0.621,
+    "y": 0.271,
+    "fw": 0.098
+   }
+  },
+  "w-lookback2-id3bDcfAOPg.jpg": {
+   "url": "https://unsplash.com/photos/id3bDcfAOPg",
+   "g": "여",
+   "shot": "어깨 너머 돌아보기",
+   "pos": "50% 35%",
+   "w": 900,
+   "h": 601,
+   "face": {
+    "x": 0.55,
+    "y": 0.369,
+    "fw": 0.058
+   }
+  },
+  "w-selfie2--PpOcveNj5w.jpg": {
+   "url": "https://unsplash.com/photos/-PpOcveNj5w",
+   "g": "여",
+   "shot": "가벼운 셀카",
+   "pos": "35% 35%",
+   "w": 900,
+   "h": 506,
+   "face": {
+    "x": 0.436,
+    "y": 0.294,
+    "fw": 0.09
+   }
+  },
+  "w-coffee-EMjkwp83QC4.jpg": {
+   "url": "https://unsplash.com/photos/EMjkwp83QC4",
+   "g": "여",
+   "shot": "커피 들고 웃는",
+   "pos": "65% 45%",
+   "w": 900,
+   "h": 600,
+   "face": {
+    "x": 0.624,
+    "y": 0.469,
+    "fw": 0.071
+   }
+  },
+  "w-night-IccYGkKcH3Y.jpg": {
+   "url": "https://unsplash.com/photos/IccYGkKcH3Y",
+   "g": "여",
+   "shot": "밤거리에 서서",
+   "pos": "50% 35%",
+   "w": 900,
+   "h": 1332,
+   "face": {
+    "x": 0.59,
+    "y": 0.354,
+    "fw": 0.158
+   }
+  }
+ }
 }

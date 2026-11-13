@@ -23,19 +23,33 @@ const font = `@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b6
 const css = `${font}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif;overflow:hidden;background:transparent}`;
 
 // 장면: 제목 → 심사 중 카드들 → 검증된 사람 → 끝
-const mood = (x) => ({ img: x.face, pos: x.pos, size: x.size });
+// 얼굴이 화면 가운데 조금 아래(글자 칸 밑)에 오게, 얼굴 폭이 화면의 약 1/4이 되게(sources.json 의 face).
+const lib = JSON.parse(readFileSync(resolve(root, 'assets/stock/sources.json'), 'utf8')).photos;
+const mood = (x) => {
+  const m = lib[x.face.split('/').pop()] ?? {};
+  if (!m.face || !m.w) return { img: x.face, pos: x.pos, size: x.size };
+  const iw = BW * 1.12, ih = BH * 1.12;
+  let sc = Math.max((0.26 * BW) / (m.face.fw * m.w), iw / m.w, ih / m.h);
+  const bw = m.w * sc, bh = m.h * sc;
+  const px = Math.min(0, Math.max(iw - bw, iw / 2 - m.face.x * bw)), py = Math.min(0, Math.max(ih - bh, ih * 0.6 - m.face.y * bh));
+  return { img: x.face, pos: `${px.toFixed(0)}px ${py.toFixed(0)}px`, size: `${bw.toFixed(0)}px ${bh.toFixed(0)}px` };
+};
+if (!existsSync(resolve(root, `docs/ai-reels/${p.id}-end.jpg`))) throw new Error('먼저 node scripts/review-cards.mjs 로 카드를 만들어 주세요(마지막 화면 필요)');
 const scenes = [
   { d: 2.2, bg: mood(p.people[0]), html: `<div class="k">TOP NOTE · 심사 일지</div><div class="h">${esc(p.title)}</div>` },
-  ...p.people.map((x, i) => ({ d: 2.1, bg: mood(x), html: `${i === 0 ? '' : ''}<div class="sec">⏳ 지금 심사 중인 사람</div><div><div class="job">${esc(x.job)}</div></div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>` })),
-  ...(p.ok ?? []).map((x) => ({ d: 2.4, bg: mood(x), html: `<div class="sec ok">✓ 검증된 사람</div><div><div class="job">${esc(x.job)}</div></div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>` })),
-  { d: 2.8, bg: null, html: `<div class="h small">검증을 통과한<br>사람만 들어와요.</div><div class="sub">목소리로 3분 먼저 · 탑노트</div><div class="link">topnote.app</div>` },
+  ...p.people.map((x, i) => ({ d: 1.8, bg: mood(x), html: `${i === 0 ? '' : ''}<div class="sec">⏳ 지금 심사 중인 사람</div><div><div class="job">${esc(x.job)}</div></div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>` })),
+  ...(p.ok ?? []).map((x) => ({ d: 2.0, bg: mood(x), html: `<div class="sec ok">✓ 검증된 사람</div><div><div class="job">${esc(x.job)}</div></div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>` })),
+  // 마지막: 모든 프로필을 남/여로 한 화면에(scripts/review-cards.mjs 가 만든 <id>-end.jpg, 맺음말·링크 포함) — 2026-11-13 대표
+  { d: 3.6, end: `docs/ai-reels/${p.id}-end.jpg`, html: '' },
 ];
 
 const b = await chromium.launch();
 const page = await b.newPage({ viewport: { width: BW, height: BH } });
 for (const [i, s] of scenes.entries()) {
   // 배경: 흐린 실사 + 필름 입자 + 위쪽 어둡게(글자 칸)
-  const bgHtml = s.bg
+  const bgHtml = s.end
+    ? `<style>${css}body{width:${BW}px;height:${BH}px;background:#14100D}img{width:${BW}px;height:${BH}px;display:block}</style><img src="data:image/jpeg;base64,${b64(s.end)}">`
+    : s.bg
     ? `<style>${css}body{width:${BW}px;height:${BH}px;background:#14100D;position:relative}
 i{position:absolute;inset:-6%;background:url(data:image/jpeg;base64,${b64(s.bg.img)}) ${s.bg.pos ?? '50% 40%'}/${s.bg.size ? s.bg.size.replace(' auto', ' auto') : 'cover'} no-repeat;filter:blur(${p.reelBlur ?? 55}px) saturate(.85) brightness(.8)}
 u{position:absolute;inset:0;opacity:.35;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
@@ -66,7 +80,7 @@ for (const [i, s] of scenes.entries()) {
   const out = resolve(tmp, `s${i}.mp4`);
   const dy = i % 2 ? `(ih-ih/zoom)/2+20*on/${n}` : `(ih-ih/zoom)/2-20*on/${n}`;
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', resolve(tmp, `bg${i}.png`), '-loop', '1', '-t', String(s.d), '-i', resolve(tmp, `tx${i}.png`),
-    '-filter_complex', `[0]zoompan=z='1+0.06*on/${n}':x='(iw-iw/zoom)/2':y='${dy}':d=${n}:s=${W}x${H}:fps=${FPS},trim=end_frame=${n}[bg];[1]format=rgba,fade=t=in:st=0:d=0.35:alpha=1,trim=duration=${s.d}[t];[bg][t]overlay=0:0:shortest=1,format=yuv420p[v]`,
+    '-filter_complex', `[0]zoompan=z='1+${s.end ? 0.02 : 0.06}*on/${n}':x='(iw-iw/zoom)/2':y='${dy}':d=${n}:s=${W}x${H}:fps=${FPS},trim=end_frame=${n}[bg];[1]format=rgba,fade=t=in:st=0:d=0.35:alpha=1,trim=duration=${s.d}[t];[bg][t]overlay=0:0:shortest=1,format=yuv420p[v]`,
     '-map', '[v]', '-frames:v', String(n), '-r', String(FPS), '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', out]);
   parts.push(out);
 }
