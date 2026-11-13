@@ -1,7 +1,7 @@
 {
  "id": "review-1113",
  "kicker": "TOP NOTE · 오늘 심사",
- "title": "지금 심사 중인 사람",
+ "title": "지금 심사 중인 사람,\n들어온 사람",
  "people": [
   {
    "g": "남",
@@ -27,6 +27,15 @@
    "job": "외국계",
    "age": "30대 중반",
    "face": "ai-reels/faces/redo-ai11-1.jpg"
+  }
+ ],
+ "ok": [
+  {
+   "g": "남",
+   "job": "사업가",
+   "age": "30대 초반",
+   "face": "ai-reels/faces/people-cy4.jpg",
+   "pos": "50% 22%"
   }
  ]
 }
