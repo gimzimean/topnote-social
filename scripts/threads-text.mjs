@@ -22,7 +22,7 @@ const n = state.threads_v2.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7 + 3)}`;
-const AI = '\n\n👉 https://topnote.app/th #AI연출';
+const AI = '\n\n👉 https://topnote.app/th';
 // 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
 state.threads_short ??= [];
 // 2026-11-07 대표 「영상도 올려줘, 적절히 섞어서」: 연재(n%3==1) → 짧은 글(2) → 영상(0) 차례.
@@ -37,7 +37,7 @@ if (kind === 'video') {
   pi = 'v' + vi;
   const v = seeds.video[vi];
   post = { media_type: 'VIDEO', video_url: `https://gimzimean.github.io/topnote-social/ai-reels/${v.id}.mp4`, text: v.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th #AI연출' }];
+  replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th' }];
 } else if (isShort) {
   // --pick=s18 처럼 짧은 글도 바로 고를 수 있다. 짧은 글이 {text, cta}면 그 글에 맞는 권유 답글(short_cta 번호)을 쓴다.
   const wantS = process.argv.find((x) => x.startsWith('--pick=s'))?.slice(8);

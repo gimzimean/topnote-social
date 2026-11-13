@@ -23,10 +23,10 @@ const street4 = {
     { file: clip('st4_4'), sub: '다음에 언제 시간 되냐고\n먼저 물어볼 때요.', prompt: ST(`${HAN}, a bridge far in the distance`, 'right', 'A handsome Korean man in his early 30s, natural look, neat hair, beige trench coat', 'laughs naturally', '다음에 언제 시간 되냐고 먼저 물어볼 때요.') },
   ],
   end: { line1: '마음은, 3분이면 티 나요.', line2: '탑노트 · 사진 말고 목소리로 3분 먼저' },
-  caption: '소개팅에서 「나 마음에 들었구나」 티 나는 순간, 물어봤습니다.\n\n여러분은 어떤 순간에 알아채요? 댓글로 👇\n\n#소개팅 #썸 #호감신호 #30대연애 #길거리인터뷰 #보이스소개팅 #AI연출',
+  caption: '소개팅에서 「나 마음에 들었구나」 티 나는 순간, 물어봤습니다.\n\n여러분은 어떤 순간에 알아채요? 댓글로 👇\n\n#소개팅 #썸 #호감신호 #30대연애 #길거리인터뷰 #보이스소개팅',
   comment: '질문이 계속 / 역까지 데려다주기 / 폰 안 보기 / 다음 약속 먼저\n여러분은 몇 번? 👇\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆',
   threads: '소개팅에서 나 마음에 들었구나 티 나는 순간\n\n질문이 계속 나올 때\n역까지 데려다준다고 할 때\n폰을 아예 안 볼 때\n다음 약속을 먼저 물어볼 때\n\n너는 어디서 알아채?',
-  threads_reply: '마음은 3분이면 티 나요 👉 https://topnote.app/th\n검증된 사람과 사진 없이 목소리로 먼저 #AI연출',
+  threads_reply: '마음은 3분이면 티 나요 👉 https://topnote.app/th\n검증된 사람과 사진 없이 목소리로 먼저',
   topic: '소개팅',
 };
 
@@ -42,10 +42,10 @@ const pov1 = {
     { file: clip('pv4'), sub: '😐 안 들 때\n「제가 내일 일찍 일어나야 돼서요.」', prompt: `${POV}already holding her bag, polite apologetic smile, saying in casual Korean: "제가 내일 일찍 일어나야 돼서요."${END}` },
   ],
   end: { line1: '두 시간 앉아 있기 전에, 3분.', line2: '탑노트 · 사진 말고 목소리로 3분 먼저' },
-  caption: '소개팅 상대가 마음에 들 때 VS 안 들 때\n\n솔직히 다 티 나죠? 겪어본 거 댓글로 👇\n\n#소개팅 #소개팅현실 #썸 #30대연애 #공감 #보이스소개팅 #AI연출',
+  caption: '소개팅 상대가 마음에 들 때 VS 안 들 때\n\n솔직히 다 티 나죠? 겪어본 거 댓글로 👇\n\n#소개팅 #소개팅현실 #썸 #30대연애 #공감 #보이스소개팅',
   comment: '「내일 일찍 일어나야 돼서요」 들어본 사람 👇\n두 시간 앉아 있기 전에 3분 먼저 통화해 보고 싶다면 프로필 링크 👆',
   threads: '소개팅 상대가 마음에 들 때 VS 안 들 때\n\n마음에 들 때: 진짜요? 저도 그거 좋아해요!\n안 들 때: 아... 네. 그렇구나.\n\n마음에 들 때: 저 오늘 시간 괜찮은데요?\n안 들 때: 제가 내일 일찍 일어나야 돼서요.\n\n들어본 적 있어?',
-  threads_reply: '두 시간 앉아 있기 전에 3분 먼저 👉 https://topnote.app/th\n검증된 사람과 사진 없이 목소리로 #AI연출',
+  threads_reply: '두 시간 앉아 있기 전에 3분 먼저 👉 https://topnote.app/th\n검증된 사람과 사진 없이 목소리로',
   topic: '소개팅',
 };
 
@@ -61,10 +61,10 @@ const talk1 = {
     { file: clip('th4'), sub: '셋째, 사진이랑 다른 사람.\n그래서 요즘은 목소리부터 들어봐요.', prompt: `${TH}smiling knowingly, saying in casual Korean: "셋째, 사진이랑 다른 사람. 그래서 요즘은 목소리부터 들어봐요."${END}` },
   ],
   end: { line1: '거를 사람은, 3분이면 걸러져요.', line2: '탑노트 · 검증된 사람과 사진 없이 3분 통화' },
-  caption: '소개팅에서 바로 거르는 남자 3가지\n\n여러분이 거르는 하나는? 댓글로 👇\n\n#소개팅 #거르는남자 #연애팁 #30대연애 #소개팅후기 #보이스소개팅 #AI연출',
+  caption: '소개팅에서 바로 거르는 남자 3가지\n\n여러분이 거르는 하나는? 댓글로 👇\n\n#소개팅 #거르는남자 #연애팁 #30대연애 #소개팅후기 #보이스소개팅',
   comment: '자기 얘기만 / 점원한테 막말 / 사진이랑 다름\n여러분이 추가할 4번째는? 👇\n목소리부터 들어보고 싶다면 프로필 링크 👆',
   threads: '소개팅에서 바로 거르는 남자 3가지\n\n1. 한 시간 내내 자기 얘기만\n2. 점원한테 말 함부로\n3. 사진이랑 다른 사람\n\n너라면 4번째로 뭐 넣을래?',
-  threads_reply: '그래서 요즘은 목소리부터 👉 https://topnote.app/th\n검증된 사람과 사진 없이 3분 #AI연출',
+  threads_reply: '그래서 요즘은 목소리부터 👉 https://topnote.app/th\n검증된 사람과 사진 없이 3분',
   topic: '소개팅',
 };
 

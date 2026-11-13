@@ -1,5 +1,5 @@
 // 인스타 하이라이트 채우기 스토리(2026-11-07 대표 「하이라이트 다 채워줘」): AI 장면 한 컷(글자 없는 원본 클립) + 아래쪽 글.
-// 얼굴을 안 가리게 글은 화면 아래(1180~1700)에만, 맨 아래 작은 #AI연출.
+// 얼굴을 안 가리게 글은 화면 아래(1180~1700)에만, (2026-11-13 대표: #AI연출 표시 안 함).
 // 실행: node scripts/highlight-stories.mjs → docs/highlights/stories/<key>.jpg
 import { createRequire } from 'node:module';
 import { execFileSync } from 'node:child_process';
@@ -26,7 +26,7 @@ const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
 for (const s of S) {
   const fr = resolve(tmpdir(), `hl-${s.key}.jpg`);
   execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(s.at ?? 1.5), '-i', resolve(root, 'ai-reels/src', s.clip), '-frames:v', '1', '-q:v', '2', '-vf', 'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920', fr]);
-  await page.setContent(`<style>${css}</style><img src="data:image/jpeg;base64,${b64(fr)}"><div class="g"></div><div class="box"><div class="tag">${s.tag}</div><div class="q">${s.q}</div><div class="a">${s.a}</div>${s.src ? `<div class="src">${s.src}</div>` : ''}</div><div class="ai">#AI연출</div>`);
+  await page.setContent(`<style>${css}</style><img src="data:image/jpeg;base64,${b64(fr)}"><div class="g"></div><div class="box"><div class="tag">${s.tag}</div><div class="q">${s.q}</div><div class="a">${s.a}</div>${s.src ? `<div class="src">${s.src}</div>` : ''}</div>`);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: resolve(root, 'docs/highlights/stories', `${s.key}.jpg`), type: 'jpeg', quality: 90 });
   console.log(s.key);
