@@ -1,0 +1,378 @@
+{
+ "day": "2026-11-12",
+ "collected_at": "2026-11-13T02:49:34.403Z",
+ "app": {
+  "day": "2026-11-12",
+  "signups": 5,
+  "approved": 3,
+  "by_market": {
+   "KR": {
+    "signups": 5,
+    "approved": 3,
+    "onboarded": 5,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "pending": 18,
+     "approved": 14,
+     "rejected": 32
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 5,
+  "purchases": {},
+  "calls_1on1": 0,
+  "talk_joins": 0,
+  "members_total": {
+   "pending": 18,
+   "approved": 17,
+   "rejected": 32
+  },
+  "profiles_total": 67,
+  "visits_by_source": {
+   "meta": 1,
+   "direct": 7,
+   "app_store": 202,
+   "instagram": 4,
+   "play_store": 22,
+   "apps.instagram.com": 79
+  },
+  "signups_by_source": {
+   "(모름)": 2,
+   "app_store": 1,
+   "apps.instagram.com": 2
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 4,
+  "posts": 97,
+  "recent": [
+   {
+    "at": "2026-11-13T02:18:08+0000",
+    "type": "IMAGE",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 12일 심사 일지예요. ",
+    "url": "https://www.instagram.com/p/DfqijtYj3dU/"
+   },
+   {
+    "at": "2026-11-13T02:07:52+0000",
+    "type": "IMAGE",
+    "likes": 0,
+    "comments": 1,
+    "title": "지금 심사 중인 사람들이에요. 게임 개발자, CEO, 대기업, 외국계.",
+    "url": "https://www.instagram.com/p/DfqhYmdjyw4/"
+   },
+   {
+    "at": "2026-11-13T01:52:53+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "혼인관계증명서, 내는 법을 순서대로 다 안내했어요. 그래도 다른 방법으로 낸 분이 있어서 ",
+    "url": "https://www.instagram.com/reel/DfqfofuiQ_E/"
+   },
+   {
+    "at": "2026-11-13T01:50:43+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 12일 심사 중 남 · 공기업 · CEO · 게임 개발자 · 유튜버",
+    "url": "https://www.instagram.com/reel/DfqfYu6OjLe/"
+   },
+   {
+    "at": "2026-11-12T11:47:53+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅 A vs B] 준비 2시간 + 이동 1시간 vs 목소리 3분.",
+    "url": "https://www.instagram.com/reel/Dfo-7QTqLyG/"
+   },
+   {
+    "at": "2026-11-12T11:01:35+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[빼빼로데이 · 11월 11일] 오늘 빼빼로데이, 혼자라도 괜찮아요.",
+    "url": "https://www.instagram.com/reel/Dfo5mGahaL5/"
+   },
+   {
+    "at": "2026-11-12T03:31:14+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "오늘 11월 11일. 빼빼로 건넬 사람 없으면, 오늘 밤 3분 통화부터.",
+    "url": "https://www.instagram.com/reel/DfoGGHsB4cV/"
+   },
+   {
+    "at": "2026-11-12T00:43:55+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "11월 11일 심사 중 남 · 파일럿 · 사업가 · 요리사 · 일반기업 영업직",
+    "url": "https://www.instagram.com/reel/Dfny8umh0X8/"
+   },
+   {
+    "at": "2026-11-11T11:41:19+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "소개팅 앱 「직장 인증」, 믿어요? 30대 여자들한테 물어봤습니다.",
+    "url": "https://www.instagram.com/reel/DfmZYltB9jl/"
+   },
+   {
+    "at": "2026-11-11T11:25:53+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅에서 깼던 순간 ⑦] 연락 오자마자 갑자기 반말.",
+    "url": "https://www.instagram.com/reel/DfmXnGGhaaU/"
+   },
+   {
+    "at": "2026-11-11T11:01:41+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[솔크 탈출 3화 · D-45] 소모임 갔다가 3시간 버린 적 있죠?",
+    "url": "https://www.instagram.com/reel/DfmU2V6TI_p/"
+   },
+   {
+    "at": "2026-11-11T03:41:35+0000",
+    "type": "VIDEO",
+    "likes": 1,
+    "comments": 1,
+    "title": "소개팅 상대 첫인상, 몇 초면 알아요? 물어봤습니다. ",
+    "url": "https://www.instagram.com/reel/DflifKLwL5Y/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-13T02:27:15+0000",
+   "text": "프사를 풍경 사진으로 낸 분이 있었다\n\n풍경은 진짜 예뻤음\n근데 풍경이랑",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-13T02:18:18+0000",
+   "text": "11월 12일 심사 일지예요.\n\n지금 심사 중: 게임 개발자, CEO, ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-13T02:17:28+0000",
+   "text": "혼인관계증명서 내는 방법\n순서대로 다 안내했어요\n\n그래도 다른 방법으로 ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-13T02:08:10+0000",
+   "text": "지금 심사 중인 사람들이에요.\n게임 개발자, CEO, 대기업, 외국계.\n",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-13T02:05:41+0000",
+   "text": "소개팅 앱이 절대 안 보여주는 것.\n\n누가 들어오고, 누가 떨어졌는지.",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-13T01:56:03+0000",
+   "text": "소개팅 상대 프로필\n\n본인이 적은 「미혼」\nvs\n혼인관계증명서로 확인한 ",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 17782,
+   "impressions": 1020,
+   "clicks": 23,
+   "ctr": 2.254902,
+   "installs": 3,
+   "link_clicks": 15
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 14346,
+   "impressions": 1350,
+   "clicks": 44,
+   "ctr": 3.259259,
+   "installs": 1,
+   "link_clicks": 42
+  },
+  {
+   "campaign": "topnote_meta_ios_best_1106",
+   "spend": 2420,
+   "impressions": 290,
+   "clicks": 16,
+   "ctr": 5.517241,
+   "installs": 0,
+   "link_clicks": 19
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 436000,
+  "spent_since_cap": 383358,
+  "left": 52642
+ },
+ "seo": {
+  "range": "2026-11-04~2026-11-10",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 111,
+    "ctr": 0,
+    "position": 6
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/community-guidelines.html",
+     "clicks": 0,
+     "impressions": 13,
+     "ctr": 0,
+     "position": 5.2
+    },
+    {
+     "key": "https://topnote.app/delete-account.html",
+     "clicks": 0,
+     "impressions": 13,
+     "ctr": 0,
+     "position": 3.1
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 11,
+     "ctr": 0,
+     "position": 7.5
+    },
+    {
+     "key": "https://topnote.app/guide/group-talk.html",
+     "clicks": 0,
+     "impressions": 8,
+     "ctr": 0,
+     "position": 7.4
+    },
+    {
+     "key": "https://topnote.app/guide/nervous-first-call.html",
+     "clicks": 0,
+     "impressions": 2,
+     "ctr": 0,
+     "position": 6.5
+    },
+    {
+     "key": "https://topnote.app/guide/office-dating-app.html",
+     "clicks": 0,
+     "impressions": 13,
+     "ctr": 0,
+     "position": 6.7
+    },
+    {
+     "key": "https://topnote.app/guide/voice-dating.html",
+     "clicks": 0,
+     "impressions": 13,
+     "ctr": 0,
+     "position": 8.3
+    },
+    {
+     "key": "https://topnote.app/index.html",
+     "clicks": 0,
+     "impressions": 10,
+     "ctr": 0,
+     "position": 2.7
+    },
+    {
+     "key": "https://topnote.app/privacy.html",
+     "clicks": 0,
+     "impressions": 11,
+     "ctr": 0,
+     "position": 8.7
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 35,
+    "ctr": 0,
+    "position": 4.6
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/us/",
+     "clicks": 0,
+     "impressions": 35,
+     "ctr": 0,
+     "position": 4.6
+    }
+   ],
+   "queries": [
+    {
+     "key": "top note",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 11
+    },
+    {
+     "key": "topnot",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 2
+    },
+    {
+     "key": "topnote",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 5.3
+    }
+   ]
+  }
+ },
+ "queue": {
+  "cards_posted": 24,
+  "cards_total": 85,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8",
+   "ep9",
+   "ep10",
+   "ep19",
+   "ep20"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
