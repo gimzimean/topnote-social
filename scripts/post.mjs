@@ -47,8 +47,8 @@ const imagesOf = (id) => {
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
 // 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
 const nextFor = (platform) => {
-  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && p.aiReel /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
-    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel) && (pickId || !p.on || p.on <= today));
+  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && (p.aiReel || (pickId && p.manual)) /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
+    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel || (pickId && p.manual)) && (pickId || !p.on || p.on <= today));
   return ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
 };
 // 음악 릴스: 영상과 릴스 표지(안내 버튼 없는 세로 표지)
@@ -104,9 +104,13 @@ async function postInstagram(post, urls) {
     // 음악 릴스: 표지 필수, 피드에도 보이게. 영상의 음악은 그대로(소리를 끄는 옵션 안 씀).
     box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: urls[0], cover_url: reelCoverOf(post.id), caption: post.caption, share_to_feed: 'true' });
   } else {
-    const children = [];
-    for (const url of urls) children.push((await call(`${t.user_id}/media`, { image_url: url, is_carousel_item: 'true' })).id);
-    box = await call(`${t.user_id}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: post.caption });
+    // manual 게시물(--id 로만 올림, 2026-11-13)은 사진 한 장일 수 있다 → 묶음 대신 한 장.
+    if (urls.length === 1) box = await call(`${t.user_id}/media`, { image_url: urls[0], caption: post.caption });
+    else {
+      const children = [];
+      for (const url of urls) children.push((await call(`${t.user_id}/media`, { image_url: url, is_carousel_item: 'true' })).id);
+      box = await call(`${t.user_id}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: post.caption });
+    }
   }
   await ready(box.id);
   const id = (await call(`${t.user_id}/media_publish`, { creation_id: box.id })).id;
@@ -149,6 +153,10 @@ async function postThreads(post, urls) {
   let id;
   if (isVideo(urls)) {
     const box = await call(`${t.user_id}/threads`, { media_type: 'VIDEO', video_url: urls[0], text: threadsText(post.caption), ...(threadsTopic(post.caption) ? { topic_tag: threadsTopic(post.caption) } : {}) });
+    await ready(box.id);
+    id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
+  } else if (urls.length === 1) {
+    const box = await call(`${t.user_id}/threads`, { media_type: 'IMAGE', image_url: urls[0], text: threadsText(post.caption), ...(threadsTopic(post.caption) ? { topic_tag: threadsTopic(post.caption) } : {}) });
     await ready(box.id);
     id = (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id;
   } else {

@@ -22,6 +22,7 @@ export const trackOf = (id) => tracks[Number(id) % tracks.length];
 const posted = (id) => ['instagram', 'threads', 'tiktok'].every((k) => (state[k] ?? []).includes(id));
 
 for (const post of content.posts) {
+  if (post.manual) continue;
   const { id } = post;
   if (ids.length ? !ids.includes(id) : posted(id)) continue;
   const out = resolve(outDir, `${id}.mp4`);
