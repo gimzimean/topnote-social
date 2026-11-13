@@ -29,6 +29,25 @@ const hist = existsSync(histPath) ? JSON.parse(readFileSync(histPath, 'utf8')) :
 const recent = hist.filter((h) => h.id !== p.id).slice(-2);
 const recentShots = new Set(recent.flatMap((h) => h.shots));
 const recentPhotos = new Set(recent.flatMap((h) => h.photos));
+// 검증된 사람 = 대표가 운영실에서 직접 고른 사람(ig_verified_picks, 가장 최근 card_date)만. payload 의 verified: 'db' 면 그릴 때마다 새로 읽는다(2026-11-13 대표).
+// 성별·직업·나이대만 쓴다(이름·사진 없음). 고른 사람이 없으면 칸을 그리지 않는다. 읽기는 로컬에서만(C:/zzend-keys/supabase-token.txt).
+if (p.verified === 'db') {
+  const tok = readFileSync('C:/zzend-keys/supabase-token.txt', 'utf8').trim();
+  const q = `select v.job_text, pr.gender, pr.birth_date, v.card_date from public.ig_verified_picks v join public.profiles pr on pr.id = v.user_id
+    where v.card_date = (select max(card_date) from public.ig_verified_picks) order by v.picked_at`;
+  const r = await fetch('https://api.supabase.com/v1/projects/rtedhhpfynmrldnaddxl/database/query', { method: 'POST', headers: { Authorization: `Bearer ${tok}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ query: q }) });
+  const rows = await r.json();
+  if (!Array.isArray(rows)) throw new Error('검증된 사람 목록을 못 읽었어요: ' + JSON.stringify(rows).slice(0, 200));
+  const band = (bd) => { if (!bd) return ''; const t = new Date(Date.now() + 9 * 36e5); const b = new Date(bd); let a = t.getUTCFullYear() - b.getUTCFullYear(); if (t.getUTCMonth() < b.getUTCMonth() || (t.getUTCMonth() === b.getUTCMonth() && t.getUTCDate() < b.getUTCDate())) a--; const d = a % 10; return `${a - d}대 ${d <= 3 ? '초반' : d <= 6 ? '중반' : '후반'}`; };
+  // 예전에 고른 사진·포즈는 같은 직업·성별이면 그대로 쓴다(다시 그려도 흔들리지 않게).
+  const prev = p.ok ?? [];
+  p.ok = rows.filter((x) => x.gender === 'man' || x.gender === 'woman').map((x) => {
+    const g = x.gender === 'man' ? '남' : '여';
+    const old = prev.find((o) => o.g === g && o.job === x.job_text);
+    return { g, job: x.job_text, age: band(x.birth_date), ...(old ? { shot: old.shot, face: old.face } : {}) };
+  });
+  console.log(`검증된 사람(운영실 선택 ${rows[0]?.card_date ?? '없음'}): ${p.ok.length ? p.ok.map((x) => `${x.g} ${x.job} ${x.age}`).join(' · ') : '없음 → 칸 생략'}`);
+}
 const all = [...p.people.map((x) => ({ ...x, st: 'wait' })), ...(p.ok ?? []).map((x) => ({ ...x, st: 'ok' }))];
 const used = new Set();
 for (const x of all) {
@@ -62,7 +81,10 @@ console.log(all.map((x) => `${x.g} ${x.job}: ${x.shot}`).join(' · '));
 // ── 그리기 ──
 // 순서: ⏳ 심사 중 → ✓ 검증된 사람(0~8명, 없으면 칸 없음). 칸마다 남 | 여 를 한 줄에 나란히(한 줄 최대 5장, 넘치면 다음 줄).
 const sections = [['wait', '⏳ 심사 중'], ['ok', '✓ 검증된 사람']].map(([st, label]) => ({ st, label, groups: ['남', '여'].map((g) => ({ g, list: all.filter((x) => x.st === st && x.g === g) })).filter((x) => x.list.length) })).filter((x) => x.groups.length);
-const perRow = Math.min(5, Math.max(3, ...sections.map((x) => x.groups.reduce((a, g) => a + g.list.length, 0))));
+// 한 칸에 남녀 합쳐 5장 이하면 남 | 여 를 한 줄에, 넘으면 남·여를 줄로 나눈다(그때는 칸 폭을 가장 긴 성별 줄에 맞춤).
+const total = (sec) => sec.groups.reduce((a, g) => a + g.list.length, 0);
+for (const sec of sections) sec.stack = total(sec) > 5;
+const perRow = Math.min(5, Math.max(3, ...sections.map((sec) => (sec.stack ? Math.max(...sec.groups.map((g) => g.list.length)) : total(sec)))));
 const GAP = 16, DIV = 34; // 카드 사이, 남|여 사이
 const cw = Math.floor((948 - (perRow - 1) * GAP - DIV) / perRow);
 const big = cw >= 230;
@@ -81,7 +103,7 @@ const frame = (x, boxW, boxH) => {
 const card = (x, faceH) => `<div class="pc ${x.st}"><div class="face" style="height:${faceH}px"><i style="background-image:url(data:image/jpeg;base64,${b64(x.face)});${frame(x, cw, faceH)}"></i><s></s></div>
 <div class="meta"><div class="job">${esc(x.job)}</div><div class="age">${esc(x.age)} · ${esc(x.g)}</div></div></div>`;
 const body = (faceH) => sections.map((sec) => `<div class="sec ${sec.st}">${sec.label} <span>${sec.groups.reduce((a, g) => a + g.list.length, 0)}명</span></div>
-<div class="row">${sec.groups.map((gr) => `<div class="gg"><div class="gl">${gr.g}</div><div class="cards">${gr.list.map((x) => card(x, faceH)).join('')}</div></div>`).join('<div class="dv"></div>')}</div>`).join('');
+<div class="row">${sec.groups.map((gr) => `<div class="gg${sec.stack ? ' full' : ''}"><div class="gl">${gr.g}</div><div class="cards">${gr.list.map((x) => card(x, faceH)).join('')}</div></div>`).join(sec.stack ? '' : '<div class="dv"></div>')}</div>`).join('');
 const html = (h, pad, faceH, head) => `<!doctype html><html><head><meta charset="utf-8"><style>${font}
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:1080px;height:${h}px;overflow:hidden;background:#14100D;color:#F5ECDD;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif;padding:${pad}px 66px;display:flex;flex-direction:column;justify-content:center}
@@ -90,7 +112,7 @@ h2{font-family:SongMyung;font-size:76px;line-height:1.2;margin:8px 0 14px;font-w
 h2.end{font-size:70px}.sub{font-size:34px;color:#E9DCC6;margin:-4px 0 16px}.sub b{color:#E9B44C}
 .sec{font-size:36px;font-weight:800;color:#E8C9A0;margin:14px 0 10px}.sec span{color:#BFAF98;font-weight:600;font-size:30px}.sec.ok{color:#BFD8AE}
 .row{display:flex;flex-wrap:wrap;align-items:flex-start;row-gap:14px}
-.gg{display:flex;flex-direction:column}.gl{font-family:SongMyung;font-size:44px;color:#C9A86A;line-height:1;margin:0 0 10px 4px}
+.gg{display:flex;flex-direction:column}.gg.full{flex-basis:100%}.gl{font-family:SongMyung;font-size:44px;color:#C9A86A;line-height:1;margin:0 0 10px 4px}
 .cards{display:flex;flex-wrap:wrap;gap:${GAP}px;max-width:948px}
 .dv{width:2px;align-self:stretch;background:#4A3F33;margin:54px ${(DIV - 2) / 2}px 0}
 .pc{width:${cw}px;background:#221B16;border:3px solid #4A3F33;border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
@@ -107,7 +129,7 @@ ${body(faceH)}
 <div class="foot">@topnote_official</div></body></html>`;
 const head = `<div class="top">${esc(p.kicker)}</div><h2>${esc(p.title)}</h2>`;
 const endHead = `<div class="top">${esc(p.title)}</div><h2 class="end">${esc(p.endLine ?? '검증을 통과한 사람만 들어와요.')}</h2><div class="sub">목소리로 3분 먼저 · <b>topnote.app</b></div>`;
-const rows = sections.reduce((a, sec) => a + Math.ceil(sec.groups.reduce((n, g) => n + g.list.length, 0) / perRow), 0);
+const rows = sections.reduce((a, sec) => a + (sec.stack ? sec.groups.reduce((n, g) => n + Math.ceil(g.list.length / perRow), 0) : Math.ceil(total(sec) / perRow)), 0);
 const fit = (avail) => Math.max(120, Math.min(Math.round(cw * 1.25), Math.floor(avail / rows) - (big ? 130 : 110) - 60));
 
 for (const d of ['docs/posts/' + p.id, 'docs/stories', 'docs/ai-reels']) mkdirSync(resolve(root, d), { recursive: true });

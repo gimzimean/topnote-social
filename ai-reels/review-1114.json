@@ -30,6 +30,22 @@
   },
   {
    "g": "여",
+   "job": "대학생",
+   "age": "20대 초반",
+   "shot": "커피 들고 웃는",
+   "face": "assets/stock/w-coffee-EMjkwp83QC4.jpg",
+   "pos": "65% 45%"
+  },
+  {
+   "g": "여",
+   "job": "개인사업",
+   "age": "40대 중반",
+   "shot": "창가 반신",
+   "face": "assets/stock/w-cafewindow-VphkjFith0s.jpg",
+   "pos": "40% 35%"
+  },
+  {
+   "g": "여",
    "job": "대기업",
    "age": "30대 초반",
    "shot": "어깨 너머 돌아보기",
@@ -45,22 +61,6 @@
    "pos": "35% 35%"
   }
  ],
- "ok": [
-  {
-   "g": "여",
-   "job": "대학생",
-   "age": "20대 초반",
-   "shot": "커피 들고 웃는",
-   "face": "assets/stock/w-coffee-EMjkwp83QC4.jpg",
-   "pos": "65% 45%"
-  },
-  {
-   "g": "여",
-   "job": "개인사업",
-   "age": "40대 중반",
-   "shot": "창가 반신",
-   "face": "assets/stock/w-cafewindow-VphkjFith0s.jpg",
-   "pos": "40% 35%"
-  }
- ]
+ "ok": [],
+ "verified": "db"
 }
