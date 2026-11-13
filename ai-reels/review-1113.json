@@ -1,32 +1,38 @@
 {
- "id": "review-1113",
- "kicker": "TOP NOTE · 오늘 심사",
- "title": "지금 심사 중인 사람,\n들어온 사람",
+ "id": "review-1113b",
+ "stock": true,
+ "blur": 11,
+ "kicker": "TOP NOTE · 심사 일지",
+ "title": "11월 12일 심사 일지",
  "people": [
   {
    "g": "남",
    "job": "게임 개발자",
    "age": "30대 중반",
-   "face": "ai-reels/faces/redo-ai5-1.jpg"
+   "face": "assets/stock/m-walk-8MHEIhTzx5E.jpg",
+   "pos": "40% 50%"
   },
   {
    "g": "남",
    "job": "CEO",
    "age": "40대 중반",
-   "face": "ai-reels/faces/talk-ai1-2.jpg"
+   "face": "assets/stock/m-bag-yHOwmoRLahc.jpg",
+   "pos": "50% 60%"
   },
   {
    "g": "여",
    "job": "대기업",
    "age": "30대 초반",
-   "face": "ai-reels/faces/redo-ai15-1.jpg",
-   "pos": "72% 34%"
+   "face": "assets/stock/w-brick-dbiDlvEfRNQ.jpg",
+   "pos": "55% 60%"
   },
   {
    "g": "여",
    "job": "외국계",
    "age": "30대 중반",
-   "face": "ai-reels/faces/redo-ai11-1.jpg"
+   "face": "assets/stock/w-road-hqaDFFsCJgE.jpg",
+   "pos": "64% 72%",
+   "size": "330% auto"
   }
  ],
  "ok": [
@@ -34,8 +40,9 @@
    "g": "남",
    "job": "사업가",
    "age": "30대 초반",
-   "face": "ai-reels/faces/people-cy4.jpg",
-   "pos": "50% 22%"
+   "date": "11월 10일 승인",
+   "face": "assets/stock/m-jacket-fvzHgHvs7B0.jpg",
+   "pos": "50% 45%"
   }
  ]
 }

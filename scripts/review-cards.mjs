@@ -1,5 +1,6 @@
 // 「지금 심사 중인 사람」 흐린 프로필 카드(2026-11-13 대표 승인 목업 C:\topnote-app\marketing\mockups\blurred-member-cards.html 의 「⏳ 심사 중」 칸).
-// 실제 회원 사진은 절대 쓰지 않는다: 얼굴은 저장소의 AI 장면(ai-reels/faces)에서 성별만 맞춰 고르고 강하게 흐린다.
+// 실제 회원 사진은 절대 쓰지 않는다. 2026-11-13 대표: AI 얼굴 대신 무료 실사(assets/stock, 출처 sources.json) 전신·뒷모습을 강하게 흐리고 필름 입자를 얹는다.
+// 카드마다 date(예: 「11월 10일 승인」)를 적으면 나이 아래 작게 나온다.
 // 직업군·나이대는 공개 심사 일지 범위만(회사·학교·정확한 나이 없음).
 // 사용: node scripts/review-cards.mjs <payload.json>
 //   payload: { id, kicker, title, people: [심사 중 { g:'남'|'여', job, age, face:'ai-reels/faces/x.jpg', pos:'50% 30%' }], ok: [검증된 사람, 같은 모양] }
@@ -19,8 +20,8 @@ const font = `@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b6
 const ok = p.ok ?? [];
 const cols = ok.length ? 4 : [2, 4].includes(p.people.length) ? 2 : 3; // 검증된 사람 칸이 있으면 한 줄 4장(목업처럼 두 칸)
 const cw = Math.floor((948 - (cols - 1) * 20) / cols);
-const card = (x, st = 'wait') => `<div class="pc ${st}"><div class="face"><i style="background-image:url(data:image/jpeg;base64,${b64(x.face)});background-position:${x.pos ?? '50% 34%'}"></i></div>
-<div class="meta"><div class="job">${esc(x.job)}</div><div class="age">${esc(x.age)} · ${esc(x.g)}</div><div class="seals"><span class="seal">${st === 'ok' ? '검증 완료' : '서류 확인 중'}</span></div></div></div>`;
+const card = (x, st = 'wait') => `<div class="pc ${st}"><div class="face"><i style="background-image:url(data:image/jpeg;base64,${b64(x.face)});background-position:${x.pos ?? '50% 34%'};${x.size ? `background-size:${x.size};` : ''}"></i><s></s></div>
+<div class="meta"><div class="job">${esc(x.job)}</div><div class="age">${esc(x.age)} · ${esc(x.g)}</div>${x.date ? `<div class="date">${esc(x.date)}</div>` : ''}<div class="seals"><span class="seal">${st === 'ok' ? '검증 완료' : '서류 확인 중'}</span></div></div></div>`;
 
 const html = (h, padTop) => `<!doctype html><html><head><meta charset="utf-8"><style>${font}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -30,8 +31,10 @@ h2{font-family:SongMyung;font-size:80px;line-height:1.2;margin:10px 0 22px;font-
 .sec{font-size:34px;font-weight:800;color:#E8C9A0;margin:0 0 20px}.sec span{color:#BFAF98;font-weight:600}
 .grid{display:flex;flex-wrap:wrap;justify-content:${ok.length ? 'flex-start' : 'center'};gap:20px}
 .pc{width:${cw}px;background:#221B16;border:3px solid #4A3F33;border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
-.face{position:relative;height:${ok.length ? 230 : 255}px;overflow:hidden;background:#2B231D}
-.face i{position:absolute;inset:-12%;background-size:170% auto;filter:blur(17px) saturate(.9) brightness(.85)}
+.face{position:relative;height:${p.stock ? 280 : ok.length ? 230 : 255}px;overflow:hidden;background:#2B231D}
+.face i{position:absolute;inset:-12%;background-size:${p.stock ? 'cover' : '170% auto'};filter:blur(${p.blur ?? 17}px) saturate(.85) brightness(.85)}
+.face s{position:absolute;inset:0;opacity:${p.stock ? .35 : 0};mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.date{font-size:${ok.length ? 22 : 26}px;color:#C9A86A;margin-top:4px;font-weight:700}
 .meta{padding:${ok.length ? '14px 16px 18px' : '16px 22px 20px'}}
 .sec.ok{color:#BFD8AE;margin-top:40px}.pc.ok .seal{background:#1F2A1E;color:#BFD8AE;border-color:#3C5536}
 .job{font-size:${ok.length ? 31 : 40}px;font-weight:800;white-space:nowrap}
