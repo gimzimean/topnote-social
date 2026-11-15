@@ -1,0 +1,40 @@
+{
+ "id": "wed-ai4-w3",
+ "manual": true,
+ "track": "talking-with-my-ex.mp3",
+ "beats": [
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-c6.mp4",
+   "text": "외모 말고<br><em>대화</em>로 먼저 골라요."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+    "C:/topnote-social/ai-reels/src/wed-g2.mp4"
+   ],
+   "layout": "lr",
+   "text": "처음엔<br><em>3분</em> 통화였는데."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-c2.mp4",
+   "text": "말이 통하니까<br><em>계속</em> 만나게 됐다."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+   "text": "말이 통하면,<br>그때 <em>사진</em>."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
+   "text": "그리고<br><em>프러포즈</em>."
+  },
+  {
+   "end": "결혼할 사람,<br><em>대화</em>로 먼저.",
+   "sub": "탑노트 · 보이스 소개팅<br>매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "외모 말고<br><em>대화</em>로 먼저 골라요."
+ }
+}
