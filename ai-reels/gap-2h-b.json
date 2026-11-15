@@ -1,0 +1,44 @@
+{
+ "id": "gap-2h-b",
+ "track": "fox-satin.mp3",
+ "beats": [
+  {
+   "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-1.mp4",
+   "text": "준비 2시간, 밥값,<br>결과는 <em>0</em>."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+   "text": "준비 2시간 말고,<br>시간만 <em>골라요</em>."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/pepero-ai1-3.mp4",
+    "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4"
+   ],
+   "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야.",
+   "layout": "lr"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-2.mp4",
+   "text": "근데 아닌 건<br>첫 <em>5분</em>에 알죠."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "얼굴 보기 전에<br>말부터 <em>맞춰</em> 봐요."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/xmas-ai4-3.mp4",
+   "text": "잠옷 차림으로<br><em>3분</em>이면 돼요."
+  },
+  {
+   "end": "안 맞으면<br>잃는 건 <em>3분</em>.",
+   "sub": "탑노트 · 매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "준비 2시간, 밥값,<br>결과는 <em>0</em>."
+ },
+ "manual": true
+}
