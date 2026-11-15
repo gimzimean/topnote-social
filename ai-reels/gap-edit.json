@@ -1,0 +1,48 @@
+{
+ "id": "gap-edit",
+ "track": "last-message-first.mp3",
+ "beats": [
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/pepero-ai1-3.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw1.mp4"
+   ],
+   "text": "사진은 편집되는데,<br><em>건강보험</em>은 못 속여요.",
+   "layout": "lr"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "카카오톡 승인 한 번,<br>정부기관 <em>문서</em>로 검증."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+    "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
+   ],
+   "text": "같은 데서<br><em>빵</em> 터졌다.",
+   "layout": "tb"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+   "text": "말이 통하면,<br>그때 <em>사진</em>."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/rot-ai1-4.mp4",
+   "text": "말이 이렇게<br>잘 <em>통할</em> 줄이야."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/rot-ai1-3.mp4",
+   "text": "저쪽에서도<br><em>같은</em> 생각."
+  },
+  {
+   "end": "실시간 정부기관 문서로<br><em>검증</em>된 사람만.",
+   "sub": "탑노트 · 매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "사진은 편집되는데,<br><em>건강보험</em>은 못 속여요."
+ },
+ "manual": true
+}

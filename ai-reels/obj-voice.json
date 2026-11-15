@@ -1,0 +1,44 @@
+{
+ "id": "obj-voice",
+ "track": "fox-satin.mp3",
+ "beats": [
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw1.mp4"
+   ],
+   "text": "목소리만으로<br>어떻게 <em>골라요</em>?",
+   "layout": "tb"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "고르는 게 아니라<br><em>거르는</em> 거예요."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/people-cy4.mp4",
+    "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
+   ],
+   "text": "둘 다 원하면<br>그때 <em>사진</em>.",
+   "layout": "lr"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/queue.png",
+   "text": "아는 사람은<br><em>안</em> 만나요."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+   "text": "딱 3분,<br>언제든 <em>끊어요</em>."
+  },
+  {
+   "end": "안 맞으면<br>잃는 건 <em>3분</em>.",
+   "sub": "탑노트 · 매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "목소리만으로<br>어떻게 <em>골라요</em>?"
+ },
+ "manual": true
+}
