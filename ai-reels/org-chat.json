@@ -1,0 +1,44 @@
+{
+ "id": "org-chat",
+ "track": "one-more-ping.mp3",
+ "beats": [
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw2.mp4"
+   ],
+   "text": "매칭은 되는데,<br><em>대화</em>가 안 이어진다.",
+   "layout": "lr"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "검증된 사람과<br>목소리로 <em>3분</em>."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw3.mp4"
+   ],
+   "text": "채팅 말고<br><em>목소리</em>로 먼저.",
+   "layout": "tb"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+   "text": "둘 다 원할 때만<br><em>번호</em> 교환."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/people-pw4.mp4",
+   "text": "안 맞으면<br>잃는 건 <em>3분</em>."
+  },
+  {
+   "end": "대화가 되는 사람,<br><em>3분</em>이면 알아요.",
+   "sub": "탑노트 · 매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "매칭은 되는데,<br><em>대화</em>가 안 이어진다."
+ },
+ "manual": true
+}
