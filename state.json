@@ -245,6 +245,7 @@
   "bench-swipe1",
   "bench-call1",
   "bench-first1",
-  "bench-cert1"
+  "bench-cert1",
+  "gap-card"
  ]
 }
