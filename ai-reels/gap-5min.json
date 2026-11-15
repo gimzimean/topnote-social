@@ -1,0 +1,40 @@
+{
+ "id": "gap-5min",
+ "track": "talking-with-my-ex.mp3",
+ "beats": [
+  {
+   "clip": "C:/topnote-social/ai-reels/src/redo-ai16-1.mp4",
+   "text": "꾸미고 나갔는데<br>첫 <em>5분</em>에 알았다."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "이젠 집에서<br>목소리로 <em>3분</em> 먼저."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+    "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
+   ],
+   "text": "같은 데서<br><em>빵</em> 터졌다.",
+   "layout": "lr"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/redo-ai16-2.mp4",
+   "text": "아는 사람은<br><em>안</em> 만나요."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+   "text": "말이 통하면,<br>그때 <em>사진</em>."
+  },
+  {
+   "end": "둘 다 원하면<br>그때 <em>사진</em>.",
+   "sub": "탑노트 · 매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "꾸미고 나갔는데<br>첫 <em>5분</em>에 알았다."
+ },
+ "manual": true
+}

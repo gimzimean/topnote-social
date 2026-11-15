@@ -1,0 +1,44 @@
+{
+ "id": "gap-card",
+ "track": "one-more-ping.mp3",
+ "beats": [
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw2.mp4"
+   ],
+   "text": "명함 한 장으로 하는<br>인증, <em>믿어요</em>?",
+   "layout": "lr"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "카카오톡 승인 한 번,<br><em>공공 기록</em>으로 확인."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw3.mp4"
+   ],
+   "text": "사진 없이,<br>목소리로 <em>3분</em>.",
+   "layout": "tb"
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+   "text": "둘 다 원할 때만<br><em>번호</em> 교환."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/people-pw4.mp4",
+   "text": "안 맞으면<br>잃는 건 <em>3분</em>."
+  },
+  {
+   "end": "사진은 편집돼도,<br><em>기록</em>은 못 속여요.",
+   "sub": "탑노트 · 매일 한 명 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "명함 한 장으로 하는<br>인증, <em>믿어요</em>?"
+ },
+ "manual": true
+}

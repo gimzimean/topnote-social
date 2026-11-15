@@ -1,0 +1,43 @@
+{
+ "id": "wed-ai2-w2",
+ "manual": true,
+ "track": "late-night-texts.mp3",
+ "beats": [
+  {
+   "grid": [
+    "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+    "C:/topnote-social/ai-reels/src/wed-g2.mp4",
+    "C:/topnote-social/ai-reels/src/wed-g3.mp4",
+    "C:/topnote-social/ai-reels/src/wed-g4.mp4"
+   ],
+   "text": "외모 말고<br><em>대화</em>로 골라요."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-f5.mp4",
+   "text": "검증된 넷이<br>노래방까지 <em>같이</em>.",
+   "rotate": "ccw"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-o4.mp4",
+   "text": "해돋이까지<br>같이 보는 <em>절친</em>.",
+   "rotate": "ccw"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-c2.mp4",
+   "text": "그러다 어느 날,<br><em>둘</em>만 남았다."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4",
+   "text": "결혼식엔<br>다시 <em>넷이</em>."
+  },
+  {
+   "end": "검증된 넷이라<br>친구도, <em>인연</em>도.",
+   "sub": "탑노트 · 4인 수다 첫 1회 무료"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "외모 말고<br><em>대화</em>로 골라요."
+ }
+}
