@@ -83,6 +83,8 @@ async function json(res) {
 }
 
 async function report(status, media, error) {
+  // 새 멤버 카드(2026-11-15 대표 「알림 보낼 때 SNS에도」)는 심사 일지 기록과 따로라 알리지 않는다.
+  if (p.kind === 'new_members') return console.log(`새 멤버 카드 ${status}${error ? ' · ' + error : ''}`);
   const url = process.env.SUPABASE_URL; const anon = process.env.SUPABASE_ANON_KEY;
   if (!url || !anon) return console.log('서버 주소가 없어 결과를 못 알렸어요');
   await fetch(`${url}/rest/v1/rpc/ig_journal_report`, {
@@ -99,7 +101,7 @@ ${jobsText}
 ${FOOT}
 목소리로 3분 먼저, 탑노트.
 
-#탑노트 #보이스소개팅 #소개팅 #검증된만남 #심사일지`;
+#탑노트 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : '#심사일지'}`;
 
 async function post() {
   const tokens = loadTokens();
