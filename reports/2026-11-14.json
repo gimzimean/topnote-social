@@ -1,0 +1,380 @@
+{
+ "day": "2026-11-14",
+ "collected_at": "2026-11-15T02:02:54.846Z",
+ "app": {
+  "day": "2026-11-14",
+  "signups": 5,
+  "approved": 26,
+  "by_market": {
+   "KR": {
+    "signups": 5,
+    "approved": 26,
+    "onboarded": 5,
+    "calls_1on1": 9,
+    "talk_joins": 3,
+    "members_total": {
+     "pending": 23,
+     "approved": 42,
+     "rejected": 9
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 5,
+  "purchases": {
+   "com.topnote.app.intro.single": 1
+  },
+  "calls_1on1": 9,
+  "talk_joins": 3,
+  "members_total": {
+   "pending": 23,
+   "approved": 45,
+   "rejected": 9
+  },
+  "profiles_total": 77,
+  "visits_by_source": {
+   "direct": 7,
+   "app_store": 62,
+   "instagram": 17,
+   "apps.instagram.com": 638
+  },
+  "signups_by_source": {
+   "(모름)": 3,
+   "app_store": 1,
+   "apps.instagram.com": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 4,
+  "posts": 105,
+  "recent": [
+   {
+    "at": "2026-11-15T00:31:11+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 14일 심사 중 남 · 건축가 · 대기업 · 요리사",
+    "url": "https://www.instagram.com/reel/Dfvf4EWNoPC/"
+   },
+   {
+    "at": "2026-11-14T11:01:40+0000",
+    "type": "IMAGE",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 12일 심사 일지예요. ",
+    "url": "https://www.instagram.com/p/DfuDRDTl6lR/"
+   },
+   {
+    "at": "2026-11-14T10:53:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[공감 상황극 · 카톡 3일 했는데] 글로는 잘 통했는데, 만나자니 갑자기 어색해요.",
+    "url": "https://www.instagram.com/reel/DfuCWd1zl3x/"
+   },
+   {
+    "at": "2026-11-14T03:32:28+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "노래방도 넷이, 해돋이도 넷이. 그러다 어느 날 둘만 남았다.",
+    "url": "https://www.instagram.com/reel/DftP0fhIKiP/"
+   },
+   {
+    "at": "2026-11-14T00:56:20+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 13일 심사 중 남 · 대기업 · 제과제빵사 · 사업가",
+    "url": "https://www.instagram.com/reel/Dfs99hcBILm/"
+   },
+   {
+    "at": "2026-11-13T11:30:45+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅에서 깼던 순간 ⑦] 질문마다 돌아오는 건 \"네\", \"아니요\".",
+    "url": "https://www.instagram.com/reel/DfrhwrQz9Z1/"
+   },
+   {
+    "at": "2026-11-13T11:01:23+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[솔크 탈출 4화 · D-43] 크리스마스 소개팅, 2시간 vs 3분.",
+    "url": "https://www.instagram.com/reel/DfreZx7Nc6e/"
+   },
+   {
+    "at": "2026-11-13T04:25:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 12일 심사 일지예요. ",
+    "url": "https://www.instagram.com/reel/DfqxFpGqvWn/"
+   },
+   {
+    "at": "2026-11-13T03:31:22+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "검증된 넷이 10분 수다로 만나, 주말마다 같이 놀다가 절친이 됐다. 그러다 그중 둘은 프",
+    "url": "https://www.instagram.com/reel/Dfqq6BxsKrN/"
+   },
+   {
+    "at": "2026-11-13T02:18:08+0000",
+    "type": "IMAGE",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 12일 심사 일지예요. ",
+    "url": "https://www.instagram.com/p/DfqijtYj3dU/"
+   },
+   {
+    "at": "2026-11-13T01:52:53+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "혼인관계증명서, 내는 법을 순서대로 다 안내했어요. 그래도 다른 방법으로 낸 분이 있어서 ",
+    "url": "https://www.instagram.com/reel/DfqfofuiQ_E/"
+   },
+   {
+    "at": "2026-11-13T01:50:43+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 12일 심사 중 남 · 공기업 · CEO · 게임 개발자 · 유튜버",
+    "url": "https://www.instagram.com/reel/DfqfYu6OjLe/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-15T00:32:01+0000",
+   "text": "11월 14일 심사 중\n남 · 건축가 · 대기업 · 요리사\n여 · 유치원",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-14T19:07:42+0000",
+   "text": "웃음 코드가 맞으면 거의 끝난 거라는 말,\n근거가 있습니다.",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-14T15:59:55+0000",
+   "text": "첫 만남에서 꼭 보고 와야 하는 거 하나\n\n직원한테 대하는 태도\n\n이거 ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-14T11:02:17+0000",
+   "text": "11월 12일 심사 일지예요.\n\n⏳ 심사 중 7명\n남: 게임 개발자, C",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-14T10:56:46+0000",
+   "text": "설렘은 사진에서 오고\n편안함은 대화에서 온다\n\n결혼은 둘 중 뭐로 하는 ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-14T10:55:08+0000",
+   "text": "[공감 상황극 · 카톡 3일 했는데]\n글로는 잘 통했는데, 만나자니 갑자",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 13392,
+   "impressions": 1225,
+   "clicks": 28,
+   "ctr": 2.285714,
+   "installs": 8,
+   "link_clicks": 25
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 14743,
+   "impressions": 1534,
+   "clicks": 49,
+   "ctr": 3.194263,
+   "installs": 1,
+   "link_clicks": 43
+  },
+  {
+   "campaign": "topnote_meta_ios_best_1106",
+   "spend": 2670,
+   "impressions": 323,
+   "clicks": 13,
+   "ctr": 4.024768,
+   "installs": 0,
+   "link_clicks": 11
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 636000,
+  "spent_since_cap": 465006,
+  "left": 170994
+ },
+ "seo": {
+  "range": "2026-11-06~2026-11-12",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 214,
+    "ctr": 0,
+    "position": 6.2
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/community-guidelines.html",
+     "clicks": 0,
+     "impressions": 17,
+     "ctr": 0,
+     "position": 4.9
+    },
+    {
+     "key": "https://topnote.app/delete-account.html",
+     "clicks": 0,
+     "impressions": 17,
+     "ctr": 0,
+     "position": 3
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 12,
+     "ctr": 0,
+     "position": 7.8
+    },
+    {
+     "key": "https://topnote.app/guide/avoid-acquaintances.html",
+     "clicks": 0,
+     "impressions": 8,
+     "ctr": 0,
+     "position": 5.5
+    },
+    {
+     "key": "https://topnote.app/guide/christmas-dating.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 4
+    },
+    {
+     "key": "https://topnote.app/guide/conversation-silence.html",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 9.8
+    },
+    {
+     "key": "https://topnote.app/guide/first-talk-topics.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/guide/group-talk.html",
+     "clicks": 0,
+     "impressions": 12,
+     "ctr": 0,
+     "position": 7.6
+    },
+    {
+     "key": "https://topnote.app/guide/introvert-dating.html",
+     "clicks": 0,
+     "impressions": 12,
+     "ctr": 0,
+     "position": 5.3
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 48,
+    "ctr": 0,
+    "position": 3.6
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/us/",
+     "clicks": 0,
+     "impressions": 48,
+     "ctr": 0,
+     "position": 3.6
+    }
+   ],
+   "queries": [
+    {
+     "key": "top note",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 11
+    },
+    {
+     "key": "topnot",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 2
+    },
+    {
+     "key": "topnote",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 5.3
+    }
+   ]
+  }
+ },
+ "queue": {
+  "cards_posted": 27,
+  "cards_total": 86,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8",
+   "ep9",
+   "ep10",
+   "ep19",
+   "ep20",
+   "ep21",
+   "ep22"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
