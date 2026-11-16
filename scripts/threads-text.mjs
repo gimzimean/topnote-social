@@ -44,7 +44,8 @@ if (kind === 'video') {
   pi = 's' + (wantS != null ? +wantS : lru(seeds.short.length, state.threads_short));
   const sh = seeds.short[+pi.slice(1)];
   post = { text: typeof sh === 'string' ? sh : sh.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [{ media_type: 'IMAGE', image_url: cover, text: (typeof sh === 'object' && sh.cta != null ? seeds.short_cta[sh.cta] : pick(seeds.short_cta, n)) + AI }];
+  // 2026-11-16 대표 「댓글 이런식으로 하지마」: 링크 답글은 사진 없이 말하듯 한 줄 + 링크.
+  replies = [{ media_type: 'TEXT', text: (typeof sh === 'object' && sh.cta != null ? seeds.short_cta[sh.cta] : pick(seeds.short_cta, n)) + AI }];
 } else {
   const want = process.argv.find((x) => x.startsWith('--pick=') && !x.startsWith('--pick=s'))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
   pi = want != null ? +want : lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
@@ -52,7 +53,7 @@ if (kind === 'video') {
   post = { text: s0.parts[0], topic: s0.topic };
   replies = [
     ...s0.parts.slice(1).map((x) => (typeof x === 'string' ? { media_type: 'TEXT', text: x } : { media_type: 'IMAGE', image_url: x.image, text: x.text })),
-    { media_type: 'IMAGE', image_url: cover, text: seeds.cta[s0.cta ?? n % seeds.cta.length] + AI },
+    { media_type: 'TEXT', text: seeds.cta[s0.cta ?? n % seeds.cta.length] + AI },
   ];
 }
 if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, replies }, null, 1)); process.exit(0); }
