@@ -290,6 +290,7 @@
   "bench-cert1",
   "gap-card",
   "gap-5min",
-  "gap-2h-b"
+  "gap-2h-b",
+  "gap-10min"
  ]
 }
