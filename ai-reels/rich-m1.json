@@ -1,0 +1,13 @@
+{
+  "id": "rich-m1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai12-1.mp4", "text": "요즘 <em>젊은 사업가</em>,<br>고스펙 분들이 와요." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-pm4.mp4", "text": "좋은 차?<br><em>그걸로는 안 믿어요</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai5-1.mp4", "text": "<em>소득·매출</em>까지<br>서류로 검증해요." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-pm2.mp4", "text": "진짜가 아니면<br><em>과감하게 반려</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai2-1.mp4", "text": "그래야 <em>물</em>이<br>지켜지니까요." },
+    { "end": "보여주기 말고<br><em>진짜</em>만.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+  ],
+  "cover": { "from": 1, "at": 2, "text": "외제차 타고 와도<br>카푸어인지<br>검증해요." }
+}

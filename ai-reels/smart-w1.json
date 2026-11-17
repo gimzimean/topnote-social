@@ -1,0 +1,35 @@
+{
+  "id": "smart-w1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw3.mp4",
+      "text": "요즘 탑노트에<br><em>지적인 여성분들</em>이 와요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai16-1.mp4",
+      "text": "전문직 여성분도<br><em>서류로 검증</em>받고 왔어요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai15-1.mp4",
+      "text": "성적표까지 보내 주신 분,<br><em>전액 장학금</em>이었어요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai11-1.mp4",
+      "text": "로테이션 소개팅에선<br><em>묻기도 어려운</em> 것들."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw2.mp4",
+      "text": "그만큼 여기를<br><em>믿어 주신다</em>는 뜻이겠죠."
+    },
+    {
+      "end": "검증된 사람만<br><em>모십니다</em>.",
+      "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "성적표까지<br>보내온 여자들"
+  }
+}

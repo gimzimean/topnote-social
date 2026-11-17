@@ -1,0 +1,13 @@
+{
+  "id": "talk-half1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    { "clip": "C:/topnote-social/ai-reels/src/best-voice-pair2.mp4", "text": "3분만 통화하면<br>다 <em>얼굴이 궁금할 줄</em> 알았어요." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-pw2.mp4", "text": "후기를 보니<br>궁금해한 건 <em>딱 절반</em>." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-cz1.mp4", "text": "<em>목소리에서부터</em><br>느껴지는 에너지가 있대요." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-db1.mp4", "text": "<em>얼굴 안 봐도 되겠다</em><br>싶은 사람도 있었고," },
+    { "clip": "C:/topnote-social/ai-reels/src/redo-ai14-1.mp4", "text": "<em>3분이 언제 끝나지</em><br>싶은 사람도 있었대요." },
+    { "end": "결국 사람은<br><em>대화</em>예요.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+  ],
+  "cover": { "from": 0, "at": 2, "text": "3분 통화 뒤<br>얼굴 궁금해한 사람<br>딱 절반." }
+}
