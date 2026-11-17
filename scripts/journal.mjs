@@ -21,7 +21,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 // 「느려도 한 명씩.」 삭제(2026-11-12 대표).
 // 제목은 앱 칸과 같게 「11월 11일 심사 중」.
-const title = String(p.title).replace(/심사 일지\s*$/, '심사 중');
+// 「11월 16일 승인 회원」(2026-11-17 대표 「심사 중 말고 승인 회원」): 승인된 사람만 싣는다(아직 심사 중인 사람은 빼요).
+const title = String(p.title).replace(/심사 일지\s*$/, '승인 회원');
+for (const g of ['men', 'women']) p[g] = (p[g] ?? []).filter((r) => !r.status || r.status === '승인');
 const FOOT = `검증된 사람만 안심하고 대화해요.`;
 
 async function render() {
@@ -49,7 +51,7 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
 .gh{font-family:SongMyung;font-size:96px;color:#C9A86A;line-height:1;margin-bottom:26px}
 .job{font-size:${jf}px;font-weight:800;line-height:1.5;white-space:nowrap}.job.empty{color:#6E6458}
 .foot{font-size:42px;color:#E9DCC6;line-height:1.4}.foot small{display:block;color:#9E9282;font-size:30px;margin-top:10px}
-</style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(title).replace(' 심사', '<br>심사')}</div>
+</style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(title).replace(' 심사', '<br>심사').replace(' 승인', '<br>승인')}</div>
 <div class="mid"><div class="cols">${col('남', p.men)}${col('여', p.women)}</div></div>
 <div class="foot">${FOOT}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
   };
@@ -96,12 +98,13 @@ async function report(status, media, error) {
 // 글(캡션·스레드)도 상태·숫자 없이 남·여 직업만(2026-11-12).
 const jobsText = `남 · ${p.men.map((r) => r.job).join(' · ') || '—'}\n여 · ${p.women.map((r) => r.job).join(' · ') || '—'}`;
 const caption = `${title}
+오늘 탑노트 심사를 통과한 사람들이에요.
 ${jobsText}
 
 ${FOOT}
 목소리로 3분 먼저, 탑노트.
 
-#탑노트 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : '#심사일지'}`;
+#탑노트 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : '#승인회원'}`;
 
 async function post() {
   const tokens = loadTokens();
