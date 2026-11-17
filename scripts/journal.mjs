@@ -21,9 +21,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 // 「느려도 한 명씩.」 삭제(2026-11-12 대표).
 // 제목은 앱 칸과 같게 「11월 11일 심사 중」.
-// 「11월 16일 승인 회원」(2026-11-17 대표 「심사 중 말고 승인 회원」): 승인된 사람만 싣는다(아직 심사 중인 사람은 빼요).
+// 「11월 16일 승인 회원」(2026-11-17 대표): 운영실에서 체크한 사람은 모두 싣는다(「이미 가입 회원이라 다 승인할거야」).
 const title = String(p.title).replace(/심사 일지\s*$/, '승인 회원');
-for (const g of ['men', 'women']) p[g] = (p[g] ?? []).filter((r) => !r.status || r.status === '승인');
+for (const g of ['men', 'women']) p[g] = p[g] ?? [];
 const FOOT = `검증된 사람만 안심하고 대화해요.`;
 
 async function render() {
