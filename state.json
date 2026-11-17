@@ -283,6 +283,7 @@
   "bench-first1",
   "bench-cert1",
   "gap-card",
-  "gap-5min"
+  "gap-5min",
+  "gap-2h-b"
  ]
 }
