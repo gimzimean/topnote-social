@@ -1,0 +1,414 @@
+{
+ "day": "2026-11-17",
+ "collected_at": "2026-11-18T03:49:36.811Z",
+ "app": {
+  "day": "2026-11-17",
+  "signups": 1,
+  "approved": 1,
+  "by_market": {
+   "KR": {
+    "signups": 1,
+    "approved": 1,
+    "onboarded": 1,
+    "calls_1on1": 1,
+    "talk_joins": 7,
+    "members_total": {
+     "pending": 25,
+     "approved": 43,
+     "rejected": 9
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 1,
+  "purchases": {},
+  "calls_1on1": 1,
+  "talk_joins": 7,
+  "members_total": {
+   "pending": 25,
+   "approved": 46,
+   "rejected": 9
+  },
+  "profiles_total": 80,
+  "visits_by_source": {
+   "meta": 3,
+   "direct": 5,
+   "invite": 1,
+   "tiktok": 2,
+   "threads": 1,
+   "app_store": 36,
+   "instagram": 2,
+   "apps.instagram.com": 27
+  },
+  "signups_by_source": {
+   "app_store": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 6,
+  "posts": 131,
+  "recent": [
+   {
+    "at": "2026-11-18T03:42:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "사진은 편집되는데, 건강보험은 못 속여요. ",
+    "url": "https://www.instagram.com/reel/Df3kHYXu2hx/"
+   },
+   {
+    "at": "2026-11-18T03:06:48+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "사진 100장 넘겨도 대화할 사람 없죠? 매칭돼도 대화는 3마디.",
+    "url": "https://www.instagram.com/reel/Df3gERyvXPW/"
+   },
+   {
+    "at": "2026-11-18T02:06:35+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "넷이서 하는 온라인 미팅, 오늘 저녁. 둘이 만나긴 떨린다면, 처음 만난 넷이서 목소리로 ",
+    "url": "https://www.instagram.com/reel/Df3ZLXkB4bB/"
+   },
+   {
+    "at": "2026-11-18T01:53:01+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "자기 전에 하는 소개팅, 해 봤어요? 씻고 누워서 잠옷 입은 채로, 목소리로 3분.",
+    "url": "https://www.instagram.com/reel/Df3XoFygdjR/"
+   },
+   {
+    "at": "2026-11-18T00:52:23+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 17일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df3QsSOyIdu/"
+   },
+   {
+    "at": "2026-11-17T12:26:35+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "[소개팅에서 깼던 순간 ⑨] 문자는 다정한데 통화는 계속 미룸.",
+    "url": "https://www.instagram.com/reel/Df17VKpz_pP/"
+   },
+   {
+    "at": "2026-11-17T11:41:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "10분마다 자리 바꾸며 외모 평가 받기. ",
+    "url": "https://www.instagram.com/reel/Df12OnugGV-/"
+   },
+   {
+    "at": "2026-11-17T11:01:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "첫 만남, 장소가 반이다. 조용한지, 중간인지, 짧게 끝낼 수 있는지.",
+    "url": "https://www.instagram.com/reel/Df1xpqOBKR0/"
+   },
+   {
+    "at": "2026-11-17T08:43:15+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "3분만 통화하면 다들 웬만하면 얼굴도 궁금해할 줄 알았어요. ",
+    "url": "https://www.instagram.com/reel/Df1hx2NPRG0/"
+   },
+   {
+    "at": "2026-11-17T08:40:05+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "사업하는 주제에 고상한 척한다고 욕하셔도 돼요. ",
+    "url": "https://www.instagram.com/reel/Df1hbVExbzg/"
+   },
+   {
+    "at": "2026-11-17T08:37:00+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "요즘 젊은 사업가, 영앤리치, 고스펙 분들이 많이 들어오세요. ",
+    "url": "https://www.instagram.com/reel/Df1hEzYJTKa/"
+   },
+   {
+    "at": "2026-11-17T08:33:56+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "요즘 탑노트에 지적인 여성분들이 많이 들어오세요. ",
+    "url": "https://www.instagram.com/reel/Df1gtI2I6zw/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-18T03:42:43+0000",
+   "text": "사진은 편집되는데\n건강보험은 못 속인다\n\n소개팅 상대, 뭘로 확인하면 믿",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-18T01:43:45+0000",
+   "text": "보이스 소개팅 앱 대표입니다.\n소개팅, 꼭 저녁 7시 카페에서 해야 할까",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-18T00:53:07+0000",
+   "text": "11월 17일 NEW 회원\n남 · 자영업 · 사업가\n여 · 태권도 선생님",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-17T22:17:12+0000",
+   "text": "소개팅 전에 통화 한 번 하자고 하면\n\n부담스러워? 아니면 오히려 좋아?",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-17T18:43:47+0000",
+   "text": "둘이 만나긴 떨리는 분들께.\n\n처음부터 1:1이 부담이면\n넷이서 시작하는",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-17T13:12:59+0000",
+   "text": "보이스 소개팅 앱 대표입니다.\n제가 제일 권하는 소개팅 시간은 자기 전입",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 21411,
+   "impressions": 1321,
+   "clicks": 22,
+   "ctr": 1.665405,
+   "installs": 2,
+   "link_clicks": 17
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 3096,
+   "impressions": 242,
+   "clicks": 3,
+   "ctr": 1.239669,
+   "installs": 1,
+   "link_clicks": 3
+  },
+  {
+   "campaign": "tn_threads_android_xmas",
+   "spend": 2228,
+   "impressions": 160,
+   "clicks": 0,
+   "ctr": 0,
+   "installs": 0,
+   "link_clicks": 0
+  },
+  {
+   "campaign": "topnote_meta_ios_best_1106",
+   "spend": 6204,
+   "impressions": 565,
+   "clicks": 6,
+   "ctr": 1.061947,
+   "installs": 0,
+   "link_clicks": 3
+  },
+  {
+   "campaign": "tn_threads_ios_skan",
+   "spend": 984,
+   "impressions": 90,
+   "clicks": 2,
+   "ctr": 2.222222,
+   "installs": 0,
+   "link_clicks": 0
+  },
+  {
+   "campaign": "tn_ios_women_skan",
+   "spend": 2483,
+   "impressions": 175,
+   "clicks": 4,
+   "ctr": 2.285714,
+   "installs": 0,
+   "link_clicks": 1
+  },
+  {
+   "campaign": "tn_ios_men_skan",
+   "spend": 1034,
+   "impressions": 83,
+   "clicks": 1,
+   "ctr": 1.204819,
+   "installs": 0,
+   "link_clicks": 0
+  },
+  {
+   "campaign": "tn_ios_pro_skan",
+   "spend": 2290,
+   "impressions": 188,
+   "clicks": 0,
+   "ctr": 0,
+   "installs": 0,
+   "link_clicks": 0
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 900000,
+  "spent_since_cap": 589165,
+  "left": 310835
+ },
+ "seo": {
+  "range": "2026-11-09~2026-11-15",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 200,
+    "ctr": 0,
+    "position": 6.2
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/community-guidelines.html",
+     "clicks": 0,
+     "impressions": 14,
+     "ctr": 0,
+     "position": 4.7
+    },
+    {
+     "key": "https://topnote.app/delete-account.html",
+     "clicks": 0,
+     "impressions": 14,
+     "ctr": 0,
+     "position": 3
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 10,
+     "ctr": 0,
+     "position": 8.7
+    },
+    {
+     "key": "https://topnote.app/guide/avoid-acquaintances.html",
+     "clicks": 0,
+     "impressions": 9,
+     "ctr": 0,
+     "position": 5.2
+    },
+    {
+     "key": "https://topnote.app/guide/christmas-dating.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 4
+    },
+    {
+     "key": "https://topnote.app/guide/conversation-silence.html",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 9.8
+    },
+    {
+     "key": "https://topnote.app/guide/first-talk-topics.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 8
+    },
+    {
+     "key": "https://topnote.app/guide/group-talk.html",
+     "clicks": 0,
+     "impressions": 12,
+     "ctr": 0,
+     "position": 7.6
+    },
+    {
+     "key": "https://topnote.app/guide/introvert-dating.html",
+     "clicks": 0,
+     "impressions": 12,
+     "ctr": 0,
+     "position": 5.3
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 36,
+    "ctr": 0,
+    "position": 3.1
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/us/",
+     "clicks": 0,
+     "impressions": 36,
+     "ctr": 0,
+     "position": 3.1
+    }
+   ],
+   "queries": [
+    {
+     "key": "topnote",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 6
+    }
+   ]
+  }
+ },
+ "queue": {
+  "cards_posted": 36,
+  "cards_total": 106,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8",
+   "ep9",
+   "ep10",
+   "ep19",
+   "ep20",
+   "ep21",
+   "ep22",
+   "ep23",
+   "ep24",
+   "ep25"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
