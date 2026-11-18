@@ -304,6 +304,7 @@
   "gap-card",
   "gap-5min",
   "gap-2h-b",
-  "gap-10min"
+  "gap-10min",
+  "gap-edit"
  ]
 }
