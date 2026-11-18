@@ -1,0 +1,35 @@
+{
+  "id": "weekend-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-ce1.mp4",
+      "text": "토요일 오후,<br>폰은 <em>조용</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cx3.mp4",
+      "text": "약속 없는 주말이<br><em>익숙해졌죠</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy1.mp4",
+      "text": "오늘 저녁<br>목소리로 <em>3분</em>만."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cz3.mp4",
+      "text": "검증된 사람과<br><em>사진 없이</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-da1.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "이번 주말은<br><em>통화</em>로 시작.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "주말에<br>연락 오는 사람,<br>0명?"
+  }
+}

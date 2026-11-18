@@ -1,0 +1,35 @@
+{
+  "id": "shy-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-g4b.mp4",
+      "text": "둘이 마주 보면<br><em>말문</em>이 막히죠."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai13-2.mp4",
+      "text": "넷이면 누군가<br>말을 <em>이어 줘요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4",
+      "text": "얼굴 없이<br><em>목소리</em>로만 10분."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai18-2.mp4",
+      "text": "듣기만 해도<br><em>괜찮아요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-g1b.mp4",
+      "text": "편해지면<br>그때 <em>1:1</em>."
+    },
+    {
+      "end": "떨리면<br><em>넷이서</em> 먼저.",
+      "sub": "탑노트 · 4인 수다<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "낯가리는 사람에게<br>1:1은 너무 떨려요."
+  }
+}

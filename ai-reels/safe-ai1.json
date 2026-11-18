@@ -1,0 +1,35 @@
+{
+  "id": "safe-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai12-1.mp4",
+      "text": "<em>검증된</em> 사람만<br>들어와요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai15-1.mp4",
+      "text": "번호는<br><em>안 보여요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai16-1.mp4",
+      "text": "불편하면 바로<br><em>끊고 신고·차단</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai7-1.mp4",
+      "text": "연락처 지인은<br><em>안 만나요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai11-1.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "안심하고<br><em>3분</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "모르는 사람과 통화,<br>무섭지 않아요?"
+  }
+}

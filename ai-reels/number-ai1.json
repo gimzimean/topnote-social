@@ -1,0 +1,35 @@
+{
+  "id": "number-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw2.mp4",
+      "text": "처음 보는데<br><em>번호</em>부터."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cz1.mp4",
+      "text": "여긴 번호가<br><em>마지막</em>이에요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-db1.mp4",
+      "text": "목소리 <em>3분</em>,<br>그다음 사진."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy2.mp4",
+      "text": "둘 다 원하면<br>그때 <em>번호</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-da2.mp4",
+      "text": "순서가 있으니<br><em>편해요</em>."
+    },
+    {
+      "end": "번호는<br><em>맨 마지막</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "번호부터<br>달라는 사람,<br>부담되죠?"
+  }
+}

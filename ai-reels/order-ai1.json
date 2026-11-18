@@ -1,0 +1,35 @@
+{
+  "id": "order-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai20-1.mp4",
+      "text": "보통은 <em>사진</em> 보고,<br>나가서 <em>대화</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai9-1.mp4",
+      "text": "여긴 <em>대화</em>가 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai6-1.mp4",
+      "text": "목소리로 <em>3분</em>,<br>말이 통하면 사진."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai8-1.mp4",
+      "text": "둘 다 원하면<br>그때 <em>번호</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-1.mp4",
+      "text": "안 맞으면<br><em>3분</em>만 쓰고 끝."
+    },
+    {
+      "end": "사진 말고,<br><em>대화</em> 먼저.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "소개팅 순서를<br>거꾸로 바꿨어요."
+  }
+}

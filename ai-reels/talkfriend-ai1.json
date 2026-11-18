@@ -1,0 +1,35 @@
+{
+  "id": "talkfriend-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+      "text": "넷이서 <em>10분</em>,<br>목소리로 수다."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai17-2.mp4",
+      "text": "처음 만난 사람끼리<br><em>금방</em> 편해져요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-g3a.mp4",
+      "text": "끝나고 사진 볼 사람<br><em>몰래</em> 고르기."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai11-2.mp4",
+      "text": "셋 이상 원하면<br>넷이 <em>다 같이</em> 연결."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai21-1.mp4",
+      "text": "친구도, <em>인연</em>도<br>여기서."
+    },
+    {
+      "end": "넷이서 10분,<br><em>4인 수다</em>.",
+      "sub": "탑노트 · 4인 수다<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "친구 만들러 왔다가<br>설렘까지."
+  }
+}

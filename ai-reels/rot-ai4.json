@@ -1,0 +1,35 @@
+{
+  "id": "rot-ai4",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw3.mp4",
+      "text": "10분마다<br>자리 <em>바꾸기</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-ff1a.mp4",
+      "text": "외모 평가만<br><em>8번</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-ff2a.mp4",
+      "text": "집에 오면<br>얼굴도 <em>안 남아요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy4.mp4",
+      "text": "여긴 한 사람과<br>목소리로 <em>3분</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-da4.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "8명보다<br><em>통하는 1명</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "로테이션 소개팅<br>8명 만났는데<br>기억나는 사람 0."
+  }
+}

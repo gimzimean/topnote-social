@@ -1,0 +1,35 @@
+{
+  "id": "home-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai8-1.mp4",
+      "text": "씻고 나면<br>다시 <em>못 나가요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-2.mp4",
+      "text": "편한 옷 그대로<br>소파에서 <em>3분</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai12-1.mp4",
+      "text": "화장도, 이동도<br><em>필요 없어요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai15-1.mp4",
+      "text": "<em>검증된</em> 사람과<br>목소리로."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai16-1.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "집에서,<br><em>3분 먼저</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "퇴근하고<br>다시 나가기<br>싫은 날."
+  }
+}

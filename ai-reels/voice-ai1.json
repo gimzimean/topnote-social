@@ -1,0 +1,35 @@
+{
+  "id": "voice-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-db3.mp4",
+      "text": "얼굴 몰라도<br>목소리에 <em>설렌</em> 적."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pm2.mp4",
+      "text": "웃는 타이밍,<br>말 고르는 <em>속도</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw1.mp4",
+      "text": "사진엔<br><em>안 나오는</em> 것들."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-ce4.mp4",
+      "text": "그래서 목소리로<br><em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cx4.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "얼굴보다 오래 가는 건<br><em>목소리</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "목소리에<br>반한 적<br>있어요?"
+  }
+}

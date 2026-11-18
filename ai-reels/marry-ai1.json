@@ -1,0 +1,35 @@
+{
+  "id": "marry-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai19-1.mp4",
+      "text": "얼굴은 <em>익숙해지고</em>,<br>스펙은 <em>바뀌어요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-ce1.mp4",
+      "text": "매일 하는 건<br>결국 <em>대화</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cx3.mp4",
+      "text": "그래서 목소리로<br><em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy1.mp4",
+      "text": "<em>검증된</em> 사람만<br>들어와요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cz3.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "결혼은 결국<br><em>대화</em>예요.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "결혼할 사람,<br>뭘 보고 골라요?"
+  }
+}

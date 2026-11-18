@@ -1,0 +1,35 @@
+{
+  "id": "tonight-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cx4.mp4",
+      "text": "저녁 <em>5시</em>부터<br>밤 <em>11시</em>까지."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy3.mp4",
+      "text": "예약 없이<br><em>바로</em> 걸어요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cz4.mp4",
+      "text": "검증된 한 사람과<br>목소리로 <em>3분</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-da3.mp4",
+      "text": "안 맞으면<br><em>3분</em>만 쓰고 끝."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-db4.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "오늘 저녁,<br><em>3분 먼저</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "오늘 저녁,<br>3분만<br>내 볼래요?"
+  }
+}
