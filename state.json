@@ -326,6 +326,7 @@
   "gap-5min",
   "gap-2h-b",
   "gap-10min",
-  "gap-edit"
+  "gap-edit",
+  "obj-voice"
  ]
 }
