@@ -69,6 +69,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
 for (const post of c.posts) {
   if (post.manual) continue; // 직접 만든 카드(scripts/review-cards.mjs 등)
+  if (!post.cover || (post.aiReel && !post.slides?.length)) continue; // 카드 없이 AI 릴스만 쓰는 게시물(2026-11-18)
   const out = resolve(root, 'docs/posts', post.id);
   if (!all && existsSync(resolve(out, '1.jpg'))) continue;
   mkdirSync(out, { recursive: true });
