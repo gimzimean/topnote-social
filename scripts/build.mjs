@@ -95,6 +95,7 @@ for (const post of c.posts) {
 mkdirSync(resolve(root, 'docs/reels'), { recursive: true });
 for (const post of c.posts) {
   if (post.manual) continue; // 직접 만든 카드(scripts/review-cards.mjs 등)
+  if (!post.cover || (post.aiReel && !post.slides?.length)) continue; // AI 릴스는 자기 표지(docs/ai-reels)
   const file = resolve(root, 'docs/reels', `${post.id}-cover.jpg`);
   if (!all && existsSync(file)) continue;
   await page.setContent(`<html><head><style>${css}body{height:1920px}</style></head><body>${reelCoverOf(post)}</body></html>`);
