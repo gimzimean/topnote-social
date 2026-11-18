@@ -84,6 +84,7 @@ mkdirSync(resolve(root, 'docs/stories'), { recursive: true });
 await page.setViewportSize({ width: 1080, height: 1920 });
 for (const post of c.posts) {
   if (post.manual) continue; // 직접 만든 카드(scripts/review-cards.mjs 등)
+  if (!post.cover || (post.aiReel && !post.slides?.length)) continue; // AI 릴스만 쓰는 게시물은 스토리도 릴스 표지
   const file = resolve(root, 'docs/stories', `${post.id}.jpg`);
   if (!all && existsSync(file)) continue;
   await page.setContent(`<html><head><style>${css}body{height:1920px}</style></head><body>${storyOf(post)}</body></html>`);
