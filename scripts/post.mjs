@@ -33,8 +33,12 @@ const slot = slotIdx > 0 ? process.argv[slotIdx + 1] : 'evening';
 const dayKey = slot === 'noon' ? 'last_noon' : 'last_day';
 // 2026-11-06: 깃허브 예약이 7시간씩 밀려 새벽 3시에 올라가던 것 → 예약 실행은 그 칸 시간대(점심 11~15시 · 저녁 19~23시 KST)에만 올린다.
 const kstHour = new Date(Date.now() + 9 * 36e5).getUTCHours();
-if (process.env.EVENT === 'schedule' && !(slot === 'noon' ? kstHour >= 11 && kstHour < 16 : kstHour >= 19)) { console.log(`${slot} 칸 시간이 아니에요(지금 ${kstHour}시 KST). 건너뜀.`); process.exit(0); }
-if (process.env.EVENT === 'schedule' && state[dayKey] === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
+// --hourly(2026-11-18 대표 「릴스 계속 영업해줘 1시간마다 업로드」): 10~23시 KST 매시 다음 AI 릴스 하나를 인스타 릴스·스토리에만.
+//   날짜에 묶인 편(dated: true, 크리스마스 D-day 등)만 그날을 기다리고, 나머지는 차례를 앞당겨 올린다. 하루 한 번 기록(last_day)은 안 건드림.
+const hourly = process.argv.includes('--hourly');
+if (hourly && !(kstHour >= 10 && kstHour <= 23)) { console.log(`매시 릴스는 10~23시 KST만(지금 ${kstHour}시). 건너뜀.`); process.exit(0); }
+if (!hourly && process.env.EVENT === 'schedule' && !(slot === 'noon' ? kstHour >= 11 && kstHour < 16 : kstHour >= 19)) { console.log(`${slot} 칸 시간이 아니에요(지금 ${kstHour}시 KST). 건너뜀.`); process.exit(0); }
+if (!hourly && process.env.EVENT === 'schedule' && state[dayKey] === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
 const tokens = dry ? {} : loadTokens();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -47,8 +51,8 @@ const imagesOf = (id) => {
 // 스토리는 피드에 이미 올라간 게시물만(스토리 버튼이 「피드에서 보기」라서).
 // 날짜 지정 게시물(on: 'YYYY-MM-DD', 빼빼로데이·크리스마스 등): 그날 전엔 안 올리고, 그날(놓쳤으면 다음 날)엔 차례보다 먼저 올린다.
 const nextFor = (platform) => {
-  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && (p.aiReel || (p.manual && (pickId || p.on))) && (!p.platforms || p.platforms.includes(platform)) /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
-    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel || p.manual) && (pickId || !p.on || p.on <= today));
+  const ok = content.posts.filter((p) => (pickId ? p.id === pickId : hourly || (p.slot ?? 'evening') === slot) && !state[platform].includes(p.id) && (p.aiReel || (p.manual && (pickId || p.on))) && (!p.platforms || p.platforms.includes(platform)) /* 사람 나오는 영상만(2026-11-04 대표 「무조건 사람 등장」) */
+    && (platform !== 'story' || state.instagram.includes(p.id)) && (platform !== 'threads' || p.aiReel || p.manual) && (pickId || !p.on || p.on <= today || (hourly && !p.dated)));
   // 날짜를 정해 둔 수동 게시물(manual + on, 예: 심사 일지 카드)은 밀린 차례보다 먼저(2026-11-13).
   return ok.find((p) => p.manual && p.on) ?? ok.filter((p) => p.on).sort((a, b) => a.on.localeCompare(b.on))[0] ?? ok.find((p) => !p.on);
 };
@@ -212,6 +216,9 @@ let failed = false;
 const tokenOf = { instagram: 'instagram', story: 'instagram', threads: 'threads', tiktok: 'tiktok' };
 for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory], ['threads', postThreads], ['tiktok', postTiktok]]) {
   if (only && only !== platform) continue;
+  // 스레드는 글만(2026-11-17 대표 「영상은 왜 붙인거야」) → 영상·사진 게시는 안 하고 threads-text.mjs 가 맡는다.
+  if (platform === 'threads') continue;
+  if (hourly && !['instagram', 'story'].includes(platform)) continue;
   const post = nextFor(platform);
   if (!post) { console.log(`[${platform}] 올릴 게시물이 없어요. content.json 에 새 게시물을 넣으세요.`); continue; }
   const urls = platform === 'story' ? [storyOf(post.id)] : reelOf(post.id) ? [reelOf(post.id)] : imagesOf(post.id);
@@ -222,7 +229,7 @@ for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory]
     if (!head.ok) throw new Error(`주소가 아직 안 열려요: ${urls[0]} (${head.status})`);
     const id = await fn(post, urls);
     state[platform].push(post.id);
-    if (!pickId) state[dayKey] = today;
+    if (!pickId && !hourly) state[dayKey] = today;
     writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
     console.log(`[${platform}] ${post.id} 올림 → ${id}`);
   } catch (e) {

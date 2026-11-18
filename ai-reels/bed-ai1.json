@@ -1,0 +1,35 @@
+{
+  "id": "bed-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw4.mp4",
+      "text": "씻고 누웠는데<br>오늘도 <em>혼자</em>?"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai8-1.mp4",
+      "text": "잠옷 입은 채로<br>목소리로 <em>3분</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy2.mp4",
+      "text": "화장도, 옷 고를 것도<br><em>필요 없어요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-db2.mp4",
+      "text": "밤엔 목소리가<br>더 <em>솔직하게</em> 들려요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "오늘 밤,<br><em>누워서</em> 소개팅.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "자기 전에<br>하는 소개팅,<br>해 봤어요?"
+  }
+}

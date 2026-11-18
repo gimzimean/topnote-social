@@ -1,0 +1,27 @@
+name: hourly-reels
+# 매시 릴스(2026-11-18 대표 「릴스 계속 영업해줘 1시간마다 업로드」): 10~23시 KST 매시 5분에 다음 AI 릴스 하나를 인스타 릴스·스토리에.
+# 깃허브 예약은 밀려서 쓰지 않는다 → Supabase pg_cron(hourly-reels)이 workflow_dispatch로 깨운다.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: post
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 올리기
+        env:
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+        run: node scripts/post.mjs --hourly
+      - name: 올린 기록·새 토큰 저장
+        if: always()
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json tokens.enc 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "매시 릴스 올린 기록" && git pull --rebase && git push)

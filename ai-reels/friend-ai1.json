@@ -1,0 +1,35 @@
+{
+  "id": "friend-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw3.mp4",
+      "text": "회사 사람, 친구의 친구.<br><em>마주치면</em> 곤란하죠."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cx2.mp4",
+      "text": "연락처에 있는 사람은<br><em>안 만나요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai10-2.mp4",
+      "text": "같은 회사도<br><em>피해요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-da2.mp4",
+      "text": "<em>검증된</em> 모르는 사람과<br>목소리로 3분."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai13-1.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "아는 사람은<br><em>안 나와요</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "소개팅에<br>아는 사람<br>나오면 어떡해요?"
+  }
+}

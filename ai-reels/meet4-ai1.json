@@ -1,0 +1,35 @@
+{
+  "id": "meet4-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+      "text": "둘이 만나긴<br><em>떨린다면</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-g1a.mp4",
+      "text": "처음 만난 <em>넷이서</em><br>목소리로 10분."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+      "text": "친구 안 데려와도<br><em>괜찮아요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-g2b.mp4",
+      "text": "끝나고 사진 볼 사람<br><em>몰래</em> 고르기."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4",
+      "text": "서로 고르면<br>바로 <em>사진</em>이 열려요."
+    },
+    {
+      "end": "술자리 말고,<br><em>넷이서 10분</em>.",
+      "sub": "탑노트 · 4인 수다<br>저녁 5시 반~11시 반"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "넷이서 하는<br>온라인 미팅,<br>오늘 저녁."
+  }
+}

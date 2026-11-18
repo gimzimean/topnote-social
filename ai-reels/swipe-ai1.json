@@ -1,0 +1,35 @@
+{
+  "id": "swipe-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw1.mp4",
+      "text": "오늘도 <em>넘기기만</em><br>100장."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai16-2.mp4",
+      "text": "매칭돼도<br>대화는 <em>3마디</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cz2.mp4",
+      "text": "그래서 순서를<br><em>바꿨어요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pm1.mp4",
+      "text": "사진 말고<br><em>목소리</em>로 3분 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai19-1.mp4",
+      "text": "말이 통하면<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "넘기지 말고,<br><em>이야기</em>하세요.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "사진 100장<br>넘겨도<br>대화할 사람 없죠?"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "prep-ai1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw2.mp4",
+      "text": "머리 하고, 옷 고르고<br><em>2시간</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-ce2.mp4",
+      "text": "강남까지<br>지하철 <em>1시간</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai12-2.mp4",
+      "text": "첫 5분에<br><em>알았어요</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cy4.mp4",
+      "text": "이제는 집에서<br>목소리로 <em>3분</em> 먼저."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai15-2.mp4",
+      "text": "안 맞으면<br><em>저녁을 지켜요</em>."
+    },
+    {
+      "end": "만나기 전에,<br><em>3분 먼저</em>.",
+      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2,
+    "text": "준비 2시간,<br>이동 1시간,<br>결과는 5분."
+  }
+}
