@@ -1,6 +1,6 @@
 // 스레드 전용 글. 구체적인 장면·경험을 사람 말투로 짧게 쓴다.
-// 원글에는 링크, 앱 설명, 다운로드 유도, 억지 양자택일을 넣지 않는다.
-// 짧은 글에는 답글 한 줄로만 프로필 링크를 안내한다.
+// 연애 경험담에는 링크나 홍보 답글을 붙이지 않는다.
+// 별도의 셀소판에서만 프로필 링크를 자연스럽게 안내한다.
 // 대기열: threads/posts.json (위에서부터 하나씩), 올린 기록: state.json 의 threads_text.
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -15,6 +15,7 @@ state.threads_text ??= [];
 // 하루 4칸(threads.yml), 칸마다 예약을 여러 번 걸어 두고 3시간 안에 올린 게 있으면 건너뛴다.
 if (state.threads_text_at && Date.now() - state.threads_text_at < 3 * 36e5 && !process.argv.includes('--force')) { console.log('3시간 안에 올린 글이 있어 건너뜀'); process.exit(0); }
 const seeds = JSON.parse(readFileSync(resolve(root, 'threads', 'seeds.json'), 'utf8'));
+const selfIntro = JSON.parse(readFileSync(resolve(root, 'threads', 'selfintro.json'), 'utf8'));
 // 2026-11-07 대표 「스레드 글쓰기 스타일은 다르잖아」: 국내 스레드 인기 글처럼 원글은 글만(반말·구체적인 장면·질문으로 끝),
 // 답글 1 = 짧은 덧붙임, 답글 2 = 사람 나온 사진 + 탑노트 한 줄 + 링크 + AI 안내. 원글은 가장 오래전에 쓴 것부터 돌린다.
 state.threads_v2 ??= [];
@@ -25,12 +26,14 @@ const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers
 // 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
 state.threads_short ??= [];
 state.threads_focus_short ??= [];
+state.threads_selfintro ??= [];
 // 플랫폼 분리 운영: 자동 게시에서는 인스타 영상 복붙과 연재형 광고를 빼고 짧은 경험담만 올린다.
 // 영상과 연재는 검수용 수동 실행에만 남겨 둔다.
 state.threads_video ??= [];
 const forced = process.argv.find((x) => x.startsWith('--kind='))?.slice(7);
 const kind = forced ?? 'short';
 const isShort = kind === 'short';
+const isSelfIntro = kind === 'selfintro';
 const lru = (len, used) => { const m = new Map(used.map((i, k) => [i, k])); return [...Array(len).keys()].sort((x, y) => (m.get(x) ?? -1) - (m.get(y) ?? -1))[0]; };
 let pi, post, replies;
 if (kind === 'video') {
@@ -50,7 +53,12 @@ if (kind === 'video') {
   pi = (useFocus ? 'f' : 's') + (focusArg != null ? +focusArg : wantS != null ? +wantS : lru(source.length, used));
   const sh = source[+pi.slice(1)];
   post = { text: typeof sh === 'string' ? sh : sh.text, topic: typeof sh === 'object' && sh.topic ? sh.topic : pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [{ media_type: 'TEXT', text: '궁금한 사람은 프로필 링크에 있어' }];
+  replies = [];
+} else if (isSelfIntro) {
+  const si = lru(selfIntro.length, state.threads_selfintro);
+  pi = 'c' + si;
+  post = { text: selfIntro[si].text, topic: '소개팅' };
+  replies = [{ media_type: 'TEXT', text: selfIntro[si].reply }];
 } else {
   const want = process.argv.find((x) => x.startsWith('--pick=') && !x.startsWith('--pick=s'))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
   pi = want != null ? +want : lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
@@ -94,7 +102,8 @@ if (!forced) state.threads_v2.push(pi);
 if (isShort && pi.startsWith('f')) state.threads_focus_short.push(+pi.slice(1));
 else if (isShort) state.threads_short.push(+pi.slice(1));
 if (kind === 'video') state.threads_video.push(+pi.slice(1));
-if (!forced) state.threads_text_at = Date.now();
+if (isSelfIntro) state.threads_selfintro.push(+pi.slice(1));
+state.threads_text_at = Date.now();
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');
 // 연재라 답글은 앞 답글에 이어 바로바로 단다(읽는 사람이 1/N을 한 번에 보게, 사이 5~15초).
 let parent = id;

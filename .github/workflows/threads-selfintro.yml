@@ -1,0 +1,31 @@
+name: threads-selfintro
+# 매일 17:10 KST에 셀소판을 연다. 예약 지연에 대비한 재시도는 게시 기록으로 중복을 막는다.
+on:
+  schedule:
+    - cron: '10 8 * * *'
+    - cron: '25 8 * * *'
+    - cron: '45 8 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: post
+jobs:
+  text:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 오늘 셀소판 올리기
+        env:
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+        run: node scripts/threads-text.mjs --kind=selfintro
+      - name: 올린 기록·새 토큰 저장
+        if: always()
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json tokens.enc 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "오늘 셀소판 게시 기록" && for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done)
