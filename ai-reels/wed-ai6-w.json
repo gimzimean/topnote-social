@@ -1,41 +1,41 @@
 {
- "id": "wed-ai6-w",
- "manual": true,
- "track": "fox-in-satin-x-one-more-ping.mp3",
- "beats": [
-  {
-   "grid": [
-    "C:/topnote-social/ai-reels/src/wed-g1.mp4",
-    "C:/topnote-social/ai-reels/src/wed-g2.mp4",
-    "C:/topnote-social/ai-reels/src/wed-g3.mp4",
-    "C:/topnote-social/ai-reels/src/wed-g4.mp4"
-   ],
-   "text": "사진 평가는<br>이제 <em>그만</em>."
-  },
-  {
-   "clip": "C:/topnote-social/ai-reels/src/wed-f1.mp4",
-   "text": "<em>검증된</em> 넷이라<br>믿고 진짜로 만났다."
-  },
-  {
-   "clip": "C:/topnote-social/ai-reels/src/wed-o3.mp4",
-   "text": "주말엔 캠핑 가서 밤새 웃고,<br><em>절친</em>이 됐다."
-  },
-  {
-   "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
-   "text": "그러다 둘은<br><em>프러포즈</em>까지."
-  },
-  {
-   "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4",
-   "text": "축하는<br>그날의 <em>넷</em>이 같이."
-  },
-  {
-   "end": "검증된 사람들이라<br>친구도, <em>인연</em>도.",
-   "sub": "탑노트 · 4인 수다 첫 1회 무료"
+  "id": "wed-ai6-w",
+  "manual": true,
+  "track": "fox-in-satin-x-one-more-ping.mp3",
+  "beats": [
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/wed-g1.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g2.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g3.mp4",
+        "C:/topnote-social/ai-reels/src/wed-g4.mp4"
+      ],
+      "text": "사진 평가는<br>이제 <em>그만</em>."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-f1.mp4",
+      "text": "<em>검증된</em> 넷이라<br>믿고 진짜로 만났다."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-o3.mp4",
+      "text": "주말엔 캠핑 가서 밤새 웃고,<br><em>절친</em>이 됐다."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-c3.mp4",
+      "text": "그러다 둘은<br><em>프러포즈</em>까지."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/wed-f3.mp4",
+      "text": "축하는<br>그날의 <em>넷</em>이 같이."
+    },
+    {
+      "end": "검증된 사람들이라<br>친구도, <em>인연</em>도.",
+      "sub": "탑노트 · 검증된 넷이서 4인 수다<br>매일 저녁 5시~밤 12시 정각"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "사진 평가는<br>이제 <em>그만</em>."
   }
- ],
- "cover": {
-  "from": 0,
-  "at": 2.5,
-  "text": "사진 평가는<br>이제 <em>그만</em>."
- }
 }

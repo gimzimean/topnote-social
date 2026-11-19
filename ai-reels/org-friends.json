@@ -1,37 +1,37 @@
 {
- "id": "org-friends",
- "track": "borrowed-room.mp3",
- "beats": [
-  {
-   "clip": "C:/topnote-social/ai-reels/src/bar-ai1-1.mp4",
-   "text": "아는 사람 마주칠<br><em>걱정</em> 없이."
+  "id": "org-friends",
+  "track": "borrowed-room.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/bar-ai1-1.mp4",
+      "text": "아는 사람 마주칠<br><em>걱정</em> 없이."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/bar-ai1-2.mp4",
+      "text": "말 걸 용기는<br><em>없어도</em> 돼요."
+    },
+    {
+      "grid": [
+        "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+        "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
+      ],
+      "text": "처음 만난 <em>넷이서</em>,<br>살짝 설레는 10분."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+      "text": "연락처 지인·같은 회사는<br><em>안</em> 만나요."
+    },
+    {
+      "end": "아는 사람 없는 곳에서<br><em>넷이</em> 10분.",
+      "sub": "탑노트 · 검증된 사람과 목소리로 3분<br>지금 바로 전화 걸기"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "아는 사람 마주칠<br><em>걱정</em> 없이."
   },
-  {
-   "clip": "C:/topnote-social/ai-reels/src/bar-ai1-2.mp4",
-   "text": "말 걸 용기는<br><em>없어도</em> 돼요."
-  },
-  {
-   "grid": [
-    "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
-    "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
-    "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
-    "C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"
-   ],
-   "text": "처음 만난 <em>넷이서</em>,<br>살짝 설레는 10분."
-  },
-  {
-   "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
-   "text": "연락처 지인·같은 회사는<br><em>안</em> 만나요."
-  },
-  {
-   "end": "아는 사람 없는 곳에서<br><em>넷이</em> 10분.",
-   "sub": "탑노트 · 매일 한 명 무료"
-  }
- ],
- "cover": {
-  "from": 0,
-  "at": 2.5,
-  "text": "아는 사람 마주칠<br><em>걱정</em> 없이."
- },
- "manual": true
+  "manual": true
 }

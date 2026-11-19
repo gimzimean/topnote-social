@@ -2,12 +2,34 @@
   "id": "wise-pair1",
   "track": "late-night-texts.mp3",
   "beats": [
-    { "clip": "C:/topnote-social/ai-reels/src/people-pm1.mp4", "text": "한 분 한 분 소중하지만<br><em>아무나</em> 모시진 않아요." },
-    { "clip": "C:/topnote-social/ai-reels/src/people-pm3.mp4", "text": "내가 여자라면<br><em>결혼하고 싶은</em> 남자." },
-    { "clip": "C:/topnote-social/ai-reels/src/people-pw1.mp4", "text": "내가 남자라면<br><em>아내 삼고 싶은</em> 현명한 여자." },
-    { "clip": "C:/topnote-social/ai-reels/src/people-cx1.mp4", "text": "제 <em>눈이 높아서</em><br>쉽지 않아요." },
-    { "clip": "C:/topnote-social/ai-reels/src/redo-ai17-1.mp4", "text": "똑똑하고 따뜻한 남녀를<br>모으는 게 <em>제 역할</em>." },
-    { "end": "아이들이 살아갈 세상엔<br><em>좋은 부모</em>가 필요하니까.", "sub": "탑노트 · 매일 한 명 무료<br>저녁 5시~11시" }
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pm1.mp4",
+      "text": "한 분 한 분 소중하지만<br><em>아무나</em> 모시진 않아요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pm3.mp4",
+      "text": "내가 여자라면<br><em>결혼하고 싶은</em> 남자."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-pw1.mp4",
+      "text": "내가 남자라면<br><em>아내 삼고 싶은</em> 현명한 여자."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/people-cx1.mp4",
+      "text": "제 <em>눈이 높아서</em><br>쉽지 않아요."
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai17-1.mp4",
+      "text": "똑똑하고 따뜻한 남녀를<br>모으는 게 <em>제 역할</em>."
+    },
+    {
+      "end": "아이들이 살아갈 세상엔<br><em>좋은 부모</em>가 필요하니까.",
+      "sub": "탑노트 · 검증된 사람과 목소리로 3분<br>지금 바로 전화 걸기"
+    }
   ],
-  "cover": { "from": 1, "at": 2, "text": "제가 결혼하고 싶은<br>사람만<br>모십니다." }
+  "cover": {
+    "from": 1,
+    "at": 2,
+    "text": "제가 결혼하고 싶은<br>사람만<br>모십니다."
+  }
 }

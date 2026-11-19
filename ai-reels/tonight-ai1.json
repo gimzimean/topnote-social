@@ -4,7 +4,7 @@
   "beats": [
     {
       "clip": "C:/topnote-social/ai-reels/src/people-cx4.mp4",
-      "text": "저녁 <em>5시</em>부터<br>밤 <em>11시</em>까지."
+      "text": "예약 없이<br><em>지금 바로</em> 걸어요."
     },
     {
       "clip": "C:/topnote-social/ai-reels/src/people-cy3.mp4",
@@ -24,7 +24,7 @@
     },
     {
       "end": "오늘 저녁,<br><em>3분 먼저</em>.",
-      "sub": "탑노트 · 사진 말고 목소리로 3분<br>저녁 5시~11시"
+      "sub": "탑노트 · 검증된 사람과 목소리로 3분<br>지금 바로 전화 걸기"
     }
   ],
   "cover": {

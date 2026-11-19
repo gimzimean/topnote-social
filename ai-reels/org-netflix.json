@@ -1,40 +1,40 @@
 {
- "id": "org-netflix",
- "track": "talking-with-my-ex.mp3",
- "beats": [
-  {
-   "clip": "C:/topnote-social/ai-reels/src/redo-ai16-1.mp4",
-   "text": "주말마다 넷플릭스,<br><em>언제까지</em>?"
+  "id": "org-netflix",
+  "track": "talking-with-my-ex.mp3",
+  "beats": [
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai16-1.mp4",
+      "text": "주말마다 넷플릭스,<br><em>언제까지</em>?"
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+      "text": "안 맞으면<br><em>저녁</em>을 지켜요."
+    },
+    {
+      "pair": [
+        "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
+        "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
+      ],
+      "text": "같은 데서<br><em>빵</em> 터졌다.",
+      "layout": "lr"
+    },
+    {
+      "clip": "C:/topnote-social/ai-reels/src/redo-ai16-2.mp4",
+      "text": "나가기 전에<br><em>3분</em>만 먼저."
+    },
+    {
+      "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+      "text": "말이 통하면,<br>그때 <em>사진</em>."
+    },
+    {
+      "end": "이번 주말엔<br><em>3분</em>만 먼저.",
+      "sub": "탑노트 · 검증된 사람과 목소리로 3분<br>지금 바로 전화 걸기"
+    }
+  ],
+  "cover": {
+    "from": 0,
+    "at": 2.5,
+    "text": "주말마다 넷플릭스,<br><em>언제까지</em>?"
   },
-  {
-   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
-   "text": "안 맞으면<br><em>저녁</em>을 지켜요."
-  },
-  {
-   "pair": [
-    "C:/topnote-social/ai-reels/src/rot-ai3-3.mp4",
-    "C:/topnote-social/ai-reels/src/rot-ai2-3.mp4"
-   ],
-   "text": "같은 데서<br><em>빵</em> 터졌다.",
-   "layout": "lr"
-  },
-  {
-   "clip": "C:/topnote-social/ai-reels/src/redo-ai16-2.mp4",
-   "text": "나가기 전에<br><em>3분</em>만 먼저."
-  },
-  {
-   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
-   "text": "말이 통하면,<br>그때 <em>사진</em>."
-  },
-  {
-   "end": "이번 주말엔<br><em>3분</em>만 먼저.",
-   "sub": "탑노트 · 매일 한 명 무료"
-  }
- ],
- "cover": {
-  "from": 0,
-  "at": 2.5,
-  "text": "주말마다 넷플릭스,<br><em>언제까지</em>?"
- },
- "manual": true
+  "manual": true
 }

@@ -36,7 +36,8 @@ const kstHour = new Date(Date.now() + 9 * 36e5).getUTCHours();
 // --hourly(2026-11-18 대표 「릴스 계속 영업해줘 1시간마다 업로드」): 10~23시 KST 매시 다음 AI 릴스 하나를 인스타 릴스·스토리에만.
 //   날짜에 묶인 편(dated: true, 크리스마스 D-day 등)만 그날을 기다리고, 나머지는 차례를 앞당겨 올린다. 하루 한 번 기록(last_day)은 안 건드림.
 const hourly = process.argv.includes('--hourly');
-if (hourly && !(kstHour >= 10 && kstHour <= 23)) { console.log(`매시 릴스는 10~23시 KST만(지금 ${kstHour}시). 건너뜀.`); process.exit(0); }
+// 2026-11-19: 매시 14편 올리니 모든 릴스가 팔로워 몫(약 100회)에서 멈췄다(비슷한 광고 영상 도배 → 추천 안 탐). 하루 2편(15·22시 KST)만, 나머지는 인터뷰 릴스(12:40·20:40).
+if (hourly && ![15, 22].includes(kstHour)) { console.log(`영업 릴스는 15·22시 KST만(지금 ${kstHour}시). 건너뜀.`); process.exit(0); }
 if (!hourly && process.env.EVENT === 'schedule' && !(slot === 'noon' ? kstHour >= 11 && kstHour < 16 : kstHour >= 19)) { console.log(`${slot} 칸 시간이 아니에요(지금 ${kstHour}시 KST). 건너뜀.`); process.exit(0); }
 if (!hourly && process.env.EVENT === 'schedule' && state[dayKey] === today) { console.log(`오늘(${today}) 이미 올렸어요. 건너뜀.`); process.exit(0); }
 const tokens = dry ? {} : loadTokens();
