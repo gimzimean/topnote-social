@@ -345,6 +345,7 @@
   "gap-2h-b",
   "gap-10min",
   "gap-edit",
-  "obj-voice"
+  "obj-voice",
+  "org-chat"
  ]
 }
