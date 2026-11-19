@@ -352,6 +352,7 @@
   "gap-edit",
   "obj-voice",
   "org-chat",
-  "org-swipe"
+  "org-swipe",
+  "bench-hw1"
  ]
 }
