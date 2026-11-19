@@ -1,6 +1,5 @@
-// 스레드 전용 글(2026-11-03 대표 「스레드에도 스레드 스타일에 맞게 계속 업로드 · 바이럴되게」).
-// 스레드는 글이 먼저인 곳이라 사진 없이 짧은 글 + 질문 하나로 댓글을 부른다.
-// 본문엔 링크를 넣지 않고(노출이 줄어듦) 첫 답글에만 앱 받기 주소를 단다. 주제 태그는 1개.
+// 스레드 전용 글. 구체적인 장면·경험을 사람 말투로 짧게 쓴다.
+// 링크, 앱 설명, 다운로드 유도, 억지 양자택일은 넣지 않는다.
 // 대기열: threads/posts.json (위에서부터 하나씩), 올린 기록: state.json 의 threads_text.
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -22,15 +21,14 @@ const n = state.threads_v2.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];
 const covers = readdirSync(resolve(root, 'docs', 'ai-reels')).filter((f) => f.endsWith('-cover.jpg') && !f.startsWith('us-')).sort();
 const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers, n * 7 + 3)}`;
-const AI = '\n\n👉 https://topnote.app/th';
 // 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
 state.threads_short ??= [];
 state.threads_focus_short ??= [];
-// 플랫폼 분리 운영: 자동 게시에서는 영상 복붙을 빼고, 연재와 짧은 논쟁 글을 번갈아 올린다.
-// 영상은 릴스 동시 게시나 --kind=video 수동 실행에만 쓴다.
+// 플랫폼 분리 운영: 자동 게시에서는 인스타 영상 복붙과 연재형 광고를 빼고 짧은 경험담만 올린다.
+// 영상과 연재는 검수용 수동 실행에만 남겨 둔다.
 state.threads_video ??= [];
 const forced = process.argv.find((x) => x.startsWith('--kind='))?.slice(7);
-const kind = forced ?? ['series', 'short'][n % 2];
+const kind = forced ?? 'short';
 const isShort = kind === 'short';
 const lru = (len, used) => { const m = new Map(used.map((i, k) => [i, k])); return [...Array(len).keys()].sort((x, y) => (m.get(x) ?? -1) - (m.get(y) ?? -1))[0]; };
 let pi, post, replies;
@@ -39,7 +37,7 @@ if (kind === 'video') {
   pi = 'v' + vi;
   const v = seeds.video[vi];
   post = { media_type: 'VIDEO', video_url: `https://gimzimean.github.io/topnote-social/ai-reels/${v.id}.mp4`, text: v.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th' }];
+  replies = [];
 } else if (isShort) {
   // focus_short는 결혼·연애·썸·썸붕·셀소를 고르게 돌리는 현재 편성이다.
   // --focus=3처럼 오늘 올릴 글을 바로 고를 수도 있다.
@@ -51,8 +49,7 @@ if (kind === 'video') {
   pi = (useFocus ? 'f' : 's') + (focusArg != null ? +focusArg : wantS != null ? +wantS : lru(source.length, used));
   const sh = source[+pi.slice(1)];
   post = { text: typeof sh === 'string' ? sh : sh.text, topic: typeof sh === 'object' && sh.topic ? sh.topic : pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  // 2026-11-16 대표 「댓글 이런식으로 하지마」: 링크 답글은 사진 없이 말하듯 한 줄 + 링크.
-  replies = [{ media_type: 'TEXT', text: (typeof sh === 'object' && sh.cta != null ? seeds.short_cta[sh.cta] : pick(seeds.short_cta, n)) + AI }];
+  replies = [];
 } else {
   const want = process.argv.find((x) => x.startsWith('--pick=') && !x.startsWith('--pick=s'))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
   pi = want != null ? +want : lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
@@ -60,7 +57,6 @@ if (kind === 'video') {
   post = { text: s0.parts[0], topic: s0.topic };
   replies = [
     ...s0.parts.slice(1).map((x) => (typeof x === 'string' ? { media_type: 'TEXT', text: x } : { media_type: 'IMAGE', image_url: x.image, text: x.text })),
-    { media_type: 'TEXT', text: seeds.cta[s0.cta ?? n % seeds.cta.length] + AI },
   ];
 }
 if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, replies }, null, 1)); process.exit(0); }

@@ -59,8 +59,11 @@ for (let i = 0; i < 60; i++) {
 }
 const tid = (await tcall(`${th.user_id}/threads_publish`, { creation_id: tbox.id })).id;
 console.log('[threads]', tid);
-await sleep(8000);
-const r = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: cfg.threads_reply, reply_to_id: tid });
-await sleep(3000);
-console.log('[threads 답글]', (await tcall(`${th.user_id}/threads_publish`, { creation_id: r.id })).id);
+// 스레드는 링크 답글을 자동으로 달지 않는다. 필요할 때만 명시적으로 켠다.
+if (process.argv.includes('--threads-link') && cfg.threads_reply) {
+  await sleep(8000);
+  const r = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: cfg.threads_reply, reply_to_id: tid });
+  await sleep(3000);
+  console.log('[threads 답글]', (await tcall(`${th.user_id}/threads_publish`, { creation_id: r.id })).id);
+}
 saveTokens(tokens);
