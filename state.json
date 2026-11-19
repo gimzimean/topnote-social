@@ -351,6 +351,7 @@
   "gap-10min",
   "gap-edit",
   "obj-voice",
-  "org-chat"
+  "org-chat",
+  "org-swipe"
  ]
 }
