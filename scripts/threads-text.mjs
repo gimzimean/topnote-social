@@ -25,10 +25,12 @@ const cover = `https://gimzimean.github.io/topnote-social/ai-reels/${pick(covers
 const AI = '\n\n👉 https://topnote.app/th';
 // 2026-11-07 국내 인기 글 조사: 연재(정보)와 짧은 한 줄 글(역설·vs·질문, 댓글이 제일 많이 달림)을 번갈아 올린다.
 state.threads_short ??= [];
-// 2026-11-07 대표 「영상도 올려줘, 적절히 섞어서」: 연재(n%3==1) → 짧은 글(2) → 영상(0) 차례.
+state.threads_focus_short ??= [];
+// 플랫폼 분리 운영: 자동 게시에서는 영상 복붙을 빼고, 연재와 짧은 논쟁 글을 번갈아 올린다.
+// 영상은 릴스 동시 게시나 --kind=video 수동 실행에만 쓴다.
 state.threads_video ??= [];
 const forced = process.argv.find((x) => x.startsWith('--kind='))?.slice(7);
-const kind = forced ?? ['video', 'series', 'short'][n % 3];
+const kind = forced ?? ['series', 'short'][n % 2];
 const isShort = kind === 'short';
 const lru = (len, used) => { const m = new Map(used.map((i, k) => [i, k])); return [...Array(len).keys()].sort((x, y) => (m.get(x) ?? -1) - (m.get(y) ?? -1))[0]; };
 let pi, post, replies;
@@ -39,11 +41,16 @@ if (kind === 'video') {
   post = { media_type: 'VIDEO', video_url: `https://gimzimean.github.io/topnote-social/ai-reels/${v.id}.mp4`, text: v.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
   replies = [{ media_type: 'TEXT', text: pick(seeds.video_cta, n) + '\n\n👉 https://topnote.app/th' }];
 } else if (isShort) {
-  // --pick=s18 처럼 짧은 글도 바로 고를 수 있다. 짧은 글이 {text, cta}면 그 글에 맞는 권유 답글(short_cta 번호)을 쓴다.
+  // focus_short는 결혼·연애·썸·썸붕·셀소를 고르게 돌리는 현재 편성이다.
+  // --focus=3처럼 오늘 올릴 글을 바로 고를 수도 있다.
+  const focusArg = process.argv.find((x) => x.startsWith('--focus='))?.slice(8);
   const wantS = process.argv.find((x) => x.startsWith('--pick=s'))?.slice(8);
-  pi = 's' + (wantS != null ? +wantS : lru(seeds.short.length, state.threads_short));
-  const sh = seeds.short[+pi.slice(1)];
-  post = { text: typeof sh === 'string' ? sh : sh.text, topic: pick(['연애', '소개팅', '썸', '연애고민'], n) };
+  const useFocus = focusArg != null || (seeds.focus_short?.length && wantS == null);
+  const source = useFocus ? seeds.focus_short : seeds.short;
+  const used = useFocus ? state.threads_focus_short : state.threads_short;
+  pi = (useFocus ? 'f' : 's') + (focusArg != null ? +focusArg : wantS != null ? +wantS : lru(source.length, used));
+  const sh = source[+pi.slice(1)];
+  post = { text: typeof sh === 'string' ? sh : sh.text, topic: typeof sh === 'object' && sh.topic ? sh.topic : pick(['연애', '소개팅', '썸', '연애고민'], n) };
   // 2026-11-16 대표 「댓글 이런식으로 하지마」: 링크 답글은 사진 없이 말하듯 한 줄 + 링크.
   replies = [{ media_type: 'TEXT', text: (typeof sh === 'object' && sh.cta != null ? seeds.short_cta[sh.cta] : pick(seeds.short_cta, n)) + AI }];
 } else {
@@ -87,7 +94,8 @@ if (post.topic) params.topic_tag = post.topic;
 const id = await publish(params);
 console.log('[스레드 글]', pi, id);
 if (!forced) state.threads_v2.push(pi);
-if (isShort) state.threads_short.push(+pi.slice(1));
+if (isShort && pi.startsWith('f')) state.threads_focus_short.push(+pi.slice(1));
+else if (isShort) state.threads_short.push(+pi.slice(1));
 if (kind === 'video') state.threads_video.push(+pi.slice(1));
 if (!forced) state.threads_text_at = Date.now();
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');

@@ -1,5 +1,5 @@
 name: bench-reels
-# 하루 두 번 12:40·20:40 KST에 인터뷰 릴스 대기열 다음 편을 올린다(scripts/bench-queue.mjs).
+# 외부 예약이 12:40·20:40 KST에 깨우더라도 인터뷰 릴스는 하루 한 편만 올린다(scripts/bench-queue.mjs).
 # 깃허브 예약은 몇 시간씩 밀려서 쓰지 않는다 → Supabase pg_cron(bench-reels-noon·evening)이 workflow_dispatch로 깨운다(2026-11-08).
 on:
   workflow_dispatch:

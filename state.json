@@ -355,6 +355,11 @@
   "obj-voice",
   "org-chat",
   "org-swipe",
-  "bench-hw1"
+  "bench-hw1",
+  "bench-th1"
+ ],
+ "bench_last_day": "2026-11-19",
+ "threads_focus_short": [
+  8
  ]
 }
