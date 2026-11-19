@@ -13,7 +13,7 @@ loadLocalEnv();
 const root = resolve(import.meta.dirname, '..');
 const [mode, payloadFile] = process.argv.slice(2);
 const p = JSON.parse(readFileSync(payloadFile, 'utf8'));
-const date = p.date;
+const date = p.slug ?? p.date; // 회원 명단 카드(2026-11-19)는 slug 로 파일 이름을 따로
 // Pages 빌드가 자주 실패해서(저장소가 커서) 그림은 올린 커밋의 원본 주소로 넘긴다.
 const sha = (() => { try { return execSync('git rev-parse HEAD', { cwd: root }).toString().trim(); } catch { return 'main'; } })();
 const BASE = `https://raw.githubusercontent.com/gimzimean/topnote-social/${sha}/docs/journal`;
@@ -22,7 +22,7 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 // 「느려도 한 명씩.」 삭제(2026-11-12 대표).
 // 제목은 앱 칸과 같게 「11월 11일 심사 중」.
 // 「11월 16일 NEW 회원」(2026-11-17 대표 「new 회원 이렇게 문구 바꾸자」): 운영실에서 체크한 사람은 모두 싣는다.
-const title = String(p.title).replace(/(심사 일지|승인 회원)\s*$/, 'NEW 회원');
+const title = p.kind === 'roster' ? String(p.title) : String(p.title).replace(/(심사 일지|승인 회원)\s*$/, 'NEW 회원');
 for (const g of ['men', 'women']) p[g] = p[g] ?? [];
 const FOOT = `검증된 사람만 안심하고 대화해요.`;
 
@@ -33,14 +33,14 @@ async function render() {
   const font = `@font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/SongMyung-Regular.ttf'))})}`;
   // C안 · 화면에 꽉 차게(2026-11-12 대표 「심사 상태는 빼고 남여 직업군만 나열, 크고 꽉차게 중간정렬, 심플하고 임팩트」).
   const rows = Math.max(p.men.length, p.women.length, 1);
-  const col = (g, list) => `<div class="gcol"><div class="gh">${g}</div>${list.length ? list.map((r) => `<div class="job">${esc(r.job)}</div>`).join('') : '<div class="job empty">—</div>'}</div>`;
+  const col = (g, list) => `<div class="gcol"><div class="gh">${g}</div>${list.length ? list.map((r) => `<div class="job">${esc(r.job)}${r.age ? `<small> ${esc(r.age)}</small>` : ''}</div>`).join('') : '<div class="job empty">—</div>'}</div>`;
   const html = (w, h, top) => {
     // 줄 수에 맞춰 직업 글자 크기를 키운다(가운데 칸을 꽉 채우게).
     // 높이(줄 수)와 너비(가장 긴 직업이 한 줄에 들어가게) 둘 다 맞춰 고른다.
     const free = h - top * 2 - 640;
     const longest = Math.max(2, ...[...p.men, ...p.women].map((r) => String(r.job).length));
     const colW = (w - 120) / 2 - 40;
-    const jf = Math.round(Math.max(40, Math.min(80, free / rows / 1.5, colW / (longest * 0.98))));
+    const jf = Math.round(Math.max(p.minFont ?? 40, Math.min(80, free / rows / 1.5, colW / (longest * 0.98))));
     return `<!doctype html><html><head><meta charset="utf-8"><style>${font}
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD;font-family:'Malgun Gothic','Noto Sans CJK KR',sans-serif;position:relative;padding:${top}px 60px;display:flex;flex-direction:column;text-align:center}
@@ -49,7 +49,7 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
 .t{font-family:SongMyung;font-size:112px;line-height:1.1;margin-top:18px}
 .mid{flex:1;display:flex;flex-direction:column;justify-content:center;margin:30px 0}.cols{display:flex;align-items:stretch}.gcol{flex:1;min-width:0;padding:0 18px}.gcol+.gcol{border-left:2px solid #4A3F33}
 .gh{font-family:SongMyung;font-size:96px;color:#C9A86A;line-height:1;margin-bottom:26px}
-.job{font-size:${jf}px;font-weight:800;line-height:1.5;white-space:nowrap}.job.empty{color:#6E6458}
+.job{font-size:${jf}px;font-weight:800;line-height:1.5;white-space:nowrap}.job.empty{color:#6E6458}.job small{font-size:.6em;font-weight:600;color:#9E9282}
 .foot{font-size:42px;color:#E9DCC6;line-height:1.4}.foot small{display:block;color:#9E9282;font-size:30px;margin-top:10px}
 </style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(title).replace(' 심사', '<br>심사').replace(' NEW', '<br>NEW')}</div>
 <div class="mid"><div class="cols">${col('남', p.men)}${col('여', p.women)}</div></div>
@@ -68,7 +68,7 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
   // 릴스(2026-11-10 대표 「인스타에 올린 것도 다 릴스 형식으로 매번」): 세로 카드를 천천히 다가가는 8초 영상 + 우리 곡.
   // 인스타 음악 보관함 곡은 공식 API로 붙일 수 없어 우리 곡(music/tracks.json)을 날짜 순서로 돌려 쓴다.
   const tracks = JSON.parse(readFileSync(resolve(root, 'music/tracks.json'), 'utf8'));
-  const track = tracks[Math.floor(Date.parse(date) / 864e5) % tracks.length];
+  const track = tracks[Math.floor(Date.parse(p.date) / 864e5) % tracks.length];
   const T = 8;
   const vf = `[0:v]scale=2160:3840,zoompan=z='1+0.06*on/${T * 30}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuv420p[v];[1:a]volume=-3dB,afade=t=in:st=0:d=0.6,afade=t=out:st=${T - 1.2}:d=1.2[a]`;
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-loop', '1', '-framerate', '30', '-t', String(T), '-i', resolve(root, 'docs/journal', `${date}-story.jpg`),
@@ -86,7 +86,7 @@ async function json(res) {
 
 async function report(status, media, error) {
   // 새 멤버 카드(2026-11-15 대표 「알림 보낼 때 SNS에도」)는 심사 일지 기록과 따로라 알리지 않는다.
-  if (p.kind === 'new_members') return console.log(`새 멤버 카드 ${status}${error ? ' · ' + error : ''}`);
+  if (p.kind === 'new_members' || p.kind === 'roster') return console.log(`새 멤버 카드 ${status}${error ? ' · ' + error : ''}`);
   const url = process.env.SUPABASE_URL; const anon = process.env.SUPABASE_ANON_KEY;
   if (!url || !anon) return console.log('서버 주소가 없어 결과를 못 알렸어요');
   await fetch(`${url}/rest/v1/rpc/ig_journal_report`, {
@@ -96,15 +96,15 @@ async function report(status, media, error) {
 }
 
 // 글(캡션·스레드)도 상태·숫자 없이 남·여 직업만(2026-11-12).
-const jobsText = `남 · ${p.men.map((r) => r.job).join(' · ') || '—'}\n여 · ${p.women.map((r) => r.job).join(' · ') || '—'}`;
+const jobsText = `남 · ${p.men.map((r) => r.job + (r.age ? ` ${r.age}` : '')).join(' · ') || '—'}\n여 · ${p.women.map((r) => r.job + (r.age ? ` ${r.age}` : '')).join(' · ') || '—'}`;
 const caption = `${title}
-새로 들어온 탑노트 회원이에요.
+${p.intro ?? '새로 들어온 탑노트 회원이에요.'}
 ${jobsText}
 
 ${FOOT}
 목소리로 3분 먼저, 탑노트.
 
-#탑노트 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : '#새회원'}`;
+#탑노트 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : p.kind === 'roster' ? '#회원명단' : '#새회원'}`;
 
 async function post() {
   const tokens = loadTokens();
