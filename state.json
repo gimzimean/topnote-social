@@ -226,7 +226,7 @@
   "t03"
  ],
  "threads_gen": [],
- "threads_text_at": 1795109311447,
+ "threads_text_at": 1795120692032,
  "threads_v2": [
   0,
   1,
@@ -281,7 +281,8 @@
   "s14",
   "v1",
   17,
-  "f5"
+  "f5",
+  "f0"
  ],
  "threads_short": [
   0,
@@ -362,7 +363,8 @@
  "bench_last_day": "2026-11-19",
  "threads_focus_short": [
   8,
-  5
+  5,
+  0
  ],
  "threads_selfintro": [
   0,
