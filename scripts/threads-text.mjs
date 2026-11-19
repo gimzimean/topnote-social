@@ -1,6 +1,6 @@
 // 스레드 전용 글. 구체적인 장면·경험을 사람 말투로 짧게 쓴다.
-// 연애 경험담에는 링크나 홍보 답글을 붙이지 않는다.
-// 별도의 셀소판에서만 프로필 링크를 자연스럽게 안내한다.
+// 원글은 경험담 자체로 읽히게 두고, 맥락이 맞는 글에만 제품 방식으로 이어지는 답글을 붙인다.
+// 주소를 직접 넣지 않고 프로필 링크만 안내한다.
 // 대기열: threads/posts.json (위에서부터 하나씩), 올린 기록: state.json 의 threads_text.
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -53,7 +53,7 @@ if (kind === 'video') {
   pi = (useFocus ? 'f' : 's') + (focusArg != null ? +focusArg : wantS != null ? +wantS : lru(source.length, used));
   const sh = source[+pi.slice(1)];
   post = { text: typeof sh === 'string' ? sh : sh.text, topic: typeof sh === 'object' && sh.topic ? sh.topic : pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [];
+  replies = typeof sh === 'object' && sh.reply ? [{ media_type: 'TEXT', text: sh.reply }] : [];
 } else if (isSelfIntro) {
   const si = lru(selfIntro.length, state.threads_selfintro);
   pi = 'c' + si;
