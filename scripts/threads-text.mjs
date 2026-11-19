@@ -1,5 +1,6 @@
 // 스레드 전용 글. 구체적인 장면·경험을 사람 말투로 짧게 쓴다.
-// 링크, 앱 설명, 다운로드 유도, 억지 양자택일은 넣지 않는다.
+// 원글에는 링크, 앱 설명, 다운로드 유도, 억지 양자택일을 넣지 않는다.
+// 짧은 글에는 답글 한 줄로만 프로필 링크를 안내한다.
 // 대기열: threads/posts.json (위에서부터 하나씩), 올린 기록: state.json 의 threads_text.
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -49,7 +50,7 @@ if (kind === 'video') {
   pi = (useFocus ? 'f' : 's') + (focusArg != null ? +focusArg : wantS != null ? +wantS : lru(source.length, used));
   const sh = source[+pi.slice(1)];
   post = { text: typeof sh === 'string' ? sh : sh.text, topic: typeof sh === 'object' && sh.topic ? sh.topic : pick(['연애', '소개팅', '썸', '연애고민'], n) };
-  replies = [];
+  replies = [{ media_type: 'TEXT', text: '궁금한 사람은 프로필 링크에 있어' }];
 } else {
   const want = process.argv.find((x) => x.startsWith('--pick=') && !x.startsWith('--pick=s'))?.slice(7); // 특정 연재를 바로 올릴 때(번호)
   pi = want != null ? +want : lru(seeds.series.length, state.threads_v2.filter((x) => typeof x === 'number'));
