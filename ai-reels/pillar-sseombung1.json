@@ -1,0 +1,12 @@
+{
+ "id": "pillar-sseombung1",
+ "track": "late-night-texts.mp3",
+ "beats": [
+  {"clip":"C:/topnote-social/ai-reels/src/redo-ai18-1.mp4","text":"썸붕 후 연락,<br><em>딱 한 번</em>은 괜찮은 경우."},
+  {"clip":"C:/topnote-social/ai-reels/src/redo-ai18-2.mp4","text":"① 오해로<br>끊긴 것 같을 때."},
+  {"clip":"C:/topnote-social/ai-reels/src/redo-ai19-1.mp4","text":"② 못 한 말이<br><em>계속</em> 남을 때."},
+  {"clip":"C:/topnote-social/ai-reels/src/redo-ai19-2.mp4","text":"답이 없다면<br><em>두 번</em>은 보내지 않기."},
+  {"end":"솔직함은 한 번.<br><em>미련</em>은 두 번부터.","sub":"탑노트 · 다시 시작할 땐 목소리로 3분<br>검증된 사람과 새로운 대화"}
+ ],
+ "cover":{"from":0,"at":2.2,"text":"썸붕 후 연락,<br><em>딱 한 번</em>은<br>괜찮은 경우."}
+}

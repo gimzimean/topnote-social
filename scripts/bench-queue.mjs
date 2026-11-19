@@ -18,7 +18,7 @@ if (state.bench_last_day === kstDay && !process.argv.includes('--force')) {
 const queue = JSON.parse(readFileSync(resolve(root, 'ai-reels/bench/queue.json'), 'utf8'));
 const id = queue.find((q) => !state.bench_posted.includes(q));
 if (!id) { console.log('대기열 비어 있음'); process.exit(0); }
-execFileSync('node', [resolve(root, 'scripts/post-bench-reel.mjs'), id, resolve(root, 'ai-reels/bench', `${id}.json`)], { stdio: 'inherit' });
+execFileSync('node', [resolve(root, 'scripts/post-bench-reel.mjs'), id, resolve(root, 'ai-reels/bench', `${id}.json`), '--story', '--instagram-only'], { stdio: 'inherit' });
 state.bench_posted.push(id);
 state.bench_last_day = kstDay;
 writeFileSync(statePath, JSON.stringify(state, null, 1) + '\n');

@@ -41,6 +41,12 @@ if (!process.argv.includes('--threads-only')) {
   }
 }
 
+// 자동 편성에서는 인스타 릴스·스토리와 스레드 글을 분리한다.
+if (process.argv.includes('--instagram-only')) {
+  saveTokens(tokens);
+  process.exit(0);
+}
+
 const th = tokens.threads;
 const TH = 'https://graph.threads.net/v1.0';
 const tcall = async (path, p) => json(await fetch(`${TH}/${path}`, { method: 'POST', body: new URLSearchParams({ ...p, access_token: th.access_token }) }));

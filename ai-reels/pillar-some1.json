@@ -1,0 +1,12 @@
+{
+ "id": "pillar-some1",
+ "track": "fox-satin.mp3",
+ "beats": [
+  {"clip":"C:/topnote-social/ai-reels/src/redo-ai13-1.mp4","text":"썸인지 친절인지<br><em>이것</em>만 보세요."},
+  {"clip":"C:/topnote-social/ai-reels/src/redo-ai13-2.mp4","text":"「언제 한 번」 말고<br><em>날짜</em>를 잡는지."},
+  {"clip":"C:/topnote-social/ai-reels/src/people-pm3.mp4","text":"다음 주에도<br><em>시간</em>을 내는지."},
+  {"clip":"C:/topnote-social/ai-reels/src/people-pw3.mp4","text":"내 질문 뒤에<br><em>질문</em>이 돌아오는지."},
+  {"end":"마음은 말보다<br><em>일정</em>에 먼저 보여요.","sub":"탑노트 · 검증된 사람과 목소리로 3분<br>말이 통하면 그때 사진"}
+ ],
+ "cover":{"from":0,"at":2.2,"text":"썸인지 친절인지<br><em>이것</em>만<br>보세요."}
+}

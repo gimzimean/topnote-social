@@ -1,0 +1,12 @@
+{
+ "id": "pillar-selso1",
+ "track": "last-message-first.mp3",
+ "beats": [
+  {"grid":["C:/topnote-social/ai-reels/src/talk-ai1-1.mp4","C:/topnote-social/ai-reels/src/talk-ai1-2.mp4","C:/topnote-social/ai-reels/src/talk-ai1-3.mp4","C:/topnote-social/ai-reels/src/talk-ai1-4.mp4"],"text":"요즘 셀소는<br>스펙 말고 <em>이 세 줄</em>."},
+  {"clip":"C:/topnote-social/ai-reels/src/people-da1.mp4","text":"① 주말을<br><em>보내는 방식</em>."},
+  {"clip":"C:/topnote-social/ai-reels/src/people-cx1.mp4","text":"② 요즘<br><em>빠진 것</em>."},
+  {"clip":"C:/topnote-social/ai-reels/src/bar-ai1-1.mp4","text":"③ 같이<br><em>하고 싶은 것</em>."},
+  {"end":"나이·회사·연봉 말고<br><em>세 줄 셀소</em>.","sub":"댓글에 세 줄로 소개해 보세요<br>탑노트 · 검증된 사람과 목소리로 3분"}
+ ],
+ "cover":{"from":0,"at":2.2,"text":"요즘 셀소는<br>스펙 말고<br><em>이 세 줄</em>."}
+}
