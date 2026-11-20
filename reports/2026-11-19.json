@@ -1,6 +1,6 @@
 {
  "day": "2026-11-19",
- "collected_at": "2026-11-20T03:40:13.295Z",
+ "collected_at": "2026-11-20T03:46:29.770Z",
  "app": {
   "day": "2026-11-19",
   "signups": 2,
@@ -57,8 +57,16 @@
  },
  "instagram": {
   "followers": 8,
-  "posts": 158,
+  "posts": 159,
   "recent": [
+   {
+    "at": "2026-11-20T03:42:22+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "여자들한테 물어봤습니다. 소개팅 남자한테 제일 먼저 보는 건?",
+    "url": "https://www.instagram.com/reel/Df8tuojtYUM/"
+   },
    {
     "at": "2026-11-20T00:29:10+0000",
     "type": "VIDEO",
@@ -146,14 +154,6 @@
     "comments": 1,
     "title": "11월 18일 NEW 회원 새로 들어온 탑노트 회원이에요.",
     "url": "https://www.instagram.com/reel/Df6AyQnBLWB/"
-   },
-   {
-    "at": "2026-11-19T02:07:07+0000",
-    "type": "VIDEO",
-    "likes": 0,
-    "comments": 1,
-    "title": "퇴근하고 다시 나가기 싫은 날. 편한 옷 그대로 소파에서, 검증된 사람과 목소리로 3분.",
-    "url": "https://www.instagram.com/reel/Df5-CflBz7U/"
    }
   ]
  },
