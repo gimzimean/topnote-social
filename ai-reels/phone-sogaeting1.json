@@ -1,0 +1,14 @@
+{
+  "id": "phone-sogaeting1",
+  "track": "late-night-texts.mp3",
+  "beats": [
+    { "pair": ["C:/topnote-social/ai-reels/src/people-pm3.mp4", "C:/topnote-social/ai-reels/src/people-pw2.mp4"], "text": "사진 <em>0장</em>으로<br>소개팅하면?", "layout": "lr" },
+    { "clip": "C:/topnote-social/ai-reels/src/people-pm2.mp4", "text": "얼굴도 모르고<br>목소리로 <em>3분</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png", "text": "상대는 <em>검증된</em><br>전문직·사업가·대기업." },
+    { "clip": "C:/topnote-social/ai-reels/src/people-pw3.mp4", "text": "근데 목소리에<br>먼저 <em>설렌다</em>." },
+    { "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png", "text": "말이 통하면<br>그때 <em>사진</em>." },
+    { "end": "소개팅,<br><em>전화</em>로 먼저.", "sub": "탑노트 · 전화 소개팅<br>검증된 사람과 3분" }
+  ],
+  "cover": { "from": 0, "at": 2.5, "text": "사진 <em>0장</em>으로<br>소개팅하면?" },
+  "manual": true
+}

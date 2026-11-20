@@ -1,0 +1,40 @@
+{
+ "id": "phone-sogaeting2",
+ "track": "one-more-ping.mp3",
+ "beats": [
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/people-pm4.mp4",
+    "C:/topnote-social/ai-reels/src/people-pw4.mp4"
+   ],
+   "text": "의사·변호사·대표랑<br><em>사진 없이</em> 소개팅",
+   "layout": "lr"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/people-pm2.mp4",
+   "text": "얼굴도 모르고<br>목소리로 <em>3분</em>."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
+   "text": "전문직·사업가·대기업<br>모두 <em>검증된</em> 사람만."
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/people-pw3.mp4",
+   "text": "근데 목소리에<br>먼저 <em>설렌다</em>."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/decision.png",
+   "text": "말이 통하면<br>그때 <em>사진</em>."
+  },
+  {
+   "end": "소개팅,<br><em>전화</em>로 먼저.",
+   "sub": "탑노트 · 전화 소개팅<br>검증된 사람과 3분"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "의사·변호사·대표랑<br><em>사진 없이</em> 소개팅"
+ },
+ "manual": true
+}

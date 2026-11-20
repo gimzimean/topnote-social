@@ -1,0 +1,45 @@
+{
+ "id": "phone-meeting22b",
+ "track": "late-night-texts.mp3",
+ "beats": [
+  {
+   "grid": [
+    "C:/topnote-social/ai-reels/src/talk-ai1-2.mp4",
+    "C:/topnote-social/ai-reels/src/talk-ai1-1.mp4",
+    "C:/topnote-social/ai-reels/src/talk-ai1-3.mp4",
+    "C:/topnote-social/ai-reels/src/xmas-ai13-2.mp4"
+   ],
+   "text": "화장 안 해도 되는<br><em>2:2 미팅</em>"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/people-g2a.mp4",
+   "text": "잠옷 입고 집에서<br>목소리로 <em>10분</em>."
+  },
+  {
+   "screen": "C:/topnote-app/store-assets/mix-template/captures/talkroom.png",
+   "text": "<em>검증된</em> 넷이서<br>목소리로만 수다."
+  },
+  {
+   "pair": [
+    "C:/topnote-social/ai-reels/src/people-g4b.mp4",
+    "C:/topnote-social/ai-reels/src/people-ff1a.mp4"
+   ],
+   "text": "끝나고 마음에 든 사람<br><em>몰래</em> 고르기.",
+   "layout": "lr"
+  },
+  {
+   "clip": "C:/topnote-social/ai-reels/src/people-pw1.mp4",
+   "text": "서로 고르면<br>바로 <em>사진</em> 공개."
+  },
+  {
+   "end": "미팅,<br><em>전화</em>로 2:2.",
+   "sub": "탑노트 · 전화 미팅 4인 수다<br>매일 저녁 5시~밤 11시"
+  }
+ ],
+ "cover": {
+  "from": 0,
+  "at": 2.5,
+  "text": "화장 안 해도 되는<br><em>2:2 미팅</em>"
+ },
+ "manual": true
+}
