@@ -1,0 +1,361 @@
+{
+ "day": "2026-11-20",
+ "collected_at": "2026-11-21T03:25:06.875Z",
+ "app": {
+  "day": "2026-11-20",
+  "signups": 3,
+  "approved": 2,
+  "by_market": {
+   "KR": {
+    "signups": 3,
+    "approved": 2,
+    "onboarded": 3,
+    "calls_1on1": 2,
+    "talk_joins": 1,
+    "members_total": {
+     "pending": 34,
+     "approved": 47,
+     "rejected": 9
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 3,
+  "purchases": {},
+  "calls_1on1": 2,
+  "talk_joins": 1,
+  "members_total": {
+   "pending": 34,
+   "approved": 50,
+   "rejected": 9
+  },
+  "profiles_total": 93,
+  "visits_by_source": {
+   "direct": 3,
+   "threads": 31,
+   "facebook": 1,
+   "app_store": 77,
+   "apps.facebook.com": 5,
+   "apps.instagram.com": 56
+  },
+  "signups_by_source": {
+   "threads": 1,
+   "(모름)": 2
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 8,
+  "posts": 162,
+  "recent": [
+   {
+    "at": "2026-11-21T00:56:06+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 20일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df-_fuYSXlw/"
+   },
+   {
+    "at": "2026-11-20T13:15:57+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "술집 미팅 말고, 전화 미팅 2:2 어색한 건배 없이 집에서 10분.",
+    "url": "https://www.instagram.com/reel/Df9vXtUBE6i/"
+   },
+   {
+    "at": "2026-11-20T13:15:14+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "사진 0장으로 소개팅하면? 얼굴도 모르고 목소리로 3분.",
+    "url": "https://www.instagram.com/reel/Df9vSZAp-nj/"
+   },
+   {
+    "at": "2026-11-20T03:42:22+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "여자들한테 물어봤습니다. 소개팅 남자한테 제일 먼저 보는 건?",
+    "url": "https://www.instagram.com/reel/Df8tuojtYUM/"
+   },
+   {
+    "at": "2026-11-20T00:29:10+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "11월 19일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df8XnlChvTS/"
+   },
+   {
+    "at": "2026-11-19T07:23:38+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "「도착하면 연락 주세요」는 호감일까요, 그냥 예의일까요? ",
+    "url": "https://www.instagram.com/reel/Df6iQdmptdq/"
+   },
+   {
+    "at": "2026-11-19T06:06:49+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "연락은 얼마나 자주 해야 할까. 정답은 없지만 기준은 있어요.",
+    "url": "https://www.instagram.com/reel/Df6ZdgkqzJ_/"
+   },
+   {
+    "at": "2026-11-19T05:58:15+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "여자들한테 물어봤습니다. 소개팅에서 「이 남자 괜찮다」 싶은 순간은?",
+    "url": "https://www.instagram.com/reel/Df6Ye53Cnnu/"
+   },
+   {
+    "at": "2026-11-19T05:40:19+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "프로필 100번 넘기고, 대화는 0번. ",
+    "url": "https://www.instagram.com/reel/Df6WboUBgC_/"
+   },
+   {
+    "at": "2026-11-19T05:07:08+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "오늘 저녁, 3분만 내 볼래요? 저녁 5시부터 밤 11시까지, 예약 없이 바로 걸어요.",
+    "url": "https://www.instagram.com/reel/Df6SoSNq_8Q/"
+   },
+   {
+    "at": "2026-11-19T04:23:59+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "탑노트 회원 명단 지금 탑노트에 있는 회원 일부예요. 모두 정부기관 문서로 검증했어요.",
+    "url": "https://www.instagram.com/reel/Df6NssSumGe/"
+   },
+   {
+    "at": "2026-11-19T04:07:26+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "카톡 3일 했는데 통화 한 번에 알았어요. 카톡은 다듬어서 보내지만 목소리는 못 숨겨요.",
+    "url": "https://www.instagram.com/reel/Df6LzX7omsP/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-21T02:24:22+0000",
+   "text": "짚신도 제 짝이 있다는데….\n아직도 유효한 말인가요…..",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-21T02:22:12+0000",
+   "text": "",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-21T01:05:34+0000",
+   "text": "",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-21T01:04:52+0000",
+   "text": "",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-21T00:56:50+0000",
+   "text": "11월 20일 NEW 회원\n남 · 전문직 · 공무직\n여 · 프리랜서 · ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-21T00:55:44+0000",
+   "text": "",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 7357,
+   "impressions": 469,
+   "clicks": 5,
+   "ctr": 1.066098,
+   "installs": 2,
+   "link_clicks": 4
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 3400,
+   "impressions": 303,
+   "clicks": 5,
+   "ctr": 1.650165,
+   "installs": 1,
+   "link_clicks": 3
+  },
+  {
+   "campaign": "topnote_meta_ios_best_1106",
+   "spend": 2510,
+   "impressions": 201,
+   "clicks": 6,
+   "ctr": 2.985075,
+   "installs": 0,
+   "link_clicks": 6
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 900000,
+  "spent_since_cap": 646628,
+  "left": 253372
+ },
+ "seo": {
+  "range": "2026-11-12~2026-11-18",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 70,
+    "ctr": 0,
+    "position": 6.5
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 8.5
+    },
+    {
+     "key": "https://topnote.app/faq.html",
+     "clicks": 0,
+     "impressions": 2,
+     "ctr": 0,
+     "position": 7
+    },
+    {
+     "key": "https://topnote.app/guide/avoid-acquaintances.html",
+     "clicks": 0,
+     "impressions": 8,
+     "ctr": 0,
+     "position": 4.6
+    },
+    {
+     "key": "https://topnote.app/guide/conversation-silence.html",
+     "clicks": 0,
+     "impressions": 3,
+     "ctr": 0,
+     "position": 9.7
+    },
+    {
+     "key": "https://topnote.app/guide/introvert-dating.html",
+     "clicks": 0,
+     "impressions": 7,
+     "ctr": 0,
+     "position": 3.9
+    },
+    {
+     "key": "https://topnote.app/guide/meetup-safety.html",
+     "clicks": 0,
+     "impressions": 2,
+     "ctr": 0,
+     "position": 8.5
+    },
+    {
+     "key": "https://topnote.app/guide/money-request-scam.html",
+     "clicks": 0,
+     "impressions": 8,
+     "ctr": 0,
+     "position": 5
+    },
+    {
+     "key": "https://topnote.app/guide/pepero-day.html",
+     "clicks": 0,
+     "impressions": 7,
+     "ctr": 0,
+     "position": 7.6
+    },
+    {
+     "key": "https://topnote.app/guide/self-introduction.html",
+     "clicks": 0,
+     "impressions": 5,
+     "ctr": 0,
+     "position": 8.8
+    },
+    {
+     "key": "https://topnote.app/guide/voice-insecurity.html",
+     "clicks": 0,
+     "impressions": 1,
+     "ctr": 0,
+     "position": 9
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 9,
+    "ctr": 0,
+    "position": 1
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/us/",
+     "clicks": 0,
+     "impressions": 9,
+     "ctr": 0,
+     "position": 1
+    }
+   ],
+   "queries": []
+  }
+ },
+ "queue": {
+  "cards_posted": 56,
+  "cards_total": 112,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8",
+   "ep9",
+   "ep10",
+   "ep19",
+   "ep20",
+   "ep21",
+   "ep22",
+   "ep23",
+   "ep24",
+   "ep25",
+   "ep26"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
