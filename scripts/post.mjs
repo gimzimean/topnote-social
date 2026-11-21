@@ -9,6 +9,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
 import { tiktokCaption } from './tiktok-caption.mjs';
+import { withKeywords } from './keywords.mjs';
 import { postToTiktok } from './tiktok.mjs';
 
 loadLocalEnv();
@@ -221,6 +222,7 @@ for (const [platform, fn] of [['instagram', postInstagram], ['story', postStory]
   if (platform === 'threads') continue;
   if (hourly && !['instagram', 'story'].includes(platform)) continue;
   const post = nextFor(platform);
+  if (post) post.caption = withKeywords(post.caption);
   if (!post) { console.log(`[${platform}] 올릴 게시물이 없어요. content.json 에 새 게시물을 넣으세요.`); continue; }
   const urls = platform === 'story' ? [storyOf(post.id)] : reelOf(post.id) ? [reelOf(post.id)] : imagesOf(post.id);
   if (dry) { console.log(`[${platform}] ${post.id} ${post.title}\n  ${urls.join('\n  ')}`); continue; }

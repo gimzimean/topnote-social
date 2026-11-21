@@ -8,6 +8,7 @@ import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execFileSync, execSync } from 'node:child_process';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
+import { withKeywords } from './keywords.mjs';
 
 loadLocalEnv();
 const root = resolve(import.meta.dirname, '..');
@@ -122,7 +123,7 @@ async function post() {
   const ready = async (id) => { for (let i = 0; i < 100; i++) { const s = await json(await fetch(`${IG}/${id}?fields=status_code&access_token=${t.access_token}`)); if (s.status_code === 'FINISHED') return; if (s.status_code === 'ERROR') throw new Error('인스타 처리 실패'); await sleep(3000); } };
   let mediaId;
   try {
-    const box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: reelUrl, cover_url: storyUrl, caption, share_to_feed: 'true' });
+    const box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: reelUrl, cover_url: storyUrl, caption: withKeywords(caption), share_to_feed: 'true' });
     await ready(box.id);
     // 인스타가 올려 놓고도 403(Application request limit)을 돌려줄 때가 있어, 실패하면 방금 올라간 게시물이 있는지 본다.
     mediaId = await call(`${t.user_id}/media_publish`, { creation_id: box.id }).then((r) => r.id).catch(async (e) => {

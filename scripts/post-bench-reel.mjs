@@ -2,6 +2,7 @@
 // 사용: node scripts/post-bench-reel.mjs <id> <설정.json>  (설정의 caption · threads · comment 사용)
 import { readFileSync } from 'node:fs';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
+import { withKeywords } from './keywords.mjs';
 loadLocalEnv();
 const [id, cfgPath] = process.argv.slice(2);
 const cfg = JSON.parse(readFileSync(cfgPath, 'utf8'));
@@ -16,7 +17,7 @@ if (!process.argv.includes('--threads-only')) {
   const fb = t.access_token.startsWith('EAA');
   const IG = fb ? 'https://graph.facebook.com/v23.0' : 'https://graph.instagram.com/v23.0';
   const call = async (path, p) => json(await fetch(`${IG}/${path}`, { method: 'POST', body: new URLSearchParams({ ...p, access_token: t.access_token }) }));
-  const box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: video, cover_url: cover, caption: cfg.caption, share_to_feed: 'true' });
+  const box = await call(`${t.user_id}/media`, { media_type: 'REELS', video_url: video, cover_url: cover, caption: withKeywords(cfg.caption), share_to_feed: 'true' });
   for (let i = 0; i < 100; i++) {
     const s = await json(await fetch(`${IG}/${box.id}?fields=status_code,status&access_token=${t.access_token}`));
     if (s.status_code === 'FINISHED') break;
