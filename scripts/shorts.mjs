@@ -139,7 +139,7 @@ for (const [id, ep] of Object.entries(EPISODES)) {
     '-map', '0:v', '-map', '[a]', '-t', total.toFixed(2), '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p',
     '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', resolve(out, `${id}.mp4`)]);
   // 4) 표지(후킹 썸네일 필수)
-  await page.setContent(`<style>${coverCss}</style><div class="mark">TOP NOTE · 탑노트</div><h1>${ep.cover.slice(0, 3).join('<br>')}</h1><div class="sub">${ep.cover[3]}</div>`);
+  await page.setContent(`<style>${coverCss}</style><div class="mark">TOP NOTE · 비트</div><h1>${ep.cover.slice(0, 3).join('<br>')}</h1><div class="sub">${ep.cover[3]}</div>`);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: resolve(out, `${id}-cover.jpg`), type: 'jpeg', quality: 92 });
   rmSync(work, { recursive: true, force: true });

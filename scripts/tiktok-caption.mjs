@@ -2,13 +2,13 @@
 // - 영상 링크는 안드로이드 앱만 고를 수 있어(아이폰 앱이 목록에 안 나옴) 글 끝에 아이폰 안내 줄을 붙인다.
 // - 2026-11-03부터 틱톡은 「나만 보기」 바로 게시(글 포함)로 올린다 → scripts/tiktok.mjs.
 //   docs/tiktok/captions.json · docs/tt.html 은 예비용(초안으로 떨어졌을 때 복사).
-// - 태그는 scripts/hashtags.mjs 로 게시물마다 다르게(바로 앞 틱톡 글과 #탑노트 빼고 2개 이하 겹침).
+// - 태그는 scripts/hashtags.mjs 로 게시물마다 다르게(바로 앞 틱톡 글과 #비트소개팅 빼고 2개 이하 겹침).
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pickHashtags, splitTags, tagsOk } from './hashtags.mjs';
 
 // 2026-11-03 대표 「링크는 클릭이 안 되잖아」 → 틱톡 글 속 주소는 눌리지 않아서, 눌리는 프로필 링크(beet.my/tt)로 안내한다. 영상 속 「링크 추가」는 틱톡 휴대폰 앱에서만 된다.
-export const TIKTOK_APP_LINE = '📱 탑노트 받기 → 프로필의 beet.my/tt 누르기 (아이폰·안드로이드 다 돼요)';
+export const TIKTOK_APP_LINE = '📱 비트 받기 → 프로필의 beet.my/tt 누르기 (아이폰·안드로이드 다 돼요)';
 const captionsFile = resolve(import.meta.dirname, '..', 'docs', 'tiktok', 'captions.json');
 const readList = () => (existsSync(captionsFile) ? JSON.parse(readFileSync(captionsFile, 'utf8')) : []);
 

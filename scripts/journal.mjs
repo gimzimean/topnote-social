@@ -1,7 +1,7 @@
 // 심사 일지 카드(2026-11-10 대표 「인스타탭에서 완료 누르면 인스타에 바로 올라가게, 자동·수동 둘 다」).
-// 운영실(탑노트 앱 「📸 인스타」 탭)이 journal.yml 을 부르며 카드 내용(payload)을 넘긴다. 여기서는:
+// 운영실(비트 앱 「📸 인스타」 탭)이 journal.yml 을 부르며 카드 내용(payload)을 넘긴다. 여기서는:
 //   node scripts/journal.mjs render <payload.json>   → docs/journal/<날짜>.jpg(피드 1080×1350) · <날짜>-story.jpg(1080×1920)
-//   node scripts/journal.mjs post <payload.json>     → 인스타 피드 · 스토리 · 스레드에 올리고 결과를 탑노트 서버에 알림
+//   node scripts/journal.mjs post <payload.json>     → 인스타 피드 · 스토리 · 스레드에 올리고 결과를 비트 서버에 알림
 // 환경변수: TOKEN_KEY, IG_JOURNAL_KEY, SUPABASE_URL, SUPABASE_ANON_KEY
 import { createRequire } from 'node:module';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
@@ -99,13 +99,13 @@ async function report(status, media, error) {
 // 글(캡션·스레드)도 상태·숫자 없이 남·여 직업만(2026-11-12).
 const jobsText = `남 · ${p.men.map((r) => r.job + (r.age ? ` ${r.age}` : '')).join(' · ') || '—'}\n여 · ${p.women.map((r) => r.job + (r.age ? ` ${r.age}` : '')).join(' · ') || '—'}`;
 const caption = `${title}
-${p.intro ?? '새로 들어온 탑노트 회원이에요.'}
+${p.intro ?? '새로 들어온 비트 회원이에요.'}
 ${jobsText}
 
 ${FOOT}
-목소리로 3분 먼저, 탑노트.
+목소리로 3분 먼저, 비트.
 
-#탑노트 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : p.kind === 'roster' ? '#회원명단' : '#새회원'}`;
+#비트소개팅 #보이스소개팅 #소개팅 #검증된만남 ${p.kind === 'new_members' ? '#새멤버' : p.kind === 'roster' ? '#회원명단' : '#새회원'}`;
 
 async function post() {
   const tokens = loadTokens();
@@ -150,7 +150,7 @@ async function post() {
       for (let i = 0; i < 40; i++) { const s = await json(await fetch(`${TH}/${box.id}?fields=status&access_token=${th.access_token}`)); if (s.status === 'FINISHED') break; if (s.status === 'ERROR') throw new Error('스레드 영상 처리 실패'); await sleep(3000); }
       const id = (await tcall(`${th.user_id}/threads_publish`, { creation_id: box.id })).id;
       console.log(`[threads] 올림 → ${id}`);
-      const reply = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: '보이스 소개팅, 탑노트 · 목소리로 3분 먼저 → https://beet.my/th', reply_to_id: id });
+      const reply = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: '보이스 소개팅, 비트 · 목소리로 3분 먼저 → https://beet.my/th', reply_to_id: id });
       await sleep(5000);
       await tcall(`${th.user_id}/threads_publish`, { creation_id: reply.id }).catch(() => {});
     }

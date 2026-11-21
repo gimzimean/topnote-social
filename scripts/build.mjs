@@ -11,7 +11,7 @@ const require = createRequire(existsSync(resolve(root, 'node_modules/playwright'
 const { chromium } = require('playwright');
 const c = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
 
-// 탑노트 인스타(@topnote_official) 기존 게시물과 같은 디자인: 크림·짙은 와인, 송명 제목, 「T.」
+// 비트 인스타(@topnote_official) 기존 게시물과 같은 디자인: 크림·짙은 와인, 송명 제목, 「T.」
 const b64 = (p) => readFileSync(p).toString('base64');
 const css = `
 @font-face{font-family:SongMyung;src:url(data:font/ttf;base64,${b64(resolve(root, 'assets/fonts/SongMyung-Regular.ttf'))})}

@@ -1,4 +1,4 @@
-// 「폰팅」 형식 릴스: 검은 통화 화면(탑노트 통화 화면 모양) + 상황극 통화 목소리(AI) + 큰 자막(2026-11-04 대표 「ㄱㄱㄱ」).
+// 「폰팅」 형식 릴스: 검은 통화 화면(비트 통화 화면 모양) + 상황극 통화 목소리(AI) + 큰 자막(2026-11-04 대표 「ㄱㄱㄱ」).
 // 벤치마크: KBS 「폰팅」(검은 화면+통화 음성+자막), 위피 랜덤 통화 리액션. 회원 실제 통화가 아닌 상황극임을 표시한다.
 // 실행: node scripts/phone-reel.mjs <spec.json>  → docs/ai-reels/<id>.mp4 · <id>-cover.jpg
 // spec: { id, track, top, peer: { name, info }, lines: [[ 'M'|'W', 자막, 말(없으면 자막) ]], ending: { title, sub }, cover }
@@ -80,8 +80,8 @@ for (let f = 0; f < n; f++) {
     <div class="time">${mm}</div><div class="wave">${bars}</div>`;
   if (s >= ENDING_AT && s < ENDING_AT + 3) html += `<div class="both">둘 다 눌렀어요 · 3분 더<small>누가 먼저 눌렀는지는 서로 몰라요</small></div>`;
   else if (cur) html += `<div class="sub ${cur.who}"><span class="who">${cur.who === 'M' ? '그' : '그녀'}</span>${cur.shown}</div>`;
-  html += '<div class="cta"><span>탑노트 · 지금 앱 받기</span></div>';
-  if (s >= ENDING_AT + 3) html = `<div class="end"><div style="position:absolute;left:80px;top:230px;font-family:DMSerif;font-size:72px">T<span style="color:#B85F45">.</span></div><h1>${spec.ending.title}</h1><p>${spec.ending.sub}</p></div><div class="cta"><span>탑노트 · 지금 앱 받기</span></div>`;
+  html += '<div class="cta"><span>비트 · 지금 앱 받기</span></div>';
+  if (s >= ENDING_AT + 3) html = `<div class="end"><div style="position:absolute;left:80px;top:230px;font-family:DMSerif;font-size:72px">T<span style="color:#B85F45">.</span></div><h1>${spec.ending.title}</h1><p>${spec.ending.sub}</p></div><div class="cta"><span>비트 · 지금 앱 받기</span></div>`;
   await page.evaluate((h) => { document.getElementById('root').innerHTML = h; }, html);
   await page.screenshot({ path: resolve(frames, `${String(f).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 88 });
 }

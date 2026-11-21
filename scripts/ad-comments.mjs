@@ -8,7 +8,7 @@ const root = resolve(import.meta.dirname, '..');
 const IGT = loadTokens().instagram.access_token, G = 'https://graph.facebook.com/v23.0';
 const env = Object.fromEntries(readFileSync('C:/zzend-keys/topnote-meta-ads.env', 'utf8').split(/\r?\n/).filter((l) => l.includes('=')).map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()]));
 const AT = env.META_ADS_TOKEN;
-const MSG = '📲 위 「설치하기」를 누르거나 스토어에서 「탑노트」를 검색해 보세요.\n사진 말고 목소리로 3분 먼저, 검증된 사람과만 통화해요.';
+const MSG = '📲 위 「설치하기」를 누르거나 스토어에서 「비트」를 검색해 보세요.\n사진 말고 목소리로 3분 먼저, 검증된 사람과만 통화해요.';
 const logPath = resolve(root, 'ad-comments.json');
 const done = existsSync(logPath) ? JSON.parse(readFileSync(logPath, 'utf8')) : {};
 const ads = (await (await fetch(`${G}/act_1669114048255983/ads?fields=id,name,effective_status,creative{effective_instagram_media_id}&limit=200&effective_status=${encodeURIComponent(JSON.stringify(['ACTIVE', 'PENDING_REVIEW', 'ADSET_PAUSED']))}&access_token=${AT}`)).json()).data;

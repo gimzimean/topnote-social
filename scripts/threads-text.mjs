@@ -17,7 +17,7 @@ if (state.threads_text_at && Date.now() - state.threads_text_at < 3 * 36e5 && !p
 const seeds = JSON.parse(readFileSync(resolve(root, 'threads', 'seeds.json'), 'utf8'));
 const selfIntro = JSON.parse(readFileSync(resolve(root, 'threads', 'selfintro.json'), 'utf8'));
 // 2026-11-07 대표 「스레드 글쓰기 스타일은 다르잖아」: 국내 스레드 인기 글처럼 원글은 글만(반말·구체적인 장면·질문으로 끝),
-// 답글 1 = 짧은 덧붙임, 답글 2 = 사람 나온 사진 + 탑노트 한 줄 + 링크 + AI 안내. 원글은 가장 오래전에 쓴 것부터 돌린다.
+// 답글 1 = 짧은 덧붙임, 답글 2 = 사람 나온 사진 + 비트 한 줄 + 링크 + AI 안내. 원글은 가장 오래전에 쓴 것부터 돌린다.
 state.threads_v2 ??= [];
 const n = state.threads_v2.length;
 const pick = (arr, k) => arr[(k % arr.length + arr.length) % arr.length];

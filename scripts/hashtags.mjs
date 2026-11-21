@@ -1,6 +1,6 @@
 // 해시태그 고르기(2026-11-03 대표 「태그도 다른 거여야지」).
-// 글 내용에 맞는 주제 묶음에서 5~7개를 고르고, 마지막은 항상 #탑노트.
-// 바로 앞 게시물과 겹치는 태그는 #탑노트 빼고 최대 2개(합쳐서 3개)까지만.
+// 글 내용에 맞는 주제 묶음에서 5~7개를 고르고, 마지막은 항상 #비트소개팅.
+// 바로 앞 게시물과 겹치는 태그는 #비트소개팅 빼고 최대 2개(합쳐서 3개)까지만.
 // 넓은 태그(#연애 #소개팅 …) 1~2개 + 좁은 태그(#소개팅꿀팁 #썸타는중 #퇴근후 …)를 섞는다. #fyp 같은 태그 더미는 쓰지 않는다.
 
 const B = (t) => ({ t, broad: true });
@@ -29,7 +29,7 @@ export const POOLS = [
   ['시간', /준비 ?2시간|시간 ?낭비|피곤/g, [N('#시간낭비없음'), N('#퇴근후'), N('#현실연애')]],
 ];
 const GENERAL = [N('#만나기전에'), B('#연애'), B('#소개팅'), N('#새로운만남'), B('#대화'), N('#설렘')];
-export const BRAND = '#탑노트';
+export const BRAND = '#비트소개팅';
 
 const hash = (s) => { let h = 2166136261; for (const c of String(s)) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
 const rng = (seed) => { let a = hash(seed); return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
@@ -40,13 +40,13 @@ export const tagsOf = (text) => (String(text ?? '').match(/#[^\s#]+/g) ?? []);
 // text: 글 본문(태그 줄 빼고), seed: 게시물 이름, avoid: 바로 앞 게시물 태그
 export function pickHashtags(text, { seed = text, avoid = [] } = {}) {
   const r = rng(seed);
-  // 「다음 편 ▶ …」 예고 줄과 「탑노트 — …」 줄은 이 글의 주제가 아니라서 빼고 본다.
-  text = String(text).split(/\n/).filter((l) => !/^다음 편|^탑노트 —|^출처/.test(l.trim())).join(' ');
+  // 「다음 편 ▶ …」 예고 줄과 「비트 — …」 줄은 이 글의 주제가 아니라서 빼고 본다.
+  text = String(text).split(/\n/).filter((l) => !/^다음 편|^비트 —|^출처/.test(l.trim())).join(' ');
   const avoidSet = new Set(avoid.filter((t) => t !== BRAND));
   const hits = POOLS.map(([name, re, tags]) => ({ name, n: (String(text).match(re) ?? []).length, tags }))
     .filter((p) => p.n > 0)
     .sort((a, b) => b.n - a.n || r() - 0.5);
-  const total = 5 + Math.floor(r() * 3); // 5~7개(#탑노트 포함)
+  const total = 5 + Math.floor(r() * 3); // 5~7개(#비트소개팅 포함)
   const want = total - 1;
   // 많이 걸린 주제부터 돌아가며 한 개씩(한 주제 태그만 몰리지 않게). 맨 위 주제는 앞에 하나 더. 일반 태그는 맨 끝 채우기용.
   const queues = hits.map((p) => shuffle(p.tags, r));
@@ -84,7 +84,7 @@ export function withHashtags(caption, opts = {}) {
   const { body } = splitTags(caption);
   return `${body}\n\n${pickHashtags(body, opts).join(' ')}`;
 }
-// 이미 붙은 태그가 규칙에 맞는지(5~7개, 마지막 #탑노트, 앞 게시물과 #탑노트 빼고 2개 이하 겹침)
+// 이미 붙은 태그가 규칙에 맞는지(5~7개, 마지막 #비트소개팅, 앞 게시물과 #비트소개팅 빼고 2개 이하 겹침)
 export function tagsOk(tags, avoid = []) {
   const a = new Set(avoid.filter((t) => t !== BRAND));
   return tags.length >= 5 && tags.length <= 7 && tags.at(-1) === BRAND && new Set(tags).size === tags.length

@@ -139,14 +139,14 @@ async function postInstagram(post, urls) {
 
 // 첫 댓글: 게시물에 comment 가 있으면 그것, 없으면 기본 문구.
 const commentOf = (post, platform) => (typeof post.comment === 'string' ? post.comment : post.comment?.[platform]) ?? (platform === 'threads'
-  ? '보이스 소개팅, 탑노트 · 목소리로 3분 먼저 → https://beet.my/th'
+  ? '보이스 소개팅, 비트 · 목소리로 3분 먼저 → https://beet.my/th'
   : '여러분은 어땠나요? 댓글로 알려 주세요.\n먼저 3분 통화해 보고 싶다면 프로필 링크 👆');
 
 // 스레드: 사람 영상 + 스레드식 짧은 글(2026-11-04 대표 「스레드 스타일에 맞게 천천히」).
 // 본문은 훅 + 질문만, 해시태그·브랜드 줄·링크는 빼고(링크는 노출이 줄어 첫 답글에만), 주제 태그 1개.
 const TH = 'https://graph.threads.net/v1.0';
 const threadsText = (caption) => caption.split(/\n{2,}/).map((b) => b.trim())
-  .filter((b) => b && !b.startsWith('#') && !/프로필 링크|^탑노트 —/.test(b))
+  .filter((b) => b && !b.startsWith('#') && !/프로필 링크|^비트 —/.test(b))
   .join('\n\n').replace(/^👇\s*/m, '').replace(/댓글로 골라 주세요\.?/g, '답글로 골라 줘요').replace(/댓글로/g, '답글로').slice(0, 500);
 const threadsTopic = (caption) => caption.match(/#([^\s#]+)/)?.[1]?.slice(0, 50);
 async function postThreads(post, urls) {

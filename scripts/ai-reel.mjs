@@ -1,5 +1,5 @@
 // 사람 나오는 설렘 릴스(Kling AI 장면 + 실제 앱 화면 + 우리 문구·음악)를 만든다(2026-11-04 대표 「설레고 이 앱을 쓰고 싶게」).
-// 규칙: 글자는 위쪽 한 칸에만(아래는 고정 「탑노트 · 지금 앱 받기」만), AI 장면엔 「AI로 만든 장면」 표시, 회원 후기처럼 쓰지 않는다.
+// 규칙: 글자는 위쪽 한 칸에만(아래는 고정 「비트 · 지금 앱 받기」만), AI 장면엔 「AI로 만든 장면」 표시, 회원 후기처럼 쓰지 않는다.
 // 2026-11-06 대표 「광고가 잘린다」: 페이스북·인스타 피드는 세로 영상을 4:5로 잘라 위아래 285px가 안 보이고, 릴스는 아래 35%를 버튼·글이 덮는다 → 피드 위 프로필 줄(약 170px)도 덮음 → 2026-11-06 대표 「글은 얼굴 안 가리게 하단에」 → 글자는 아래(끝 y 1360), 얼굴·화면은 위(480~1170).
 // 실행: node scripts/ai-reel.mjs <spec.json>  → docs/ai-reels/<id>.mp4 · <id>-cover.jpg
 // spec: { id, track, beats: [{ clip: 로컬 mp4, text } | { screen: 앱 캡처 png, text } | { end: 제목, sub }], cover: { from: beat 번호, at: 초, text } }
@@ -38,7 +38,7 @@ const shot = async (html, file, transparent = true) => {
   await page.evaluate(() => { for (const el of document.querySelectorAll('.t')) { el.style.whiteSpace = 'nowrap'; let s = parseFloat(getComputedStyle(el).fontSize); while (el.scrollWidth > el.clientWidth + 1 && s > 40) { s -= 2; el.style.fontSize = s + 'px'; } } }); // 글자 안 깨지게: 줄은 <br>에서만 바꾸고, 길면 글자를 줄인다(2026-11-04 대표)
   await page.screenshot({ path: file, omitBackground: transparent });
 };
-const CTA = '<div class="cta"><span>탑노트 · 지금 앱 받기</span></div>';
+const CTA = '<div class="cta"><span>비트 · 지금 앱 받기</span></div>';
 
 // 4인 수다: { grid: [클립 4개], text } → 2×2 한 화면(ai-reels/src/<id>-grid<i>.mp4)으로 합쳐 일반 클립처럼 쓴다(2026-11-04 대표 「4명 동시에 나오는 화면」).
 for (const [i, b] of spec.beats.entries()) {
