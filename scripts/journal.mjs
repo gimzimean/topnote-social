@@ -150,7 +150,7 @@ async function post() {
       for (let i = 0; i < 40; i++) { const s = await json(await fetch(`${TH}/${box.id}?fields=status&access_token=${th.access_token}`)); if (s.status === 'FINISHED') break; if (s.status === 'ERROR') throw new Error('스레드 영상 처리 실패'); await sleep(3000); }
       const id = (await tcall(`${th.user_id}/threads_publish`, { creation_id: box.id })).id;
       console.log(`[threads] 올림 → ${id}`);
-      const reply = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: '보이스 소개팅, 탑노트 · 목소리로 3분 먼저 → https://topnote.app/th', reply_to_id: id });
+      const reply = await tcall(`${th.user_id}/threads`, { media_type: 'TEXT', text: '보이스 소개팅, 탑노트 · 목소리로 3분 먼저 → https://beet.my/th', reply_to_id: id });
       await sleep(5000);
       await tcall(`${th.user_id}/threads_publish`, { creation_id: reply.id }).catch(() => {});
     }

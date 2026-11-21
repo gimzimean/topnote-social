@@ -1,6 +1,6 @@
 // 광고 영상 대기열(2026-11-03 대표 「광고 영상 전부 릴스·틱톡에 일반 게시물로」).
 // ads/ads.json 순서대로, 하루 두 번(12:30 · 20:00 KST) 한 편씩 scripts/reel.mjs 로 올린다
-// (릴스 + 표지 + 피드 공유 + 첫 댓글 topnote.app/ig → 스토리 → 스레드 영상 + 답글 topnote.app/th → 틱톡 초안).
+// (릴스 + 표지 + 피드 공유 + 첫 댓글 beet.my/ig → 스토리 → 스레드 영상 + 답글 beet.my/th → 틱톡 초안).
 // 영상·표지는 docs/ads/adNN.mp4 · adNN-cover.jpg (GitHub Pages). 올린 기록은 state.json 의 ads · ads_last_slot.
 // 실행: node scripts/ad-queue.mjs [ad05]   (편을 주면 시간 칸 확인 없이 그 편을 올림, 환경변수 AD 도 같음)
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -24,7 +24,7 @@ if (!ad) { console.log(pick ? `없는 편: ${pick}` : '광고 영상 대기열�
 const base = 'https://gimzimean.github.io/topnote-social/ads';
 const capFile = join(tmpdir(), `${ad.id}-caption.txt`);
 writeFileSync(capFile, ad.caption);
-const comment = `${ad.question} 댓글로 알려 주세요 👇\n3분 통화 시작 → topnote.app/ig`;
+const comment = `${ad.question} 댓글로 알려 주세요 👇\n3분 통화 시작 → beet.my/ig`;
 console.log(`올릴 편: ${ad.id} (${ad.theme})`);
 for (const u of [`${base}/${ad.id}.mp4`, `${base}/${ad.id}-cover.jpg`]) {
   const head = await fetch(u, { method: 'HEAD' });
