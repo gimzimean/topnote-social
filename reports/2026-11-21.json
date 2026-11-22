@@ -1,6 +1,6 @@
 {
  "day": "2026-11-21",
- "collected_at": "2026-11-22T02:32:04.845Z",
+ "collected_at": "2026-11-22T02:41:52.268Z",
  "app": {
   "day": "2026-11-21",
   "signups": 4,
@@ -221,8 +221,8 @@
  ],
  "meta_cap": {
   "spend_cap": 900000,
-  "spent_since_cap": 661931,
-  "left": 238069
+  "spent_since_cap": 662161,
+  "left": 237839
  },
  "seo": {
   "range": "2026-11-13~2026-11-19",
