@@ -54,7 +54,7 @@ body{width:${w}px;height:${h}px;overflow:hidden;background:#1E1915;color:#F5ECDD
 .foot{font-size:42px;color:#E9DCC6;line-height:1.4}.foot small{display:block;color:#9E9282;font-size:30px;margin-top:10px}
 </style></head><body><div class="logo">T<i>.</i></div><div class="kick">TOP NOTE</div><div class="t">${esc(title).replace(' 심사', '<br>심사').replace(' NEW', '<br>NEW')}</div>
 <div class="mid"><div class="cols">${col('남', p.men)}${col('여', p.women)}</div></div>
-<div class="foot">${FOOT}<small>목소리로 3분 먼저 · topnote.app</small></div></body></html>`;
+<div class="foot">${FOOT}<small>목소리로 3분 먼저 · beet.my</small></div></body></html>`;
   };
   mkdirSync(resolve(root, 'docs/journal'), { recursive: true });
   const b = await chromium.launch();

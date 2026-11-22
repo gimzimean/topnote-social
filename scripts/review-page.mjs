@@ -10,7 +10,7 @@ const label = { 'best-call': '사진 말고, 대화로 먼저 (옛 통화 편 �
 const fresh = (k) => existsSync(resolve(root, 'docs/ai-reels', `${k}.mp4`)) ;
 // 영상마다 복사할 글 = 그 영상 게시 캡션(후킹 + 앱 받기 링크 + 해시태그 + AI 안내). 2026-11-05 대표 「캡션에 넣을 후킹·앱 설치 유도까지」
 const posts = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8')).posts;
-const APP = '앱 받기 👉 https://topnote.app/go/?src=kakao&c=kt_share';
+const APP = '앱 받기 👉 https://beet.my/go/?src=kakao&c=kt_share';
 const share = (k, x) => {
   const p = posts.find((q) => q.aiReel === k);
   if (!p) return `${label[k]}\n\n${x.copy.replace(/<br>.*$/, '')}\n\n${APP}`;

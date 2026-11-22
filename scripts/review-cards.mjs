@@ -136,7 +136,7 @@ h2.end{font-size:70px}.sub{font-size:34px;color:#E9DCC6;margin:-4px 0 16px}.sub 
 ${body(faceH)}
 <div class="foot">@topnote_official</div></body></html>`;
 const head = `<div class="top">${esc(p.kicker)}</div><h2>${esc(p.title)}</h2>`;
-const endHead = `<div class="top">${esc(p.title)}</div><h2 class="end">${esc(p.endLine ?? '검증을 통과한 사람만 들어와요.')}</h2><div class="sub">목소리로 3분 먼저 · <b>topnote.app</b></div>`;
+const endHead = `<div class="top">${esc(p.title)}</div><h2 class="end">${esc(p.endLine ?? '검증을 통과한 사람만 들어와요.')}</h2><div class="sub">목소리로 3분 먼저 · <b>beet.my</b></div>`;
 const rows = sections.reduce((a, sec) => a + (sec.stack ? sec.groups.reduce((n, g) => n + Math.ceil(g.list.length / perRow), 0) : Math.ceil(total(sec) / perRow)), 0);
 const fit = (avail) => Math.max(120, Math.min(Math.round(cw * 1.25), Math.floor(avail / rows) - (big ? 130 : 110) - 60));
 

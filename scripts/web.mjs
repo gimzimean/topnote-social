@@ -7,7 +7,7 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const site = process.argv[2];
 if (!site || !existsSync(site)) throw new Error('사용법: node scripts/web.mjs <사이트 폴더>');
-const SITE = 'https://topnote.app';
+const SITE = 'https://beet.my';
 const IOS = 'https://apps.apple.com/kr/app/id6813747102';
 const AND = 'https://play.google.com/store/apps/details?id=com.topnote.app';
 const raw = JSON.parse(readFileSync(resolve(root, 'content.json'), 'utf8'));
