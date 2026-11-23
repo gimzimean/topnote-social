@@ -1,0 +1,296 @@
+{
+ "day": "2026-11-22",
+ "collected_at": "2026-11-23T02:59:20.928Z",
+ "app": {
+  "day": "2026-11-22",
+  "signups": 2,
+  "approved": 1,
+  "by_market": {
+   "KR": {
+    "signups": 2,
+    "approved": 1,
+    "onboarded": 2,
+    "calls_1on1": 4,
+    "talk_joins": 3,
+    "members_total": {
+     "pending": 35,
+     "approved": 50,
+     "rejected": 9
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 1,
+    "talk_joins": 2,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 2,
+  "purchases": {},
+  "calls_1on1": 5,
+  "talk_joins": 5,
+  "members_total": {
+   "pending": 35,
+   "approved": 53,
+   "rejected": 9
+  },
+  "profiles_total": 97,
+  "visits_by_source": {
+   "meta": 40,
+   "check": 3,
+   "naver": 1,
+   "check2": 1,
+   "direct": 50,
+   "somoim": 1,
+   "tiktok": 41,
+   "threads": 10,
+   "app_store": 67,
+   "instagram": 20,
+   "play_store": 738,
+   "apps.instagram.com": 87
+  },
+  "signups_by_source": {
+   "(모름)": 1,
+   "apps.instagram.com": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 9,
+  "posts": 164,
+  "recent": [
+   {
+    "at": "2026-11-22T03:42:56+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "오래 가는 연애는 취향보다 대화 습관이 닮아 있었습니다. ",
+    "url": "https://www.instagram.com/reel/DgB3Y_FJIhg/"
+   },
+   {
+    "at": "2026-11-21T03:42:35+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "결혼할 사람에게 설렘보다 먼저 봐야 할 것 세 가지. ",
+    "url": "https://www.instagram.com/reel/Df_SjP5Slr_/"
+   },
+   {
+    "at": "2026-11-21T00:56:06+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "11월 20일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df-_fuYSXlw/"
+   },
+   {
+    "at": "2026-11-20T13:15:57+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "술집 미팅 말고, 전화 미팅 2:2 어색한 건배 없이 집에서 10분.",
+    "url": "https://www.instagram.com/reel/Df9vXtUBE6i/"
+   },
+   {
+    "at": "2026-11-20T13:15:14+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "사진 0장으로 소개팅하면? 얼굴도 모르고 목소리로 3분.",
+    "url": "https://www.instagram.com/reel/Df9vSZAp-nj/"
+   },
+   {
+    "at": "2026-11-20T03:42:22+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "여자들한테 물어봤습니다. 소개팅 남자한테 제일 먼저 보는 건?",
+    "url": "https://www.instagram.com/reel/Df8tuojtYUM/"
+   },
+   {
+    "at": "2026-11-20T00:29:10+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "11월 19일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df8XnlChvTS/"
+   },
+   {
+    "at": "2026-11-19T07:23:38+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "「도착하면 연락 주세요」는 호감일까요, 그냥 예의일까요? ",
+    "url": "https://www.instagram.com/reel/Df6iQdmptdq/"
+   },
+   {
+    "at": "2026-11-19T06:06:49+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "연락은 얼마나 자주 해야 할까. 정답은 없지만 기준은 있어요.",
+    "url": "https://www.instagram.com/reel/Df6ZdgkqzJ_/"
+   },
+   {
+    "at": "2026-11-19T05:58:15+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "여자들한테 물어봤습니다. 소개팅에서 「이 남자 괜찮다」 싶은 순간은?",
+    "url": "https://www.instagram.com/reel/Df6Ye53Cnnu/"
+   },
+   {
+    "at": "2026-11-19T05:40:19+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "프로필 100번 넘기고, 대화는 0번. ",
+    "url": "https://www.instagram.com/reel/Df6WboUBgC_/"
+   },
+   {
+    "at": "2026-11-19T05:07:08+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "오늘 저녁, 3분만 내 볼래요? 저녁 5시부터 밤 11시까지, 예약 없이 바로 걸어요.",
+    "url": "https://www.instagram.com/reel/Df6SoSNq_8Q/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-23T01:33:09+0000",
+   "text": "아놔.. 비트 영업하려고 스레드 하는데\n\n졸지에 나의 자유로운 생각만 적",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-23T01:30:20+0000",
+   "text": "내 사주 미친놈!!!!\n천을귀인 3개나 있다잉",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-23T01:29:20+0000",
+   "text": "진짜 내 통찰력 어카지..\n나 천을귀인 3개나 있는 사람이라서 그런가…\n",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-23T01:25:03+0000",
+   "text": "소개팅 주선자의 심리 5가지\n\n일명 마담뚜병(제가 맘대로 만든 키워드 ㅋ",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-23T01:19:30+0000",
+   "text": "소개팅 주선해주는 사람들은 \n왜 주선해주고 싶어하는걸까?\n\n일명 마담뚜병",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-23T01:04:42+0000",
+   "text": "결혼적령기란건 없다. \n출산적령기겠지. \n\n결혼은 남녀의 장기계약관계고\n",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "topnote_meta_android_1031",
+   "spend": 7990,
+   "impressions": 491,
+   "clicks": 15,
+   "ctr": 3.05499,
+   "installs": 3,
+   "link_clicks": 15
+  },
+  {
+   "campaign": "topnote_meta_ios_test_1103",
+   "spend": 3156,
+   "impressions": 244,
+   "clicks": 2,
+   "ctr": 0.819672,
+   "installs": 1,
+   "link_clicks": 2
+  },
+  {
+   "campaign": "topnote_meta_ios_best_1106",
+   "spend": 1244,
+   "impressions": 87,
+   "clicks": 2,
+   "ctr": 2.298851,
+   "installs": 1,
+   "link_clicks": 1
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 900000,
+  "spent_since_cap": 664157,
+  "left": 235843
+ },
+ "seo": {
+  "range": "2026-11-14~2026-11-20",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 4,
+    "ctr": 0,
+    "position": 8.5
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 8.5
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 0,
+    "ctr": 0,
+    "position": 0
+   },
+   "pages": [],
+   "queries": []
+  }
+ },
+ "queue": {
+  "cards_posted": 56,
+  "cards_total": 112,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8",
+   "ep9",
+   "ep10",
+   "ep19",
+   "ep20",
+   "ep21",
+   "ep22",
+   "ep23",
+   "ep24",
+   "ep25",
+   "ep26"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
