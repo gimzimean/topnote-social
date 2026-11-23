@@ -12,7 +12,7 @@
     },
     {
       "screen": "C:/topnote-app/store-assets/mix-template/captures/call.png",
-      "text": "카카오톡 승인 한 번,<br>정부기관 <em>문서</em>로 검증."
+      "text": "카카오톡 승인 한 번,<br><em>전자서명</em>으로 검증."
     },
     {
       "pair": [
@@ -35,7 +35,7 @@
       "text": "저쪽에서도<br><em>같은</em> 생각."
     },
     {
-      "end": "실시간 정부기관 문서로<br><em>검증</em>된 사람만.",
+      "end": "전자서명으로<br><em>검증</em>된 사람만.",
       "sub": "비트 · 검증된 사람과 목소리로 3분<br>지금 바로 전화 걸기"
     }
   ],
