@@ -379,9 +379,10 @@
   "bench-hw2",
   "pillar-marriage1",
   "pillar-love1",
-  "pillar-some1"
+  "pillar-some1",
+  "pillar-sseombung1"
  ],
- "bench_last_day": "2026-11-23",
+ "bench_last_day": "2026-11-24",
  "threads_focus_short": [
   8,
   5,
