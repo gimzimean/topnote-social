@@ -381,9 +381,10 @@
   "pillar-marriage1",
   "pillar-love1",
   "pillar-some1",
-  "pillar-sseombung1"
+  "pillar-sseombung1",
+  "pillar-selso1"
  ],
- "bench_last_day": "2026-11-24",
+ "bench_last_day": "2026-11-25",
  "threads_focus_short": [
   8,
   5,
