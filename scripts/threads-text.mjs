@@ -2,6 +2,7 @@
 // 원글은 경험담 자체로 읽히게 두고, 맥락이 맞는 글에만 제품 방식으로 이어지는 답글을 붙인다.
 // 주소를 직접 넣지 않고 프로필 링크만 안내한다.
 // 대기열: threads/posts.json (위에서부터 하나씩), 올린 기록: state.json 의 threads_text.
+import { checkExternalCopy } from './check-external-copy.mjs';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { loadLocalEnv, loadTokens, saveTokens } from './tokens.mjs';
@@ -68,6 +69,9 @@ if (kind === 'video') {
     ...s0.parts.slice(1).map((x) => (typeof x === 'string' ? { media_type: 'TEXT', text: x } : { media_type: 'IMAGE', image_url: x.image, text: x.text })),
   ];
 }
+// 2026-11-27 대표 「탑노트라고 적던데 왜 그래?」: 옛 문구(seeds.json)가 검사 없이 나갔다 → 올리기 전 검사, 걸리면 안 올림.
+const bad = checkExternalCopy([post.text, ...replies.map((r) => r.text ?? '')].join('\n'), { where: 'threads-text' });
+if (bad.length) { console.error('[검사 걸림 · 안 올림]', bad.join(' / ')); process.exit(0); }
 if (process.argv.includes('--dry')) { console.log(JSON.stringify({ post, replies }, null, 1)); process.exit(0); }
 const tokens = loadTokens();
 const t = tokens.threads;
