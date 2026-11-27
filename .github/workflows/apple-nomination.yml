@@ -1,0 +1,21 @@
+name: apple-nomination
+# 매달 1일 10:00 KST: 애플 「추천 앱」 신청(3주 뒤부터 한 달, 같은 기간 신청이 있으면 건너뜀)
+on:
+  schedule:
+    - cron: '0 1 1 * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  nominate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/apple-nomination.mjs
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
