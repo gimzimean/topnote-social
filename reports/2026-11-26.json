@@ -1,0 +1,279 @@
+{
+ "day": "2026-11-26",
+ "collected_at": "2026-11-27T04:27:11.280Z",
+ "app": {
+  "day": "2026-11-26",
+  "signups": 13,
+  "approved": 3,
+  "by_market": {
+   "KR": {
+    "signups": 13,
+    "approved": 3,
+    "onboarded": 13,
+    "calls_1on1": 16,
+    "talk_joins": 17,
+    "members_total": {
+     "pending": 55,
+     "approved": 40,
+     "rejected": 14
+    }
+   },
+   "US": {
+    "signups": 0,
+    "approved": 0,
+    "onboarded": 0,
+    "calls_1on1": 0,
+    "talk_joins": 0,
+    "members_total": {
+     "approved": 3
+    }
+   }
+  },
+  "onboarded": 13,
+  "purchases": {
+   "com.topnote.app.contact.single": 1
+  },
+  "calls_1on1": 16,
+  "talk_joins": 17,
+  "members_total": {
+   "pending": 55,
+   "approved": 43,
+   "rejected": 14
+  },
+  "profiles_total": 112,
+  "visits_by_source": {
+   "fb": 13,
+   "ig": 791,
+   "meta": 25,
+   "direct": 117,
+   "threads": 3,
+   "(not set)": 13,
+   "app_store": 324,
+   "instagram": 3,
+   "apps.instagram.com": 31
+  },
+  "signups_by_source": {
+   "meta": 2,
+   "(모름)": 4,
+   "app_store": 6,
+   "apps.instagram.com": 1
+  },
+  "installs_by_source": {},
+  "store_button_clicks": 0,
+  "installs_by_platform": {}
+ },
+ "instagram": {
+  "followers": 12,
+  "posts": 167,
+  "recent": [
+   {
+    "at": "2026-11-25T03:42:50+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "셀소 해볼 사람? ",
+    "url": "https://www.instagram.com/reel/DgJlwdTgf1E/"
+   },
+   {
+    "at": "2026-11-24T03:42:07+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 1,
+    "title": "썸붕 후 연락, 딱 한 번은 해도 되는 경우. ",
+    "url": "https://www.instagram.com/reel/DgHA4doIJGu/"
+   },
+   {
+    "at": "2026-11-23T03:41:58+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "썸인지 친절인지 헷갈릴 때, 말보다 일정을 보세요. ",
+    "url": "https://www.instagram.com/reel/DgEcEkWTcng/"
+   },
+   {
+    "at": "2026-11-22T03:42:56+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "오래 가는 연애는 취향보다 대화 습관이 닮아 있었습니다. ",
+    "url": "https://www.instagram.com/reel/DgB3Y_FJIhg/"
+   },
+   {
+    "at": "2026-11-21T03:42:35+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "결혼할 사람에게 설렘보다 먼저 봐야 할 것 세 가지. ",
+    "url": "https://www.instagram.com/reel/Df_SjP5Slr_/"
+   },
+   {
+    "at": "2026-11-21T00:56:06+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "11월 20일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df-_fuYSXlw/"
+   },
+   {
+    "at": "2026-11-20T13:15:57+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "술집 미팅 말고, 전화 미팅 2:2 어색한 건배 없이 집에서 10분.",
+    "url": "https://www.instagram.com/reel/Df9vXtUBE6i/"
+   },
+   {
+    "at": "2026-11-20T13:15:14+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "사진 0장으로 소개팅하면? 얼굴도 모르고 목소리로 3분.",
+    "url": "https://www.instagram.com/reel/Df9vSZAp-nj/"
+   },
+   {
+    "at": "2026-11-20T03:42:22+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "여자들한테 물어봤습니다. 소개팅 남자한테 제일 먼저 보는 건?",
+    "url": "https://www.instagram.com/reel/Df8tuojtYUM/"
+   },
+   {
+    "at": "2026-11-20T00:29:10+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "11월 19일 NEW 회원 새로 들어온 탑노트 회원이에요.",
+    "url": "https://www.instagram.com/reel/Df8XnlChvTS/"
+   },
+   {
+    "at": "2026-11-19T07:23:38+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "「도착하면 연락 주세요」는 호감일까요, 그냥 예의일까요? ",
+    "url": "https://www.instagram.com/reel/Df6iQdmptdq/"
+   },
+   {
+    "at": "2026-11-19T06:06:49+0000",
+    "type": "VIDEO",
+    "likes": 0,
+    "comments": 2,
+    "title": "연락은 얼마나 자주 해야 할까. 정답은 없지만 기준은 있어요.",
+    "url": "https://www.instagram.com/reel/Df6ZdgkqzJ_/"
+   }
+  ]
+ },
+ "threads": [
+  {
+   "at": "2026-11-27T04:25:50+0000",
+   "text": "소개팅에서 은근 제일 설레는 말.\n\n“저 사실 아까부터 대화해보고 싶었어",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-27T04:13:00+0000",
+   "text": "그 검증된 사람과 3분 통화 소개팅 하는곳 이름 뭐더라???",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-26T21:32:54+0000",
+   "text": "취향 하나도 안 맞는데 오래 만나는 커플이 있고\n취향 완전 똑같은데 맨날",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-26T18:23:47+0000",
+   "text": "오늘의 셀소판\n\n나이대랑 지역\n쉬는 날 주로 하는 것\n요즘 제일 좋아하는",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-26T14:19:03+0000",
+   "text": "다들 자?\n나 이제 집 왔는데 지금부터 소개팅 간다 하면 미쳤냐고 하겠지",
+   "error": "insights"
+  },
+  {
+   "at": "2026-11-26T14:15:07+0000",
+   "text": "다들 자?\n\n밤 11시에 소개팅 첫마디가\n“혹시 누워 계세요?”\n“네. ",
+   "error": "insights"
+  }
+ ],
+ "meta_ads": [
+  {
+   "campaign": "beet_merged_1123",
+   "spend": 132685,
+   "impressions": 4153,
+   "clicks": 129,
+   "ctr": 3.106188,
+   "installs": 0,
+   "link_clicks": 105
+  }
+ ],
+ "meta_cap": {
+  "spend_cap": 1500000,
+  "spent_since_cap": 1031256,
+  "left": 468744
+ },
+ "seo": {
+  "range": "2026-11-18~2026-11-24",
+  "kr": {
+   "total": {
+    "clicks": 0,
+    "impressions": 4,
+    "ctr": 0,
+    "position": 8.5
+   },
+   "pages": [
+    {
+     "key": "https://topnote.app/",
+     "clicks": 0,
+     "impressions": 4,
+     "ctr": 0,
+     "position": 8.5
+    }
+   ],
+   "queries": []
+  },
+  "us": {
+   "total": {
+    "clicks": 0,
+    "impressions": 0,
+    "ctr": 0,
+    "position": 0
+   },
+   "pages": [],
+   "queries": []
+  }
+ },
+ "queue": {
+  "cards_posted": 56,
+  "cards_total": 112,
+  "reels_posted": [
+   "ep1",
+   "ep2",
+   "ep3",
+   "ep4",
+   "ep7",
+   "ep15",
+   "ep17",
+   "ep13",
+   "ep18",
+   "ep16",
+   "ep5",
+   "ep6",
+   "ep8",
+   "ep9",
+   "ep10",
+   "ep19",
+   "ep20",
+   "ep21",
+   "ep22",
+   "ep23",
+   "ep24",
+   "ep25",
+   "ep26"
+  ]
+ },
+ "not_collected": [
+  "틱톡 광고(API 연결 없음 — 틱톡 광고 관리자에서 확인)",
+  "인스타 조회수(토큰 권한 없음)"
+ ]
+}
