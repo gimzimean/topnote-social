@@ -15,7 +15,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const json = async (r) => { const b = await r.json(); if (!r.ok || b.error) throw new Error(`${r.status} ${JSON.stringify(b.error ?? b)}`); return b; };
 const t = loadTokens().threads;
 const call = async (path, params) => json(await fetch(`${TH}/${path}`, { method: 'POST', body: new URLSearchParams({ ...params, access_token: t.access_token }) }));
-const publish = async (params) => { const box = await call(`${t.user_id}/threads`, params); await sleep(3000); return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id; };
+const publish = async (params) => { const box = await call(`${t.user_id}/threads`, params); await sleep(params.image_url ? 15000 : 3000); return (await call(`${t.user_id}/threads_publish`, { creation_id: box.id })).id; };
 
 for (const file of files) for (;;) {
   const q = JSON.parse(readFileSync(file, 'utf8'));
@@ -26,7 +26,9 @@ for (const file of files) for (;;) {
   if (wait > 0) { console.log(`[대기] ${next.key} → ${next.at} (${Math.round(wait / 60000)}분)`); await sleep(Math.min(wait, 10 * 60000)); continue; }
   const bad = checkExternalCopy(next.parts.join('\n'), { where: next.key });
   if (bad.length) { console.error('[검사 걸림 · 안 올림]', bad.join(' / ')); const f2 = JSON.parse(readFileSync(file, 'utf8')); Object.assign(f2.find((x) => x.key === next.key), { skip: true, blocked: bad }); writeFileSync(file, JSON.stringify(f2, null, 2) + '\n'); continue; }
-  const id = await publish({ media_type: 'TEXT', text: next.parts[0].slice(0, 500), topic_tag: next.topic });
+  // "image": "threads-img/파일.jpg" 이 있으면 원글에 사진(공개 사이트 docs/ 아래 주소)을 붙인다.
+  const media = next.image ? { media_type: 'IMAGE', image_url: `https://gimzimean.github.io/topnote-social/${next.image}` } : { media_type: 'TEXT' };
+  const id = await publish({ ...media, text: next.parts[0].slice(0, 500), topic_tag: next.topic });
   console.log('[원글]', next.key, id);
   let parent = id;
   for (const text of next.parts.slice(1)) {
