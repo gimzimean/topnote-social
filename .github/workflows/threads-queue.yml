@@ -1,0 +1,32 @@
+name: threads-queue
+# 스레드 예약 글(threads/queue-*.json)을 정한 시각에 올린다. 10분마다 확인(GitHub 예약은 몇 분 늦을 수 있음).
+# 로컬 컴퓨터를 켜 두지 않아도 된다(2026-11-27 대표 「서버에서 올리면 안돼?」).
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: post
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 시각 지난 글 올리기
+        env:
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+        run: |
+          shopt -s nullglob
+          f=(threads/queue-*.json)
+          [ ${#f[@]} -eq 0 ] || node scripts/threads-queue.mjs --once "${f[@]}"
+      - name: 올린 기록 저장
+        if: always()
+        run: |
+          git config user.name "topnote-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add threads/queue-*.json
+          git diff --cached --quiet || (git commit -m "스레드 예약 글 올림 기록" && git pull --rebase && git push)
